@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Slash: Move
 {
-    private int damag = 5;
+    private int damag = 3;
 
     override public int damage { get => damag; set => damag = value;}
 

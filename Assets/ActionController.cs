@@ -23,7 +23,16 @@ public class ActionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Wizar.GetComponent<Player>().IDie += Death;
+    }
+
+    void Death(GameObject gp)
+    {
+        gp.GetComponent<Player>().IDie -= Death;
+        if(gp == Wizar && State == AS.Wizar || gp == Warroir && State == AS.WArrior || gp == Crow && State == AS.Crow)
+        {
+            NoneClick();
+        }
     }
 
     // Update is called once per frame
@@ -80,17 +89,25 @@ public class ActionController : MonoBehaviour
     }
 
    public void WizarClick() {
-        CurrentCharacter = Wizar;
-        State = AS.Wizar;
+        if (Wizar)
+        {
+            CurrentCharacter = Wizar;
+            State = AS.Wizar;
+        }
     }
 
     public void WArroirClick() {
-        CurrentCharacter = Warroir;
-        State = AS.WArrior;
+        if (Warroir) { 
+            CurrentCharacter = Warroir;
+            State = AS.WArrior;
+        }
     }
 
     public void CrowClick() {
-        CurrentCharacter = Crow;
-        State = AS.Crow;
+        if (Crow)
+        {
+            CurrentCharacter = Crow;
+            State = AS.Crow;
+        }
     }
 }

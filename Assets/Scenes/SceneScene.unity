@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 2371073322643090994, guid: a4635f9d7604fe4469de748a647c75e6, type: 3}
       propertyPath: EMove
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 879898114}
     - target: {fileID: 2371073322643090994, guid: a4635f9d7604fe4469de748a647c75e6, type: 3}
       propertyPath: QMove
       value: 
@@ -363,6 +363,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75a35254615c8114993849a54a4237cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: []
+--- !u!114 &879898113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879898108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e741b113829a204fb041bded47cf4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: []
+--- !u!114 &879898114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879898108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165eee3fad72c3e4aa5aa733362b2dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area: []
@@ -746,6 +772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6364655039865514125, guid: 197ff1a9c321745458ee58c95ba49933, type: 3}
+      propertyPath: EMove
+      value: 
+      objectReference: {fileID: 879898113}
     - target: {fileID: 6364655039865514125, guid: 197ff1a9c321745458ee58c95ba49933, type: 3}
       propertyPath: health
       value: 7
@@ -1606,6 +1636,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3896318893963578721, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3896318893963578721, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3896318893963578721, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3896318893963578721, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3896318893963578721, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1566659607125826145, guid: 2a5fc01b5a5d5f447ba83045a2ce86e6, type: 3}
       propertyPath: m_RootOrder
       value: 1

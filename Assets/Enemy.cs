@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
-
+    private int currentHealth;
 
     void Die() {
         //oopsies
@@ -17,17 +17,18 @@ public class Enemy : MonoBehaviour
     }
 
     public void Damage(int damage) {
-        health -= damage;
-        if (health <= 0) {
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
             Die();
         }
         Debug.Log("I took " + damage + " damage");
+        GetComponent<SpriteRenderer>().color = new Color(1f, (float)currentHealth / (float)health, (float)currentHealth / (float)health);
     }
 
 
     void Start()
     {
-        
+        currentHealth = health;
     }
 
     // Update is called once per frame
