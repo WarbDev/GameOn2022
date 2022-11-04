@@ -17,7 +17,7 @@ public class ActionController: MonoBehaviour
     public Animator animator;
     private void Start()
     {
-        EntityClicked += onCLick;
+        
     }
 
     private void Update()
@@ -30,10 +30,5 @@ public class ActionController: MonoBehaviour
         {
             animator.SetBool("isBall", false);
         }
-    }
-
-    public void onCLick(ClickableEntity)
-    {
-
     }
 }
