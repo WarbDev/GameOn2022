@@ -12,12 +12,14 @@ public class ClickableEntity : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-            EntityClicked?.Invoke(this);
-
-
-        else if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
             EntityRightClicked?.Invoke(this);
+
+        else
+        EntityClicked?.Invoke(this);
+
+
+        
     }
 
     private void OnMouseOver()
