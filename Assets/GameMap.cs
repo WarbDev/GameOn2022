@@ -28,6 +28,7 @@ public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserve
         MapTileCollection.MapTileRemoved += OnTileRemoved;
     }
 
+    # region GameEntity Adding/Removal
     public void OnEnemyAdded(Enemy enemy)
     {
         EnemiesDictionary.Add(enemy.Location, enemy);
@@ -57,4 +58,5 @@ public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserve
     {
         MapTilesDictionary.Remove(tile.Location);
     }
+    #endregion
 }

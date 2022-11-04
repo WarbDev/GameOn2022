@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class LocationUtility
 {
@@ -8,6 +9,13 @@ public static class LocationUtility
     public static List<Location> Neighbors(Location l)
     {
         return GameMap.NeighborsDictionary[l];
+    }
+
+    public static List<Location> RemoveOffMapLocations(IEnumerable<Location> locations)
+    {
+        List<Location> filteredLocations = new();
+        filteredLocations = locations.Where(location => GameMap.AllPositions.Contains(location)).ToList();
+        return filteredLocations;
     }
 
     public static List<Location> LocationsInSquareRadius(Location l, int range)
@@ -31,10 +39,7 @@ public static class LocationUtility
         for (int i = 0; i <= range; i++)
         {
             Location furtherLocation = l + new Location(direction) * i;
-            if (GameMap.AllPositions.Contains(furtherLocation))
-            {
-                locationsInLine.Add(furtherLocation);
-            }
+            locationsInLine.Add(furtherLocation);
         }
         return locationsInLine;
     }
