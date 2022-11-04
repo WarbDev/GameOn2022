@@ -6,9 +6,22 @@ using System;
 [RequireComponent(typeof(Collider2D))]
 public class ClickableEntity : MonoBehaviour
 {
-    public event Action<ClickableEntity> EntityClicked; 
+    public event Action<ClickableEntity> EntityClicked;
+    public event Action<ClickableEntity> EntityMousedOver;
+    public event Action<ClickableEntity> EntityRightClicked;
+
     private void OnMouseDown()
     {
-        EntityClicked?.Invoke(this);
+        if (Input.GetMouseButtonDown(0))
+            EntityClicked?.Invoke(this);
+
+
+        else if (Input.GetMouseButtonDown(1))
+            EntityRightClicked?.Invoke(this);
+    }
+
+    private void OnMouseOver()
+    {
+        EntityMousedOver?.Invoke(this);
     }
 }

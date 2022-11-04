@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GameTileCreator : MonoBehaviour
 {
+    [SerializeField] GameObject tilePrefab;
     [SerializeField] int scale;
-    [SerializeField] Sprite tileSprite;
-    [SerializeField] ClickListener clickListener;
     public bool Finished = false;
     Dictionary<Location, MapTile> mapTileDictionary = new Dictionary<Location, MapTile>();
 
@@ -18,22 +17,17 @@ public class GameTileCreator : MonoBehaviour
             for (int j = 1; j <= GameMap.TopRight.Y; j++)
             {
 
-                GameObject gridTile = new GameObject(); //Create the GameObject
-                SpriteRenderer NewImage = gridTile.AddComponent<SpriteRenderer>(); //Add the Image Component script
-                MapTile tileScript = gridTile.AddComponent<MapTile>();
-                BoxCollider2D collider2D = gridTile.AddComponent<BoxCollider2D>();
-                collider2D.isTrigger = true;
-                ClickableEntity clickComponent = gridTile.AddComponent<ClickableEntity>();
-                clickListener.clickables.Add(clickComponent);
+                GameObject gridTile = Instantiate(tilePrefab);
+                MapTile tileScript = gridTile.GetComponent<MapTile>();
                 tileScript.Location = (i, j);
-                NewImage.sprite = tileSprite; //Set the Sprite of the Image Component on the new GameObject
                 gridTile.GetComponent<Transform>().position = Location2Position(i, j);
                 gridTile.SetActive(true); //Activate the GameObject
+                tileScript.gameObject.name = "Tile (" + i + ", " + j + ")";
+                MapTileCollection.AddMapTile(tileScript);
                 mapTileDictionary.Add((i, j) , tileScript);
             }
         }
         GameMap.MapTilesDictionary = mapTileDictionary;
-        clickListener.enabled = true;
         Finished = true;
     }
 

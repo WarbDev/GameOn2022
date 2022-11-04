@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IObserveEnemies 
 {
-    //public void OnEnemyAdded(Player player);
-    //public void OnEnemyRemoved(Player player);
+    public void OnEnemyAdded(Enemy enemy);
+    public void OnEnemyRemoved(Enemy enemy);
 }

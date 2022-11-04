@@ -13,6 +13,7 @@ public class PlayerSpawning : MonoBehaviour
         Player playerScript = playerObject.GetComponent<Player>();
         playerScript.Location = (X, Y);
 
+        PlayerCollection.AddPlayer(playerScript);
         GameMap.PlayersDictionary.Add(playerScript.Location, playerScript);
     }
 }
