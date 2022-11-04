@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MapTile : MonoBehaviour, IGameEntity
 {
-    [SerializeField] int X;
-    [SerializeField] int Y;
     Location location;
     public Location Location
     {
@@ -16,8 +14,6 @@ public class MapTile : MonoBehaviour, IGameEntity
         set
         {
             location = value;
-            X = location.X;
-            Y = location.Y;
             
         }
     }

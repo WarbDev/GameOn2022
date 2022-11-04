@@ -10,14 +10,12 @@ public enum Shape
 
 public class ActionController: MonoBehaviour
 {
-    [SerializeField] ClickListener clicky;
-
-
+    [SerializeField] ClickListener tileClicker;
 
     public Animator animator;
     private void Start()
     {
-        
+        tileClicker.EntityClicked += onClick;
     }
 
     private void Update()
@@ -30,5 +28,10 @@ public class ActionController: MonoBehaviour
         {
             animator.SetBool("isBall", false);
         }
+    }
+
+    public void onClick(ClickableEntity ce)
+    {
+        Location loc = ce.GetComponent<MapTile>().Location;
     }
 }
