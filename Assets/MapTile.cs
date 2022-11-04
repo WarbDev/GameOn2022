@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapTile : MonoBehaviour
+public class MapTile : MonoBehaviour, IGameEntity
 {
     [SerializeField] int X;
     [SerializeField] int Y;

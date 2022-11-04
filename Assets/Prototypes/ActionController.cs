@@ -12,10 +12,12 @@ public class ActionController: MonoBehaviour
 {
     [SerializeField] ClickListener clicky;
 
+
+
     public Animator animator;
     private void Start()
     {
-        
+        EntityClicked += onCLick;
     }
 
     private void Update()
@@ -30,7 +32,7 @@ public class ActionController: MonoBehaviour
         }
     }
 
-    public void onCLick()
+    public void onCLick(ClickableEntity)
     {
 
     }
