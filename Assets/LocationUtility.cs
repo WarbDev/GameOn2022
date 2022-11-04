@@ -38,4 +38,14 @@ public static class LocationUtility
         }
         return locationsInLine;
     }
+
+    public static bool TryGetPlayer(Location location, out Player player)
+    {
+        bool hasPlayer = GameMap.PlayersDictionary.TryGetValue(location, out IGameEntity playerEntity);
+        if (hasPlayer)
+            player = playerEntity as Player;
+        else
+            player = null;
+        return hasPlayer;
+    }
 }

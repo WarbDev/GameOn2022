@@ -7,6 +7,7 @@ public class InitializationBootstrapper : MonoBehaviour
 {
     [SerializeField] GridCreator gridCreator;
     [SerializeField] GameTileCreator gameTileCreator;
+    [SerializeField] PlayerSpawning playerSpawner;
     private IEnumerator gridCreationCoroutine;
     private IEnumerator tileCreationCoroutine;
 
@@ -15,6 +16,7 @@ public class InitializationBootstrapper : MonoBehaviour
         gridCreationCoroutine = DoGridCreationProcess();
         tileCreationCoroutine = DoTileCreationProcess();
         StartCoroutine(DoGridCreationProcess());
+        AddPlayers();
     }
 
 
@@ -43,5 +45,10 @@ public class InitializationBootstrapper : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void AddPlayers()
+    {
+        playerSpawner.SpawnPlayers();
     }
 }
