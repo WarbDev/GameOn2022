@@ -15,6 +15,5 @@ public class PlayerSpawning : MonoBehaviour
         playerScript.Location = (X, Y);
 
         PlayerCollection.AddPlayer(playerScript);
-        GameMap.PlayersDictionary.Add(playerScript.Location, playerScript);
     }
 }
