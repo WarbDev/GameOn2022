@@ -11,6 +11,7 @@ public class PlayerSpawning : MonoBehaviour
     {
         GameObject playerObject = Instantiate(playerPrefab);
         Player playerScript = playerObject.GetComponent<Player>();
+        playerScript.GetComponent<Transform>().position = new Vector2(X, Y);
         playerScript.Location = (X, Y);
 
         PlayerCollection.AddPlayer(playerScript);
