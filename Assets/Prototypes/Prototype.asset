@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0208de21eedea45be20d0436ee5dcf, type: 3}
   m_Name: Prototype
   m_EditorClassIdentifier: 
-  damage: 0
-  damageSecondary: 0
+  damage: 5
+  damageSecondary: 5
+  SecondaryChance: 0.5
   rangeShape: 0
   rangeRadius: 5
   fireShape: 0

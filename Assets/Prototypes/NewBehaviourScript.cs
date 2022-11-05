@@ -7,6 +7,8 @@ using UnityEngine;
  * that deals damage in an area
  * That has a chance to deal more damage.
  * 
+ * It sets tiles on fire (Changes their sprites)
+ * 
  * It makes the player do an animation
  * has an animation of moving towards the selected point
  * and does an explosion animation there
@@ -19,6 +21,7 @@ public class NewBehaviourScript : ScriptableObject
     public int damage;
     public int damageSecondary;
     public float SecondaryChance = .5f;
+    public GameObject projectile;
 
     public Shape rangeShape = Shape.Square;
     public int rangeRadius = 5;
