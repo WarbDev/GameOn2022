@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileClicker: {fileID: 1957066855}
+  move: {fileID: 11400000, guid: 9e4532d69066521468f5deb919705b12, type: 2}
   animator: {fileID: 324629323}
 --- !u!1 &693446712
 GameObject:
