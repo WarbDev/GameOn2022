@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserveTiles
 {
@@ -15,6 +16,7 @@ public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserve
     public static Location BottomRight;
     public static Location TopLeft;
     public static Location TopRight;
+
 
     void Awake()
     {

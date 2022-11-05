@@ -413,10 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a667e05cb0ea843a0269b4bfb9cf33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapLength: 10
-  mapHeight: 5
-  hasTwoFronts: 0
-  Finished: 0
+  initialReach: 2
+  initialHeight: 4
 --- !u!4 &1187247938
 Transform:
   m_ObjectHideFlags: 0
@@ -444,9 +442,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc53d0e64be77564faa9fcab2394013d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridCreator: {fileID: 1187247937}
   tilePrefab: {fileID: 5551106925577122105, guid: dd8fbf4422fec574cb0bed17f87054ab, type: 3}
   scale: 1
-  Finished: 0
 --- !u!114 &1187247940
 MonoBehaviour:
   m_ObjectHideFlags: 0

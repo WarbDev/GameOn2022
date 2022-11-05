@@ -1,96 +1,96 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GridCreator : MonoBehaviour
 {
-    [SerializeField] int mapLength;
-    [SerializeField] int mapHeight;
-    [SerializeField] bool hasTwoFronts;
+    int topPosition;
+    int furthestPosition;
 
-    HashSet<Location> allPositions;
-    Dictionary<Location, List<Location>> neighborsDictionary;
-    Dictionary<Location, Dictionary<(int, int), Location>> neighborsDirectionalDictionary;
+    [SerializeField] int initialReach;
+    [SerializeField] int initialHeight;
 
-    Location topLeft;
-    Location topRight;
-    Location bottomLeft;
-    Location bottomRight;
+    Dictionary<Location, Dictionary<Location, Location>> grid = new();
+    public event Action<IEnumerable<Location>> FinishedCreatingGrid;
 
-    public bool Finished = false;
+    private void Start()
+    {
+        CreateGrid();
+    }
 
-    
     public void CreateGrid()
     {
-        InitializePositions(mapLength, mapHeight, hasTwoFronts);
-        Finished = true;
+        AddToGrid((0, 1));
+        topPosition = 1;
+        furthestPosition = 0;
+
+        ExpandHorizontal(initialReach);
+        ExpandVertical(initialHeight - 1);
+        FinishedCreatingGrid?.Invoke(grid.Keys.ToList());
     }
 
-    void InitializePositions(int length, int height, bool twoFronts)
+    void ExpandHorizontal(int amount)
     {
-        Location mapDimensions = (length, height);
-        allPositions = new();
-        int startL = 0;
-
-        if (twoFronts)
-            startL = -mapDimensions.X;
-
-        bottomLeft = (startL, 1);
-        bottomRight = (length, 1);
-        topLeft = (startL, height);
-        topRight = (length, height);
-
-        GameMap.TopLeft = topLeft;
-        GameMap.BottomLeft = bottomLeft;
-        GameMap.BottomRight = bottomRight;
-        GameMap.TopRight = topRight;
-
-        for (int i = startL; i <= mapDimensions.X; i++)
+        int target = amount + furthestPosition;
+        for (int i = furthestPosition + 1; i <= target; i++)
         {
-            for (int j = 1; j <= mapDimensions.Y; j++)
+            // Add 2 new columns, symmetrical of one another.
+            for (int j = topPosition; j > 0; j--)
             {
-                allPositions.Add((i, j));
+                AddToGrid((i, j)); // Add right side
+                AddToGrid((-i, j)); // Add left side
             }
+
+            // Update the neighbor dictionaries for the previously furthest columns
+            for (int k = 1; k <= topPosition; k++)
+            {
+                grid[(furthestPosition, k)] = UpdateNeighbors((furthestPosition, k));
+                grid[(-furthestPosition, k)] = UpdateNeighbors((-furthestPosition, k));
+            }
+
+            furthestPosition++;
         }
-        GameMap.AllPositions = allPositions;
-        DefineNeighbors();
     }
 
-    void DefineNeighbors()
+    void ExpandVertical(int amount)
     {
-        neighborsDictionary = new Dictionary<Location, List<Location>>();
-        neighborsDirectionalDictionary = new();
-        foreach (var l in allPositions)
+        int target = amount + topPosition;
+        for (int i = topPosition + 1; i <= target; i++)
         {
-            neighborsDictionary.Add(l, GetNeighbors(l));
-            neighborsDirectionalDictionary.Add(l, GetNeighborsDirectionalDictionary(l));
-        }
-        GameMap.NeighborsDictionary = neighborsDictionary;
-        GameMap.DirectionalNeighborsDictionary = neighborsDirectionalDictionary;
-
-        List<Location> GetNeighbors(Location location)
-        {
-            List<Location> neighbors = new List<Location>();
-            foreach (var dir in Directions.All)
+            AddToGrid((0, i));
+            for (int j = 1; j <= furthestPosition; j++)
             {
-                Location summedDirWithLoc = (location + dir);
-                if (allPositions.Contains(summedDirWithLoc))
-                    neighbors.Add(summedDirWithLoc);
-                    
+                AddToGrid((j, i)); // Add right side
+                AddToGrid((-j, i)); // Add left side
             }
-            return neighbors;
-        }
 
-        Dictionary<(int, int),Location> GetNeighborsDirectionalDictionary(Location location)
-        {
-            Dictionary<(int, int), Location> directionalNeighbors = new();
-            foreach (var dir in Directions.All)
+            for (int k = 0; k <= furthestPosition; k++)
             {
-                Location summedDirWithLoc = (location + dir);
-                if (allPositions.Contains(summedDirWithLoc))
-                    directionalNeighbors.Add(dir, summedDirWithLoc);
+                grid[(k, topPosition)] = UpdateNeighbors((k, topPosition));
+                grid[(-k, topPosition)] = UpdateNeighbors((-k, topPosition));
             }
-            return directionalNeighbors;
+
+            topPosition++;
         }
+    }
+
+    void AddToGrid(Location location)
+    {
+        grid.Add(location, UpdateNeighbors(location));
+    }
+
+    Dictionary<Location, Location> UpdateNeighbors(Location location)
+    {
+        Dictionary<Location, Location> neighbors = new();
+
+        foreach (var dir in Directions.All)
+        {
+            if (grid.ContainsKey(location + dir))
+            {
+                neighbors.Add(dir, location + dir);
+            }
+        }
+        return neighbors;
     }
 }

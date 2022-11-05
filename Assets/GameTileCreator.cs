@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class GameTileCreator : MonoBehaviour
 {
+    [SerializeField] GridCreator gridCreator;
     [SerializeField] GameObject tilePrefab;
     [SerializeField] int scale;
-    public bool Finished = false;
 
-    public void MakeGameTiles()
+    private void Awake()
     {
-        
-        for (int i = GameMap.TopLeft.X; i <= GameMap.TopRight.X; i++)
-        {
-            for (int j = 1; j <= GameMap.TopRight.Y; j++)
-            {
+        gridCreator.FinishedCreatingGrid += MakeGameTiles;
+    }
 
-                GameObject gridTile = Instantiate(tilePrefab);
-                MapTile tileScript = gridTile.GetComponent<MapTile>();
-                tileScript.Location = (i, j);
-                gridTile.GetComponent<Transform>().position = Location2Position(i, j);
-                gridTile.SetActive(true); //Activate the GameObject
-                tileScript.gameObject.name = "Tile (" + i + ", " + j + ")";
-                MapTileCollection.AddMapTile(tileScript);
-            }
+    void MakeGameTiles(IEnumerable<Location> locations)
+    {
+        foreach(var location in locations)
+        {
+            GameObject gridTile = Instantiate(tilePrefab);
+            MapTile tileScript = gridTile.GetComponent<MapTile>();
+            tileScript.Location = (location.X, location.Y);
+            gridTile.GetComponent<Transform>().position = Location2Position(location.X, location.Y);
+            gridTile.SetActive(true); //Activate the GameObject
+            tileScript.gameObject.name = "Tile (" + location.X + ", " + location.Y + ")";
+            MapTileCollection.AddMapTile(tileScript);
         }
-        Finished = true;
     }
 
     Vector2 Location2Position(int x, int y)
