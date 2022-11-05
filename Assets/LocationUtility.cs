@@ -59,6 +59,15 @@ public static class LocationUtility
             player = null;
         return hasPlayer;
     }
+    public static bool TryGetEnemy(Location location, out Enemy enemy)
+    {
+        bool hasEnemy = GameMap.EnemiesDictionary.TryGetValue(location, out IGameEntity enemyEntity);
+        if (hasEnemy)
+            enemy = enemyEntity as Enemy;
+        else
+            enemy = null;
+        return hasEnemy;
+    }
 
     public static bool TryGetTile(Location location, out MapTile tile)
     {
