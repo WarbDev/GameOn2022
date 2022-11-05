@@ -92,4 +92,18 @@ public static class LocationUtility
             tile = null;
         return tile;
     }
+    public static List<MapTile> GetTilesInPositions(List<Location> positions)
+    {
+        List<MapTile> tiles = new List<MapTile>();
+        foreach (var pos in positions)
+        {
+            MapTile tile;
+            bool hasTile = LocationUtility.TryGetTile(pos, out tile);
+            if (hasTile)
+            {
+                tiles.Add(tile);
+            }
+        }
+        return tiles;
+    }
 }
