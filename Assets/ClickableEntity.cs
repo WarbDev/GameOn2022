@@ -9,6 +9,7 @@ public class ClickableEntity : MonoBehaviour
     public event Action<ClickableEntity> EntityClicked;
     public event Action<ClickableEntity> EntityMousedOver;
     public event Action<ClickableEntity> EntityRightClicked;
+    public event Action<ClickableEntity> EntityMousedOff;
 
     private void OnMouseDown()
     {
@@ -25,5 +26,10 @@ public class ClickableEntity : MonoBehaviour
     private void OnMouseOver()
     {
         EntityMousedOver?.Invoke(this);
+    }
+
+    private void OnMouseExit()
+    {
+        EntityMousedOff?.Invoke(this);
     }
 }

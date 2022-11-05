@@ -10,6 +10,7 @@ public class ClickListener : MonoBehaviour
     public event Action<ClickableEntity> EntityClicked;
     public event Action<ClickableEntity> EntityRightClicked;
     public event Action<ClickableEntity> EntityMousedOver;
+    public event Action<ClickableEntity> EntityMousedOff;
 
 
 
@@ -19,6 +20,7 @@ public class ClickListener : MonoBehaviour
         clickable.EntityClicked += OnClicked;
         clickable.EntityRightClicked += OnRightClicked;
         clickable.EntityMousedOver += OnMousedOver;
+        clickable.EntityMousedOff += OnMousedOff;
     }
 
     public void RemoveClickable(ClickableEntity clickable)
@@ -27,6 +29,7 @@ public class ClickListener : MonoBehaviour
         clickable.EntityClicked -= OnClicked;
         clickable.EntityRightClicked -= OnRightClicked;
         clickable.EntityMousedOver -= OnMousedOver;
+        clickable.EntityMousedOff -= OnMousedOff;
     }
 
     void OnClicked(ClickableEntity entity)
@@ -42,6 +45,11 @@ public class ClickListener : MonoBehaviour
     void OnMousedOver(ClickableEntity entity)
     {
         EntityMousedOver?.Invoke(entity);
+    }
+
+    void OnMousedOff(ClickableEntity entity)
+    {
+        EntityMousedOff?.Invoke(entity);
     }
 
 }

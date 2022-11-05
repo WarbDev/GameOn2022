@@ -7,7 +7,7 @@ public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserve
     public static Dictionary<Location, List<Location>> NeighborsDictionary;
     public static HashSet<Location> AllPositions;
     public static Dictionary<Location, Dictionary<(int, int), Location>> DirectionalNeighborsDictionary; // Optimized for searching through specific directions
-    public static Dictionary<Location, MapTile> MapTilesDictionary = new();
+    public static Dictionary<Location, IGameEntity> MapTilesDictionary = new();
     public static Dictionary<Location, IGameEntity> PlayersDictionary = new();
     public static Dictionary<Location, IGameEntity> EnemiesDictionary = new();
 

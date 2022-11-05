@@ -53,4 +53,14 @@ public static class LocationUtility
             player = null;
         return hasPlayer;
     }
+
+    public static bool TryGetTile(Location location, out MapTile tile)
+    {
+        bool hasTile = GameMap.MapTilesDictionary.TryGetValue(location, out IGameEntity tileEntity);
+        if (hasTile)
+            tile = tileEntity as MapTile;
+        else
+            tile = null;
+        return tile;
+    }
 }
