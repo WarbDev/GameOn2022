@@ -14,8 +14,14 @@ public static class LocationUtility
     public static List<Location> RemoveOffMapLocations(IEnumerable<Location> locations)
     {
         List<Location> filteredLocations = new();
-        filteredLocations = locations.Where(location => GameMap.AllPositions.Contains(location)).ToList();
+        filteredLocations = locations.Where(location => IsOnMap(location)).ToList();
         return filteredLocations;
+    }
+
+    public static bool IsOnMap(Location location)
+    {
+        return (GameMap.LeftBorder <= location.X && location.X <= GameMap.RightBorder 
+            && GameMap.BottomBorder <= location.Y && location.Y <= GameMap.TopBorder);
     }
 
     public static List<Location> LocationsInSquareRadius(Location l, int range)
