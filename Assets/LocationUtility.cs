@@ -68,6 +68,20 @@ public static class LocationUtility
             enemy = null;
         return hasEnemy;
     }
+    public static List<Enemy> GetEnemiesInPositions(List<Location> positions)
+    {
+        List<Enemy> enemies = new List<Enemy>();
+        foreach (var pos in positions)
+        {
+            Enemy enemy;
+            bool hasEnemy = LocationUtility.TryGetEnemy(pos, out enemy);
+            if (hasEnemy)
+            {
+                enemies.Add(enemy);
+            }
+        }
+        return enemies;
+    }
 
     public static bool TryGetTile(Location location, out MapTile tile)
     {

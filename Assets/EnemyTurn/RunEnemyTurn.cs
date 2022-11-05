@@ -4,20 +4,7 @@ using UnityEngine;
 
 public class RunEnemyTurn
 {
-    List<Enemy> GetEnemiesInPositions(List<Location> positions)
-    {
-        List<Enemy> enemies = new List<Enemy>();
-        foreach(var pos in positions)
-        {
-            Enemy enemy;
-            bool hasEnemy = LocationUtility.TryGetEnemy(pos, out enemy);
-            if (hasEnemy)
-            {
-                enemies.Add(enemy);
-            }
-        }
-        return enemies;
-    }
+    
     List<List<Location>> GetColumns()
     {
         List<List<Location>> leftColumns = GetLeftColumns();
