@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICanMakeMoveRequests
 {
-    public MoveRequest MakeMoveRequest();
+    public MoveLog DoTurnMovement();
 }

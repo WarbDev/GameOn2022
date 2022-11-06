@@ -3,37 +3,82 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserveTiles
+public class GameMap : MonoBehaviour
 {
     [SerializeField] GridCreator gridCreator;
-    public static bool HasTwoFronts;
-    public static Dictionary<Location, List<Location>> NeighborsDictionary = new();
-    public static Dictionary<Location, IGameEntity> MapTilesDictionary = new();
-    public static Dictionary<Location, IGameEntity> PlayersDictionary = new();
-    public static Dictionary<Location, IGameEntity> EnemiesDictionary = new();
 
-    public static int LeftBorder;
-    public static int RightBorder;
-    public static int TopBorder;
-    public static int BottomBorder;
+    #region Map Properties
+    [SerializeField] bool hasTwoFronts;
+    public bool HasTwoFronts { get => hasTwoFronts; }
+
+    static int leftBorder;
+    static int rightBorder;
+    static int topBorder;
+    static int bottomBorder;
+
+    public static int LeftBorder { get => leftBorder; private set => leftBorder = value; }
+    public static int RightBorder { get => rightBorder; private set => rightBorder = value; }
+    public static int TopBorder { get => topBorder; private set => topBorder = value; }
+    public static int BottomBorder { get => bottomBorder; private set => bottomBorder = value; }
+    #endregion
+
+    #region GameEntity Dictionaries
+    static Dictionary<Location, List<Location>> neighborsDictionary = new();
+    static Dictionary<Location, IGameEntity> mapTilesDictionary = new();
+    static Dictionary<Location, IGameEntity> playersDictionary = new();
+    static Dictionary<Location, IGameEntity> enemiesDictionary = new();
+    static Dictionary<EntityType, Dictionary<Location, IGameEntity>> typeDictionary = new();
+
+    public static Dictionary<Location, List<Location>> NeighborsDictionary
+    {
+        get => neighborsDictionary; 
+        private set => neighborsDictionary = value; 
+    }
+
+    public static Dictionary<Location, IGameEntity> MapTilesDictionary
+    {
+        get => mapTilesDictionary;
+        private set => mapTilesDictionary = value; 
+    }
+
+    public static Dictionary<Location, IGameEntity> PlayersDictionary
+    {
+        get => playersDictionary;
+        private set => playersDictionary = value;
+    }
+
+    public static Dictionary <Location, IGameEntity> EnemiesDictionary
+    {
+        get => enemiesDictionary;
+        private set => enemiesDictionary = value;
+    }
+    #endregion
 
 
     void Awake()
     {
+        typeDictionary.Add(EntityType.ENEMY, EnemiesDictionary);
+        typeDictionary.Add(EntityType.PLAYER, PlayersDictionary);
+        typeDictionary.Add(EntityType.MAPTILE, MapTilesDictionary);
+
         TopBorder = gridCreator.InitialHeight;
         BottomBorder = 1;
 
         RightBorder = gridCreator.InitialReach;
         LeftBorder = 0;
+        if (HasTwoFronts)
+        {
+            LeftBorder = -RightBorder;
+        }
 
-        PlayerCollection.PlayerAdded += OnPlayerAdded;
-        PlayerCollection.PlayerRemoved += OnPlayerRemoved;
+        EntityCollection.PlayerCollection.EntityAdded += OnEntityAdded;
+        EntityCollection.PlayerCollection.EntityRemoved += OnEntityRemoved;
 
-        EnemyCollection.EnemyAdded += OnEnemyAdded;
-        EnemyCollection.EnemyRemoved += OnEnemyRemoved;
+        EntityCollection.EnemyCollection.EntityAdded += OnEntityAdded;
+        EntityCollection.EnemyCollection.EntityRemoved += OnEntityRemoved;
 
-        MapTileCollection.MapTileAdded += OnTileAdded;
-        MapTileCollection.MapTileRemoved += OnTileRemoved;
+        EntityCollection.MapTileCollection.EntityAdded += OnEntityAdded;
+        EntityCollection.MapTileCollection.EntityRemoved += OnEntityRemoved;
     }
 
     void Update()
@@ -97,38 +142,16 @@ public class GameMap : MonoBehaviour, IObserveEnemies, IObservePlayers, IObserve
     {
         Location oldLocation = enemy.Location;
         EnemiesDictionary.Remove(oldLocation);
+        enemy.Location = to;
         EnemiesDictionary.Add(to, enemy);
     }
 
-    # region GameEntity Adding/Removal
-    public void OnEnemyAdded(Enemy enemy)
+    void OnEntityAdded(IGameEntity entity)
     {
-        EnemiesDictionary.Add(enemy.Location, enemy);
+        typeDictionary[entity.EntityType].Add(entity.Location, entity);
     }
-
-    public void OnEnemyRemoved(Enemy enemy)
+    void OnEntityRemoved(IGameEntity entity)
     {
-        EnemiesDictionary.Remove(enemy.Location);
+        typeDictionary[entity.EntityType].Remove(entity.Location);
     }
-
-    public void OnPlayerAdded(Player player)
-    {
-        PlayersDictionary.Add(player.Location, player);
-    }
-
-    public void OnPlayerRemoved(Player player)
-    {
-        EnemiesDictionary.Remove(player.Location);
-    }
-
-    public void OnTileAdded(MapTile tile)
-    {
-        MapTilesDictionary.Add(tile.Location, tile);
-    }
-
-    public void OnTileRemoved(MapTile tile)
-    {
-        MapTilesDictionary.Remove(tile.Location);
-    }
-    #endregion
 }

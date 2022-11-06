@@ -5,18 +5,8 @@ using UnityEngine;
 public class MapTile : MonoBehaviour, IGameEntity
 {
     Location location;
-    public Location Location
-    {
-        get
-        {
-            return location;
-        }
-        set
-        {
-            location = value;
-            
-        }
-    }
+    public Location Location { get => location; set => location = value; }
+    public EntityType EntityType { get => EntityType.MAPTILE; }
 
     
 }

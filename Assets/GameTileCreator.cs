@@ -30,7 +30,7 @@ public class GameTileCreator : MonoBehaviour
         
         gridTile.SetActive(LocationUtility.IsOnMap(location)); // Activate the GameObject if on the map
         tileScript.gameObject.name = "Tile (" + location.X + ", " + location.Y + ")";
-        MapTileCollection.AddMapTile(tileScript);
+        EntityCollection.MapTileCollection.AddEntity(tileScript);
     }
 
     Vector2 Location2Position(int x, int y)

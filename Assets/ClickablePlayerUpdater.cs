@@ -7,8 +7,8 @@ public class ClickablePlayerUpdater : MonoBehaviour, IObservePlayers
     [SerializeField] ClickListener clickListener;
     void Awake()
     {
-        PlayerCollection.PlayerAdded += OnPlayerAdded;
-        PlayerCollection.PlayerRemoved += OnPlayerRemoved;
+        EntityCollection.PlayerCollection.EntityAdded += OnPlayerAdded;
+        EntityCollection.PlayerCollection.EntityRemoved += OnPlayerRemoved;
     }
 
     public void OnPlayerAdded(Player player)
