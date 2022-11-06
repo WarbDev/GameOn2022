@@ -2,9 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunEnemyTurn
+public class RunEnemyTurn : MonoBehaviour
 {
-    
+    void DoEnemyTurn()
+    {
+        var columns = GetColumns();
+    }
+
+
+    List<MoveRequest> GenerateMoveRequestsInPositions(List<Location> positions)
+    {
+        List<MoveRequest> moveRequests = new();
+
+        List<Enemy> enemiesInPositions = LocationUtility.GetEnemiesInPositions(positions);
+        foreach (var enemy in enemiesInPositions)
+        {
+            MoveRequest request = enemy.MakeMoveRequest();
+            if (request != null)
+            {
+                moveRequests.Add(request);
+            }
+        }
+
+        return moveRequests;
+    }
+
     List<List<Location>> GetColumns()
     {
         List<List<Location>> leftColumns = GetLeftColumns();
@@ -70,17 +92,17 @@ public class RunEnemyTurn
     }
 }
 
-public class EnemyMoveRequest
+public class MoveRequest
 {
-    Enemy enemy;
+    IGameEntity entity;
     Location moveLocation;
 
-    public Enemy Enemy { get => enemy; }
+    public IGameEntity Entity { get => entity; }
     public Location MoveLocation { get => moveLocation; }
 
-    public EnemyMoveRequest(Enemy enemy, Location endLocation)
+    public MoveRequest(IGameEntity entity, Location endLocation)
     {
-        this.enemy = enemy;
+        this.entity = entity;
         moveLocation = endLocation;
     }
 }
