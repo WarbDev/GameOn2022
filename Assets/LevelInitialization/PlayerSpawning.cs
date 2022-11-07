@@ -7,6 +7,11 @@ public class PlayerSpawning : MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     [SerializeField] int X;
     [SerializeField] int Y;
+
+    private void Start()
+    {
+        SpawnPlayers();
+    }
     public void SpawnPlayers()
     {
         GameObject playerObject = Instantiate(playerPrefab);
