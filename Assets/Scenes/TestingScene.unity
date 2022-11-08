@@ -446,8 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eac1dd47892f984a9ae9cd9c35a31e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridCreator: {fileID: 1187247937}
   hasTwoFronts: 1
+  initialRight: 4
+  initialLeft: 21
+  initialHeight: 5
 --- !u!114 &1187247937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,8 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a667e05cb0ea843a0269b4bfb9cf33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialReach: 8
-  initialHeight: 4
 --- !u!4 &1187247938
 Transform:
   m_ObjectHideFlags: 0

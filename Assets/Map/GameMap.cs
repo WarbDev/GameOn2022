@@ -5,10 +5,14 @@ using System;
 
 public class GameMap : MonoBehaviour
 {
-    [SerializeField] GridCreator gridCreator;
+    public static event Action<List<Location>> MapExpanded;
 
     #region Map Properties
     [SerializeField] bool hasTwoFronts;
+
+    [SerializeField] int initialRight;
+    [SerializeField] int initialLeft;
+    [SerializeField] int initialHeight;
     public bool HasTwoFronts { get => hasTwoFronts; }
 
     static int leftBorder;
@@ -61,15 +65,7 @@ public class GameMap : MonoBehaviour
         typeDictionary.Add(EntityType.PLAYER, PlayersDictionary);
         typeDictionary.Add(EntityType.MAPTILE, MapTilesDictionary);
 
-        TopBorder = gridCreator.InitialHeight;
         BottomBorder = 1;
-
-        RightBorder = gridCreator.InitialReach;
-        LeftBorder = 0;
-        if (HasTwoFronts)
-        {
-            LeftBorder = -RightBorder;
-        }
 
         EntityCollection.PlayerCollection.EntityAdded += OnEntityAdded;
         EntityCollection.PlayerCollection.EntityRemoved += OnEntityRemoved;
@@ -81,33 +77,103 @@ public class GameMap : MonoBehaviour
         EntityCollection.MapTileCollection.EntityRemoved += OnEntityRemoved;
     }
 
+    private void Start()
+    {
+        InitializeMap();
+    }
+
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            IncreaseLength(1);
+            ExpandLeft(1);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            IncreaseHeight(1);
+            ExpandRight(1);
         }
-    }
 
-    public void IncreaseLength(int amount)
-    {
-        RightBorder += amount;
-        if (HasTwoFronts)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            LeftBorder = -RightBorder;
+            ExpandUp(1);
         }
-        gridCreator.ExpandHorizontal(amount);
     }
 
-    public void IncreaseHeight(int amount)
+    void InitializeMap()
     {
-        TopBorder += amount;
-        gridCreator.ExpandVertical(amount);
+        Location start = new(0, 1);
+        topBorder = 1;
+        MapExpanded?.Invoke(new List<Location> { start });
+
+        for (int i = 1; i < initialHeight; i++)
+        {
+            ExpandUp(1);
+        }
+
+        for (int i = 1; i < initialRight; i++)
+        {
+            ExpandRight(1);
+        }
+
+        for (int i = 1; i < Math.Abs(initialLeft); i++)
+        {
+            ExpandLeft(1);
+        }
+    }
+
+    void ExpandRight(int amount)
+    {
+        (List<Location>, int) expansion;
+        expansion = ExpandHorizontal(amount, 1);
+        rightBorder = expansion.Item2;
+        MapExpanded?.Invoke(expansion.Item1);
+    }
+    void ExpandLeft(int amount)
+    {
+        (List<Location>, int) expansion;
+        expansion = ExpandHorizontal(amount, -1);
+        leftBorder = expansion.Item2;
+        MapExpanded?.Invoke(expansion.Item1);
+
+    }
+
+    (List<Location>, int) ExpandHorizontal(int amount, int direction)
+    {
+        int border = rightBorder;
+        if (direction > 0)
+        {
+            border = rightBorder;
+        }
+        if (direction < 0)
+        {
+            border = leftBorder;
+        }
+
+        List<Location> newLocations = new();
+        for(int i = Math.Abs(border) + 1; i <= Math.Abs(border) + amount; i++)
+        {
+            for(int j = topBorder; j >= 1; j--)
+            {
+                newLocations.Add(new Location(i * direction, j));
+            }
+        }
+        return (newLocations, border + (amount * direction));
+    }
+
+    public void ExpandUp(int amount)
+    {
+        List<Location> newLocations = new();
+        for(int i = topBorder + 1; i <= topBorder + amount; i++)
+        {
+            for(int j = leftBorder; j <= rightBorder; j++)
+            {
+                newLocations.Add(new Location(j, i));
+            }
+        }
+        topBorder = topBorder + amount;
+        MapExpanded?.Invoke(newLocations);
     }
 
     public static void MovePlayer(IGameEntity player, Location to)
