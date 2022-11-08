@@ -11,7 +11,13 @@ public class GridCreator : MonoBehaviour
 
     private void Awake()
     {
+        grid = new();
         GameMap.MapExpanded += AddToGrid;
+    }
+
+    private void OnDestroy()
+    {
+        GameMap.MapExpanded -= AddToGrid;
     }
 
     void AddToGrid(Location location)

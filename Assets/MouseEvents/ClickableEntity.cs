@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Collider))]
 public class ClickableEntity : MonoBehaviour
 {
+
     public event Action<ClickableEntity> EntityClicked;
     public event Action<ClickableEntity> EntityMousedOver;
     public event Action<ClickableEntity> EntityRightClicked;
@@ -18,9 +19,6 @@ public class ClickableEntity : MonoBehaviour
 
         else
         EntityClicked?.Invoke(this);
-
-
-        
     }
 
     private void OnMouseOver()
@@ -31,5 +29,10 @@ public class ClickableEntity : MonoBehaviour
     private void OnMouseExit()
     {
         EntityMousedOff?.Invoke(this);
+    }
+
+    public void DestroyEntity()
+    {
+        throw new NotImplementedException();
     }
 }

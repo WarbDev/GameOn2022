@@ -39,7 +39,7 @@ public class ActionController: MonoBehaviour
 
         Location loc = new Location(0, 3);
         GetComponent<Player>().Location = loc;
-        EntityCollection.PlayerCollection.AddEntity(GetComponent<Player>()); //player needs a location, don't move this line
+        Entities.PlayerCollection.AddEntity(GetComponent<Player>()); //player needs a location, don't move this line
 
         area = LocationUtility.RemoveOffMapLocations(
             LocationUtility.LocationsInSquareRadius(loc, move.rangeRadius));
@@ -94,7 +94,7 @@ public class ActionController: MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             Enemy enemy = enemies[i];
-            EntityCollection.EnemyCollection.RemoveEntity(enemy);
+            Entities.EnemyCollection.RemoveEntity(enemy);
             enemy.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(enemy.gameObject);
             /*

@@ -6,7 +6,7 @@ using System;
 public class Click_OneWithinRange : IClickSingle
 {
     public event Action<Location> Clicked;
-    private ClickListener clickListener = GlobalClickListener.Instance.MapTileListener;
+    private IClickChecker clickListener = GlobalClickListener.Instance.MapTileListener;
     private int range;
 
     public Click_OneWithinRange(int range)

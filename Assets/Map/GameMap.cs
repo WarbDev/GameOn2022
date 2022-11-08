@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class GameMap : MonoBehaviour
 {
@@ -61,25 +62,45 @@ public class GameMap : MonoBehaviour
 
     void Awake()
     {
+        DOTween.SetTweensCapacity(500, 312);
+        typeDictionary.Clear();
+
+        neighborsDictionary = new();
+        mapTilesDictionary = new();
+        playersDictionary = new();
+        enemiesDictionary = new();
+
         typeDictionary.Add(EntityType.ENEMY, EnemiesDictionary);
         typeDictionary.Add(EntityType.PLAYER, PlayersDictionary);
         typeDictionary.Add(EntityType.MAPTILE, MapTilesDictionary);
 
         BottomBorder = 1;
 
-        EntityCollection.PlayerCollection.EntityAdded += OnEntityAdded;
-        EntityCollection.PlayerCollection.EntityRemoved += OnEntityRemoved;
+        Entities.PlayerCollection.EntityAdded += OnEntityAdded;
+        Entities.PlayerCollection.EntityRemoved += OnEntityRemoved;
 
-        EntityCollection.EnemyCollection.EntityAdded += OnEntityAdded;
-        EntityCollection.EnemyCollection.EntityRemoved += OnEntityRemoved;
+        Entities.EnemyCollection.EntityAdded += OnEntityAdded;
+        Entities.EnemyCollection.EntityRemoved += OnEntityRemoved;
 
-        EntityCollection.MapTileCollection.EntityAdded += OnEntityAdded;
-        EntityCollection.MapTileCollection.EntityRemoved += OnEntityRemoved;
+        Entities.MapTileCollection.EntityAdded += OnEntityAdded;
+        Entities.MapTileCollection.EntityRemoved += OnEntityRemoved;
+    }
+
+    private void OnDestroy()
+    {
+        Entities.PlayerCollection.EntityAdded -= OnEntityAdded;
+        Entities.PlayerCollection.EntityRemoved -= OnEntityRemoved;
+
+        Entities.EnemyCollection.EntityAdded -= OnEntityAdded;
+        Entities.EnemyCollection.EntityRemoved -= OnEntityRemoved;
+
+        Entities.MapTileCollection.EntityAdded -= OnEntityAdded;
+        Entities.MapTileCollection.EntityRemoved -= OnEntityRemoved;
     }
 
     private void Start()
     {
-        InitializeMap();
+        StartCoroutine(InitializeMap());
     }
 
 
@@ -101,26 +122,33 @@ public class GameMap : MonoBehaviour
         }
     }
 
-    void InitializeMap()
+    IEnumerator InitializeMap()
     {
         Location start = new(0, 1);
         topBorder = 1;
+        leftBorder = 0;
+        rightBorder = 0;
         MapExpanded?.Invoke(new List<Location> { start });
 
+        
         for (int i = 1; i < initialHeight; i++)
         {
             ExpandUp(1);
+            yield return new WaitForSeconds(0.05f);
         }
 
         for (int i = 1; i < initialRight; i++)
         {
             ExpandRight(1);
+            yield return new WaitForSeconds(0.05f);
         }
 
         for (int i = 1; i < Math.Abs(initialLeft); i++)
         {
             ExpandLeft(1);
+            yield return new WaitForSeconds(0.05f);
         }
+        StopAllCoroutines();
     }
 
     void ExpandRight(int amount)

@@ -7,8 +7,14 @@ public class ClickableTileUpdater : MonoBehaviour, IObserveTiles
     [SerializeField] ClickListener clickListener;
     void Awake()
     {
-        EntityCollection.MapTileCollection.EntityAdded += OnTileAdded;
-        EntityCollection.MapTileCollection.EntityRemoved += OnTileRemoved;
+        Entities.MapTileCollection.EntityAdded += OnTileAdded;
+        Entities.MapTileCollection.EntityRemoved += OnTileRemoved;
+    }
+
+    void OnDisable()
+    {
+        Entities.MapTileCollection.EntityAdded -= OnTileAdded;
+        Entities.MapTileCollection.EntityRemoved -= OnTileRemoved;
     }
 
     public void OnTileAdded(MapTile Tile)

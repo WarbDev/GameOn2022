@@ -22,6 +22,6 @@ public class SpawnEnemyOnM2 : MonoBehaviour
         var enemy = Instantiate(enemyPrefab);
         enemy.GetComponent<Transform>().position = new Vector2(tileLocation.X, tileLocation.Y);
         enemy.GetComponent<IGameEntity>().Location = tileLocation;
-        EntityCollection.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
+        Entities.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
     }
 }

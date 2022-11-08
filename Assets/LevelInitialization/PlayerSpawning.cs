@@ -19,6 +19,6 @@ public class PlayerSpawning : MonoBehaviour
         playerScript.GetComponent<Transform>().position = new Vector2(X, Y);
         playerScript.Location = (X, Y);
 
-        EntityCollection.PlayerCollection.AddEntity(playerScript);
+        Entities.PlayerCollection.AddEntity(playerScript);
     }
 }

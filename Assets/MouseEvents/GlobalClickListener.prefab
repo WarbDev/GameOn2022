@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 2619148800411067221}
   - component: {fileID: 6435865127049463049}
   - component: {fileID: -1929368460835412302}
+  - component: {fileID: 405503882347894664}
+  - component: {fileID: 1081127773945273455}
+  - component: {fileID: 1205579647789789429}
+  - component: {fileID: -6729749374473540420}
   m_Layer: 0
   m_Name: GlobalClickListener
   m_TagString: Untagged
@@ -46,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33dad4d732ec9404fa300d616fda68dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickListener: {fileID: -1929368460835412302}
 --- !u!212 &6435865127049463049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -112,3 +115,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickables: []
+--- !u!114 &405503882347894664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157818870529673216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847566b4dd0a5284283085bbf00dece2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickListener: {fileID: -1929368460835412302}
+--- !u!114 &1081127773945273455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157818870529673216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fcab5deabc64340aa0cea7762fb682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickListener: {fileID: -1929368460835412302}
+--- !u!114 &1205579647789789429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157818870529673216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3721f30c6dd417640b574d62ab14c370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickListener: {fileID: -1929368460835412302}
+--- !u!114 &-6729749374473540420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157818870529673216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb24c82fcea0fc64ea1df225dd0bbc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickListener: {fileID: -1929368460835412302}
