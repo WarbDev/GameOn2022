@@ -1,10 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
     public Vector2 endLocation;
+    public event Action explode;
+
+    private float entityTime = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,21 @@ public class BallScript : MonoBehaviour
         Vector2 pos = trans.position;
         if (endLocation.x - pos.x < .5f && endLocation.y - pos.y < .5f)
         {
-            GetComponent<Animator>().SetBool("atEnd", true);
+            if (entityTime > 0)
+            {
+                if (Time.time - entityTime > .3)
+                {
+                    explode?.Invoke();
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                entityTime = Time.time;
+                GetComponent<Animator>().SetBool("atEnd", true);
+                Debug.Log(entityTime);
+            }
         }
+
     }
 }

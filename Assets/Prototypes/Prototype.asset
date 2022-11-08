@@ -17,6 +17,6 @@ MonoBehaviour:
   SecondaryChance: 0.5
   projectile: {fileID: 373954843848270876, guid: a19b208b6a9a3914d864efa9056598d4, type: 3}
   rangeShape: 0
-  rangeRadius: 5
+  rangeRadius: 3
   fireShape: 0
   fireRadius: 2
