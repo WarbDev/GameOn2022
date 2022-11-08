@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 2141785788}
   - component: {fileID: 2141785787}
   - component: {fileID: 2141785789}
+  - component: {fileID: 2141785790}
   m_Layer: 0
   m_Name: DevEnemySpawner
   m_TagString: Untagged
@@ -677,9 +678,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0490a742ced2114484f464a81c4f205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightPrefab: {fileID: 9215078409191468384, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
+  highlighter: {fileID: 2141785790}
   highlightRange: 2
-  position: {x: 0, y: 0}
+--- !u!114 &2141785790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141785786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673f39bdc9bda174cba37b02a9dc8ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightPrefab: {fileID: 9215078409191468384, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
+  color: {r: 0, g: 1, b: 0.07037926, a: 0}
 --- !u!1001 &1513081453714408982
 PrefabInstance:
   m_ObjectHideFlags: 0
