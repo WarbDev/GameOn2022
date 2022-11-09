@@ -6,7 +6,7 @@ using System;
 public class Locator_1ShapeAt1Range : ILocate
 {
     public event Action<List<Location>> DeterminedLocations;
-    private ShapeWithRadius rangeShape;
+    private ShapeWithRadius rangeShape; //A Delegate
     private ShapeWithRadius effectShape;
     ITarget targeter;
     private Location playerLocation;
@@ -24,9 +24,9 @@ public class Locator_1ShapeAt1Range : ILocate
     public void StartLocate(IMove move)
     {
         targeter.Selected -= CreateArea;
+        targeter.Selected += CreateArea;
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
         targeter = Select_OneWithinRange.Instance;
-        targeter.Selected += CreateArea;
         targeter.StartTargeting(availableRange);
     }
 

@@ -17,8 +17,11 @@ public class Highlighter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pool = new ObjectPool<GameObject>(() => { return Instantiate(highlightPrefab); }, highlight => { if (highlight) { highlight.SetActive(true); highlight.transform.position = position; } },
-            highlight => { if (highlight) highlight.SetActive(false); }, highlight => { if (highlight) Destroy(highlight); }, true, 30, 150);
+        pool = new ObjectPool<GameObject>(() => { return Instantiate(highlightPrefab); },
+            highlight => { if (highlight) { highlight.SetActive(true); highlight.transform.position = position; } },
+            highlight => { if (highlight) highlight.SetActive(false); },
+            highlight => { if (highlight) Destroy(highlight); },
+            true, 30, 150);
     }
 
     public void ChangeColor(Color newColor)
