@@ -7,6 +7,7 @@ using System.Linq;
 public class RunEnemyMovement : MonoBehaviour
 {
     public event Action<List<MoveLog>> CalculatedEnemiesMovement;
+    public event Action Finished;
 
     private void Update()
     {
@@ -28,6 +29,7 @@ public class RunEnemyMovement : MonoBehaviour
             columnMoveLogs.Add(columnLogs);
         }
         CalculatedEnemiesMovement?.Invoke(allMoveLogs);
+        Finished?.Invoke();
     }
 
 

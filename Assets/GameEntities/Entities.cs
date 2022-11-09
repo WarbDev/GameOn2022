@@ -26,6 +26,19 @@ public class Entities : MonoBehaviour
         }
     }
 
+    public static Enemy SpawnEnemy(Location location, GameObject enemyPrefab)
+    {
+        MapTile mapTile;
+        LocationUtility.TryGetTile(location, out mapTile);
+        Location tileLocation = mapTile.Location;
+        var enemy = Instantiate(enemyPrefab);
+        enemy.GetComponent<Transform>().position = new Vector2(tileLocation.X, tileLocation.Y);
+        enemy.GetComponent<IGameEntity>().Location = tileLocation;
+        enemy.GetComponent<Enemy>().SpriteRenderer.flipX = (tileLocation.X < 0);
+        Entities.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
+        return enemy.GetComponent<Enemy>();
+    }
+
     private void Awake()
     {
         EnemyCollection.RemoveAll();

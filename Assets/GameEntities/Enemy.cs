@@ -11,8 +11,10 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
     public Health Health { get => health; set => health = value; }
 
     [SerializeField] Health health;
+    [SerializeField] SpriteRenderer spriteRenderer;
     public GameObject GameObject { get => gameObject; }
 
+    public SpriteRenderer SpriteRenderer { get => spriteRenderer; }
     public MoveLog DoTurnMovement()
     {
         if (LocationUtility.TryGetEnemy((Location.X + DirectionTowardsPlayers(), Location.Y), out Enemy enemy))
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
         Destroy(gameObject);
     }
 
-    int DirectionTowardsPlayers()
+    public int DirectionTowardsPlayers()
     {
         return System.Math.Sign(Location.X * -1);
     }

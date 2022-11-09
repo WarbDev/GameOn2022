@@ -13,15 +13,11 @@ public class SpawnEnemyOnM2 : MonoBehaviour
 
     void SpawnEnemy(ClickableEntity tile)
     {
-        if (LocationUtility.TryGetEnemy(tile.gameObject.GetComponent<IGameEntity>().Location, out Enemy e))
+        Location location = tile.gameObject.GetComponent<IGameEntity>().Location;
+        if (LocationUtility.TryGetEnemy(location, out Enemy e))
         {
             return;
         }
-        var entityScript = tile.GetComponent<IGameEntity>();
-        Location tileLocation = entityScript.Location;
-        var enemy = Instantiate(enemyPrefab);
-        enemy.GetComponent<Transform>().position = new Vector2(tileLocation.X, tileLocation.Y);
-        enemy.GetComponent<IGameEntity>().Location = tileLocation;
-        Entities.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
+        Entities.SpawnEnemy(location, enemyPrefab);
     }
 }

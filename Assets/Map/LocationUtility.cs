@@ -5,11 +5,51 @@ using System.Linq;
 
 public static class LocationUtility
 {
-
     public static List<Location> Neighbors(Location l)
     {
         return GameMap.NeighborsDictionary[l];
     }
+
+    public static List<List<Location>> GetEndColumns()
+    {
+        List<List<Location>> list = new(2);
+        list.Add(GetLeftEndColumn());
+        list.Add(GetRightEndColumn());
+        return list;
+    }
+
+    public static List<Location> GetRightEndColumn()
+    {
+        if (GameMap.RightBorder != 0)
+        {
+            return GetColumn(GameMap.RightBorder);
+        }
+        return new List<Location>();
+    }
+
+    public static List<Location> GetLeftEndColumn()
+    {
+        if (GameMap.LeftBorder != 0)
+        {
+            return GetColumn(GameMap.LeftBorder);
+        }
+        return new List<Location>();
+    }
+
+    public static List<Location> GetColumn(int x)
+    {
+        List<Location> columns = new();
+        if (IsOnMap((x, 1)))
+        {
+            for (int i = 1; i <= GameMap.TopBorder; i++)
+            {
+                columns.Add((x, i));
+            }
+        }
+        return columns;
+    }
+
+
 
     public static List<Location> RemoveOffMapLocations(IEnumerable<Location> locations)
     {
