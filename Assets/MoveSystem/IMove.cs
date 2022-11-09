@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IMove
 {
-    public void DoMove();
+    public void DoMove(Player player);
+    //you're using a lot of classes to make the move work
 }
 
 public interface IDamage

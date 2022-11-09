@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public interface IClickSingle
+public interface ITarget
 {
-    public event Action<Location> Clicked;
+    public event Action<Location> Selected;
+
+    public void StartTargeting(List<Location> locations);
 }
