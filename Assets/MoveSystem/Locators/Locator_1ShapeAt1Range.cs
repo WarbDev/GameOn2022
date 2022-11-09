@@ -9,6 +9,7 @@ public class Locator_1ShapeAt1Range : ILocate
     private ShapeWithRadius rangeShape; //A Delegate
     private ShapeWithRadius effectShape;
     ITarget targeter;
+    //IHighlight
     private Location playerLocation;
     private int range;
     private int radius;
@@ -27,6 +28,7 @@ public class Locator_1ShapeAt1Range : ILocate
         targeter.Selected += CreateArea;
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
         targeter = Select_OneWithinRange.Instance;
+
         targeter.StartTargeting(availableRange);
     }
 

@@ -6,5 +6,6 @@ public interface ITarget
 {
     public event Action<Location> Selected;
 
+    //Takes a list of locations and a highlighter shape;
     public void StartTargeting(List<Location> locations);
 }

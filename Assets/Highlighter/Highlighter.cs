@@ -32,6 +32,8 @@ public class Highlighter : MonoBehaviour
         }
     }
 
+    // Highlights given locations until StopHighlighting is called,
+    // or if HighlighTiles is called again.
     public void HighlightTiles(HashSet<Location> locationsToHighlight)
     {
         List<Location> locationsToRemove = new();

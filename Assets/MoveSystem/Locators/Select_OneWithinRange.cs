@@ -8,8 +8,9 @@ public class Select_OneWithinRange: MonoBehaviour, ITarget
     public event Action<Location> Selected;
     public static Select_OneWithinRange Instance;
     private List<Location> availableLocations;
+    [SerializeField] Highlighter highlighter;
 
-    private IClickChecker clickListener = GlobalClickListener.Instance.MapTileListener;
+    private IClickChecker clickListener;
     private int range;
 
 
@@ -18,6 +19,12 @@ public class Select_OneWithinRange: MonoBehaviour, ITarget
     {
         Instance = this;
     }
+
+    private void Start()
+    {
+        clickListener = GlobalClickListener.Instance.MapTileListener;
+    }
+
 
     public void StartTargeting(List<Location> locations)
     {
