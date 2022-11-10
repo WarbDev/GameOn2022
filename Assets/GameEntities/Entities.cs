@@ -45,6 +45,7 @@ public class Entities : MonoBehaviour
         PlayerCollection.RemoveAll();
         MapTileCollection.RemoveAll();
     }
+    // important code
 }
 
 public class Entities<T> where T : IGameEntity
