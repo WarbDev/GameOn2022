@@ -11,8 +11,7 @@ public class Move_Fireball : Move, IDamage
     [SerializeField] int range;
     [SerializeField] int radius;
     [SerializeField] float damage;
-    [SerializeField] GameObject projectile;
-    //[SerializeField] enum LocatorKey;
+    [SerializeField] GameObject Projectile;
     public int Range { get => range; }
     public int Radius { get => radius; }
     public float Damage { get => damage; }
@@ -41,6 +40,10 @@ public class Move_Fireball : Move, IDamage
     private void DoEffects(List<Location> locations)
     {
         locator.DeterminedLocations -= DoEffects;
+
+        Location selected = locations[0]; //locations[0] is the player-selected point
+        locations = effectShape(selected, radius);
+
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
         List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
         List<DamageLog> log = new();
@@ -55,5 +58,17 @@ public class Move_Fireball : Move, IDamage
             //TERRAIN MODIFIER
             //
         }
+
+        
+        GameObject Fireball = Instantiate(Projectile);
+        Fireball.transform.position = player.transform.position;
+        A_Fireball animation = Fireball.GetComponent<A_Fireball>();
+
+        MapTile endPoint;
+        LocationUtility.TryGetTile(selected, out endPoint);
+        
+        animation.PlayAnimation(endPoint.transform.position);
+
+        locator = null;
     }
 }

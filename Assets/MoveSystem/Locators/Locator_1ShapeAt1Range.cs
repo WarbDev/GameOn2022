@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+
+//Only outputs one location to the Move;
 public class Locator_1ShapeAt1Range : ILocate
 {
     public event Action<List<Location>> DeterminedLocations;
@@ -25,8 +28,8 @@ public class Locator_1ShapeAt1Range : ILocate
     public void StartLocate(Move move)
     {
         targeter = new Select_OneWithinRange();
-        targeter.Selected -= CreateArea;
-        targeter.Selected += CreateArea;
+        targeter.Selected -= SendLocation;
+        targeter.Selected += SendLocation;
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
         targeter.StartTargeting(availableRange);
 
@@ -34,12 +37,13 @@ public class Locator_1ShapeAt1Range : ILocate
         highlighter.StartHighlighting(availableRange, effectShape, radius);
     }
 
-    private void CreateArea(Location location)
+    private void SendLocation(Location location)
     {
         highlighter.stopHighlighting();
 
-        targeter.Selected -= CreateArea;
-        List<Location> locations = LocationUtility.LocationsInSquareRadius(location, radius);
+        targeter.Selected -= SendLocation;
+        List<Location> locations = new List<Location>();
+        locations.Add(location);
         DeterminedLocations?.Invoke(locations);
     }
 }
