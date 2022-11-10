@@ -45,6 +45,8 @@ public class DamageDetails
         this.Base = Base;
         this.DamageSource = DamageSource;
     }
+
+    public DamageDetails() { }
 }
 
 public interface IDamageable : IGameEntity
