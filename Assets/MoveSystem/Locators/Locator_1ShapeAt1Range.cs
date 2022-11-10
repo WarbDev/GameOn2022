@@ -8,8 +8,8 @@ public class Locator_1ShapeAt1Range : ILocate
     public event Action<List<Location>> DeterminedLocations;
     private ShapeWithRadius rangeShape; //A Delegate
     private ShapeWithRadius effectShape;
+    HighlightEffectArea highlighter;
     ITarget targeter;
-    //IHighlight
     private Location playerLocation;
     private int range;
     private int radius;
@@ -22,18 +22,22 @@ public class Locator_1ShapeAt1Range : ILocate
         this.range = range;
         this.radius = radius;
     }
-    public void StartLocate(IMove move)
+    public void StartLocate(Move move)
     {
+        targeter = new Select_OneWithinRange();
         targeter.Selected -= CreateArea;
         targeter.Selected += CreateArea;
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
-        targeter = Select_OneWithinRange.Instance;
-
         targeter.StartTargeting(availableRange);
+
+        highlighter = HighlightEffectArea.Instance;
+        highlighter.StartHighlighting(availableRange, effectShape, radius);
     }
 
     private void CreateArea(Location location)
     {
+        highlighter.stopHighlighting();
+
         targeter.Selected -= CreateArea;
         List<Location> locations = LocationUtility.LocationsInSquareRadius(location, radius);
         DeterminedLocations?.Invoke(locations);

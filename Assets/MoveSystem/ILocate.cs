@@ -8,5 +8,5 @@ using System;
 public interface ILocate
 {
     public event Action<List<Location>> DeterminedLocations;
-    public void StartLocate(IMove move);
+    public void StartLocate(Move move);
 }

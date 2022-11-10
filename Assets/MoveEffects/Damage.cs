@@ -40,6 +40,11 @@ public class DamageDetails
 {
     public float Base;
     public IGameEntity DamageSource;
+    public DamageDetails(float Base, IGameEntity DamageSource)
+    {
+        this.Base = Base;
+        this.DamageSource = DamageSource;
+    }
 }
 
 public interface IDamageable : IGameEntity

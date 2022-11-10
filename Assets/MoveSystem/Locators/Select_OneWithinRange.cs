@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Select_OneWithinRange: MonoBehaviour, ITarget
+public class Select_OneWithinRange: ITarget
 {
     public event Action<Location> Selected;
     public static Select_OneWithinRange Instance;
     private List<Location> availableLocations;
-    [SerializeField] Highlighter highlighter;
 
     private IClickChecker clickListener;
-    private int range;
 
 
 
-    private void Awake()
+    /*private void Awake()
     {
         Instance = this;
     }
@@ -23,11 +21,12 @@ public class Select_OneWithinRange: MonoBehaviour, ITarget
     private void Start()
     {
         clickListener = GlobalClickListener.Instance.MapTileListener;
-    }
+    }*/
 
 
     public void StartTargeting(List<Location> locations)
     {
+        clickListener = GlobalClickListener.Instance.MapTileListener;
         clickListener.EntityClicked -= Located;
         clickListener.EntityClicked += Located;
         availableLocations = locations;

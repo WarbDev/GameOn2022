@@ -10,5 +10,5 @@ public interface IMove
 
 public interface IDamage
 {
-    public float Damage { get; set; }
+    public float Damage { get; }
 }
