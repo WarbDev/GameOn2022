@@ -146,4 +146,10 @@ public static class LocationUtility
         }
         return tiles;
     }
+
+    public static Vector3 LocationToVector3(Location loc)
+    {
+        float scale = 1;
+        return new Vector3(loc.X * scale, loc.Y * scale);
+    }
 }

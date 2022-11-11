@@ -38,7 +38,9 @@ public class RunEnemyMovementAnimation : MonoBehaviour
             var hasEnemy = LocationUtility.TryGetEnemy(log.End, out enemy);
             if (hasEnemy)
             {
-                enemy.GetComponent<EntityAnimator>().AnimateMovement(log);
+                enemy.GetComponent<AnimatableEntity>()
+                    .PlayAnimation(ANIMATION_ID.JUMP, 
+                    new JumpAnimationProperties(LocationUtility.LocationToVector3(log.Start), LocationUtility.LocationToVector3(log.End)));
             }
             yield return new WaitForSeconds(0.1f);
         }
