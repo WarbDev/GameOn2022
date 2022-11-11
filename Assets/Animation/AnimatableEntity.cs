@@ -18,5 +18,4 @@ public class AnimatableEntity : MonoBehaviour
         animation.Play(animationProperties);
         return animation;
     }
-
 }
