@@ -26,5 +26,7 @@ public interface IAnimationProperties
 
 public enum ANIMATION_ID
 {
-    JUMP
+    ENTITY_JUMP,
+    MOVE_PROJECTILE,
+    MOVE_PAYLOAD
 }
