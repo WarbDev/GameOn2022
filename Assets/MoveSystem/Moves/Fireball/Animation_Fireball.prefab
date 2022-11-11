@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7585738517785785045}
   - component: {fileID: -1133660939758460633}
-  - component: {fileID: 5440301507628439920}
   - component: {fileID: 6971762451775617113}
+  - component: {fileID: -7284731410330061567}
   m_Layer: 0
   m_Name: Animation_Fireball
   m_TagString: Untagged
@@ -75,37 +75,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cac56be0d98f79740a43b42ffffd472e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.07, y: 1.4866667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5440301507628439920
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933564648966118571}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6971762451775617113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be850e802c8d04142b77dd1bf6a5b7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileClip: {fileID: 7400000, guid: 7292c3565c111f448b7ba024bab4b489, type: 2}
+  BoomClip: {fileID: 7400000, guid: df68fe689256cfb4ab1e02d71904490d, type: 2}
+  projectileEase: 2
+--- !u!111 &-7284731410330061567
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933564648966118571}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7292c3565c111f448b7ba024bab4b489, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
