@@ -8,6 +8,8 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
     [SerializeField] SpriteSet spriteSet;
     Coroutine spriteUpdateCoroutine;
 
+    public override event Action<EntityAnimation<SpriteAnimationProperties>> AnimationFinished;
+
     void Start()
     {
         StartCoroutine(UpdateSprite());    

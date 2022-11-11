@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 {
@@ -19,6 +20,7 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
     int spriteIndex = 0;
     Sequence currentlyPlaying;
 
+    public override event Action<EntityAnimation<JumpAnimationProperties>> AnimationFinished;
 
     private void Start()
     {

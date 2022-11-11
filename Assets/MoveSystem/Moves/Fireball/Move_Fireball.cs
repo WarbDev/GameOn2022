@@ -27,10 +27,6 @@ public class Move_Fireball : Move, IDamage
     public override void DoMove(Player player)
     {
         this.player = player;
-        if (locator != null)
-        {
-            throw new Exception("You cannot do a move while another move is running"); 
-        }
         locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
         locator.DeterminedLocations -= DoEffects;
         locator.DeterminedLocations += DoEffects;
@@ -73,7 +69,5 @@ public class Move_Fireball : Move, IDamage
         LocationUtility.TryGetTile(location, out endPoint);
 
         animation.PlayAnimation(endPoint.transform.position);
-
-        locator = null;
     }
 }

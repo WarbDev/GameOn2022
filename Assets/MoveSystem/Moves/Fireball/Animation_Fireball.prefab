@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -1133660939758460633}
   - component: {fileID: 6971762451775617113}
   - component: {fileID: 4590165011057803898}
+  - component: {fileID: 1832433300658058830}
+  - component: {fileID: -9050332943932631345}
   m_Layer: 0
   m_Name: Animation_Fireball
   m_TagString: Untagged
@@ -98,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be850e802c8d04142b77dd1bf6a5b7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileEase: 2
+  projectileFireball: {fileID: 1832433300658058830}
+  boomFireball: {fileID: -9050332943932631345}
 --- !u!114 &4590165011057803898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +117,39 @@ MonoBehaviour:
   animations:
     list:
     - Key: 1
-      Value: {fileID: 0}
+      Value: {fileID: 1832433300658058830}
     - Key: 2
-      Value: {fileID: 0}
+      Value: {fileID: -9050332943932631345}
     keyCollision: 0
+--- !u!114 &1832433300658058830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933564648966118571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b7b26deed7ba244bcd5affc143d101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 16
+  duration: 2
+  affectedTransform: {fileID: 7585738517785785045}
+  targetSprite: {fileID: -1133660939758460633}
+  spriteSet: {fileID: 11400000, guid: e7de8a8de2ca941488c73a87dcb1fecb, type: 2}
+--- !u!114 &-9050332943932631345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933564648966118571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2b354a5da8aa746ba53d09bb7b16af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  targetSprite: {fileID: -1133660939758460633}
+  spriteSet: {fileID: 11400000, guid: 6f5095c76f82a9446bce12711a513614, type: 2}

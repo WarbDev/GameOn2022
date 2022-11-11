@@ -21,7 +21,7 @@ public class UseAMove : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {
-            move.DoMove(this.GetComponent<Player>());
+            move.DoMove(GetComponent<Player>());
         }
     }
 

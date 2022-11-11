@@ -14,7 +14,7 @@ public abstract class EntityAnimation : MonoBehaviour
 // Inherit from this class rather than EntityAnimation
 public abstract class EntityAnimation<T> : EntityAnimation where T : IAnimationProperties
 {
-    public event Action<EntityAnimation<T>> AnimationFinished;
+    public abstract event Action<EntityAnimation<T>> AnimationFinished;
     public T AnimationProperties { get; }
     public abstract void Play(T animationProperties);
 }
