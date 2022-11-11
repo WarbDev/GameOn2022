@@ -11,7 +11,7 @@ public class PlayAnimationOnKeyDown : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            animateable.PlayAnimation(ANIMATION_ID.JUMP, new JumpAnimationProperties(transform.position, transform.position + Vector3.left));
+            animateable.PlayAnimation(ANIMATION_ID.ENTITY_JUMP, new JumpAnimationProperties(transform.position, transform.position + Vector3.left));
         }
     }
 }

@@ -39,7 +39,7 @@ public class RunEnemyMovementAnimation : MonoBehaviour
             if (hasEnemy)
             {
                 enemy.GetComponent<AnimatableEntity>()
-                    .PlayAnimation(ANIMATION_ID.JUMP, 
+                    .PlayAnimation(ANIMATION_ID.ENTITY_JUMP, 
                     new JumpAnimationProperties(LocationUtility.LocationToVector3(log.Start), LocationUtility.LocationToVector3(log.End)));
             }
             yield return new WaitForSeconds(0.1f);

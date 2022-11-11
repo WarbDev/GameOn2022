@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7585738517785785045}
   - component: {fileID: -1133660939758460633}
   - component: {fileID: 6971762451775617113}
-  - component: {fileID: -7284731410330061567}
+  - component: {fileID: 4590165011057803898}
   m_Layer: 0
   m_Name: Animation_Fireball
   m_TagString: Untagged
@@ -98,21 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be850e802c8d04142b77dd1bf6a5b7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectileClip: {fileID: 7400000, guid: 7292c3565c111f448b7ba024bab4b489, type: 2}
-  BoomClip: {fileID: 7400000, guid: df68fe689256cfb4ab1e02d71904490d, type: 2}
   projectileEase: 2
---- !u!111 &-7284731410330061567
-Animation:
+--- !u!114 &4590165011057803898
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5933564648966118571}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7292c3565c111f448b7ba024bab4b489, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc39e62da5845f43ab914c6ff2b0c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animations:
+    list:
+    - Key: 1
+      Value: {fileID: 0}
+    - Key: 2
+      Value: {fileID: 0}
+    keyCollision: 0
