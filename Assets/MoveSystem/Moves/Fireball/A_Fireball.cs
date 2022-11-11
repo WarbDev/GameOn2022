@@ -31,6 +31,10 @@ public class A_Fireball : MonoBehaviour
 
     private void End(EntityAnimation<BFireballAnimationProperties> obj)
     {
+
+        //ADD DAMAGE ENEMY ANIMATION
+
+
         boomFireball.AnimationFinished -= End;
         Destroy(gameObject);
     }

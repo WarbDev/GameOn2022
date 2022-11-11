@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageable, IHaveHealth
+public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageable, IHaveHealth, IPushable
 {
     Location location;
 
@@ -53,4 +53,12 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
         float newHealth = Health.ReduceHealth(damage.Base);
         return new DamageLog(this, oldHealth, newHealth, damage);
     }
+
+    //======================================================================IMPLIMENT=============================================================================================
+    public MoveLog Push(Location direction, int force)
+    {
+        Debug.Log("I HAVE BEEN PUSHED");
+        return null;
+    }
+    //======================================================================IMPLIMENT=============================================================================================
 }

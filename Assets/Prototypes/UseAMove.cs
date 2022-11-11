@@ -5,7 +5,8 @@ using UnityEngine;
 public class UseAMove : MonoBehaviour
 {
 
-    [SerializeField] Move move;
+    [SerializeField] Move moveA;
+    [SerializeField] Move moveB;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,15 @@ public class UseAMove : MonoBehaviour
     {
         if (transform.position.x < 0)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {
-            move.DoMove(GetComponent<Player>());
+            moveA.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            moveB.DoMove(GetComponent<Player>());
         }
     }
 
