@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+[CreateAssetMenu(menuName = "Moves/Wind")]
+public class Move_Wind : Move
+{
+    private ILocate locator;
+    [SerializeField] int range;
+    [SerializeField] int radius;
+    [SerializeField] int pushStrength;
+    [SerializeField] GameObject AnimationObject;
+    ShapeWithRadius rangeShape = LocationUtility.LocationsInSquareRadius;
+    ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
+    Player player;
+
+    public override void DoMove(Player player)
+    {
+        this.player = player;
+        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
+        locator.DeterminedLocations -= DoEffects;
+        locator.DeterminedLocations += DoEffects;
+        locator.StartLocate(this);
+    }
+
+    private void DoEffects(List<Location> locations)
+    {
+        locator.DeterminedLocations -= DoEffects;
+
+        Location selected = locations[0]; //locations[0] is the player-selected point
+        locations = effectShape(selected, radius);
+
+        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        List<PushLog> log = new();
+        foreach (Enemy enemy in enemies)
+        {
+            Location direction = enemy.Location - selected;
+            
+            log.Add(enemy.Push(direction, pushStrength));
+        }
+
+        PlayGraphics(selected, log);
+
+    }
+
+    private void PlayGraphics(Location location, List<PushLog> log)
+    {
+        GameObject Wind = Instantiate(AnimationObject);
+        A_Wind animation = Wind.GetComponent<A_Wind>();
+
+        MapTile endPoint;
+        LocationUtility.TryGetTile(location, out endPoint);
+        Wind.transform.position = endPoint.transform.position;
+
+        animation.PlayAnimation();
+    }
+}

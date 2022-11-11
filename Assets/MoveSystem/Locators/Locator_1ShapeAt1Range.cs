@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
-
 //Only outputs one location to the Move;
 public class Locator_1ShapeAt1Range : ILocate
 {

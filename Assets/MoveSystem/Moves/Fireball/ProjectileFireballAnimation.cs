@@ -28,7 +28,7 @@ public class ProjectileFireballAnimation : EntityAnimation<PFireballAnimationPro
     // Update is called once per frame
     void Update()
     {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count - 1, currentlyPlaying.Elapsed(), duration);
+        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), duration);
         targetSprite.sprite = spriteSet.Sprites[spriteIndex];
     }
 
@@ -46,12 +46,12 @@ public class ProjectileFireballAnimation : EntityAnimation<PFireballAnimationPro
 
     public override void Unpause()
     {
-        enabled = false;
+        enabled = true;
         if (currentlyPlaying != null) currentlyPlaying.Play();
     }
     public override void Pause()
     {
-        enabled = true;
+        enabled = false;
         if (currentlyPlaying != null) currentlyPlaying.Pause();
     }
 }

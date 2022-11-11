@@ -9,8 +9,6 @@ public class A_Fireball : MonoBehaviour
     [SerializeField] ProjectileFireballAnimation projectileFireball;
     [SerializeField] BoomFireballAnimation boomFireball;
 
-    private Vector3 endPoint;
-
     public void PlayAnimation(Vector3 endPoint)
     {
         projectileFireball.AnimationFinished -= Boom;

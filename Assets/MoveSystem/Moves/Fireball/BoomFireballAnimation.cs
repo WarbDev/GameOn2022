@@ -11,7 +11,6 @@ public class BoomFireballAnimation : EntityAnimation<BFireballAnimationPropertie
     [SerializeField] SpriteSet spriteSet;
 
     float startTime;
-
     int spriteIndex = 0;
 
     public override event Action<EntityAnimation<BFireballAnimationProperties>> AnimationFinished;
@@ -25,7 +24,7 @@ public class BoomFireballAnimation : EntityAnimation<BFireballAnimationPropertie
     // Update is called once per frame
     void Update()
     {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count - 1, Time.time - startTime, duration);
+        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, Time.time - startTime, duration);
         targetSprite.sprite = spriteSet.Sprites[spriteIndex];
         if (Time.time - startTime >= duration)
         {
@@ -41,11 +40,11 @@ public class BoomFireballAnimation : EntityAnimation<BFireballAnimationPropertie
 
     public override void Unpause()
     {
-        enabled = false;
+        enabled = true;
     }
     public override void Pause()
     {
-        enabled = true;
+        enabled = false;
     }
 }
 

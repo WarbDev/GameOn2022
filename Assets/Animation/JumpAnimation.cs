@@ -30,7 +30,7 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
     private void Update()
     {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count - 1, currentlyPlaying.Elapsed(), totalDuration);
+        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), totalDuration);
         targetSprite.sprite = spriteSet.Sprites[spriteIndex];
     }
 

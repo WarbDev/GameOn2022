@@ -4,5 +4,10 @@ using UnityEngine;
 
 public interface IPushable
 {
-    public MoveLog Push(Location direction, int force);
+    public PushLog Push(Location direction, int force);
+}
+
+public class PushLog
+{
+    MoveLog moveLog;
 }

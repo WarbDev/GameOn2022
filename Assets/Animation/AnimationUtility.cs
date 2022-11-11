@@ -4,14 +4,15 @@ using UnityEngine;
 
 public static class AnimationUtility
 {
-    //Takes the total index, and a float which ranges from 0 to 1
-    public static int IndexFromPercentage(int totalIndex, float percentage)
+    //Takes the total Count, and a float which ranges from 0 to 1
+    //If Float is above 1 returns totalIndex, to avoid OutOfBounds Exceptions
+    public static int IndexFromPercentage(int totalCount, float percentage)
     {
-        return Mathf.FloorToInt(Mathf.Min(totalIndex * percentage, totalIndex));
+        return Mathf.FloorToInt(Mathf.Min(totalCount * percentage, totalCount - 1));
     }
 
-    public static int CurrentSpriteIndex(int totalSpriteIndex, float elapsedTime, float totalTime)
+    public static int CurrentSpriteIndex(int totalSpriteCount, float elapsedTime, float totalTime)
     {
-        return IndexFromPercentage(totalSpriteIndex, elapsedTime / totalTime);
+        return IndexFromPercentage(totalSpriteCount, elapsedTime / totalTime);
     }
 }

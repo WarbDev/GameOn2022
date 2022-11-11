@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
-  m_Name: SPR_Boom_Fireball
+  m_Script: {fileID: 11500000, guid: ffb9429d6e3786941a49c634fd1dbf01, type: 3}
+  m_Name: Move_Wind
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 26d587870cb73e741a7a4d0bac879874, type: 3}
+  range: 0
+  radius: 0
+  pushStrength: 0
+  Projectile: {fileID: 0}

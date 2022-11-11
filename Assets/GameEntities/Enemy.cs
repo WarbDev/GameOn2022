@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
     }
 
     //======================================================================IMPLIMENT=============================================================================================
-    public MoveLog Push(Location direction, int force)
+    public PushLog Push(Location direction, int force)
     {
         Debug.Log("I HAVE BEEN PUSHED");
         return null;
