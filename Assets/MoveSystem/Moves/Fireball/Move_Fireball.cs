@@ -59,14 +59,19 @@ public class Move_Fireball : Move, IDamage
             //
         }
 
+        PlayGraphics(selected);
         
+    }
+
+    private void PlayGraphics(Location location)
+    {
         GameObject Fireball = Instantiate(Projectile);
         Fireball.transform.position = player.transform.position;
         A_Fireball animation = Fireball.GetComponent<A_Fireball>();
 
         MapTile endPoint;
-        LocationUtility.TryGetTile(selected, out endPoint);
-        
+        LocationUtility.TryGetTile(location, out endPoint);
+
         animation.PlayAnimation(endPoint.transform.position);
 
         locator = null;
