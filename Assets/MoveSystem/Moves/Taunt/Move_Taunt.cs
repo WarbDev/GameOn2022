@@ -15,11 +15,11 @@ public class Move_Taunt : Move
 
     public override void DoMove(Player player)
     {
-        this.player = player;
-        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
-        locator.DeterminedLocations -= DoEffects;
-        locator.DeterminedLocations += DoEffects;
-        locator.StartLocate(this);
+        //this.player = player;
+        //locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
+        //locator.DeterminedLocations -= DoEffects;
+        //locator.DeterminedLocations += DoEffects;
+        //locator.StartLocate(this);
     }
 
     private void DoEffects(List<Location> locations)
