@@ -74,6 +74,15 @@ public static class LocationUtility
             && GameMap.BottomBorder <= location.Y && location.Y <= GameMap.TopBorder);
     }
 
+    public static bool IsOccupied(Location location)
+    {
+        if (HasPlayer(location) || HasEnemy(location))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public static List<Location> LocationsInSquareRadius(Location l, int range)
     {
         List<Location> square = new();
@@ -109,6 +118,12 @@ public static class LocationUtility
             player = null;
         return hasPlayer;
     }
+
+    public static bool HasPlayer(Location location)
+    {
+        return GameMap.PlayersDictionary.ContainsKey(location);
+    }
+
     public static bool TryGetEnemy(Location location, out Enemy enemy)
     {
         bool hasEnemy = GameMap.EnemiesDictionary.TryGetValue(location, out IGameEntity enemyEntity);
@@ -118,6 +133,12 @@ public static class LocationUtility
             enemy = null;
         return hasEnemy;
     }
+
+    public static bool HasEnemy(Location location)
+    {
+        return GameMap.EnemiesDictionary.ContainsKey(location);
+    }
+
     public static List<Enemy> GetEnemiesInPositions(List<Location> positions)
     {
         List<Enemy> enemies = new List<Enemy>();
@@ -142,6 +163,12 @@ public static class LocationUtility
             tile = null;
         return tile;
     }
+
+    public static bool HasMapTile(Location location)
+    {
+        return GameMap.MapTilesDictionary.ContainsKey(location);
+    }
+
     public static List<MapTile> GetTilesInPositions(List<Location> positions)
     {
         List<MapTile> tiles = new List<MapTile>();
