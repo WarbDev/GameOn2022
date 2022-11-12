@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2df99681a4c5f4fbf7e4e37b2ae7bd, type: 3}
   m_Name: Move_Taunt
   m_EditorClassIdentifier: 
-  range: 0
-  force: 0
-  AnimatorObject: {fileID: 0}
+  range: 4
+  force: 2
+  AnimatorObject: {fileID: 634249668997598628, guid: f52a2c92851c61f478fbe632cca8a3e7, type: 3}

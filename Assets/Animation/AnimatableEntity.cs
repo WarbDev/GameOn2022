@@ -14,8 +14,17 @@ public class AnimatableEntity : MonoBehaviour
 
     public EntityAnimation<T> PlayAnimation<T>(ANIMATION_ID id, T animationProperties) where T : IAnimationProperties
     {
-        var animation = Animations[id] as EntityAnimation<T>;
-        animation.Play(animationProperties);
-        return animation;
+        if (Animations.ContainsKey(id))
+        {
+            var animation = Animations[id] as EntityAnimation<T>;
+            animation.Play(animationProperties);
+            return animation;
+        }
+        else
+        {
+            EntityAnimation<BadAnimationProperties> animation = BadAnimation.Instance;
+            animation.Play(new());
+            return animation as EntityAnimation<T>;
+        }
     }
 }

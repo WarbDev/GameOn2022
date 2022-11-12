@@ -68,6 +68,6 @@ public class Move_Fireball : Move, IDamage
         MapTile endPoint;
         LocationUtility.TryGetTile(location, out endPoint);
 
-        animation.PlayAnimation(endPoint.transform.position);
+        animation.PlayAnimation(endPoint.transform.position, log);
     }
 }

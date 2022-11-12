@@ -6,9 +6,11 @@ public class A_Fireball : MonoBehaviour
 {
     [SerializeField] ProjectileFireballAnimation projectileFireball;
     [SerializeField] BoomFireballAnimation boomFireball;
+    List<DamageLog> log;
 
-    public void PlayAnimation(Vector3 endPoint)
+    public void PlayAnimation(Vector3 endPoint, List<DamageLog> log)
     {
+        this.log = log;
         projectileFireball.AnimationFinished -= Boom;
         projectileFireball.AnimationFinished += Boom;
         projectileFireball.Play(new PFireballAnimationProperties(transform.position, endPoint));
@@ -27,8 +29,11 @@ public class A_Fireball : MonoBehaviour
 
     private void End(EntityAnimation<BFireballAnimationProperties> obj)
     {
-
-        //ADD DAMAGE ENEMY ANIMATION
+        log[0].Target.GameObject.GetComponent<AnimatableEntity>();
+        foreach(DamageLog damaged in log)
+        {
+            damaged.Target.GameObject.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+        }
 
 
         boomFireball.AnimationFinished -= End;
