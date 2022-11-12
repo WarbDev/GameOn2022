@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
 public class Locator_StaticArea : ILocate
 {
@@ -10,10 +10,12 @@ public class Locator_StaticArea : ILocate
     HighlightStaticArea highlighter;
 
     List<Location> area;
+    List<Location> otherArea; //Area on the opposite side of the players
 
     public Locator_StaticArea(List<Location> area)
     {
         this.area = LocationUtility.RemoveOffMapLocations(area);
+        otherArea = LocationUtility.FlipLocations(this.area);
     }
 
     public void StartLocate(Move move)
@@ -21,10 +23,10 @@ public class Locator_StaticArea : ILocate
         targeter = new Select_OneWithinRange();
         targeter.Selected -= SendLocation;
         targeter.Selected += SendLocation;
-        targeter.StartTargeting(area);
+        targeter.StartTargeting(area.Concat(otherArea).ToList());
 
         highlighter = HighlightStaticArea.Instance;
-        highlighter.StartHighlighting(area);
+        highlighter.StartHighlighting(area, otherArea);
     }
 
     private void SendLocation(Location location)

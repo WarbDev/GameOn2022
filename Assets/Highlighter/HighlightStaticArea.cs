@@ -9,7 +9,7 @@ public class HighlightStaticArea : MonoBehaviour, IHighlighter
     IClickChecker tileClickerListener;
     [SerializeField] Highlighter highlighter;
     private List<Location> availableArea;
-
+    private List<Location> otherArea;
 
     public static HighlightStaticArea Instance;
 
@@ -18,9 +18,10 @@ public class HighlightStaticArea : MonoBehaviour, IHighlighter
         Instance = this;
     }
 
-    public void StartHighlighting(List<Location> area)
+    public void StartHighlighting(List<Location> area, List<Location> otherArea)
     {
         availableArea = area;
+        this.otherArea = otherArea;
         tileClickerListener = GlobalClickListener.Instance.MapTileListener;
         tileClickerListener.EntityMousedOver += HighlightTiles;
     }
@@ -38,6 +39,11 @@ public class HighlightStaticArea : MonoBehaviour, IHighlighter
         if (availableArea.Contains(location))
         {
             var locationsToHighlight = availableArea.ToHashSet();
+            highlighter.HighlightTiles(locationsToHighlight);
+        } 
+        else if (otherArea.Contains(location))
+        {
+            var locationsToHighlight = otherArea.ToHashSet();
             highlighter.HighlightTiles(locationsToHighlight);
         }
         else

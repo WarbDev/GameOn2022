@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class A_Taunt : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TauntAnimation animate;
+
+    public void PlayAnimation(List<PushLog> log)
     {
-        
+        animate.AnimationFinished -= End;
+        animate.AnimationFinished += End;
+        animate.Play(new TauntAnimationProperties());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void End(EntityAnimation<TauntAnimationProperties> obj)
     {
-        
+
+        //ADD TAUNTED ENEMY ANIMATION
+
+
+        animate.AnimationFinished -= End;
+        Destroy(gameObject);
     }
 }

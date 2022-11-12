@@ -31,26 +31,33 @@ public class Move_Taunt : Move
         locator.DeterminedLocations -= DoEffects;
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        List<PushLog> log = new();
         foreach (Enemy enemy in enemies)
         {
-           // log.Add(enemy.Push(Directions.W, force));
+            if (enemy.Location.X > 0)
+            {
+                log.Add(enemy.Push(Directions.W, force));
+            }
+            else
+            {
+                log.Add(enemy.Push(Directions.E, force));
+            }
+           
         }
 
-        PlayGraphics(new());
+        PlayGraphics(log);
 
     }
 
 
-    private void PlayGraphics(Location location)
+    private void PlayGraphics(List<PushLog> log)
     {
         GameObject animator = Instantiate(AnimatorObject);
         animator.transform.position = player.transform.position;
         A_Taunt animation = animator.GetComponent<A_Taunt>();
 
-        MapTile endPoint;
-        LocationUtility.TryGetTile(location, out endPoint);
 
-        //animation.PlayAnimation(endPoint.transform.position);
+        animation.PlayAnimation(log);
     }
 
 }

@@ -55,11 +55,11 @@ public class Move_Fireball : Move, IDamage
             //
         }
 
-        PlayGraphics(selected);
+        PlayGraphics(selected, log);
         
     }
 
-    private void PlayGraphics(Location location)
+    private void PlayGraphics(Location location, List<DamageLog> log)
     {
         GameObject Fireball = Instantiate(Projectile);
         Fireball.transform.position = player.transform.position;
