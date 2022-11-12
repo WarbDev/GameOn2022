@@ -49,7 +49,17 @@ public static class LocationUtility
         return columns;
     }
 
-
+    //Gives all of the locations on the opposite side of the 
+    //Center Player line, as if mirrored
+    public static List<Location> FlipLocations(List<Location> locations)
+    {
+        List<Location> flippedLocations = new();
+        foreach(Location loc in locations)
+        {
+            flippedLocations.Add(new Location(loc.X * -1, loc.Y));
+        }
+        return flippedLocations;
+    }
 
     public static List<Location> RemoveOffMapLocations(IEnumerable<Location> locations)
     {

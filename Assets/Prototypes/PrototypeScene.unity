@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0fad501017a541bdadfe9bcdadbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveA: {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+  moveA: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
   moveB: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
 --- !u!1 &693446712
 GameObject:
@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 693446713}
   - component: {fileID: 693446715}
   - component: {fileID: 693446716}
+  - component: {fileID: 693446717}
   m_Layer: 0
   m_Name: DevEnemySpawner
   m_TagString: Untagged
@@ -522,6 +523,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39b9bfa300b22df44b73307ba8bb914d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlighter: {fileID: 693446715}
+--- !u!114 &693446717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693446712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080d16cff90487d4190ec0d9d01af0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highlighter: {fileID: 693446715}
