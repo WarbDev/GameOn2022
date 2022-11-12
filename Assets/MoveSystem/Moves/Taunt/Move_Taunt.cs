@@ -7,7 +7,8 @@ public class Move_Taunt : Move
 
     private ILocate locator;
     [SerializeField] int range;
-    [SerializeField] GameObject animatorObject;
+    [SerializeField] int force;
+    [SerializeField] GameObject AnimatorObject;
     public int Range { get => range; }
     ShapeWithRadiusAndDirection rangeShape = LocationUtility.LocationsInLine;
     Player player;
@@ -15,48 +16,37 @@ public class Move_Taunt : Move
 
     public override void DoMove(Player player)
     {
-        //this.player = player;
-        //locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
-        //locator.DeterminedLocations -= DoEffects;
-        //locator.DeterminedLocations += DoEffects;
-        //locator.StartLocate(this);
+        this.player = player;
+        List<Location> area = rangeShape(player.Location + Directions.E, range, Directions.E);
+        locator = new Locator_StaticArea(area);
+        locator.DeterminedLocations -= DoEffects;
+        locator.DeterminedLocations += DoEffects;
+        locator.StartLocate(this);
     }
 
     private void DoEffects(List<Location> locations)
     {
-        //locator.DeterminedLocations -= DoEffects;
+        locator.DeterminedLocations -= DoEffects;
 
-        //Location selected = locations[0]; //locations[0] is the player-selected point
-        //locations = effectShape(selected, radius);
+        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        foreach (Enemy enemy in enemies)
+        {
+           // log.Add(enemy.Push(Directions.W, force));
+        }
 
-        //List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
-        //List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
-        //List<DamageLog> log = new();
-        //foreach (Enemy enemy in enemies)
-        //{
-        //    log.Add(enemy.DealDamage(new DamageDetails(damage, player)));
-        //}
-        //foreach (MapTile tile in tiles)
-        //{
-        //    //
-        //    //SET TILES ON FIRE
-        //    //TERRAIN MODIFIER
-        //    //
-        //}
-
-        //PlayGraphics(selected);
+        PlayGraphics(new());
 
     }
 
 
     private void PlayGraphics(Location location)
     {
-        //GameObject Fireball = Instantiate(Projectile);
-        //Fireball.transform.position = player.transform.position;
-        //A_Fireball animation = Fireball.GetComponent<A_Fireball>();
+        GameObject animator = Instantiate(AnimatorObject);
+        animator.transform.position = player.transform.position;
+        A_Taunt animation = animator.GetComponent<A_Taunt>();
 
-        //MapTile endPoint;
-        //LocationUtility.TryGetTile(location, out endPoint);
+        MapTile endPoint;
+        LocationUtility.TryGetTile(location, out endPoint);
 
         //animation.PlayAnimation(endPoint.transform.position);
     }
