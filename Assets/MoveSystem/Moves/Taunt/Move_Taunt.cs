@@ -36,11 +36,11 @@ public class Move_Taunt : Move
         {
             if (enemy.Location.X > 0)
             {
-                log.Add(enemy.Push(Directions.W, force));
+                // log.Add(enemy.Push(Directions.W, force));
             }
             else
             {
-                log.Add(enemy.Push(Directions.E, force));
+                // log.Add(enemy.Push(Directions.E, force));
             }
            
         }

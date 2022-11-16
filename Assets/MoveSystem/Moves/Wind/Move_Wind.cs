@@ -35,7 +35,7 @@ public class Move_Wind : Move
         {
             Location direction = enemy.Location - selected;
             
-            log.Add(enemy.Push(direction, pushStrength));
+            // log.Add(enemy.Push(direction, pushStrength));
         }
 
         PlayGraphics(selected, log);

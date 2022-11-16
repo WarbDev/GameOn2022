@@ -54,11 +54,9 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
         return new DamageLog(this, oldHealth, newHealth, damage);
     }
 
-    //======================================================================IMPLIMENT=============================================================================================
-    public PushLog Push(Location direction, int force)
+    public bool IsObstructedAt(Location location)
     {
-        Debug.Log("I HAVE BEEN PUSHED");
-        return null;
+        throw new System.NotImplementedException();
     }
     //======================================================================IMPLIMENT=============================================================================================
 }
