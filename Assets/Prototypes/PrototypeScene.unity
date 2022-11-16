@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0fad501017a541bdadfe9bcdadbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveA: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
+  moveA: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
   moveB: {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
 --- !u!1 &693446712
 GameObject:
@@ -651,10 +651,10 @@ AudioSource:
   m_GameObject: {fileID: 1847739093}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b8b13dd0d2841d24ca284f0ecd31103a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.029
   m_Pitch: 1
   Loop: 0
   Mute: 0

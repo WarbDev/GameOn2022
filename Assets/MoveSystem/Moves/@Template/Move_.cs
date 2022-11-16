@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Moves/DONOTUSETHISMOVERIGHTHEREITSBROKEN")]
 public class Move_ : Move
 {
     private ILocate locator;
