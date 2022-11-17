@@ -47,5 +47,7 @@ public struct Location
     public static Location operator -(Location a, Location b) => new Location(a.X - b.X, a.Y - b.Y);
     public static Location operator *(Location a, Location b) => new Location(a.X * b.X, a.Y * b.Y);
     public static Location operator *(Location a, int b) => new Location(a.X * b, a.Y * b);
+    public static bool operator ==(Location a, Location b) => a.Equals(b);
+    public static bool operator !=(Location a, Location b) => !a.Equals(b);
     public static implicit operator Location((int, int) t) => new Location(t.Item1, t.Item2);
 }
