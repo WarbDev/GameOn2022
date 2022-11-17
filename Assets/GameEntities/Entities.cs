@@ -26,6 +26,22 @@ public class Entities : MonoBehaviour
         }
     }
 
+    public static void AddEntity(IGameEntity entity)
+    {
+        if (entity.EntityType == EntityType.ENEMY)
+        {
+            EnemyCollection.AddEntity(entity as Enemy);
+        }
+        if (entity.EntityType == EntityType.MAPTILE)
+        {
+            MapTileCollection.AddEntity(entity as MapTile);
+        }
+        if (entity.EntityType == EntityType.PLAYER)
+        {
+            PlayerCollection.AddEntity(entity as Player);
+        }
+    }
+
     public static Enemy SpawnEnemy(Location location, GameObject enemyPrefab)
     {
         MapTile mapTile;

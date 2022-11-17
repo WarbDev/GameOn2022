@@ -14,5 +14,9 @@ public class MapTile : MonoBehaviour, IGameEntity
         Destroy(gameObject);
     }
 
-
+    public bool IsObstructedBy(IGameEntity entity)
+    {
+        Debug.Log("IsObstructedBy IS NOT IMPLIMENTED");
+        return false;
+    }
 }

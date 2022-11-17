@@ -54,9 +54,13 @@ public class Enemy : MonoBehaviour, IGameEntity, ICanMakeMoveRequests, IDamageab
         return new DamageLog(this, oldHealth, newHealth, damage);
     }
 
+    public bool IsObstructedBy(IGameEntity entity)
+    {
+        return entity != null;
+    }
+
     public bool IsObstructedAt(Location location)
     {
         throw new System.NotImplementedException();
     }
-    //======================================================================IMPLIMENT=============================================================================================
 }

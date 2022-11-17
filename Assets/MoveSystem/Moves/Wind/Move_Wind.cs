@@ -31,12 +31,16 @@ public class Move_Wind : Move
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
         List<PushLog> log = new();
+        List<PushRequest> requests = new();
         foreach (Enemy enemy in enemies)
         {
             Location direction = enemy.Location - selected;
-            
-            // log.Add(enemy.Push(direction, pushStrength));
+
+            requests.Add(new PushRequest(enemy, direction, pushStrength));
         }
+
+        log = Push.CalculatePushes(requests);
+        Push.DoPushes(log);
 
         PlayGraphics(selected, log);
 
@@ -50,6 +54,11 @@ public class Move_Wind : Move
         MapTile endPoint;
         LocationUtility.TryGetTile(location, out endPoint);
         Wind.transform.position = endPoint.transform.position;
+
+        foreach (PushLog lo in log)
+        {
+            lo.MoveLog.Entity.GameObject.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        }
 
         animation.PlayAnimation();
     }

@@ -448,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0fad501017a541bdadfe9bcdadbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveA: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
-  moveB: {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+  moveA: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
+  moveB: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
 --- !u!1 &693446712
 GameObject:
   m_ObjectHideFlags: 0

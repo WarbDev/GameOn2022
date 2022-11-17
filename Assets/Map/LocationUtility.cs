@@ -184,6 +184,31 @@ public static class LocationUtility
         return tiles;
     }
 
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NOT_IMPLEMENTED++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public static List<IGameEntity> GetEntitiesAtPosition(Location position)
+    {
+        Enemy enemy;
+        TryGetEnemy(position, out enemy);
+        List<IGameEntity> list = new();
+        list.Add(enemy);
+        return list;
+    }
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NOT_IMPLEMENTED++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public static Location CalculateRelativeLocationFromDirectionAndMagnitude(Location direction, int magnitude)
+    {
+        if (direction.X == 0 && direction.Y == 0)
+        {
+            return direction;
+        }
+        float maxDistance = Mathf.Max(Mathf.Abs(direction.X), Mathf.Abs(direction.Y));
+        float proportionalMagnitude = (float) magnitude / maxDistance;
+        float x = direction.X * proportionalMagnitude;
+        float y = direction.Y * proportionalMagnitude;
+        Location endPoint = new Location((int) Mathf.Round(x), (int) Mathf.Round(y));
+        return endPoint;
+    }
+
     public static Vector3 LocationToVector3(Location loc)
     {
         float scale = 1;

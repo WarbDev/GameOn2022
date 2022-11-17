@@ -240,6 +240,23 @@ public class GameMap : MonoBehaviour
         EnemiesDictionary.Add(to, enemy);
     }
 
+    //the indexes of the list of enemies and the list of locations must match
+    //and must match each other 
+    //i.e. enemies[3] will move to togo[3]
+    public static void MoveEnemies(List<IGameEntity> enemies, List<Location> togo)
+    {
+        foreach (IGameEntity enemy in enemies)
+        {
+            Location oldLocation = enemy.Location;
+            EnemiesDictionary.Remove(oldLocation);
+        }
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].Location = togo[i];
+            EnemiesDictionary.Add(togo[i], enemies[i]);
+        }
+    }
+
     void OnEntityAdded(IGameEntity entity)
     {
         typeDictionary[entity.EntityType].Add(entity.Location, entity);

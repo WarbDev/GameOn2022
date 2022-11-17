@@ -8,6 +8,8 @@ public interface IGameEntity
     public Location Location { get; set; }
     public EntityType EntityType { get; }
 
+    public bool IsObstructedBy(IGameEntity entity);
+
     public void DestroyEntity();
 }
 

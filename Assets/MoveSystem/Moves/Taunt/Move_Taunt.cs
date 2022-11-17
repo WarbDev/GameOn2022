@@ -29,21 +29,33 @@ public class Move_Taunt : Move
     private void DoEffects(List<Location> locations)
     {
         locator.DeterminedLocations -= DoEffects;
+        List<Location> area;
+        if (locations[0].X > 0)
+        {
+            area = rangeShape(player.Location + Directions.E, range, Directions.E);
+        }
+        else
+        {
+            area = rangeShape(player.Location + Directions.W, range, Directions.W);
+        }
 
-        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(area);
         List<PushLog> log = new();
+        List<PushRequest> requests = new();
         foreach (Enemy enemy in enemies)
         {
+            Location direction = Directions.E;
             if (enemy.Location.X > 0)
             {
-                // log.Add(enemy.Push(Directions.W, force));
+                direction = Directions.W;
             }
-            else
-            {
-                // log.Add(enemy.Push(Directions.E, force));
-            }
-           
+            
+
+            requests.Add(new PushRequest(enemy, direction, force));
         }
+
+        log = Push.CalculatePushes(requests);
+        Push.DoPushes(log);
 
         PlayGraphics(log);
 
@@ -56,6 +68,10 @@ public class Move_Taunt : Move
         animator.transform.position = player.transform.position;
         A_Taunt animation = animator.GetComponent<A_Taunt>();
 
+        foreach (PushLog lo in log)
+        {
+            lo.MoveLog.Entity.GameObject.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        }
 
         animation.PlayAnimation(log);
     }

@@ -25,4 +25,10 @@ public class Player : MonoBehaviour, IGameEntity, IDamageable, IHaveHealth
     {
         Destroy(gameObject);
     }
+
+    public bool IsObstructedBy(IGameEntity entity)
+    {
+        Debug.Log("IsObstructedBy IS NOT IMPLIMENTED");
+        return false;
+    }
 }
