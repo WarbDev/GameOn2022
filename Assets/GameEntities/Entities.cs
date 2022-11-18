@@ -9,6 +9,7 @@ public class Entities : MonoBehaviour
     public static Entities<Enemy> EnemyCollection = new();
     public static Entities<Player> PlayerCollection = new();
     public static Entities<MapTile> MapTileCollection = new();
+    public static Entities<ITerrain> TerrainCollection = new();
 
     public static void RemoveEntity(IGameEntity entity)
     {
@@ -23,6 +24,10 @@ public class Entities : MonoBehaviour
         if (entity.EntityType == EntityType.PLAYER)
         {
             PlayerCollection.RemoveEntity(entity as Player);
+        }
+        if (entity.EntityType == EntityType.TERRAIN)
+        {
+            TerrainCollection.RemoveEntity(entity as ITerrain);
         }
     }
 
@@ -39,6 +44,10 @@ public class Entities : MonoBehaviour
         if (entity.EntityType == EntityType.PLAYER)
         {
             PlayerCollection.AddEntity(entity as Player);
+        }
+        if (entity.EntityType == EntityType.TERRAIN)
+        {
+            TerrainCollection.AddEntity(entity as ITerrain);
         }
     }
 
@@ -60,6 +69,7 @@ public class Entities : MonoBehaviour
         EnemyCollection.RemoveAll();
         PlayerCollection.RemoveAll();
         MapTileCollection.RemoveAll();
+        TerrainCollection.RemoveAll();
     }
     // important code
 }

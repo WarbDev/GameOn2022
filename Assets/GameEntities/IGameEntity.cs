@@ -17,5 +17,6 @@ public enum EntityType
 {
     PLAYER,
     ENEMY,
-    MAPTILE
+    MAPTILE,
+    TERRAIN
 }

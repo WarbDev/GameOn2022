@@ -32,6 +32,7 @@ public class GameMap : MonoBehaviour
     static Dictionary<Location, IGameEntity> mapTilesDictionary = new();
     static Dictionary<Location, IGameEntity> playersDictionary = new();
     static Dictionary<Location, IGameEntity> enemiesDictionary = new();
+    static Dictionary<Location, IGameEntity> terrainDictionary = new();
     static Dictionary<EntityType, Dictionary<Location, IGameEntity>> typeDictionary = new();
 
     public static Dictionary<Location, List<Location>> NeighborsDictionary
@@ -57,6 +58,12 @@ public class GameMap : MonoBehaviour
         get => enemiesDictionary;
         private set => enemiesDictionary = value;
     }
+
+    public static Dictionary<Location, IGameEntity> TerrainDictionary
+    {
+        get => terrainDictionary;
+        private set => terrainDictionary = value;
+    }
     #endregion
 
 
@@ -69,10 +76,12 @@ public class GameMap : MonoBehaviour
         mapTilesDictionary = new();
         playersDictionary = new();
         enemiesDictionary = new();
+        terrainDictionary = new();
 
         typeDictionary.Add(EntityType.ENEMY, EnemiesDictionary);
         typeDictionary.Add(EntityType.PLAYER, PlayersDictionary);
         typeDictionary.Add(EntityType.MAPTILE, MapTilesDictionary);
+        typeDictionary.Add(EntityType.TERRAIN, TerrainDictionary);
 
         BottomBorder = 1;
 
@@ -84,6 +93,9 @@ public class GameMap : MonoBehaviour
 
         Entities.MapTileCollection.EntityAdded += OnEntityAdded;
         Entities.MapTileCollection.EntityRemoved += OnEntityRemoved;
+
+        Entities.TerrainCollection.EntityAdded += OnEntityAdded;
+        Entities.TerrainCollection.EntityRemoved += OnEntityRemoved;
     }
 
     private void OnDestroy()
@@ -96,6 +108,9 @@ public class GameMap : MonoBehaviour
 
         Entities.MapTileCollection.EntityAdded -= OnEntityAdded;
         Entities.MapTileCollection.EntityRemoved -= OnEntityRemoved;
+
+        Entities.TerrainCollection.EntityAdded -= OnEntityAdded;
+        Entities.TerrainCollection.EntityRemoved -= OnEntityRemoved;
     }
 
     private void Start()
