@@ -9,6 +9,7 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
     [SerializeField] float duration;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteSet spriteSet;
+    [SerializeField] AudioClip clip;
 
     float startTime;
     int spriteIndex = 0;
@@ -37,6 +38,7 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
         transform.position = animationProperties.EndPosition;
         enabled = true;
         startTime = Time.time;
+        GlobalAudioSource.Instance.Play(clip);
     }
 
     public override void Unpause()

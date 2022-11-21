@@ -9,6 +9,7 @@ public class WindAnimation : EntityAnimation<WindAnimationProperties>
     [SerializeField] float duration;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteSet spriteSet;
+    [SerializeField] AudioClip clip;
 
     public override event Action<EntityAnimation<WindAnimationProperties>> AnimationFinished;
     
@@ -24,6 +25,7 @@ public class WindAnimation : EntityAnimation<WindAnimationProperties>
     {
         enabled = true;
         startTime = Time.time;
+        GlobalAudioSource.Instance.Play(clip);
     }
 
     public override void Unpause()

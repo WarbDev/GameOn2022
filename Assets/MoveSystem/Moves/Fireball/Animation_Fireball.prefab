@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b7b26deed7ba244bcd5affc143d101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ease: 16
-  duration: 2
+  ease: 8
+  duration: 0.7
   affectedTransform: {fileID: 7585738517785785045}
   targetSprite: {fileID: -1133660939758460633}
   spriteSet: {fileID: 11400000, guid: e7de8a8de2ca941488c73a87dcb1fecb, type: 2}
@@ -153,3 +153,4 @@ MonoBehaviour:
   duration: 0.5
   targetSprite: {fileID: -1133660939758460633}
   spriteSet: {fileID: 11400000, guid: 6f5095c76f82a9446bce12711a513614, type: 2}
+  clip: {fileID: 8300000, guid: c5c32763ff369ee4baf648367ad3b60b, type: 3}
