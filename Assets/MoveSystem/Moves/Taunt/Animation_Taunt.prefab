@@ -132,3 +132,4 @@ MonoBehaviour:
   duration: 1
   targetSprite: {fileID: -3711650053066214805}
   spriteSet: {fileID: 11400000, guid: 4db9d05891465e74e80433671be04989, type: 2}
+  clip: {fileID: 8300000, guid: 2242f15cdcc869d46af3f4d3903e00d5, type: 3}

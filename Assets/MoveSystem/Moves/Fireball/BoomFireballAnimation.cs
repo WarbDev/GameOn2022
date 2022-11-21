@@ -9,6 +9,7 @@ public class BoomFireballAnimation : EntityAnimation<BFireballAnimationPropertie
     [SerializeField] float duration;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteSet spriteSet;
+    [SerializeField] AudioClip clip;
 
     float startTime;
     int spriteIndex = 0;
@@ -36,6 +37,7 @@ public class BoomFireballAnimation : EntityAnimation<BFireballAnimationPropertie
     {
         enabled = true;
         startTime = Time.time;
+        GlobalAudioSource.Instance.Play(clip);
     }
 
     public override void Unpause()

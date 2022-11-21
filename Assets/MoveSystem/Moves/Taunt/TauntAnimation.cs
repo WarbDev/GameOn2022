@@ -9,6 +9,7 @@ public class TauntAnimation : EntityAnimation<TauntAnimationProperties>
     [SerializeField] float duration;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteSet spriteSet;
+    [SerializeField] AudioClip clip;
 
     float startTime;
     int spriteIndex = 0;
@@ -36,6 +37,7 @@ public class TauntAnimation : EntityAnimation<TauntAnimationProperties>
     {
         enabled = true;
         startTime = Time.time;
+        GlobalAudioSource.Instance.Play(clip);
     }
 
     public override void Unpause()
