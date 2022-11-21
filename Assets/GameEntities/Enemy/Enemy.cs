@@ -21,23 +21,6 @@ public class Enemy : GameEntity, IHaveDamageable, IPushableEntity, IObstructingE
     [SerializeField] Obstruction obstruction;
     public IObstruct Obstruct { get => obstruction; }
 
-    public MoveLog DoTurnMovement()
-    {
-        if (LocationUtility.TryGetEnemy((Location.X + DirectionTowardsPlayers(), Location.Y), out Enemy enemy))
-        {
-            return null;
-        }
-        Location newLocation = (Location.X + DirectionTowardsPlayers(), Location.Y);
-        MoveLog moveLog = new MoveLog(this, location, newLocation);
-        GameMap.MoveEnemy(this, newLocation);
-        return moveLog;
-
-        int DirectionTowardsPlayers()
-        {
-            return System.Math.Sign(Location.X * -1);
-        }
-    }
-
     public override void DestroyEntity()
     {
         Destroy(gameObject);

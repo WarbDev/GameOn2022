@@ -6,14 +6,19 @@ using System.Linq;
 
 public class RunEnemyMovement : MonoBehaviour
 {
-    MoveLog CalculateEnemyMovement(Enemy enemy)
+    Queue<Enemy> Initialize()
     {
-        MoveLog log = enemy.DoTurnMovement();
-        return log;
+        Queue<Enemy> enemiesToCalculate = new();
+        foreach (var column in LocationUtility.AllColumns())
+        {
+            foreach (var location in column)
+            {
+                if (LocationUtility.TryGetEnemy(location, out Enemy enemy))
+                {
+                    enemiesToCalculate.Enqueue(enemy);
+                }
+            }
+        }
+        return enemiesToCalculate;
     }
-}
-
-public class EnemyMovementTurn
-{
-    public event Action ReadyForNextTurn;
 }
