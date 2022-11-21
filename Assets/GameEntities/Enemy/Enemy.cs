@@ -19,6 +19,8 @@ public class Enemy : GameEntity, IHaveDamageable, IPushableEntity, IObstructingE
     public Pushable Pushing { get => pushable; }
     public ObstructionChecker ObstructionChecker { get => pushable.ObstructionChecker; }
     [SerializeField] Obstruction obstruction;
+    [SerializeField] EnemyMovement enemyMovement;
+    public EnemyMovement EnemyMovement { get => enemyMovement; }
     public IObstruct Obstruct { get => obstruction; }
 
     public override void DestroyEntity()

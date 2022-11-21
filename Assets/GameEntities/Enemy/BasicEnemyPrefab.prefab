@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3825177805928922417}
   - component: {fileID: 2058947421420331837}
   - component: {fileID: 373659571355388555}
+  - component: {fileID: -4302722198924480434}
   m_Layer: 0
   m_Name: BasicEnemyPrefab
   m_TagString: Untagged
@@ -58,6 +59,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3742150126084035941}
   pushable: {fileID: 2058947421420331837}
   obstruction: {fileID: 373659571355388555}
+  enemyMovement: {fileID: -4302722198924480434}
 --- !u!114 &-7149672031301082918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +175,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   obstructionTagList: 00000000
+--- !u!114 &-4302722198924480434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801775929619048066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a6600569adcfb4aa9c473efa49ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  obstructionChecker: {fileID: 3825177805928922417}
+  animatableEntity: {fileID: 5847531353693503317}
 --- !u!1 &4152826136885527659
 GameObject:
   m_ObjectHideFlags: 0
