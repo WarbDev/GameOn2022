@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveA: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
-  moveB: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
+  moveB: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
 --- !u!1 &693446712
 GameObject:
   m_ObjectHideFlags: 0
