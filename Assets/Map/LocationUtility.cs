@@ -49,6 +49,22 @@ public static class LocationUtility
         return columns;
     }
 
+    // Generates all columns,
+    // first generates all right columns from center->left
+    // then generates all right columns from center->right
+    public static IEnumerable<List<Location>> AllColumns()
+    {
+        for (int i = -1; i >= GameMap.LeftBorder; i--)
+        {
+            yield return LocationUtility.GetColumn(i);
+        }
+
+        for (int i = 1; i <= GameMap.RightBorder; i++)
+        {
+            yield return LocationUtility.GetColumn(i);
+        }
+    }
+
     //Gives all of the locations on the opposite side of the 
     //Center Player line, as if mirrored
     public static List<Location> FlipLocations(List<Location> locations)
@@ -111,7 +127,7 @@ public static class LocationUtility
 
     public static bool TryGetPlayer(Location location, out Player player)
     {
-        bool hasPlayer = GameMap.PlayersDictionary.TryGetValue(location, out IGameEntity playerEntity);
+        bool hasPlayer = GameMap.PlayersDictionary.TryGetValue(location, out GameEntity playerEntity);
         if (hasPlayer)
             player = playerEntity as Player;
         else
@@ -126,7 +142,7 @@ public static class LocationUtility
 
     public static bool TryGetEnemy(Location location, out Enemy enemy)
     {
-        bool hasEnemy = GameMap.EnemiesDictionary.TryGetValue(location, out IGameEntity enemyEntity);
+        bool hasEnemy = GameMap.EnemiesDictionary.TryGetValue(location, out GameEntity enemyEntity);
         if (hasEnemy)
             enemy = enemyEntity as Enemy;
         else
@@ -156,7 +172,7 @@ public static class LocationUtility
 
     public static bool TryGetTile(Location location, out MapTile tile)
     {
-        bool hasTile = GameMap.MapTilesDictionary.TryGetValue(location, out IGameEntity tileEntity);
+        bool hasTile = GameMap.MapTilesDictionary.TryGetValue(location, out GameEntity tileEntity);
         if (hasTile)
             tile = tileEntity as MapTile;
         else
@@ -184,16 +200,34 @@ public static class LocationUtility
         return tiles;
     }
 
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NOT_IMPLEMENTED++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    public static List<IGameEntity> GetEntitiesAtPosition(Location position)
+    
+    public static List<GameEntity> GetEntitiesAtPosition(Location position)
     {
-        Enemy enemy;
-        TryGetEnemy(position, out enemy);
-        List<IGameEntity> list = new();
-        list.Add(enemy);
-        return list;
+        var entities = new List<GameEntity>();
+        foreach (var dic in GameMap.AllEntityDictionaries)
+        {
+            if (dic.ContainsKey(position))
+            {
+                entities.Add(dic[position]);
+            }
+        }
+        return entities;
     }
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++NOT_IMPLEMENTED++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    public static List<IObstructingEntity> GetObstructionsAtPosition(Location position)
+    {
+        var entities = GetEntitiesAtPosition(position);
+        var obstructions = new List<IObstructingEntity>();
+        foreach (var entity in entities)
+        {
+            var obstructingEntity = entity as IObstructingEntity;
+            if (obstructingEntity != null)
+            {
+                obstructions.Add(obstructingEntity);
+            }
+        }
+        return obstructions;
+    }
 
     public static Location CalculateRelativeLocationFromDirectionAndMagnitude(Location direction, int magnitude)
     {
@@ -213,5 +247,32 @@ public static class LocationUtility
     {
         float scale = 1;
         return new Vector3(loc.X * scale, loc.Y * scale);
+    }
+
+    // Takes two lists and places the elements of each list one after another as many times as possible.
+    // If one list has fewer elements than the other, then the remaining elements of the longer list will
+    // be simply all added at the end.
+    static List<T> Interweave<T>(ref List<T> list1, ref List<T> list2) where T : IList
+    {
+        List<T> interweavedList = new();
+        int highestCount = list1.Count;
+        if (list1.Count < list2.Count)
+        {
+            highestCount = list2.Count;
+        }
+
+        for (int i = 0; i < highestCount; i++)
+        {
+            if (i < list1.Count)
+            {
+                interweavedList.Add(list1[i]);
+            }
+
+            if (i < list2.Count)
+            {
+                interweavedList.Add(list2[i]);
+            }
+        }
+        return interweavedList;
     }
 }

@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapTile : MonoBehaviour, IGameEntity
+public class MapTile : GameEntity
 {
     Location location;
-    public Location Location { get => location; set => location = value; }
-    public EntityType EntityType { get => EntityType.MAPTILE; }
+    public override Location Location { get => location; protected set => location = value; }
+    public override EntityType EntityType { get => EntityType.MAPTILE; }
     public GameObject GameObject { get => gameObject; }
 
-    public void DestroyEntity()
+    public override void DestroyEntity()
     {
         Destroy(gameObject);
     }
 
-    public bool IsObstructedBy(IGameEntity entity)
+    public bool IsObstructedBy(GameEntity entity)
     {
         Debug.Log("IsObstructedBy IS NOT IMPLIMENTED");
         return false;

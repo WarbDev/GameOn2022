@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IGameEntity, IDamageable, IHaveHealth
+public class Player : GameEntity, IHaveHealth
 {
     Location location;
-    public Location Location { get => location; set => location = value; }
-    public EntityType EntityType { get => EntityType.PLAYER; }
+    public override Location Location { get => location; protected set => location = value; }
+    public override EntityType EntityType { get => EntityType.PLAYER; }
     public Health Health { get => health; set => health = value; }
 
     public GameObject GameObject { get => gameObject; }
@@ -14,21 +14,8 @@ public class Player : MonoBehaviour, IGameEntity, IDamageable, IHaveHealth
     public string Name;
 
     [SerializeField] Health health;
-
-    public DamageLog DealDamage(DamageDetails damage)
-    {
-        float oldHealth = Health.CurrentHealth;
-        float newHealth = Health.ReduceHealth(damage.Base);
-        return new DamageLog(this, oldHealth, newHealth, damage);
-    }
-    public void DestroyEntity()
+    public override void DestroyEntity()
     {
         Destroy(gameObject);
-    }
-
-    public bool IsObstructedBy(IGameEntity entity)
-    {
-        Debug.Log("IsObstructedBy IS NOT IMPLIMENTED");
-        return false;
     }
 }

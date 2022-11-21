@@ -9,9 +9,9 @@ public class Entities : MonoBehaviour
     public static Entities<Enemy> EnemyCollection = new();
     public static Entities<Player> PlayerCollection = new();
     public static Entities<MapTile> MapTileCollection = new();
-    public static Entities<ITerrain> TerrainCollection = new();
+    public static Entities<TerrainBase> TerrainCollection = new();
 
-    public static void RemoveEntity(IGameEntity entity)
+    public static void RemoveEntity(GameEntity entity)
     {
         if (entity.EntityType == EntityType.ENEMY)
         {
@@ -27,11 +27,11 @@ public class Entities : MonoBehaviour
         }
         if (entity.EntityType == EntityType.TERRAIN)
         {
-            TerrainCollection.RemoveEntity(entity as ITerrain);
+            TerrainCollection.RemoveEntity(entity as TerrainBase);
         }
     }
 
-    public static void AddEntity(IGameEntity entity)
+    public static void AddEntity(GameEntity entity)
     {
         if (entity.EntityType == EntityType.ENEMY)
         {
@@ -47,7 +47,7 @@ public class Entities : MonoBehaviour
         }
         if (entity.EntityType == EntityType.TERRAIN)
         {
-            TerrainCollection.AddEntity(entity as ITerrain);
+            TerrainCollection.AddEntity(entity as TerrainBase);
         }
     }
 
@@ -58,7 +58,7 @@ public class Entities : MonoBehaviour
         Location tileLocation = mapTile.Location;
         var enemy = Instantiate(enemyPrefab);
         enemy.GetComponent<Transform>().position = new Vector2(tileLocation.X, tileLocation.Y);
-        enemy.GetComponent<IGameEntity>().Location = tileLocation;
+        enemy.GetComponent<Enemy>().SetLocation(tileLocation);
         enemy.GetComponent<Enemy>().SpriteRenderer.flipX = (tileLocation.X < 0);
         Entities.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
         return enemy.GetComponent<Enemy>();
@@ -74,7 +74,7 @@ public class Entities : MonoBehaviour
     // important code
 }
 
-public class Entities<T> where T : IGameEntity
+public class Entities<T> where T : GameEntity
 {
     HashSet<T> entities = new();
 

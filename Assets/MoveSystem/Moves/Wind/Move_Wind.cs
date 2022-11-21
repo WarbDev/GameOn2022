@@ -57,7 +57,7 @@ public class Move_Wind : Move
 
         foreach (PushLog lo in log)
         {
-            lo.MoveLog.Entity.GameObject.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
         }
 
         animation.PlayAnimation();

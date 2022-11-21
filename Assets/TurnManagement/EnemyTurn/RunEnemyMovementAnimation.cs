@@ -10,11 +10,6 @@ public class RunEnemyMovementAnimation : MonoBehaviour
     bool isPlaying = false;
     public bool IsPlaying { get => isPlaying; }
 
-    private void Awake()
-    {
-        enemyTurn.CalculatedEnemiesMovement += PrepareMovement;
-    }
-
     public void Play()
     {
         isPlaying = true;

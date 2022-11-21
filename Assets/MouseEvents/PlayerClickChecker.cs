@@ -21,25 +21,25 @@ public class PlayerClickChecker : MonoBehaviour, IClickChecker
 
     void OnClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.PLAYER)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.PLAYER)
             EntityClicked?.Invoke(entity);
     }
 
     void OnRightClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.PLAYER)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.PLAYER)
             EntityRightClicked?.Invoke(entity);
     }
 
     void OnMousedOver(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.PLAYER)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.PLAYER)
             EntityMousedOver?.Invoke(entity);
     }
 
     void OnMousedOff(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.PLAYER)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.PLAYER)
             EntityMousedOff?.Invoke(entity);
     }
 }

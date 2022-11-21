@@ -20,25 +20,25 @@ public class MapTileClickChecker : MonoBehaviour, IClickChecker
 
     void OnClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.MAPTILE)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.MAPTILE)
             EntityClicked?.Invoke(entity);
     }
 
     void OnRightClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.MAPTILE)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.MAPTILE)
             EntityRightClicked?.Invoke(entity);
     }
 
     void OnMousedOver(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.MAPTILE)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.MAPTILE)
             EntityMousedOver?.Invoke(entity);
     }
 
     void OnMousedOff(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.MAPTILE)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.MAPTILE)
             EntityMousedOff?.Invoke(entity);
     }
 }

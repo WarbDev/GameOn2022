@@ -26,7 +26,7 @@ public class HighlightOnMouseOver : MonoBehaviour
 
     public void HighlightTiles(ClickableEntity entity)
     {
-        var locationsToHighlight = LocationUtility.LocationsInSquareRadius(entity.GetComponent<IGameEntity>().Location, highlightRange).ToHashSet();
+        var locationsToHighlight = LocationUtility.LocationsInSquareRadius(entity.GetComponent<GameEntity>().Location, highlightRange).ToHashSet();
         highlighter.HighlightTiles(locationsToHighlight);
     }
 }

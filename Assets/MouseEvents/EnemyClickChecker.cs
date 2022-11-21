@@ -21,25 +21,25 @@ public class EnemyClickChecker : MonoBehaviour, IClickChecker
 
     void OnClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.ENEMY)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.ENEMY)
             EntityClicked?.Invoke(entity);
     }
 
     void OnRightClicked(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.ENEMY)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.ENEMY)
             EntityRightClicked?.Invoke(entity);
     }
 
     void OnMousedOver(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.ENEMY)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.ENEMY)
             EntityMousedOver?.Invoke(entity);
     }
 
     void OnMousedOff(ClickableEntity entity)
     {
-        if (entity.GetComponent<IGameEntity>().EntityType == EntityType.ENEMY)
+        if (entity.GetComponent<GameEntity>().EntityType == EntityType.ENEMY)
             EntityMousedOff?.Invoke(entity);
     }
 }

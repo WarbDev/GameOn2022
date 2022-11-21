@@ -41,7 +41,7 @@ public class Move_Punch : Move
         List<DamageLog> log = new();
         foreach (Enemy enemy in enemies)
         {
-            log.Add(enemy.DealDamage(new DamageDetails(damage, player)));
+            log.Add(enemy.Damageable.DealDamage(new DamageDetails(damage, player)));
         }
 
         PlayGraphics(selected, log);

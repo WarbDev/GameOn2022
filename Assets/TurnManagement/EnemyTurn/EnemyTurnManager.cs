@@ -8,9 +8,15 @@ public class EnemyTurnManager : MonoBehaviour
     [SerializeField] RunEnemyMovement MovementCalculation;
     [SerializeField] RunEnemyMovementAnimation MovementAnimator;
 
-    void Awake()
+    void RunEnemyTurn()
     {
-        MovementCalculation.Finished += RunAnimation;
+        // Calculate movement
+        // Play movement animations
+
+        // Calculate actions
+        // Play action animations
+
+        // Spawn in new wave
     }
 
     void RunAnimation()

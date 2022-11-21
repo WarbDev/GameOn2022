@@ -13,7 +13,7 @@ public class SpawnEnemyOnM2 : MonoBehaviour
 
     void SpawnEnemy(ClickableEntity tile)
     {
-        Location location = tile.gameObject.GetComponent<IGameEntity>().Location;
+        Location location = tile.gameObject.GetComponent<GameEntity>().Location;
         if (LocationUtility.TryGetEnemy(location, out Enemy e))
         {
             return;

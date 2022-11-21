@@ -37,7 +37,7 @@ public class HighlightEffectArea : MonoBehaviour, IHighlighter
 
     public void HighlightTiles(ClickableEntity entity)
     {
-        Location location = entity.GetComponent<IGameEntity>().Location;
+        Location location = entity.GetComponent<GameEntity>().Location;
         if (availableRange.Contains(location))
         {
             var locationsToHighlight = effectShape(location, radius).ToHashSet();

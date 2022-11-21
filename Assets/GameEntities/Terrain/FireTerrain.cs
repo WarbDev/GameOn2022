@@ -2,29 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireTerrain : MonoBehaviour, ITerrain
+public class FireTerrain : TerrainBase
 {
     Location location;
 
     public GameObject GameObject { get => gameObject; }
 
-    public Location Location { get => location; set => location = value; }
+    public override Location Location { get => location; protected set => location = value; }
 
-    public EntityType EntityType { get => EntityType.TERRAIN; }
+    public override EntityType EntityType { get => EntityType.TERRAIN; }
 
-    public void DestroyEntity()
+    public override void DestroyEntity()
     {
         Destroy(gameObject);
-    }
-
-    public bool IsObstructedBy(IGameEntity entity)
-    {
-        throw new System.NotImplementedException();
     }
 
     public void OnEntityMoveOver()
     {
 
     }
-
 }

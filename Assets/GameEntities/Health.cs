@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     public float CurrentHealth { get => currentHealth; }
     public float MaxHealth { get => maxHealth; }
 
-    public static event Action<IGameEntity> LostAllHealth;
+    public static event Action<GameEntity> LostAllHealth;
 
     public float ReduceHealth(float reduction)
     {
@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
             {
                 currentHealth = 0f;
                 reachedZeroHealth = true;
-                LostAllHealth?.Invoke(gameObject.GetComponent<IGameEntity>());
+                LostAllHealth?.Invoke(gameObject.GetComponent<GameEntity>());
             }
         }
         return currentHealth;

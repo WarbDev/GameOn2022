@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITerrain : IGameEntity
+public abstract class TerrainBase : GameEntity
 {
-    public void OnEntityMoveOver();
 
 }

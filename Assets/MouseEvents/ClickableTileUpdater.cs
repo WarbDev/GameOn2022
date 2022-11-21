@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickableTileUpdater : MonoBehaviour, IObserveTiles
+public class ClickableTileUpdater : MonoBehaviour
 {
     [SerializeField] ClickListener clickListener;
     void Awake()

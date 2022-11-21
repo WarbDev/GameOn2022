@@ -26,7 +26,7 @@ public class GameTileCreator : MonoBehaviour
     {
         GameObject gridTile = Instantiate(tilePrefab);
         MapTile tileScript = gridTile.GetComponent<MapTile>();
-        tileScript.Location = (location.X, location.Y);
+        tileScript.SetLocation((location.X, location.Y));
         var targetPosition = Location2Position(location.X, location.Y);
         tileScript.transform.position = new Vector3(targetPosition.x, targetPosition.y, 50f);
         var targetVector3overshoot = new Vector3(targetPosition.x, targetPosition.y, -0.3f);

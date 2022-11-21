@@ -30,8 +30,8 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
     private void Update()
     {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), totalDuration);
-        targetSprite.sprite = spriteSet.Sprites[spriteIndex];
+        // spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), totalDuration);
+        // targetSprite.sprite = spriteSet.Sprites[spriteIndex];
     }
 
     public override void Pause()
@@ -55,14 +55,9 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
         currentlyPlaying = jumpSequence;
         jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x) / 2f, properties.EndPosition.y + jumpHeight), jumpStartDuration));
-        jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.EndPosition.x, properties.EndPosition.y), jumpEndDuration)).OnComplete(jumpComplete);
-
-        void jumpComplete()
-        {
-            jumpSequence.Append(affectedTransform.DOScaleY(0.8f, squishStartDuration).SetEase(squishEase));
-            jumpSequence.Append(affectedTransform.DOScaleY(1f, squishEndDuration).SetEase(squishEase));
-        }
-
+        jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.EndPosition.x, properties.EndPosition.y), jumpEndDuration));
+        jumpSequence.Append(affectedTransform.DOScaleY(0.8f, squishStartDuration).SetEase(squishEase));
+        jumpSequence.Append(affectedTransform.DOScaleY(1f, squishEndDuration).SetEase(squishEase));
     }
 
     public override void Unpause()

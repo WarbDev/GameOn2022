@@ -35,7 +35,7 @@ public class HighlightStaticArea : MonoBehaviour, IHighlighter
 
     public void HighlightTiles(ClickableEntity entity)
     {
-        Location location = entity.GetComponent<IGameEntity>().Location;
+        Location location = entity.GetComponent<GameEntity>().Location;
         if (availableArea.Contains(location))
         {
             var locationsToHighlight = availableArea.ToHashSet();

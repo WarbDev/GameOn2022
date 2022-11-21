@@ -29,11 +29,12 @@ public class GameMap : MonoBehaviour
 
     #region GameEntity Dictionaries
     static Dictionary<Location, List<Location>> neighborsDictionary = new();
-    static Dictionary<Location, IGameEntity> mapTilesDictionary = new();
-    static Dictionary<Location, IGameEntity> playersDictionary = new();
-    static Dictionary<Location, IGameEntity> enemiesDictionary = new();
-    static Dictionary<Location, IGameEntity> terrainDictionary = new();
-    static Dictionary<EntityType, Dictionary<Location, IGameEntity>> typeDictionary = new();
+    static Dictionary<Location, GameEntity> mapTilesDictionary = new();
+    static Dictionary<Location, GameEntity> playersDictionary = new();
+    static Dictionary<Location, GameEntity> enemiesDictionary = new();
+    static Dictionary<Location, GameEntity> terrainDictionary = new();
+    static Dictionary<EntityType, Dictionary<Location, GameEntity>> typeDictionary = new();
+    static List<Dictionary<Location, GameEntity>> allEntityDictionaries = new();
 
     public static Dictionary<Location, List<Location>> NeighborsDictionary
     {
@@ -41,29 +42,36 @@ public class GameMap : MonoBehaviour
         private set => neighborsDictionary = value; 
     }
 
-    public static Dictionary<Location, IGameEntity> MapTilesDictionary
+    public static Dictionary<Location, GameEntity> MapTilesDictionary
     {
         get => mapTilesDictionary;
         private set => mapTilesDictionary = value; 
     }
 
-    public static Dictionary<Location, IGameEntity> PlayersDictionary
+    public static Dictionary<Location, GameEntity> PlayersDictionary
     {
         get => playersDictionary;
         private set => playersDictionary = value;
     }
 
-    public static Dictionary <Location, IGameEntity> EnemiesDictionary
+    public static Dictionary <Location, GameEntity> EnemiesDictionary
     {
         get => enemiesDictionary;
         private set => enemiesDictionary = value;
     }
 
-    public static Dictionary<Location, IGameEntity> TerrainDictionary
+    public static Dictionary<Location, GameEntity> TerrainDictionary
     {
         get => terrainDictionary;
         private set => terrainDictionary = value;
     }
+
+    public static List<Dictionary<Location, GameEntity>> AllEntityDictionaries
+    { 
+        get => allEntityDictionaries;
+        private set => allEntityDictionaries = value; 
+    }
+
     #endregion
 
 
@@ -82,6 +90,11 @@ public class GameMap : MonoBehaviour
         typeDictionary.Add(EntityType.PLAYER, PlayersDictionary);
         typeDictionary.Add(EntityType.MAPTILE, MapTilesDictionary);
         typeDictionary.Add(EntityType.TERRAIN, TerrainDictionary);
+
+        allEntityDictionaries.Add(EnemiesDictionary);
+        allEntityDictionaries.Add(PlayersDictionary);
+        allEntityDictionaries.Add(MapTilesDictionary);
+        allEntityDictionaries.Add(TerrainDictionary);
 
         BottomBorder = 1;
 
@@ -219,7 +232,7 @@ public class GameMap : MonoBehaviour
         MapExpanded?.Invoke(newLocations);
     }
 
-    public static void MovePlayer(IGameEntity player, Location to)
+    public static void MovePlayer(GameEntity player, Location to)
     {
         if (PlayersDictionary.ContainsKey(to))
         {
@@ -230,10 +243,10 @@ public class GameMap : MonoBehaviour
         PlayersDictionary.Remove(oldLocation);
         PlayersDictionary.Add(to, player);
 
-        player.Location = to;
+        player.GetComponent<Player>().SetLocation(to);
     }
 
-    public static void SwapPlayers(IGameEntity player1, IGameEntity player2)
+    public static void SwapPlayers(GameEntity player1, GameEntity player2)
     {
         Location location1 = player1.Location;
         Location location2 = player2.Location;
@@ -243,40 +256,45 @@ public class GameMap : MonoBehaviour
 
         Location tempLocation = new Location(player1.Location.X, player1.Location.Y);
 
-        player1.Location = new Location(player2.Location.X, player2.Location.Y);
-        player2.Location = tempLocation;
+        player1.GetComponent<Player>().SetLocation(new Location(player2.Location.X, player2.Location.Y));
+        player2.GetComponent<Player>().SetLocation(tempLocation);
     }
 
-    public static void MoveEnemy(IGameEntity enemy, Location to)
+    public static void MoveEnemy(GameEntity enemy, Location to)
     {
         Location oldLocation = enemy.Location;
         EnemiesDictionary.Remove(oldLocation);
-        enemy.Location = to;
+        enemy.GetComponent<Enemy>().SetLocation(to);
         EnemiesDictionary.Add(to, enemy);
     }
 
     //the indexes of the list of enemies and the list of locations must match
     //and must match each other 
     //i.e. enemies[3] will move to togo[3]
-    public static void MoveEnemies(List<IGameEntity> enemies, List<Location> togo)
+    public static void MoveEnemies(List<GameEntity> enemies, List<Location> togo)
     {
-        foreach (IGameEntity enemy in enemies)
+        if (enemies.Count != togo.Count)
+        {
+            throw new Exception("Count of enemies to move and locations to go to is not the same!");
+        }
+
+        foreach (GameEntity enemy in enemies)
         {
             Location oldLocation = enemy.Location;
             EnemiesDictionary.Remove(oldLocation);
         }
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].Location = togo[i];
+            enemies[i].GetComponent<Enemy>().SetLocation(togo[i]);
             EnemiesDictionary.Add(togo[i], enemies[i]);
         }
     }
 
-    void OnEntityAdded(IGameEntity entity)
+    void OnEntityAdded(GameEntity entity)
     {
         typeDictionary[entity.EntityType].Add(entity.Location, entity);
     }
-    void OnEntityRemoved(IGameEntity entity)
+    void OnEntityRemoved(GameEntity entity)
     {
         typeDictionary[entity.EntityType].Remove(entity.Location);
     }

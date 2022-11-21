@@ -5,7 +5,7 @@ using System.Linq;
 
 public class RemoveDeadEntities : MonoBehaviour
 {
-    HashSet<IGameEntity> deadEntities = new HashSet<IGameEntity>();
+    HashSet<GameEntity> deadEntities = new HashSet<GameEntity>();
     private void Start()
     {
         Entities.PlayerCollection.EntityRemoved += RemoveFromDeathPool;
@@ -21,12 +21,12 @@ public class RemoveDeadEntities : MonoBehaviour
         }
     }
 
-    void AddToDeathPool(IGameEntity entity)
+    void AddToDeathPool(GameEntity entity)
     {
         deadEntities.Add(entity);
     }
 
-    void RemoveFromDeathPool(IGameEntity entity)
+    void RemoveFromDeathPool(GameEntity entity)
     {
         if (deadEntities.Contains(entity))
         {
