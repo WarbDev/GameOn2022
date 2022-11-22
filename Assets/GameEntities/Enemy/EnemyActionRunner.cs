@@ -15,6 +15,7 @@ public class EnemyActionRunner : MonoBehaviour
 
     IEnumerator RunEachAction()
     {
+        yield return null;
         bool readyForNext;
         Queue<Enemy> enemiesToCalculate = LocationUtility.MakeQueueOfEnemiesInColumns();
 
@@ -26,11 +27,10 @@ public class EnemyActionRunner : MonoBehaviour
             var enemy = enemiesToCalculate.Dequeue();
 
             enemy.EnemyAction.ActionFinished += IndicateReady;
-            enemy.EnemyMovement.DoTurnMovement();
-            yield return new WaitUntil(() => readyForNext);
+            enemy.EnemyAction.DoEnemyAction();
+            yield return new WaitUntil(() => readyForNext == true);
         }
 
-        StopCoroutine(enemyTurnActionCoroutine);
         Finished?.Invoke();
 
         // Simple unsubscription and bool set to allow the Coroutine to continue.

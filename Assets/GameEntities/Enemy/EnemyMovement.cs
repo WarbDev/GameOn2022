@@ -28,6 +28,10 @@ public class EnemyMovement : EntityComponent
 
             animation.AnimationFinished += OnAnimationFinished;
         }
+        else
+        {
+            MovementFinished?.Invoke(this);
+        }
 
         void OnAnimationFinished<T>(EntityAnimation<T> animation) where T : IAnimationProperties
         {

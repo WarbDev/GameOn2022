@@ -58,6 +58,12 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
         jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.EndPosition.x, properties.EndPosition.y), jumpEndDuration));
         jumpSequence.Append(affectedTransform.DOScaleY(0.8f, squishStartDuration).SetEase(squishEase));
         jumpSequence.Append(affectedTransform.DOScaleY(1f, squishEndDuration).SetEase(squishEase));
+        jumpSequence.OnComplete(() => invokeComplete());
+
+        void invokeComplete()
+        {
+            AnimationFinished?.Invoke(this);
+        }
     }
 
     public override void Unpause()

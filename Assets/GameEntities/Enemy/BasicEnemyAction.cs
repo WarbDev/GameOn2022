@@ -6,10 +6,12 @@ using UnityEngine;
 public class BasicEnemyAction : EnemyAction
 {
     public override event Action<EnemyAction> ActionFinished;
+    static int timesDone = 0;
 
     public override void DoEnemyAction()
     {
-        Debug.Log("Enemy did action!");
+        timesDone++;
+        Debug.Log("Enemy did action! " + timesDone);
         ActionFinished?.Invoke(this);
     }
 }

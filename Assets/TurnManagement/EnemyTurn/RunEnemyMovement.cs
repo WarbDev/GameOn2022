@@ -31,6 +31,7 @@ public class RunEnemyMovement : MonoBehaviour
 
     IEnumerator RunEachMovement()
     {
+        yield return null;
         bool readyForNext;
         Queue<Enemy> enemiesToCalculate = LocationUtility.MakeQueueOfEnemiesInColumns();
 
@@ -55,12 +56,8 @@ public class RunEnemyMovement : MonoBehaviour
                 enemy.EnemyMovement.DoTurnMovement();
                 yield return new WaitForSeconds(timer);
             }
-            
-            
-            
         }
 
-        StopCoroutine(enemyTurnMovementCoroutine);
         Finished?.Invoke();
 
         // Simple unsubscription and bool set to allow the Coroutine to continue.
