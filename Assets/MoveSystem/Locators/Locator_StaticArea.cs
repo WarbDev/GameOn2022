@@ -10,12 +10,10 @@ public class Locator_StaticArea : ILocate
     HighlightStaticArea highlighter;
 
     List<Location> area;
-    List<Location> otherArea; //Area on the opposite side of the players
 
     public Locator_StaticArea(List<Location> area)
     {
         this.area = LocationUtility.RemoveOffMapLocations(area);
-        otherArea = LocationUtility.FlipLocations(this.area);
     }
 
     public void StartLocate(Move move)
@@ -23,10 +21,10 @@ public class Locator_StaticArea : ILocate
         targeter = new Select_OneWithinRange();
         targeter.Selected -= SendLocation;
         targeter.Selected += SendLocation;
-        targeter.StartTargeting(area.Concat(otherArea).ToList());
+        targeter.StartTargeting(area.Concat(LocationUtility.FlipLocations(area)).ToList());
 
         highlighter = HighlightStaticArea.Instance;
-        highlighter.StartHighlighting(area, otherArea);
+        highlighter.StartHighlighting(area);
     }
 
     private void SendLocation(Location location)

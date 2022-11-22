@@ -285,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29709f12fdedc094b806ea05a77a62c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTurn: {fileID: 60067707}
 --- !u!114 &60067707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3939e005b1c1ddd4892fd34095f510ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTimer: 1
+  timer: 0.1
 --- !u!4 &60067708
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveA: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
-  moveB: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
+  moveB: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
 --- !u!1 &693446712
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f745ed8e8578840be02b277ac4aefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d8ee7fbbe3530ca42925ff6f191b6562, type: 3}
+  clip: {fileID: 8300000, guid: 85345faf8f0e194408398ad3fc2a1e15, type: 3}
 --- !u!1001 &1613639157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,7 +655,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: b8b13dd0d2841d24ca284f0ecd31103a, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.029
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
