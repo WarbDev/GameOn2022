@@ -10,7 +10,7 @@ public class EnemyMovement : EntityComponent
 
 
     Location Location { get => GameEntity.Location; }
-    public event Action<EnemyMovement> EnemyMovementAnimationFinished;
+    public event Action<EnemyMovement> MovementFinished;
 
     // Calculates movement, changes position on map, and runs animation.
     // Once the animation is finished, EnemyMovementAnimationFinished is invoked.
@@ -32,7 +32,7 @@ public class EnemyMovement : EntityComponent
         void OnAnimationFinished<T>(EntityAnimation<T> animation) where T : IAnimationProperties
         {
             animation.AnimationFinished -= OnAnimationFinished;
-            EnemyMovementAnimationFinished?.Invoke(this);
+            MovementFinished?.Invoke(this);
         }
         
 

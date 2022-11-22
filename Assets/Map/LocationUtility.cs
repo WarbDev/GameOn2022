@@ -65,6 +65,25 @@ public static class LocationUtility
         }
     }
 
+    // Get all enemies. Goes through each column from the center to the right,
+    // then goes through each column from center to the left
+    public static Queue<Enemy> MakeQueueOfEnemiesInColumns()
+    {
+        Queue<Enemy> enemiesToCalculate = new();
+        foreach (var column in LocationUtility.AllColumns())
+        {
+            foreach (var location in column)
+            {
+                if (LocationUtility.TryGetEnemy(location, out Enemy enemy))
+                {
+                    enemiesToCalculate.Enqueue(enemy);
+                }
+            }
+        }
+        return enemiesToCalculate;
+    }
+
+
     //Gives all of the locations on the opposite side of the 
     //Center Player line, as if mirrored
     public static List<Location> FlipLocations(List<Location> locations)

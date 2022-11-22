@@ -20,7 +20,10 @@ public class Enemy : GameEntity, IHaveDamageable, IPushableEntity, IObstructingE
     public ObstructionChecker ObstructionChecker { get => pushable.ObstructionChecker; }
     [SerializeField] Obstruction obstruction;
     [SerializeField] EnemyMovement enemyMovement;
+    [SerializeField] EnemyAction enemyAction;
     public EnemyMovement EnemyMovement { get => enemyMovement; }
+    public EnemyAction EnemyAction { get => enemyAction; }
+
     public IObstruct Obstruct { get => obstruction; }
 
     public override void DestroyEntity()

@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using System.Linq;
 
+/// <summary>
+/// Runs each enemy's movement. Has FinishedRunningMovements as a callback.
+/// </summary> 
 public class RunEnemyMovement : MonoBehaviour
 {
     [Tooltip("If checked, the script will run the next enemy turn after the timer value. " +
@@ -16,35 +19,20 @@ public class RunEnemyMovement : MonoBehaviour
     Coroutine enemyTurnMovementCoroutine;
 
     // Called once all enemies are finished with their movement.
-    public event Action FinishedRunningMovements;
+    public event Action Finished;
 
+    /// <summary>
+    /// Gets all of the enemies on the map and runs through each of their turns. Invokes Finishedonce done.
+    /// </summary> 
     public void RunEnemyMovements()
     {
         enemyTurnMovementCoroutine = StartCoroutine(RunEachMovement());
     }
 
-    // Get all enemies. Goes through each column from the center to the right,
-    // then goes through each column from center to the left
-    Queue<Enemy> Initialize()
-    {
-        Queue<Enemy> enemiesToCalculate = new();
-        foreach (var column in LocationUtility.AllColumns())
-        {
-            foreach (var location in column)
-            {
-                if (LocationUtility.TryGetEnemy(location, out Enemy enemy))
-                {
-                    enemiesToCalculate.Enqueue(enemy);
-                }
-            }
-        }
-        return enemiesToCalculate;
-    }
-
     IEnumerator RunEachMovement()
     {
         bool readyForNext;
-        Queue<Enemy> enemiesToCalculate = Initialize();
+        Queue<Enemy> enemiesToCalculate = LocationUtility.MakeQueueOfEnemiesInColumns();
 
         // This loop stops after the last enemy's turn has been ran.
         while (enemiesToCalculate.Count > 0)
@@ -56,27 +44,29 @@ public class RunEnemyMovement : MonoBehaviour
             // If not using the timer, pause the method until the animation of the latest enemy turn ends.
             if (!useTimer)
             {
-                enemy.EnemyMovement.EnemyMovementAnimationFinished += IndicateReady;
+                enemy.EnemyMovement.MovementFinished += IndicateReady;
+                enemy.EnemyMovement.DoTurnMovement();
                 yield return new WaitUntil(() => readyForNext);
             }
 
             // If using the timer, pause the method until the timer in seconds has passed.
-            else
+            if (useTimer)
             {
+                enemy.EnemyMovement.DoTurnMovement();
                 yield return new WaitForSeconds(timer);
             }
             
-            enemy.EnemyMovement.DoTurnMovement();
+            
             
         }
 
         StopCoroutine(enemyTurnMovementCoroutine);
-        FinishedRunningMovements?.Invoke();
+        Finished?.Invoke();
 
         // Simple unsubscription and bool set to allow the Coroutine to continue.
         void IndicateReady(EnemyMovement enemyMovement)
         {
-            enemyMovement.EnemyMovementAnimationFinished -= IndicateReady;
+            enemyMovement.MovementFinished -= IndicateReady;
             readyForNext = true;
         }
     }
