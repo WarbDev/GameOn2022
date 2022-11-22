@@ -133,11 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 729271206}
   - component: {fileID: 729271205}
-  - component: {fileID: 729271207}
   - component: {fileID: 729271208}
-  - component: {fileID: 729271210}
-  - component: {fileID: 729271209}
   - component: {fileID: 729271211}
+  - component: {fileID: 729271212}
+  - component: {fileID: 729271213}
   m_Layer: 0
   m_Name: EnemyTurnRunner
   m_TagString: Untagged
@@ -157,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3939e005b1c1ddd4892fd34095f510ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTimer: 0
+  timer: 0.1
 --- !u!4 &729271206
 Transform:
   m_ObjectHideFlags: 0
@@ -172,19 +173,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &729271207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729271204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29709f12fdedc094b806ea05a77a62c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTurn: {fileID: 729271205}
 --- !u!114 &729271208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,33 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f0ddaac22648a42bfc4ede72d32882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &729271209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729271204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c897328b6410a41aa5b3e3a028be7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  batch: {fileID: 729271210}
-  PrefabDictionary: {fileID: 11400000, guid: a918e9aada6139f479ec0ed68f273e06, type: 2}
---- !u!114 &729271210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729271204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1c8b8b31a577a644b4c268901ed9e5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  batchPool: 0000000001000000020000000200000000000000010000000000000001000000000000000200000000000000
 --- !u!114 &729271211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +197,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916db682a043e3648ab6b45c767f3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementCalculation: {fileID: 729271205}
-  MovementAnimator: {fileID: 729271207}
+  enemyMovementRunner: {fileID: 729271205}
+  enemyActionRunner: {fileID: 729271212}
+--- !u!114 &729271212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729271204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b9f5b0de4df734a9cd4d4214f90916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &729271213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729271204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5503fdf464af81f4a9e19dfe5f53993c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveToRun: {fileID: 11400000, guid: 7983b72ec082ebb4c9e403951e144da4, type: 2}
+  PrefabDictionary:
+    list:
+    - Key: 0
+      Value: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
+    keyCollision: 0
 --- !u!1 &741557216 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 229536629642190163, guid: 40229a3e3b249b241b82ce842fd3b9d1, type: 3}

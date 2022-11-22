@@ -5,6 +5,5 @@ using UnityEngine;
 public enum ENEMY_TYPE
 {
     REGULAR,
-    GAMER,
-    SUPER_COOL
+    NONE
 }

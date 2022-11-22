@@ -18,6 +18,18 @@ public static class LocationUtility
         return list;
     }
 
+    public static List<Location> GetEndColumn(MAP_SIDE side)
+    {
+        if (side == MAP_SIDE.LEFT)
+        {
+            return GetLeftEndColumn();
+        }
+        else
+        {
+            return GetRightEndColumn();
+        }
+    }
+
     public static List<Location> GetRightEndColumn()
     {
         if (GameMap.RightBorder != 0)
@@ -246,6 +258,58 @@ public static class LocationUtility
             }
         }
         return obstructions;
+    }
+
+    public static bool HasObstructionsAtPosition(Location position)
+    {
+        return GetObstructionsAtPosition(position).Count > 0;
+    }
+
+    public static List<Location> GetLocationsWithNoObstruction(List<Location> locationsToCheck)
+    {
+        List<Location> unobstructedLocations = new();
+        foreach (var location in locationsToCheck)
+        {
+            if (!HasObstructionsAtPosition(location))
+            {
+                unobstructedLocations.Add(location);
+            }
+        }
+        return unobstructedLocations;
+    }
+    public static List<Location> GetLocationsWithAnyObstruction(List<Location> locationsToCheck)
+    {
+        List<Location> obstructedLocations = new();
+        foreach (var location in locationsToCheck)
+        {
+            if (HasObstructionsAtPosition(location))
+            {
+                obstructedLocations.Add(location);
+            }
+        }
+        return obstructedLocations;
+    }
+
+    public static List<Location> GetLongestUnobstructedLocationSequence(IEnumerable<Location> locations)
+    {
+        List<Location> longestChain = new();
+        List<Location> currentChain = new();
+        foreach(var location in locations)
+        {
+            if (!HasObstructionsAtPosition(location))
+            {
+                currentChain.Add(location);
+            }
+            else
+            {
+                if (longestChain.Count < currentChain.Count)
+                {
+                    longestChain =  new List<Location>(currentChain);
+                }
+                currentChain = new();
+            }
+        }
+        return longestChain;
     }
 
     public static Location CalculateRelativeLocationFromDirectionAndMagnitude(Location direction, int magnitude)
