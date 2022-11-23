@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Batch Group", menuName = "ScriptableObjects/BatchGroup")]
 public class BatchGroup : BatchBase
 {
-    [SerializeField] List<BatchBase> batches;
+    [SerializeField] List<BatchBase> batches = new();
     int currentBatch = 0;
     public override void ResetBatch()
     {

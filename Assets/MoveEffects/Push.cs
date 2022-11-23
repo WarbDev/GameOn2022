@@ -14,18 +14,18 @@ public class PushLog
 
 public class PushRequest
 {
-    IPushableEntity target;
+    IPushable target;
     Location pushDirection;
     int pushForce;
 
-    public PushRequest(IPushableEntity target, Location pushDirection, int pushForce)
+    public PushRequest(IPushable target, Location pushDirection, int pushForce)
     {
         this.target = target;
         this.pushDirection = pushDirection;
         this.pushForce = pushForce;
     }
 
-    public IPushableEntity Target { get => target; }
+    public IPushable Target { get => target; }
     public Location PushDirection { get => pushDirection; }
     public int PushForce { get => pushForce; }
 
@@ -81,7 +81,7 @@ public class Push
         PushRequest subject = requests.First();
         requests.Remove(subject);
 
-        Dictionary<IPushableEntity, PushRequest> pushables = new();
+        Dictionary<IPushable, PushRequest> pushables = new();
         foreach (PushRequest request in requests)
         {
             pushables.Add(request.Target, request);
@@ -90,13 +90,13 @@ public class Push
         return Calc(pushables, subject, new List<PushLog>());
     }
 
-    private static List<PushLog> Calc(Dictionary<IPushableEntity, PushRequest> pushables, PushRequest subject, List<PushLog> resultSoFar)
+    private static List<PushLog> Calc(Dictionary<IPushable, PushRequest> pushables, PushRequest subject, List<PushLog> resultSoFar)
     {
-        IObstructingEntity obstacle = CheckTowards(subject, resultSoFar);
-        IPushableEntity pushable = null;
+        IObstruct obstacle = CheckTowards(subject, resultSoFar);
+        IPushable pushable = null;
         if (obstacle != null)
         {
-            pushable = obstacle.Entity as IPushableEntity;
+            pushable = obstacle.Entity as IPushable;
         }
         
         if (pushable != null && pushables.ContainsKey(pushable)) //If obstacle is in the Dictionary
@@ -137,24 +137,24 @@ public class Push
                 return new PushLog(new MoveLog(me, startLocation, edge));
             }
 
-            List<IObstructingEntity> obstructingEntities = LocationUtility.GetObstructionsAtPosition(pointToCheck);
+            List<IObstruct> obstructingEntities = LocationUtility.GetObstructionsAtPosition(pointToCheck);
 
             //Adds and removes entities from resultSoFar
             foreach (PushLog log in resultSoFar)
             {
                 if (pointToCheck.Equals(log.MoveLog.End))
                 {
-                    obstructingEntities.Add(log.MoveLog.Entity as IObstructingEntity);
+                    obstructingEntities.Add(log.MoveLog.Entity as IObstruct);
                 }
                 else if (pointToCheck.Equals(log.MoveLog.Start))
                 {
-                    obstructingEntities.Remove(log.MoveLog.Entity as IObstructingEntity);
+                    obstructingEntities.Remove(log.MoveLog.Entity as IObstruct);
                 }
             }
 
             foreach (var entity in obstructingEntities)
             {
-                if (subject.Target.Pushing.IsObstructedBy(entity))
+                if (subject.Target.Pushable.IsObstructedBy(entity))
                 {
                     Location endLocation = subject.Target.Entity.Location + LocationUtility.CalculateRelativeLocationFromDirectionAndMagnitude(subject.PushDirection, i-1);
                     return new PushLog(new MoveLog(me, startLocation, endLocation));
@@ -170,30 +170,30 @@ public class Push
     //Instead checks their end position
     //Returns the first obstical it finds
     //Returns null if there are no obsticals
-    private static IObstructingEntity CheckTowards(PushRequest subject, List<PushLog> resultSoFar)
+    private static IObstruct CheckTowards(PushRequest subject, List<PushLog> resultSoFar)
     {
-        IObstructingEntity obstructor = null;
+        IObstruct obstructor = null;
         for (int i = 1; i <= subject.PushForce; i++)
         {
             Location pointToCheck = subject.Target.Entity.Location + LocationUtility.CalculateRelativeLocationFromDirectionAndMagnitude(subject.PushDirection, i);
-            List<IObstructingEntity> obstructingEntities = LocationUtility.GetObstructionsAtPosition(pointToCheck);
+            List<IObstruct> obstructingEntities = LocationUtility.GetObstructionsAtPosition(pointToCheck);
 
             //Adds and removes entities from resultSoFar
             foreach (PushLog log in resultSoFar)
             {
                 if (pointToCheck.Equals(log.MoveLog.End) && !pointToCheck.Equals(log.MoveLog.Start))
                 {
-                    obstructingEntities.Add(log.MoveLog.Entity as IObstructingEntity);
+                    obstructingEntities.Add(log.MoveLog.Entity as IObstruct);
                 }
                 else if (pointToCheck.Equals(log.MoveLog.Start))
                 {
-                    obstructingEntities.Remove(log.MoveLog.Entity as IObstructingEntity);
+                    obstructingEntities.Remove(log.MoveLog.Entity as IObstruct);
                 }
             }
 
             foreach (var entity in obstructingEntities)
             {
-                if (subject.Target.Pushing.IsObstructedBy(entity))
+                if (subject.Target.IsObstructedBy(entity))
                 {
                     return entity;
                 }

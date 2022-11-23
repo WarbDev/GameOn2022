@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: -5276566686210491685}
   - component: {fileID: 5847531353693503317}
   - component: {fileID: 5453654757865739973}
-  - component: {fileID: 3825177805928922417}
   - component: {fileID: 2058947421420331837}
   - component: {fileID: 373659571355388555}
   - component: {fileID: -4302722198924480434}
   - component: {fileID: -4073949118760936751}
+  - component: {fileID: 8316588675829435490}
   m_Layer: 0
   m_Name: BasicEnemyPrefab
   m_TagString: Untagged
@@ -59,6 +59,7 @@ MonoBehaviour:
   damageable: {fileID: 5453654757865739973}
   spriteRenderer: {fileID: 3742150126084035941}
   pushable: {fileID: 2058947421420331837}
+  obstructionChecker: {fileID: 8316588675829435490}
   obstruction: {fileID: 373659571355388555}
   enemyMovement: {fileID: -4302722198924480434}
   enemyAction: {fileID: -4073949118760936751}
@@ -135,20 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   health: {fileID: -7149672031301082918}
---- !u!114 &3825177805928922417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3801775929619048066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e400bca9508c49c499a59d2ed4d4fa61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoAssignGameEntity: 1
-  obstructingTags: 0000000001000000
 --- !u!114 &2058947421420331837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
-  obstructionChecker: {fileID: 3825177805928922417}
+  obstructionChecker: {fileID: 8316588675829435490}
 --- !u!114 &373659571355388555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
-  obstructionChecker: {fileID: 3825177805928922417}
+  obstructionChecker: {fileID: 8316588675829435490}
   animatableEntity: {fileID: 5847531353693503317}
 --- !u!114 &-4073949118760936751
 MonoBehaviour:
@@ -205,7 +192,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
-  animatableEntity: {fileID: 0}
+  animatableEntity: {fileID: 5847531353693503317}
+--- !u!114 &8316588675829435490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801775929619048066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dea10be1f03304fa9829f02762c81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  obstructingTags: 0000000001000000
 --- !u!1 &4152826136885527659
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using System;
 public static class DamageEffect
 {
     public static event Action<DamageLog> AppliedDamage;
-    public static DamageLog Apply(Damageable target, DamageDetails damage)
+    public static DamageLog Apply(DamageableComponent target, DamageDetails damage)
     {
         DamageLog damageLog = target.DealDamage(damage);
         AppliedDamage?.Invoke(damageLog);
@@ -17,17 +17,17 @@ public static class DamageEffect
 public class DamageLog
 {
     DamageDetails damage;
-    Damageable target;
+    IDamageable target;
     float oldHealth;
     float newHealth;
 
     public DamageDetails Damage { get => damage; }
-    public Damageable Target { get => target; }
+    public IDamageable Target { get => target; }
     public float OldHealth { get => oldHealth; }
     public float NewHealth { get => newHealth; }
     
 
-    public DamageLog(Damageable victim, float oldHP, float newHP, DamageDetails dmg)
+    public DamageLog(IDamageable victim, float oldHP, float newHP, DamageDetails dmg)
     {
         target = victim;
         oldHealth = oldHP;

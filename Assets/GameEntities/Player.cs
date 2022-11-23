@@ -1,22 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : GameEntity, IHaveHealth
+public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable
 {
     Location location;
     public override Location Location { get => location; protected set => location = value; }
     public override EntityType EntityType { get => EntityType.PLAYER; }
-    public Health Health { get => health; set => health = value; }
 
-    public DamageableHealth DamageableHealth { get => damageableHealth; set => damageableHealth = value; }
-    [SerializeField] DamageableHealth damageableHealth;
+    [SerializeField] Health health;
+    public Health Health { get => health; }
 
-    public GameObject GameObject { get => gameObject; }
+    [SerializeField] DamageableWithHealthComponent damageableHealth;
+    public IDamageable Damageable { get => damageableHealth; }
 
     public string Name;
 
-    [SerializeField] Health health;
+    
+    public event Action<GameEntity> HasDied;
+
     public override void DestroyEntity()
     {
         Destroy(gameObject);

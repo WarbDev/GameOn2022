@@ -5,44 +5,58 @@ using System;
 
 public class EnemyMovement : EntityComponent
 {
-    [SerializeField] ObstructionChecker obstructionChecker;
+    [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] AnimatableEntity animatableEntity;
 
 
     Location Location { get => GameEntity.Location; }
     public event Action<EnemyMovement> MovementFinished;
 
-    // Calculates movement, changes position on map, and runs animation.
-    // Once the animation is finished, EnemyMovementAnimationFinished is invoked.
+    // Calculates movement, changes position on map.
+    // Invokes MovementFinished if there was no change in position.
+    // Else, plays an animation.
+    // Once the animation is finished, MovementFinished is invoked.
     public void DoTurnMovement()
     {
-        Location targetLocation = (Location.X + DirectionTowardsPlayers(), Location.Y);
-        if (!obstructionChecker.IsObstructedBy(LocationUtility.GetObstructionsAtPosition(targetLocation)))
+        Location startLocation = Location;
+        Location targetLocation = DetermineLocationToMoveTo();
+
+        if (Location != targetLocation)
         {
-            Location newLocation = (Location.X + DirectionTowardsPlayers(), Location.Y);
-            MoveLog log = new MoveLog(GameEntity, Location, newLocation);
-            GameMap.MoveEnemy(GameEntity, newLocation);
+            GameMap.MoveEnemy(GameEntity, targetLocation);
 
-            var animation = animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_JUMP,
-                    new JumpAnimationProperties(LocationUtility.LocationToVector3(log.Start), LocationUtility.LocationToVector3(log.End)));
-
-            animation.AnimationFinished += OnAnimationFinished;
+            var animation = MakeAnimation(startLocation, targetLocation);
+            animation.AnimationFinished += AnnounceFinishedOnAnimationEnd;
         }
+
         else
         {
             MovementFinished?.Invoke(this);
         }
 
-        void OnAnimationFinished<T>(EntityAnimation<T> animation) where T : IAnimationProperties
+        void AnnounceFinishedOnAnimationEnd(EntityAnimation<JumpAnimationProperties> animation)
         {
-            animation.AnimationFinished -= OnAnimationFinished;
+            animation.AnimationFinished -= AnnounceFinishedOnAnimationEnd;
             MovementFinished?.Invoke(this);
         }
-        
 
-        int DirectionTowardsPlayers()
+        
+    }
+
+    EntityAnimation<JumpAnimationProperties> MakeAnimation(Location start, Location end)
+    {
+        return animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_JUMP,
+                new JumpAnimationProperties(start, end));
+    }
+
+    Location DetermineLocationToMoveTo()
+    {
+        Location desiredLocation = (Location.X + LocationUtility.DirectionTowardsCenter(Location), Location.Y);
+        if (obstructionChecker.IsObstructedBy(desiredLocation))
         {
-            return System.Math.Sign(Location.X * -1);
+            return Location;
         }
+
+        return desiredLocation;
     }
 }

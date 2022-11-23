@@ -17,7 +17,6 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
     [SerializeField] Transform affectedTransform;
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteSet spriteSet;
-    int spriteIndex = 0;
     Sequence currentlyPlaying;
 
     public override event Action<EntityAnimation<JumpAnimationProperties>> AnimationFinished;
@@ -26,12 +25,6 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
     {
         enabled = false;
         totalDuration = jumpStartDuration + jumpEndDuration + squishStartDuration + squishEndDuration;
-    }
-
-    private void Update()
-    {
-        // spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), totalDuration);
-        // targetSprite.sprite = spriteSet.Sprites[spriteIndex];
     }
 
     public override void Pause()
@@ -47,11 +40,7 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
     {
         enabled = true;
         Sequence jumpSequence = DOTween.Sequence();
-        Sequence squishSequence = DOTween.Sequence();
-
         jumpSequence.SetEase(ease);
-        squishSequence.SetEase(squishEase);
-        squishSequence.Pause();
 
         currentlyPlaying = jumpSequence;
         jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x) / 2f, properties.EndPosition.y + jumpHeight), jumpStartDuration));
@@ -83,10 +72,16 @@ public class JumpAnimationProperties : IAnimationProperties
 
     public Vector3 StartPosition { get => startPosition; }
     public Vector3 EndPosition { get => endPosition; }
-    
+
     public JumpAnimationProperties(Vector3 startPosition, Vector3 endPosition)
     {
         this.startPosition = startPosition;
         this.endPosition = endPosition;
+    }
+
+    public JumpAnimationProperties(Location start, Location end)
+    {
+        this.startPosition = LocationUtility.LocationToVector3(start);
+        this.endPosition = LocationUtility.LocationToVector3(end);
     }
 }

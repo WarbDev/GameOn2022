@@ -21,8 +21,8 @@ public static class PlayerGameFlow
 
         foreach (Player player in players)
         {
-            player.DamageableHealth.HasDied -= PlayerDied;
-            player.DamageableHealth.HasDied += PlayerDied;
+            player.HasDied -= PlayerDied;
+            player.HasDied += PlayerDied;
         }
     }
 
@@ -43,7 +43,7 @@ public static class PlayerGameFlow
     private static void CheckIfComplete(Player player)
     {
 
-        player.DamageableHealth.HasDied -= PlayerDied;
+        player.HasDied -= PlayerDied;
         players.Remove(player);
         if (players.Count == 0)
         {

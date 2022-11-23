@@ -21,7 +21,7 @@ public class A_Punch : MonoBehaviour
 
         foreach (DamageLog damaged in log)
         {
-            damaged.Target.GameEntity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+            damaged.Target.Entity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
         }
 
         moveAnimation.AnimationFinished -= End;

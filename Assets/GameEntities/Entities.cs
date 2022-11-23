@@ -56,11 +56,12 @@ public class Entities : MonoBehaviour
         MapTile mapTile;
         LocationUtility.TryGetTile(location, out mapTile);
         Location tileLocation = mapTile.Location;
-        var enemy = Instantiate(enemyPrefab);
-        enemy.GetComponent<Transform>().position = new Vector2(tileLocation.X, tileLocation.Y);
-        enemy.GetComponent<Enemy>().SetLocation(tileLocation);
-        enemy.GetComponent<Enemy>().SpriteRenderer.flipX = (tileLocation.X < 0);
-        Entities.EnemyCollection.AddEntity(enemy.GetComponent<Enemy>());
+        var enemyObject = Instantiate(enemyPrefab);
+        var enemy = enemyObject.GetComponent<Enemy>();
+        enemy.transform.position = new Vector2(tileLocation.X, tileLocation.Y);
+        enemy.SetLocation(tileLocation);
+        enemy.SpriteRenderer.flipX = (tileLocation.X < 0);
+        Entities.EnemyCollection.AddEntity(enemy);
         return enemy.GetComponent<Enemy>();
     }
 

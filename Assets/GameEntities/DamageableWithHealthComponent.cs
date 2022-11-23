@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class DamageableHealth : Damageable
+public class DamageableWithHealthComponent : DamageableComponent, IDamageable
 {
-    //Inherits an event from Damageable called HasDied
-
     [SerializeField] Health health;
+
     public override DamageLog DealDamage(DamageDetails damage)
     {
         float oldHealth = health.CurrentHealth;

@@ -121,6 +121,17 @@ public static class LocationUtility
             && GameMap.BottomBorder <= location.Y && location.Y <= GameMap.TopBorder);
     }
 
+    public static int DirectionTowardsCenter(Location location)
+    {
+        return System.Math.Sign(location.X * -1);
+    }
+
+    public static Location NextClosestToCenter(Location location)
+    {
+        Location loc = new Location(location.X + DirectionTowardsCenter(location), location.Y);
+        return loc;
+    }
+
     public static bool IsOccupied(Location location)
     {
         if (HasPlayer(location) || HasEnemy(location))
@@ -245,13 +256,13 @@ public static class LocationUtility
         return entities;
     }
 
-    public static List<IObstructingEntity> GetObstructionsAtPosition(Location position)
+    public static List<IObstruct> GetObstructionsAtPosition(Location position)
     {
         var entities = GetEntitiesAtPosition(position);
-        var obstructions = new List<IObstructingEntity>();
+        var obstructions = new List<IObstruct>();
         foreach (var entity in entities)
         {
-            var obstructingEntity = entity as IObstructingEntity;
+            var obstructingEntity = entity as IObstruct;
             if (obstructingEntity != null)
             {
                 obstructions.Add(obstructingEntity);
@@ -259,6 +270,7 @@ public static class LocationUtility
         }
         return obstructions;
     }
+
 
     public static bool HasObstructionsAtPosition(Location position)
     {
@@ -310,6 +322,21 @@ public static class LocationUtility
             }
         }
         return longestChain;
+    }
+
+    public static List<IDamageable> GetDamageablesInLocation(Location location)
+    {
+        var entities = GetEntitiesAtPosition(location);
+        var damageables = new List<IDamageable>();
+        foreach (var entity in entities)
+        {
+            var damageableEntity = entity as IDamageable;
+            if (damageableEntity != null)
+            {
+                damageables.Add(damageableEntity);
+            }
+        }
+        return damageables;
     }
 
     public static Location CalculateRelativeLocationFromDirectionAndMagnitude(Location direction, int magnitude)

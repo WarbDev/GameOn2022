@@ -32,7 +32,7 @@ public class A_Fireball : MonoBehaviour
         //log[0].Target.GameObject.GetComponent<AnimatableEntity>();
         foreach(DamageLog damaged in log)
         {
-            damaged.Target.GameEntity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+            damaged.Target.Entity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
         }
 
 
