@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
+using EditorGUITable;
 
 /// <summary>
 /// A data container for defining the parameters of an individual wave, such as the map's
@@ -13,11 +16,30 @@ public class Wave : ScriptableObject
     [Range(1, 16)][SerializeField] int rightLength;
     [Range(0, 16)][SerializeField] int leftLength;
 
-    [Tooltip("Represents a set of batches and how many turns until the succeeding batch attempts to run.")]
-    [SerializeField] GenericDictionary<BatchBase, int> batchesAndTurnDelays;
+    [Tooltip("Represents a set of batches. Each batch will not run until the first one is finished.")]
+    [Table (new string[] {"Batch: Sortable(false)", "Delay: Sortable(false)", "Notes: Sortable(false)"})] [SerializeField] List<WaveBatchEntry> batchEntries = new();
+    public List<BatchBase> Batches { get => batchEntries.Select((batch) => batch.Batch).ToList(); }
+    public List<int> Delays { get => batchEntries.Select((batch) => batch.Delay).ToList(); }
 
-    public GenericDictionary<BatchBase, int> BatchesWithDelays { get => batchesAndTurnDelays; }
-    public int Height { get => height; }
-    public int RightLength { get => rightLength; }
-    public int LeftLength { get => leftLength; }
+    void ExpandMap()
+    {
+        GameMap.ExpandTo(leftLength, rightLength, height);
+    }
+
+    public void InitializeWave()
+    {
+        //foreach(var batch in batches)
+        //{
+        //    batch.ResetBatch();
+        //}
+        ExpandMap();
+    }
+}
+
+[System.Serializable]
+public class WaveBatchEntry
+{
+    public BatchBase Batch;
+    public int Delay;
+    public string Notes;
 }

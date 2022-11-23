@@ -12,17 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  height: 4
+  height: 5
   rightLength: 6
   leftLength: 6
-  batchesAndTurnDelays:
-    list:
-    - Key: {fileID: 11400000, guid: 32cb39cfcb071ff4290546c0c3eb19d2, type: 2}
-      Value: 0
-    - Key: {fileID: 11400000, guid: 9edd2f66caefe584ea6accb955cae1e0, type: 2}
-      Value: 0
-    - Key: {fileID: 11400000, guid: 342e59b64fe339949881f252954c4d9a, type: 2}
-      Value: 1
-    - Key: {fileID: 11400000, guid: 1da35a69b4c568242ae725d6eb370a48, type: 2}
-      Value: 1
-    keyCollision: 0
+  batches:
+  - {fileID: 11400000, guid: 9edd2f66caefe584ea6accb955cae1e0, type: 2}
+  - {fileID: 11400000, guid: 342e59b64fe339949881f252954c4d9a, type: 2}
+  - {fileID: 11400000, guid: 1da35a69b4c568242ae725d6eb370a48, type: 2}
+  - {fileID: 11400000, guid: 32cb39cfcb071ff4290546c0c3eb19d2, type: 2}

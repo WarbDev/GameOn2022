@@ -158,7 +158,7 @@ public class GameMap : MonoBehaviour
         rightBorder = 0;
         MapExpanded?.Invoke(new List<Location> { start });
 
-        
+
         for (int i = 1; i < initialHeight; i++)
         {
             ExpandUp(1);
@@ -179,14 +179,37 @@ public class GameMap : MonoBehaviour
         StopAllCoroutines();
     }
 
-    void ExpandRight(int amount)
+    public static void ExpandTo(int l, int r, int h)
+    {
+        if (l > 0)
+        {
+            l = -l;
+        }
+
+        while (l < leftBorder)
+        {
+            ExpandLeft(1);
+        }
+
+        while (r > rightBorder)
+        {
+            ExpandRight(1);
+        }
+
+        while (h > topBorder)
+        {
+            ExpandUp(1);
+        }
+    }
+
+    static void ExpandRight(int amount)
     {
         (List<Location>, int) expansion;
         expansion = ExpandHorizontal(amount, 1);
         rightBorder = expansion.Item2;
         MapExpanded?.Invoke(expansion.Item1);
     }
-    void ExpandLeft(int amount)
+    static void ExpandLeft(int amount)
     {
         (List<Location>, int) expansion;
         expansion = ExpandHorizontal(amount, -1);
@@ -195,7 +218,7 @@ public class GameMap : MonoBehaviour
 
     }
 
-    (List<Location>, int) ExpandHorizontal(int amount, int direction)
+    static (List<Location>, int) ExpandHorizontal(int amount, int direction)
     {
         int border = rightBorder;
         if (direction > 0)
@@ -218,7 +241,7 @@ public class GameMap : MonoBehaviour
         return (newLocations, border + (amount * direction));
     }
 
-    public void ExpandUp(int amount)
+    static void ExpandUp(int amount)
     {
         List<Location> newLocations = new();
         for(int i = topBorder + 1; i <= topBorder + amount; i++)

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
   m_Name: Wave1Batch 1
   m_EditorClassIdentifier: 
-  enemiesInBatch: 000000000000000000000000
-  enforceEmptySpaces: 0
-  side: 1
-  enforceSide: 0
+  enemiesInBatch: 010000000000000000000000
+  enforceEmptySpaces: 1
+  side: 0
+  enforceSide: 1
   isRigid: 0
+  mustFitSingleColumn: 0
