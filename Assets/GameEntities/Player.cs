@@ -9,6 +9,9 @@ public class Player : GameEntity, IHaveHealth
     public override EntityType EntityType { get => EntityType.PLAYER; }
     public Health Health { get => health; set => health = value; }
 
+    public DamageableHealth DamageableHealth { get => damageableHealth; set => damageableHealth = value; }
+    [SerializeField] DamageableHealth damageableHealth;
+
     public GameObject GameObject { get => gameObject; }
 
     public string Name;

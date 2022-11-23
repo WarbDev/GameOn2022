@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class DamageableHealth : Damageable
 {
+    //Inherits an event from Damageable called HasDied
+
     [SerializeField] Health health;
     public override DamageLog DealDamage(DamageDetails damage)
     {

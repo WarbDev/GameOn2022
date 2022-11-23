@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5459020171704802935}
   - component: {fileID: 7886695812729171924}
   - component: {fileID: 5481305851333762838}
+  - component: {fileID: 4294843663961539364}
+  - component: {fileID: -3169324217173436968}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b043a239c82b9d42b702a496a35c4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableHealth: {fileID: 4294843663961539364}
   Name: 
   health: {fileID: 7886695812729171924}
 --- !u!114 &7886695812729171924
@@ -142,3 +145,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1.0000002, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4294843663961539364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513081452634914696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2814169f9bfca499d19d18692ce19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  health: {fileID: 7886695812729171924}
+--- !u!114 &-3169324217173436968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513081452634914696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29074f497a52c34b9e750448d22f6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
