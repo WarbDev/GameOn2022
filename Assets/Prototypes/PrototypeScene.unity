@@ -451,6 +451,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveA: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
   moveB: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
+--- !u!114 &334392749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334392741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec04318b1255cb948a572387c9025db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeakClips:
+  - {fileID: 8300000, guid: 7de46e252896bdf43bf2d93e2447c8c4, type: 3}
+  - {fileID: 8300000, guid: 87fb28d26b1de19408fd62c040ec95f9, type: 3}
+  - {fileID: 8300000, guid: 6b4814486b10d8b4abb8f65b0ba4983a, type: 3}
+  - {fileID: 8300000, guid: 03de226c77df3844c9c447b1559e40a3, type: 3}
+  HurtClips:
+  - {fileID: 8300000, guid: fa5bab942afdaa0479d94c463ae99fbf, type: 3}
+  - {fileID: 8300000, guid: 996c8d393b3bb4c43ade777faaffd241, type: 3}
+  DieClip: {fileID: 8300000, guid: efc45a95b36dcc44084136970d862b35, type: 3}
 --- !u!1 &693446712
 GameObject:
   m_ObjectHideFlags: 0
