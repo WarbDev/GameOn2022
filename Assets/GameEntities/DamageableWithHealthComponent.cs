@@ -7,7 +7,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
 {
     [SerializeField] Health health;
 
-    public override DamageLog DealDamage(DamageDetails damage)
+    public override DamageLog DealDamage(Damage damage)
     {
         float oldHealth = health.CurrentHealth;
         float newHealth = health.ReduceHealth(damage.Base);

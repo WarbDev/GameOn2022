@@ -6,7 +6,7 @@ using System;
 public static class DamageEffect
 {
     public static event Action<DamageLog> AppliedDamage;
-    public static DamageLog Apply(DamageableComponent target, DamageDetails damage)
+    public static DamageLog Apply(DamageableComponent target, Damage damage)
     {
         DamageLog damageLog = target.DealDamage(damage);
         AppliedDamage?.Invoke(damageLog);
@@ -16,18 +16,18 @@ public static class DamageEffect
 
 public class DamageLog
 {
-    DamageDetails damage;
+    Damage damage;
     IDamageable target;
     float oldHealth;
     float newHealth;
 
-    public DamageDetails Damage { get => damage; }
+    public Damage Damage { get => damage; }
     public IDamageable Target { get => target; }
     public float OldHealth { get => oldHealth; }
     public float NewHealth { get => newHealth; }
     
 
-    public DamageLog(IDamageable victim, float oldHP, float newHP, DamageDetails dmg)
+    public DamageLog(IDamageable victim, float oldHP, float newHP, Damage dmg)
     {
         target = victim;
         oldHealth = oldHP;
@@ -36,17 +36,17 @@ public class DamageLog
     }
 }
 
-public class DamageDetails
+public class Damage
 {
     public float Base;
     public GameEntity DamageSource;
-    public DamageDetails(float Base, GameEntity DamageSource)
+    public Damage(float Base, GameEntity DamageSource)
     {
         this.Base = Base;
         this.DamageSource = DamageSource;
     }
 
-    public DamageDetails() { }
+    public Damage() { }
 }
 
 public interface IHaveHealth

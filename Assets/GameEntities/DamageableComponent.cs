@@ -7,7 +7,7 @@ public abstract class DamageableComponent : EntityComponent, IDamageable
 {
     public IDamageable Damageable { get => this; }
     public GameEntity Entity { get => GameEntity; }
-    public abstract DamageLog DealDamage(DamageDetails damage);
+    public abstract DamageLog DealDamage(Damage damage);
 
     
 }
@@ -19,7 +19,7 @@ public interface IDamageable : IHaveGameEntity
 
     //Don't implement DealDamage in the main class that is attached to a prefab.
     //Implement it through the Damageable Property.
-    public DamageLog DealDamage(DamageDetails damage)
+    public DamageLog DealDamage(Damage damage)
     {
         return Damageable.DealDamage(damage);
     }

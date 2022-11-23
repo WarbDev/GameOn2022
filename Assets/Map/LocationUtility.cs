@@ -324,19 +324,22 @@ public static class LocationUtility
         return longestChain;
     }
 
-    public static List<IDamageable> GetDamageablesInLocation(Location location)
+    /// <summary>
+    /// Goes through all Entities in a location and return the first damageable one it can find.
+    /// Returns null if no damageable exists.
+    /// </summary>
+    public static IDamageable GetDamageableInLocation(Location location)
     {
         var entities = GetEntitiesAtPosition(location);
-        var damageables = new List<IDamageable>();
         foreach (var entity in entities)
         {
             var damageableEntity = entity as IDamageable;
             if (damageableEntity != null)
             {
-                damageables.Add(damageableEntity);
+                return damageableEntity;
             }
         }
-        return damageables;
+        return null;
     }
 
     public static Location CalculateRelativeLocationFromDirectionAndMagnitude(Location direction, int magnitude)

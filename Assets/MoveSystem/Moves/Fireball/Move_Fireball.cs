@@ -45,7 +45,7 @@ public class Move_Fireball : Move, IDamage
         List<DamageLog> log = new();
         foreach (Enemy enemy in enemies)
         {
-            log.Add(enemy.Damageable.DealDamage(new DamageDetails(damage, player)));
+            log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
         }
         foreach (MapTile tile in tiles)
         {
