@@ -5,7 +5,6 @@ using System;
 
 public class EnemyBasicAction : EnemyAction
 {
-    [SerializeField] AnimatableEntity animatableEntity;
     [SerializeField] float damage;
     public override event Action<EnemyAction> ActionFinished;
 
