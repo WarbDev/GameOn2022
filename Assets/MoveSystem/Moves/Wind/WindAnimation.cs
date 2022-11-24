@@ -2,51 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WindAnimation : EntityAnimation<WindAnimationProperties>
 {
-
-    [SerializeField] float duration;
+    Sequence currentlyPlaying;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
+    [SerializeField] SpriteAnimation spriteAnimation;
     [SerializeField] SpriteRenderer targetSprite;
-    [SerializeField] SpriteSet spriteSet;
     [SerializeField] AudioClip clip;
 
     public override event Action<EntityAnimation<WindAnimationProperties>> AnimationFinished;
-    
-    float startTime;
-    int spriteIndex = 0;
-
-    public override void Pause()
-    {
-        enabled = false;
-    }
 
     public override void Play(WindAnimationProperties animationProperties)
     {
-        enabled = true;
-        startTime = Time.time;
         GlobalAudioSource.Instance.Play(clip);
-    }
 
-    public override void Unpause()
-    {
-        enabled = true;
-    }
-
-    void Awake()
-    {
-        enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, Time.time - startTime, duration);
-        targetSprite.sprite = spriteSet.Sprites[spriteIndex];
-        if (Time.time - startTime >= duration)
-        {
-            AnimationFinished?.Invoke(this);
-        }
+        // Join together the primary animation with the sprite animation, and announce completion when done.
+        currentlyPlaying = DOTween.Sequence(); // primary animation
+        spriteAnimation.Play(new(targetSprite));
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.OnComplete(onComplete);
+        void onComplete() => AnimationFinished?.Invoke(this);
     }
 }
 

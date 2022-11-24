@@ -1,19 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class HurtAnimation : MonoBehaviour
+public class HurtAnimation : EntityAnimation<HurtAnimationProperties>
 {
-    // Start is called before the first frame update
-    void Start()
+    public override event Action<EntityAnimation<HurtAnimationProperties>> AnimationFinished;
+    
+    Sequence currentlyPlaying = null;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
+    public override void Play(HurtAnimationProperties animationProperties)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        throw new NotImplementedException();
     }
 }
 

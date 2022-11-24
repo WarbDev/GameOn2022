@@ -2,56 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
 {
     [SerializeField] SpriteSet spriteSet;
-    Coroutine spriteUpdateCoroutine;
+    [SerializeField] Ease ease;
+    [SerializeField] float duration;
+    SpriteRenderer spriteRenderer;
+    Sequence currentlyPlaying;
+    int spriteIndex = 0;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
     public override event Action<EntityAnimation<SpriteAnimationProperties>> AnimationFinished;
 
-    void Start()
+    private void Update()
     {
-        StartCoroutine(UpdateSprite());    
-    }
-
-    public override void Pause()
-    {
-        enabled = false;
+        if (spriteRenderer)
+        {
+            spriteRenderer.sprite = spriteSet.Sprites[spriteIndex];
+        }
+        else enabled = false;
     }
 
     public override void Play(SpriteAnimationProperties animationProperties)
     {
-        spriteUpdateCoroutine = StartCoroutine(UpdateSprite());
-    }
-
-    IEnumerator UpdateSprite()
-    {
-        while (true)
-        {
-
-        }
-    }
-
-    public override void Unpause()
-    {
         enabled = true;
+        spriteRenderer = animationProperties.TargetRenderer;
+        currentlyPlaying = DOTween.Sequence();
+        currentlyPlaying.Append(DOTween.To(() => spriteIndex, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration).SetEase(ease).OnComplete(animationFinished));
+
+        void animationFinished()
+        {
+            AnimationFinished?.Invoke(this);
+            spriteRenderer = null;
+        }
+
     }
 }
 
 public class SpriteAnimationProperties : IAnimationProperties
 {
     SpriteRenderer targetRenderer;
-    Func<float> timeElapsedCalc;
-    float duration;
 
     public SpriteRenderer TargetRenderer { get => targetRenderer; }
-    public Func<float> TimeElapsedCalc { get => timeElapsedCalc; }
-    public float Duration { get => duration; }
-    public SpriteAnimationProperties(SpriteRenderer targetRenderer, Func<float> timeElapsedCalc, float duration)
+    public SpriteAnimationProperties(SpriteRenderer targetRenderer)
     {
         this.targetRenderer = targetRenderer;
-        this.timeElapsedCalc = timeElapsedCalc;
-        this.duration = duration;
     }
 }

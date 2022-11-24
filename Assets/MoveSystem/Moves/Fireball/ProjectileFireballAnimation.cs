@@ -11,48 +11,22 @@ public class ProjectileFireballAnimation : EntityAnimation<PFireballAnimationPro
     [SerializeField] float duration;
     [SerializeField] Transform affectedTransform;
     [SerializeField] SpriteRenderer targetSprite;
-    [SerializeField] SpriteSet spriteSet;
+    [SerializeField] SpriteAnimation spriteAnimation;
 
     public override event Action<EntityAnimation<PFireballAnimationProperties>> AnimationFinished;
-
-    int spriteIndex = 0;
     Sequence currentlyPlaying;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, currentlyPlaying.Elapsed(), duration);
-        targetSprite.sprite = spriteSet.Sprites[spriteIndex];
-    }
 
     public override void Play(PFireballAnimationProperties animationProperties)
     {
-        enabled = true;
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.SetEase(ease);
-
-        currentlyPlaying = sequence;
-        sequence.Append(affectedTransform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));
-        sequence.OnComplete(() => AnimationFinished?.Invoke(this));
-    }
-
-    public override void Unpause()
-    {
-        enabled = true;
-        if (currentlyPlaying != null) currentlyPlaying.Play();
-    }
-    public override void Pause()
-    {
-        enabled = false;
-        if (currentlyPlaying != null) currentlyPlaying.Pause();
+        Sequence currentlyPlaying = DOTween.Sequence();
+        currentlyPlaying.SetEase(ease);
+        currentlyPlaying.Append(affectedTransform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));
+        spriteAnimation.Play(new(targetSprite));
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.OnComplete(onComplete);
+        void onComplete() => AnimationFinished?.Invoke(this);
     }
 }
 

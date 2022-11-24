@@ -56,8 +56,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3630c1ab6ea3dc4c887e40308dbd484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 5453654757865739973}
   spriteRenderer: {fileID: 3742150126084035941}
+  damageable: {fileID: 5453654757865739973}
   pushable: {fileID: 2058947421420331837}
   obstructionChecker: {fileID: 8316588675829435490}
   obstruction: {fileID: 373659571355388555}
@@ -120,7 +120,7 @@ MonoBehaviour:
   animations:
     list:
     - Key: 0
-      Value: {fileID: 5975708379792391282}
+      Value: {fileID: 5675939221526179406}
     keyCollision: 0
 --- !u!114 &5453654757865739973
 MonoBehaviour:
@@ -216,7 +216,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8173403255490045351}
-  - component: {fileID: 5975708379792391282}
   m_Layer: 0
   m_Name: Animations
   m_TagString: Untagged
@@ -235,32 +234,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8053491664561784802}
   m_Father: {fileID: 9077199116930187973}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5975708379792391282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4152826136885527659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5531a10de16d66c4cb6937c4ce07676f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ease: 5
-  squishEase: 3
-  jumpStartDuration: 0.1
-  jumpEndDuration: 0.2
-  squishStartDuration: 0.2
-  squishEndDuration: 0.1
-  jumpHeight: 0.7
-  affectedTransform: {fileID: 9077199116930187973}
-  targetSprite: {fileID: 3742150126084035941}
-  spriteSet: {fileID: 11400000, guid: 74d36f2752d8cef488c3a86eac79248e, type: 2}
 --- !u!1 &4618855239350652980
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,3 +323,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6516954768127148758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8053491664561784802}
+  - component: {fileID: 5675939221526179406}
+  - component: {fileID: 7445108326893285807}
+  m_Layer: 0
+  m_Name: JumpAnimation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8053491664561784802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516954768127148758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8173403255490045351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5675939221526179406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516954768127148758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5531a10de16d66c4cb6937c4ce07676f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 5
+  squishEase: 3
+  jumpStartDuration: 0.1
+  jumpEndDuration: 0.2
+  squishStartDuration: 0.2
+  squishEndDuration: 0.1
+  jumpHeight: 0.7
+  affectedTransform: {fileID: 9077199116930187973}
+  spriteAnimation: {fileID: 7445108326893285807}
+  targetSprite: {fileID: 3742150126084035941}
+--- !u!114 &7445108326893285807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516954768127148758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 11400000, guid: 74d36f2752d8cef488c3a86eac79248e, type: 2}
+  ease: 1
+  duration: 0.05
