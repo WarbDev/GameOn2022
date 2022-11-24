@@ -5,6 +5,7 @@ using UnityEngine;
 public class FaceCamera : MonoBehaviour
 {
     Camera mainCamera;
+    [SerializeField] Transform parentTransform;
     [SerializeField] Transform transformToAdjust;
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -16,7 +17,7 @@ public class FaceCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.rendererPriority = 100 - Mathf.FloorToInt(transform.position.y + .5f);
+        spriteRenderer.rendererPriority = 100 - Mathf.FloorToInt(parentTransform.position.y + .5f);
         transformToAdjust.SetPositionAndRotation(AdjustPositionBasedOnCameraAngle(), new Quaternion(mainCamera.transform.rotation.x, transformToAdjust.rotation.y, transformToAdjust.rotation.z, transformToAdjust.rotation.w));
     }
 
@@ -28,7 +29,7 @@ public class FaceCamera : MonoBehaviour
 
 
         float adjustedY = adjustedEulerX/100;
-        Vector2 vec = new Vector2(transform.position.x, transform.position.y + adjustedY);
+        Vector2 vec = new Vector2(parentTransform.position.x, parentTransform.position.y + adjustedY);
 
         return vec;
     }

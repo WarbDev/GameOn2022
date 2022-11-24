@@ -11,10 +11,23 @@ public class EnemyBasicAction : EnemyAction
 
     public override void DoEnemyAction()
     {
-        IDamageable entity = HostileEntityInFront();
-        if (entity != null)
+        IDamageable damageable = HostileEntityInFront();
+        if (damageable != null)
         {
-            entity.DealDamage(new Damage(damage, GameEntity));
+            var animatable = damageable.Entity as IAnimatable;
+            var log = damageable.DealDamage(new Damage(damage, GameEntity));
+
+            if (animatable != null)
+            {
+                var animation = animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(log));
+                animation.AnimationFinished += animationFinished;
+            }
+
+            void animationFinished(EntityAnimation<HurtAnimationProperties> animation)
+            {
+                animation.AnimationFinished -= animationFinished;
+                ActionFinished?.Invoke(this);
+            }
         }
     }
 

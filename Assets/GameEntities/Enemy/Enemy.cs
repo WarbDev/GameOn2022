@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, ICanDie
+public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, ICanDie, IAnimatable
 {
     Location location;
     public event Action<GameEntity> HasDied;
@@ -17,6 +17,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, ICanDie
     [SerializeField] Obstruction obstruction;
     [SerializeField] EnemyMovement enemyMovement;
     [SerializeField] EnemyAction enemyAction;
+    [SerializeField] AnimatableEntity enemyAnimations;
 
     public IDamageable Damageable { get => damageable; }
     public SpriteRenderer SpriteRenderer { get => spriteRenderer; }
@@ -25,6 +26,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, ICanDie
     public EnemyMovement EnemyMovement { get => enemyMovement; }
     public EnemyAction EnemyAction { get => enemyAction; }
     public IObstruct Obstruct { get => obstruction; }
+    public IAnimatable Animatable { get => enemyAnimations; }
     public override void DestroyEntity()
     {
         Destroy(gameObject);

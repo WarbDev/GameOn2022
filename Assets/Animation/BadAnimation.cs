@@ -17,18 +17,19 @@ public class BadAnimation : EntityAnimation<BadAnimationProperties>
     public override void Play(BadAnimationProperties animationProperties)
     {
         GlobalAudioSource.Instance.Play(clip);
+        StartCoroutine(WaitOneFrame());
+    }
+
+    IEnumerator WaitOneFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        AnimationFinished?.Invoke(this);
     }
 
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
 
