@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class A_ : MonoBehaviour
+namespace HoldTheLine.Examples
 {
-    [SerializeField] MoveAnimation moveAnimation;
-
-    public void PlayAnimation()
+    public class A_ : MonoBehaviour
     {
-        moveAnimation.AnimationFinished -= End;
-        moveAnimation.AnimationFinished += End;
-        moveAnimation.Play(new MoveAnimationProperties());
-    }
+        [SerializeField] MoveAnimation moveAnimation;
+
+        public void PlayAnimation()
+        {
+            moveAnimation.AnimationFinished -= End;
+            moveAnimation.AnimationFinished += End;
+            moveAnimation.Play(new MoveAnimationProperties());
+        }
 
 
-    private void End(EntityAnimation<MoveAnimationProperties> obj)
-    {
+        private void End(EntityAnimation<MoveAnimationProperties> obj)
+        {
 
-        moveAnimation.AnimationFinished -= End;
-        Destroy(gameObject);
+            moveAnimation.AnimationFinished -= End;
+            Destroy(gameObject);
+        }
     }
 }

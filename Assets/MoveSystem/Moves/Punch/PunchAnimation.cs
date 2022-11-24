@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 {
+    Sequence currentlyPlaying;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
     [SerializeField] float duration;
     [SerializeField] SpriteRenderer targetSprite;
@@ -39,15 +42,6 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
         enabled = true;
         startTime = Time.time;
         GlobalAudioSource.Instance.Play(clip);
-    }
-
-    public override void Unpause()
-    {
-        enabled = true;
-    }
-    public override void Pause()
-    {
-        enabled = false;
     }
 }
 

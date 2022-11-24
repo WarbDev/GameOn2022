@@ -3,17 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public static class DamageEffect
-{
-    public static event Action<DamageLog> AppliedDamage;
-    public static DamageLog Apply(DamageableComponent target, Damage damage)
-    {
-        DamageLog damageLog = target.DealDamage(damage);
-        AppliedDamage?.Invoke(damageLog);
-        return damageLog;
-    }
-}
-
 public class DamageLog
 {
     Damage damage;

@@ -2,51 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BoomFireballAnimation : EntityAnimation<BFireballAnimationProperties>
 {
-
-    [SerializeField] float duration;
+    Sequence currentlyPlaying;
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
     [SerializeField] SpriteRenderer targetSprite;
-    [SerializeField] SpriteSet spriteSet;
+    [SerializeField] SpriteAnimation spriteAnimation;
     [SerializeField] AudioClip clip;
-
-    float startTime;
-    int spriteIndex = 0;
 
     public override event Action<EntityAnimation<BFireballAnimationProperties>> AnimationFinished;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        spriteIndex = AnimationUtility.CurrentSpriteIndex(spriteSet.Sprites.Count, Time.time - startTime, duration);
-        targetSprite.sprite = spriteSet.Sprites[spriteIndex];
-        if (Time.time - startTime >= duration)
-        {
-            AnimationFinished?.Invoke(this);
-        }
-    }
 
     public override void Play(BFireballAnimationProperties animationProperties)
     {
-        enabled = true;
-        startTime = Time.time;
         GlobalAudioSource.Instance.Play(clip);
-    }
-
-    public override void Unpause()
-    {
-        enabled = true;
-    }
-    public override void Pause()
-    {
-        enabled = false;
+        // Join together the primary animation with the sprite animation, and announce completion when done.
+        currentlyPlaying = DOTween.Sequence(); // primary animation
+        spriteAnimation.Play(new(targetSprite));
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.OnComplete(onComplete);
+        void onComplete() => AnimationFinished?.Invoke(this);
     }
 }
 

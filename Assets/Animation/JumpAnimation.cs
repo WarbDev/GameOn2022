@@ -6,62 +6,41 @@ using System;
 
 public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 {
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
     [SerializeField] Ease ease;
     [SerializeField] Ease squishEase;
+
     [SerializeField] float jumpStartDuration;
     [SerializeField] float jumpEndDuration;
     [SerializeField] float squishStartDuration;
     [SerializeField] float squishEndDuration;
+    private float SpriteDuration { get => jumpStartDuration + jumpEndDuration + squishStartDuration + squishEndDuration; }
+
     [SerializeField] float jumpHeight;
-    float totalDuration;
+
     [SerializeField] Transform affectedTransform;
+    [SerializeField] SpriteAnimation spriteAnimation;
+    // [SerializeField] SpriteSet spriteSet;
     [SerializeField] SpriteRenderer targetSprite;
-    [SerializeField] SpriteSet spriteSet;
     Sequence currentlyPlaying;
 
     public override event Action<EntityAnimation<JumpAnimationProperties>> AnimationFinished;
 
-    private void Start()
-    {
-        enabled = false;
-        totalDuration = jumpStartDuration + jumpEndDuration + squishStartDuration + squishEndDuration;
-    }
-
-    public override void Pause()
-    {
-        enabled = false;
-        if (currentlyPlaying != null)
-        {
-            currentlyPlaying.Pause();
-        }
-    }
-
     public override void Play(JumpAnimationProperties properties)
     {
-        enabled = true;
         Sequence jumpSequence = DOTween.Sequence();
         jumpSequence.SetEase(ease);
-
-        currentlyPlaying = jumpSequence;
         jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x) / 2f, properties.EndPosition.y + jumpHeight), jumpStartDuration));
         jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.EndPosition.x, properties.EndPosition.y), jumpEndDuration));
         jumpSequence.Append(affectedTransform.DOScaleY(0.8f, squishStartDuration).SetEase(squishEase));
         jumpSequence.Append(affectedTransform.DOScaleY(1f, squishEndDuration).SetEase(squishEase));
-        jumpSequence.OnComplete(() => invokeComplete());
 
-        void invokeComplete()
-        {
-            AnimationFinished?.Invoke(this);
-        }
-    }
-
-    public override void Unpause()
-    {
-        enabled = true;
-        if (currentlyPlaying != null)
-        {
-            currentlyPlaying.Play();
-        }
+        // Join together the primary animation with the sprite animation, and announce completion when done.
+        currentlyPlaying = jumpSequence;
+        spriteAnimation.Play(new(targetSprite));
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.OnComplete(onComplete);
+        void onComplete() => AnimationFinished?.Invoke(this);
     }
 }
 
