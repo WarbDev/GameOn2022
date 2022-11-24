@@ -7,7 +7,7 @@ public class BarkPlayerComponant : MonoBehaviour
     [SerializeField] Bark talkBark;
 
     public int CurrentDuration = 0;
-    public int MaxDuration = 1000;
+    public int MaxDuration = 500;
 
 
     // Update is called once per frame
