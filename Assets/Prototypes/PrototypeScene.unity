@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkBark: {fileID: 7548696037906325792, guid: 043f3b6e7f1a2b04a86421ed07cdf6fc, type: 3}
   CurrentDuration: 0
-  MaxDuration: 1000
+  MaxDuration: 10000
 --- !u!1 &693446712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.8700994
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
