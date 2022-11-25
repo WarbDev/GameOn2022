@@ -5,12 +5,20 @@ using System;
 
 public class PlayerTurnComponent : MonoBehaviour
 {
+    [SerializeField] PlayerTurnMovement movement;
+
     private bool hasMadeTurn = false;
-    public bool HasMadeTurn { get => hasMadeTurn; }
     
     public void BeginNewRound()
     {
+        StartCoroutine(PlayerTurnRoutine());
+    }
+
+    IEnumerator PlayerTurnRoutine()
+    {
         hasMadeTurn = false;
+        
+        yield return null;
     }
 
     /// <summary>
