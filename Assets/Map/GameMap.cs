@@ -128,7 +128,7 @@ public class GameMap : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(InitializeMap());
+        InitializeMap();
     }
 
 
@@ -150,7 +150,7 @@ public class GameMap : MonoBehaviour
         }
     }
 
-    IEnumerator InitializeMap()
+    void InitializeMap()
     {
         Location start = new(0, 1);
         topBorder = 1;
@@ -159,24 +159,7 @@ public class GameMap : MonoBehaviour
         MapExpanded?.Invoke(new List<Location> { start });
 
 
-        for (int i = 1; i < initialHeight; i++)
-        {
-            ExpandUp(1);
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        for (int i = 1; i < initialRight; i++)
-        {
-            ExpandRight(1);
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        for (int i = 1; i < Math.Abs(initialLeft); i++)
-        {
-            ExpandLeft(1);
-            yield return new WaitForSeconds(0.05f);
-        }
-        StopAllCoroutines();
+        ExpandTo(initialLeft, initialRight, initialHeight);
     }
 
     public static void ExpandTo(int l, int r, int h)

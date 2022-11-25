@@ -16,11 +16,13 @@ public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable, IAnimatable
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] Obstruction obstruction;
     [SerializeField] AnimatableEntity playerAnimations;
+    [SerializeField] PlayerTurnComponent turnComponent;
 
     public IDamageable Damageable { get => damageableHealth; }
     public IObstruct Obstruct { get => obstruction; }
     public IAnimatable Animatable { get => playerAnimations; }
     public IObstructionChecker ObstructionChecker { get => obstructionChecker; }
+    public PlayerTurnComponent TurnComponent { get => turnComponent; }
 
 
     public string Name;
@@ -30,6 +32,6 @@ public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable, IAnimatable
 
     public override void DestroyEntity()
     {
-        Destroy(gameObject);
+        Entities.PlayerCollection.RemoveEntity(this);
     }
 }

@@ -39,10 +39,9 @@ public class RemoveDeadEntities : MonoBehaviour
 
         foreach (var entity in deadEntities.ToList())
         {
-            Entities.RemoveEntity(entity);
             entity.DestroyEntity();
-            
         }
+
         deadEntities.Clear();
     }
 }

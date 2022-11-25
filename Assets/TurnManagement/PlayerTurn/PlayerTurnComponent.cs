@@ -1,23 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerTurnComponent : MonoBehaviour
 {
-    private bool hasMadeTurn;
+    private bool hasMadeTurn = false;
     public bool HasMadeTurn { get => hasMadeTurn; }
-
-    private void Start()
+    
+    public void BeginNewRound()
     {
         hasMadeTurn = false;
     }
 
-    public void TurnComplete()
-    {
-        hasMadeTurn = true;
-    }
-
-    public bool CanIMakeATurn()
+    /// <summary>
+    /// Does this player still need their turn to be planned?
+    /// </summary>
+    public bool IsTurnPending()
     {
         return hasMadeTurn;
     }

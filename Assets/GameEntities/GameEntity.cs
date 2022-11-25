@@ -9,9 +9,31 @@ public abstract class GameEntity : MonoBehaviour, IHaveGameEntity
     public abstract EntityType EntityType { get; }
 
     public abstract void DestroyEntity();
-    public void SetLocation(Location newLocation)
+
+    public void OnDestroy()
+    {
+        DestroyEntity();
+    }
+
+    public virtual void SetLocation(Location newLocation)
     {
         Location = newLocation;
+
+        if (LocationUtility.TryGetTile(newLocation, out MapTile mapTile))
+        {
+            transform.SetParent(mapTile.transform);
+        }
+    }
+
+    /// <summary>
+    /// Set isInitializing to true if used for the purpose of initializing a new GameEntity.
+    /// </summary>
+    public virtual void SetLocation(Location newLocation, bool isInitializing)
+    {
+        SetLocation(newLocation);
+
+        if (isInitializing)
+            transform.localPosition = Vector3.zero;
     }
 }
 

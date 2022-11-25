@@ -8,32 +8,46 @@ public class GameTileCreator : MonoBehaviour
     [SerializeField] GameObject tilePrefab;
     [SerializeField] int scale;
 
+    Queue<Location> locationsToAdd = new();
+    bool isRunningRoutine = false;
 
     private void Awake()
     {
-        gridCreator.AddedNode += MakeGameTile;
+        gridCreator.AddedNode += AddGameTile;
     }
 
-    void MakeGameTiles(IEnumerable<Location> locations)
+    void AddGameTile(Location location)
     {
-        foreach(var location in locations)
+        locationsToAdd.Enqueue(location);
+        if (!isRunningRoutine)
         {
-            MakeGameTile(location);
+            isRunningRoutine = true;
+            StartCoroutine(AddTiles());
         }
+    }
+
+    IEnumerator AddTiles()
+    {
+        while (locationsToAdd.Count > 0)
+        {
+            MakeGameTile(locationsToAdd.Dequeue());
+            yield return new WaitForSeconds(.05f);
+        }
+
+        isRunningRoutine = false;
     }
 
     void MakeGameTile(Location location)
     {
         GameObject gridTile = Instantiate(tilePrefab);
         MapTile tileScript = gridTile.GetComponent<MapTile>();
-        tileScript.SetLocation((location.X, location.Y));
+        tileScript.transform.SetParent(gameObject.transform);
+        tileScript.SetLocation(location);
         var targetPosition = Location2Position(location.X, location.Y);
         tileScript.transform.position = new Vector3(targetPosition.x, targetPosition.y, 50f);
         var targetVector3overshoot = new Vector3(targetPosition.x, targetPosition.y, -0.3f);
         var targetVector3 = new Vector3(targetPosition.x, targetPosition.y, 0f);
 
-
-        gridTile.SetActive(LocationUtility.IsOnMap(location)); // Activate the GameObject if on the map
         tileScript.gameObject.name = "Tile (" + location.X + ", " + location.Y + ")";
 
         Sequence mySequence = DOTween.Sequence();
@@ -41,7 +55,6 @@ public class GameTileCreator : MonoBehaviour
         mySequence.Append(tileScript.gameObject.transform.DOMove(targetVector3, 0.1f));
 
         Entities.MapTileCollection.AddEntity(tileScript);
-
     }
 
     Vector2 Location2Position(int x, int y)

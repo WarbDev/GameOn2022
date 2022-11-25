@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEditor;
 using System.Linq;
 
 public class Entities : MonoBehaviour
@@ -53,16 +54,11 @@ public class Entities : MonoBehaviour
 
     public static Enemy SpawnEnemy(Location location, GameObject enemyPrefab)
     {
-        MapTile mapTile;
-        LocationUtility.TryGetTile(location, out mapTile);
-        Location tileLocation = mapTile.Location;
-        var enemyObject = Instantiate(enemyPrefab);
-        var enemy = enemyObject.GetComponent<Enemy>();
-        enemy.transform.position = new Vector2(tileLocation.X, tileLocation.Y);
-        enemy.SetLocation(tileLocation);
-        enemy.SpriteRenderer.flipX = (tileLocation.X < 0);
+        Enemy enemy = (PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject).GetComponent<Enemy>();
+        enemy.SetLocation(location, true);
+        enemy.SpriteRenderer.flipX = (location.X < 0);
         Entities.EnemyCollection.AddEntity(enemy);
-        return enemy.GetComponent<Enemy>();
+        return enemy;
     }
 
     private void Awake()

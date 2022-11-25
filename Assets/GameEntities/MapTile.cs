@@ -14,6 +14,16 @@ public class MapTile : GameEntity
         Destroy(gameObject);
     }
 
+    public override void SetLocation(Location newLocation)
+    {
+        Location = newLocation;
+    }
+
+    public override void SetLocation(Location newLocation, bool isInitializing)
+    {
+        Location = newLocation;
+    }
+
     public bool IsObstructedBy(GameEntity entity)
     {
         Debug.Log("IsObstructedBy IS NOT IMPLIMENTED");
