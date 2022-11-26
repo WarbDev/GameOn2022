@@ -39,6 +39,11 @@ public class Move_Fireball : Move, IDamage
     {
         locator.DeterminedLocations -= DoEffects;
 
+        if (locations.Count == 0)
+        {
+            MoveCompleted?.Invoke(false);
+        }
+
         Location selected = locations[0]; //locations[0] is the player-selected point
         locations = effectShape(selected, radius);
 
@@ -71,5 +76,11 @@ public class Move_Fireball : Move, IDamage
         LocationUtility.TryGetTile(location, out endPoint);
 
         animation.PlayAnimation(endPoint.transform.position, log);
+        animation.boomFireball.AnimationFinished += MoveDone;
+    }
+
+    private void MoveDone(EntityAnimation<BFireballAnimationProperties> s)
+    {
+        MoveCompleted?.Invoke(true);
     }
 }

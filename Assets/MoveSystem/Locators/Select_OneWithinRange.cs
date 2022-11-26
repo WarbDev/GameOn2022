@@ -40,5 +40,9 @@ public class Select_OneWithinRange: ITarget
             Selected?.Invoke(loc);
             clickListener.EntityClicked -= Located;
         }
+        else
+        {
+
+        }
     }
 }
