@@ -83,6 +83,9 @@ public class PlayerTurnComponent : MonoBehaviour
     IEnumerator PlanningAction()
     {
         yield return null;
+        //STATE = PLAN_STATE.DOING_ACTION;
+        //action.DidAction += OnActionCallback;
+        
     }
 
     public bool CanDoMovement()
