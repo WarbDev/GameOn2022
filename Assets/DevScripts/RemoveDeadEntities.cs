@@ -10,7 +10,7 @@ public class RemoveDeadEntities : MonoBehaviour
     {
         Entities.PlayerCollection.EntityRemoved += RemoveFromDeathPool;
         Entities.EnemyCollection.EntityRemoved += RemoveFromDeathPool;
-        Health.LostAllHealth += AddToDeathPool;
+        // Health.LostAllHealth += AddToDeathPool;
     }
 
     private void Update()

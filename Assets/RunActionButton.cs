@@ -6,13 +6,14 @@ using System;
 
 public class RunActionButton : MonoBehaviour, IBroadcastMove
 {
+    [SerializeField] KeyCode keyCode;
     [SerializeField] List<Move> moves;
 
     public event Action<Move> Broadcast;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(keyCode))
         {
             Broadcast?.Invoke(moves[0]);
         }

@@ -5,12 +5,12 @@ using System;
 
 public class RunMovementButton : MonoBehaviour, IBroadcastVoid
 {
-
+    [SerializeField] KeyCode keyCode;
     public event Action Broadcast;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(keyCode))
         {
             Broadcast?.Invoke();
         }

@@ -4,20 +4,41 @@ using UnityEngine;
 
 public class PlayerSpawning : MonoBehaviour
 {
-    [SerializeField] GameObject playerPrefab;
-    [SerializeField] int X;
-    [SerializeField] int Y;
+    [SerializeField] List<GameObject> players = new();
+    [SerializeField] GameTileCreator tileCreator;
 
     private void Start()
     {
-        SpawnPlayers();
+        StartCoroutine(PlayerSpawningRoutine());
+        
     }
-    public void SpawnPlayers()
+
+    IEnumerator PlayerSpawningRoutine()
     {
-        GameObject playerObject = Instantiate(playerPrefab);
-        Player playerScript = playerObject.GetComponent<Player>();
-        playerScript.GetComponent<Transform>().position = new Vector2(X, Y);
-        playerScript.SetLocation(new Location(X, Y));
+        int i = 1;
+        tileCreator.TileCreated += CheckToAddTile;
+      
+        while(i <= players.Count)
+        {
+            yield return null;
+        }
+
+        void CheckToAddTile(MapTile tile)
+        {
+            if (tile.Location.X == 0)
+            {
+                SpawnPlayer(players[i - 1], new Location(0, i));
+                i++;
+            }
+        }
+
+        tileCreator.TileCreated -= CheckToAddTile;
+    }
+
+    public void SpawnPlayer(GameObject playerPrefab, Location location)
+    {
+        Player playerScript = playerPrefab.GetComponent<Player>();
+        playerScript.SetLocation(location, true);
 
         Entities.PlayerCollection.AddEntity(playerScript);
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5000476966138047202}
   - component: {fileID: 6202944329519807952}
   - component: {fileID: 1243850123607717385}
+  - component: {fileID: 586580800378120012}
   m_Layer: 0
   m_Name: Game Flow
   m_TagString: Untagged
@@ -48,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pendingTurns: {fileID: 6202944329519807952}
   playerPlanInitializer: {fileID: 1243850123607717385}
+  currentPlannerTracker: {fileID: 586580800378120012}
+  isRunning: 0
   StartPlayerPhase: 0
 --- !u!114 &6202944329519807952
 MonoBehaviour:
@@ -76,3 +79,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurns: []
+--- !u!114 &586580800378120012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551437386549088644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93964a43b2d57764e833c5ca1ce5c084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

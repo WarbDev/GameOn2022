@@ -11,12 +11,16 @@ public class PlayerPhase : MonoBehaviour
 
     [SerializeField] PendingTurns pendingTurns;
     [SerializeField] TurnPlans playerPlanInitializer;
+    [SerializeField] CurrentlyPlanningPlayer currentPlannerTracker;
+
+    [SerializeField] bool isRunning;
     
     [InspectorButton("OnStartPhaseClicked")]
     public bool StartPlayerPhase;
 
     private void OnStartPhaseClicked()
     {
+        isRunning = true;
         StartPlayerRound();
     }
 
@@ -27,11 +31,18 @@ public class PlayerPhase : MonoBehaviour
 
     void StartPlayerRound()
     {
-        pendingTurns.TrackPendingTurns(playerPlanInitializer.InitializePlanners());
+        var planners = playerPlanInitializer.InitializePlanners();
+        currentPlannerTracker.TrackPlanningPlayer(planners, IsRunningPlayerPhase);
+        pendingTurns.TrackPendingTurns(planners);
+    }
+
+    bool IsRunningPlayerPhase()
+    {
+        return isRunning;
     }
 
     void EndPlayerRound()
     {
-
+        isRunning = false;
     }
 }
