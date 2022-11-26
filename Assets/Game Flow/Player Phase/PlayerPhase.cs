@@ -12,6 +12,7 @@ public class PlayerPhase : MonoBehaviour
     [SerializeField] PendingTurns pendingTurns;
     [SerializeField] TurnPlans playerPlanInitializer;
     [SerializeField] CurrentlyPlanningPlayer currentPlannerTracker;
+    [SerializeField] EnemyPhase enemyPhase;
 
     [SerializeField] bool isRunning;
     
@@ -28,6 +29,12 @@ public class PlayerPhase : MonoBehaviour
     private void Awake()
     {
         pendingTurns.AllTurnsComplete += EndPlayerRound;
+        
+    }
+
+    private void Start()
+    {
+        enemyPhase.Finished += StartPlayerRound;
     }
 
     void StartPlayerRound()

@@ -15,10 +15,16 @@ public class WaveRunner : MonoBehaviour
 
     void Start()
     {
-        waveToRun.InitializeWave();
+        StartCoroutine(WaitRun());
         batchesInWave = waveToRun.Batches;
 
         enemyPhase.Finished += RunNextBatch;
+    }
+
+    IEnumerator WaitRun()
+    {
+        yield return new WaitForSeconds(2);
+        waveToRun.InitializeWave();
     }
 
     void RunNextBatch()

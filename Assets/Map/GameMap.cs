@@ -160,7 +160,7 @@ public class GameMap : MonoBehaviour
         MapExpanded?.Invoke(new List<Location> { start });
 
 
-        ExpandTo(initialLeft, initialRight, initialHeight);
+        //ExpandTo(initialLeft, initialRight, initialHeight);
     }
 
     public static void ExpandTo(int l, int r, int h)
