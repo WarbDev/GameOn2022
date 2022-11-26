@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Move_Wind : Move
     ShapeWithRadius rangeShape = LocationUtility.LocationsInSquareRadius;
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
     Player player;
+
+    public override event Action<bool> MoveCompleted;
 
     public override void DoMove(Player player)
     {

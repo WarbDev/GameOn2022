@@ -17,6 +17,8 @@ namespace HoldTheLine.Examples
 
         private List<Location> locations;
 
+        public override event Action<bool> MoveCompleted;
+
         public override void DoMove(Player player)
         {
             this.player = player;
