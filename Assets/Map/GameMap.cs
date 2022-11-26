@@ -7,6 +7,7 @@ using DG.Tweening;
 public class GameMap : MonoBehaviour
 {
     public static event Action<List<Location>> MapExpanded;
+    public static event Action<int> TopBorderExpanded;
 
     #region Map Properties
     [SerializeField] bool hasTwoFronts;
@@ -236,6 +237,7 @@ public class GameMap : MonoBehaviour
         }
         topBorder = topBorder + amount;
         MapExpanded?.Invoke(newLocations);
+        TopBorderExpanded?.Invoke(topBorder);
     }
 
     public static void MovePlayer(GameEntity player, Location to)
