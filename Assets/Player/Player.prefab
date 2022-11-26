@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3169324217173436968}
   - component: {fileID: 9020505713785838135}
   - component: {fileID: 7526490831846806938}
+  - component: {fileID: 6551433914616070669}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,6 +71,7 @@ MonoBehaviour:
   obstructionChecker: {fileID: 7526490831846806938}
   obstruction: {fileID: 9020505713785838135}
   playerAnimations: {fileID: 4152544370693114016}
+  turnComponent: {fileID: 0}
   Name: 
 --- !u!114 &7886695812729171924
 MonoBehaviour:
@@ -125,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29074f497a52c34b9e750448d22f6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 0}
 --- !u!114 &9020505713785838135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +156,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   obstructingTags: 
+--- !u!114 &6551433914616070669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513081452634914696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c417322d9a133408aa3b27947901d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moves:
+  - {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+  moveCooldowns:
+    list: []
+    keyCollision: 0
 --- !u!1 &1900587806213811467
 GameObject:
   m_ObjectHideFlags: 0
