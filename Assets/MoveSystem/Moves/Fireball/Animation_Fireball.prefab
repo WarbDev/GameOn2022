@@ -169,4 +169,4 @@ MonoBehaviour:
   spriteSet: {fileID: 11400000, guid: e7de8a8de2ca941488c73a87dcb1fecb, type: 2}
   ease: 1
   duration: 2
-  loops: -1
+  loops: 1
