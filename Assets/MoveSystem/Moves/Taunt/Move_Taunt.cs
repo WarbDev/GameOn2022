@@ -31,6 +31,12 @@ public class Move_Taunt : Move
     private void DoEffects(List<Location> locations)
     {
         locator.DeterminedLocations -= DoEffects;
+
+        if (locations == null)
+        {
+            MoveCompleted?.Invoke(false);
+        }
+
         List<Location> area;
         if (locations[0].X > 0)
         {
@@ -76,6 +82,14 @@ public class Move_Taunt : Move
         }
 
         animation.PlayAnimation(log);
+
+        animation.animate.AnimationFinished -= MoveDone;
+        animation.animate.AnimationFinished += MoveDone;
     }
 
+    private void MoveDone(EntityAnimation<TauntAnimationProperties> obj)
+    {
+        obj.AnimationFinished -= MoveDone;
+        MoveCompleted?.Invoke(true);
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class A_Wind : MonoBehaviour
 {
 
-    [SerializeField] WindAnimation windAnimation;
+    [SerializeField] public WindAnimation windAnimation;
     // Start is called before the first frame update
     public void PlayAnimation()
     {

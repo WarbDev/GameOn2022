@@ -29,6 +29,11 @@ public class Move_Wind : Move
     {
         locator.DeterminedLocations -= DoEffects;
 
+        if (locations == null)
+        {
+            MoveCompleted?.Invoke(false);
+        }
+
         Location selected = locations[0]; //locations[0] is the player-selected point
         locations = effectShape(selected, radius);
 
@@ -64,5 +69,14 @@ public class Move_Wind : Move
         }
 
         animation.PlayAnimation();
+
+        animation.windAnimation.AnimationFinished -= MoveDone;
+        animation.windAnimation.AnimationFinished += MoveDone;
+    }
+
+    private void MoveDone(EntityAnimation<WindAnimationProperties> obj)
+    {
+        obj.AnimationFinished -= MoveDone;
+        MoveCompleted?.Invoke(true);
     }
 }

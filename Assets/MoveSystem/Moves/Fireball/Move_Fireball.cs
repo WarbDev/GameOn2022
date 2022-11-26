@@ -39,7 +39,7 @@ public class Move_Fireball : Move, IDamage
     {
         locator.DeterminedLocations -= DoEffects;
 
-        if (locations.Count == 0)
+        if (locations == null)
         {
             MoveCompleted?.Invoke(false);
         }
@@ -76,11 +76,13 @@ public class Move_Fireball : Move, IDamage
         LocationUtility.TryGetTile(location, out endPoint);
 
         animation.PlayAnimation(endPoint.transform.position, log);
+        animation.boomFireball.AnimationFinished -= MoveDone;
         animation.boomFireball.AnimationFinished += MoveDone;
     }
 
-    private void MoveDone(EntityAnimation<BFireballAnimationProperties> s)
+    private void MoveDone(EntityAnimation<BFireballAnimationProperties> obj)
     {
+        obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }
 }

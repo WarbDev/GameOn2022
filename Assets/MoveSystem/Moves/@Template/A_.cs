@@ -6,7 +6,7 @@ namespace HoldTheLine.Examples
 {
     public class A_ : MonoBehaviour
     {
-        [SerializeField] MoveAnimation moveAnimation;
+        [SerializeField] public MoveAnimation moveAnimation;
 
         public void PlayAnimation()
         {

@@ -31,6 +31,9 @@ public class Locator_1ShapeAt1Range : ILocate
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
         targeter.StartTargeting(availableRange);
 
+        KeyManager.Instance.OnEscapeDown -= Cancel;
+        KeyManager.Instance.OnEscapeDown += Cancel;
+
         highlighter = HighlightEffectArea.Instance;
         highlighter.StartHighlighting(availableRange, effectShape, radius);
     }
@@ -40,10 +43,26 @@ public class Locator_1ShapeAt1Range : ILocate
         highlighter.stopHighlighting();
 
         targeter.Selected -= SendLocation;
-        List<Location> locations = new List<Location>();
-        locations.Add(location);
-        DeterminedLocations?.Invoke(locations);
+
+        if (location.Y == -100)
+        {
+            DeterminedLocations?.Invoke(null);
+        }
+        else
+        {
+            List<Location> locations = new List<Location>();
+            locations.Add(location);
+            DeterminedLocations?.Invoke(locations);
+        }
     }
 
-    
+    private void Cancel()
+    {
+        KeyManager.Instance.OnEscapeDown -= Cancel;
+
+        highlighter.stopHighlighting();
+        targeter.Selected -= SendLocation;
+
+        DeterminedLocations?.Invoke(null);
+    }
 }

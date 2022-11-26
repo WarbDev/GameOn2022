@@ -32,6 +32,10 @@ namespace HoldTheLine.Examples
         {
             locator.DeterminedLocations -= DoEffects;
 
+            if (locations == null)
+            {
+                MoveCompleted?.Invoke(false);
+            }
 
             PlayGraphics();
 
@@ -45,6 +49,15 @@ namespace HoldTheLine.Examples
             A_ animationManager = animation.GetComponent<A_>();
 
             animationManager.PlayAnimation();
+
+            animationManager.moveAnimation.AnimationFinished -= MoveDone;
+            animationManager.moveAnimation.AnimationFinished += MoveDone;
+        }
+
+        private void MoveDone(EntityAnimation<MoveAnimationProperties> obj)
+        {
+            obj.AnimationFinished -= MoveDone;
+            MoveCompleted?.Invoke(true);
         }
     }
 }

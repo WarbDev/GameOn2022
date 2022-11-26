@@ -23,6 +23,9 @@ public class Locator_StaticArea : ILocate
         targeter.Selected += SendLocation;
         targeter.StartTargeting(area.Concat(LocationUtility.FlipLocations(area)).ToList());
 
+        KeyManager.Instance.OnEscapeDown -= Cancel;
+        KeyManager.Instance.OnEscapeDown += Cancel;
+
         highlighter = HighlightStaticArea.Instance;
         highlighter.StartHighlighting(area);
     }
@@ -32,8 +35,27 @@ public class Locator_StaticArea : ILocate
         highlighter.stopHighlighting();
 
         targeter.Selected -= SendLocation;
-        List<Location> locations = new List<Location>();
-        locations.Add(location);
-        DeterminedLocations?.Invoke(locations);
+
+        if (location.Y == -100)
+        {
+            DeterminedLocations?.Invoke(null);
+        }
+        else
+        {
+            List<Location> locations = new List<Location>();
+            locations.Add(location);
+            DeterminedLocations?.Invoke(locations);
+        }
+        
+    }
+
+    private void Cancel()
+    {
+        KeyManager.Instance.OnEscapeDown -= Cancel;
+
+        highlighter.stopHighlighting();
+        targeter.Selected -= SendLocation;
+
+        DeterminedLocations?.Invoke(null);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class A_Taunt : MonoBehaviour
 {
-    [SerializeField] TauntAnimation animate;
+    [SerializeField] public TauntAnimation animate;
 
     public void PlayAnimation(List<PushLog> log)
     {

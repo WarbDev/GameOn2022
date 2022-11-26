@@ -35,6 +35,11 @@ public class Move_Punch : Move
     {
         locator.DeterminedLocations -= DoEffects;
 
+        if (locations == null)
+        {
+            MoveCompleted?.Invoke(false);
+        }
+
         Location selected = locations[0]; //locations[0] is the player-selected point
         locations = effectShape(selected, radius);
 
@@ -47,6 +52,7 @@ public class Move_Punch : Move
 
         PlayGraphics(selected, log);
         
+
     }
 
     private void PlayGraphics(Location location, List<DamageLog> log)
@@ -60,5 +66,14 @@ public class Move_Punch : Move
         LocationUtility.TryGetTile(location, out endPoint);
 
         animationManager.PlayAnimation(endPoint.transform.position, log);
+
+        animationManager.moveAnimation.AnimationFinished -= MoveDone;
+        animationManager.moveAnimation.AnimationFinished += MoveDone;
+    }
+
+    private void MoveDone(EntityAnimation<PunchAnimationProperties> obj)
+    {
+        obj.AnimationFinished -= MoveDone;
+        MoveCompleted?.Invoke(true);
     }
 }
