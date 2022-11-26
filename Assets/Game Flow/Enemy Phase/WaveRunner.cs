@@ -7,23 +7,18 @@ public class WaveRunner : MonoBehaviour
 {
     [SerializeField] Wave waveToRun;
     [SerializeField] GenericDictionary<ENEMY_TYPE, GameObject> PrefabDictionary;
+    [SerializeField] EnemyPhase enemyPhase;
 
     List<BatchBase> batchesInWave;
     int currentBatchIndex = 0;
     [SerializeField] int delay = 0;
 
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            waveToRun.InitializeWave();
-            batchesInWave = waveToRun.Batches;
-        }
+        waveToRun.InitializeWave();
+        batchesInWave = waveToRun.Batches;
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            RunNextBatch();
-        }
+        enemyPhase.Finished += RunNextBatch;
     }
 
     void RunNextBatch()

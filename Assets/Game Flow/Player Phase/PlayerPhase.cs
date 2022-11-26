@@ -17,6 +17,7 @@ public class PlayerPhase : MonoBehaviour
     
     [InspectorButton("OnStartPhaseClicked")]
     public bool StartPlayerPhase;
+    public event Action Finished;
 
     private void OnStartPhaseClicked()
     {
