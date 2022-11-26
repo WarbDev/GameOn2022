@@ -5,7 +5,7 @@ using UnityEngine;
 public class A_Fireball : MonoBehaviour
 {
     [SerializeField] ProjectileFireballAnimation projectileFireball;
-    [SerializeField] BoomFireballAnimation boomFireball;
+    [SerializeField] public BoomFireballAnimation boomFireball;
     List<DamageLog> log;
 
     public void PlayAnimation(Vector3 endPoint, List<DamageLog> log)

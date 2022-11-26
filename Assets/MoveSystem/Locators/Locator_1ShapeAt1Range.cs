@@ -44,4 +44,6 @@ public class Locator_1ShapeAt1Range : ILocate
         locations.Add(location);
         DeterminedLocations?.Invoke(locations);
     }
+
+    
 }
