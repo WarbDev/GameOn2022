@@ -42,7 +42,8 @@ public class Select_OneWithinRange: ITarget
         }
         else
         {
-
+            Selected?.Invoke(new Location(-100,-100));
+            clickListener.EntityClicked -= Located;
         }
     }
 }

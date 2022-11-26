@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class A_Punch : MonoBehaviour
 {
-    [SerializeField] PunchAnimation moveAnimation;
+    [SerializeField] public PunchAnimation moveAnimation;
     List<DamageLog> log;
 
     public void PlayAnimation(Vector3 endPoint, List<DamageLog> log)
