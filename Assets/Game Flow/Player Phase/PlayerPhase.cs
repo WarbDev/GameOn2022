@@ -4,13 +4,13 @@ using UnityEngine;
 using System;
 
 /// <summary>
-/// Manages the Player Round state.
+/// Manages the Player Phase state.
 /// </summary>
-public class PlayerRound : MonoBehaviour
+public class PlayerPhase : MonoBehaviour
 {
-    public event Action Begin;
-    public event Action End;
+
     [SerializeField] PendingTurns pendingTurns;
+    [SerializeField] TurnPlans playerPlanInitializer;
 
     private void Awake()
     {
@@ -19,12 +19,11 @@ public class PlayerRound : MonoBehaviour
 
     void StartPlayerRound()
     {
-        Begin?.Invoke();
-        pendingTurns.TrackPendingTurns();
+        pendingTurns.TrackPendingTurns(playerPlanInitializer.InitializePlanners());
     }
 
     void EndPlayerRound()
     {
-        End?.Invoke();
+
     }
 }

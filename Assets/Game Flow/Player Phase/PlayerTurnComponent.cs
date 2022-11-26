@@ -7,18 +7,33 @@ public class PlayerTurnComponent : MonoBehaviour
 {
     [SerializeField] PlayerTurnMovement movement;
 
-    private bool hasMadeTurn = false;
-    
-    public void BeginNewRound()
+    bool hasPlannedMovement;
+    bool hasPlannedAction;
+
+    private void Start()
     {
-        StartCoroutine(PlayerTurnRoutine());
+        movement.DidMovement += OnDidMovement;
     }
 
-    IEnumerator PlayerTurnRoutine()
+    public void BeginNewRound()
     {
-        hasMadeTurn = false;
-        
-        yield return null;
+        hasPlannedAction = false;
+        hasPlannedMovement = false;
+    }
+
+    void OnDidMovement(bool success)
+    {
+        hasPlannedMovement = success;
+    }
+
+    public bool CanDoMovement()
+    {
+        return !hasPlannedMovement;
+    }
+
+    public bool CanDoAction()
+    {
+        return !hasPlannedAction;
     }
 
     /// <summary>
@@ -26,7 +41,6 @@ public class PlayerTurnComponent : MonoBehaviour
     /// </summary>
     public bool IsTurnPending()
     {
-        return hasMadeTurn;
+        return !(CanDoAction() || CanDoMovement());
     }
-
 }

@@ -1,14 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerTurnMovement : MonoBehaviour
 {
+    [SerializeField] Player player;
     [SerializeField] bool canDoMovement;
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
+    [SerializeField] MovementPlanningInput input;
+    Dictionary<Location, MovementOption> movementOptions;
+
+    /// <summary>
+    /// Returns false if no movement was actually made.
+    /// </summary>
+    public event Action<bool> DidMovement;
+
     public bool CanDoMovement { get => canDoMovement; }
 
-    
+    void Start()
+    {
+        input.SelectedLocation += OnSelectedLocation;
+        input.PlanningCancelled += CancelPlanning;
+    }
+
+    public void PlanMovement()
+    {
+        movementOptions = GenerateMovementOptions();
+        input.StartRetrieving(movementOptions);
+    }
+
+    void OnSelectedLocation(Location location)
+    {
+        if (movementOptions[location] == MovementOption.SWAP)
+        {
+            Player secondPlayer;
+            LocationUtility.TryGetPlayer(location, out secondPlayer);
+            Swap(secondPlayer);
+        }
+
+        if (movementOptions[location] == MovementOption.FREE)
+        {
+            MoveTo(location);
+        }
+
+        input.StopRetrieving();
+    }
+
+    void CancelPlanning()
+    {
+        input.StopRetrieving();
+        DidMovement?.Invoke(false);
+    }
+
+    void Swap(Player playerToSwapTo)
+    {
+        GameMap.SwapPlayers(player, playerToSwapTo);
+        DidMovement?.Invoke(true);
+    }
+
+    void MoveTo(Location location)
+    {
+        GameMap.MovePlayer(player, location);
+        DidMovement?.Invoke(true);
+    }
 
     public Dictionary<Location, MovementOption> GenerateMovementOptions()
     {
