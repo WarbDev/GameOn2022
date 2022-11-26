@@ -15,15 +15,20 @@ public class PlayerActions : EntityComponent
 
     public void TickCooldown()
     {
-        foreach(var mC in movesOnCooldown)
+        foreach (var mC in movesOnCooldown)
         {
             movesOnCooldown[mC.Key] = Mathf.Max(0, mC.Value - 1);
         }
     }
 
+    public bool CanDo(Move move)
+    {
+        return moves.Contains(move) && !IsOnCoolDown(move);
+    }
+
     public bool IsOnCoolDown(Move move)
     {
-        return movesOnCooldown[move] > 0;
+        return movesOnCooldown.ContainsKey(move) && movesOnCooldown[move] > 0;
     }
 
     public int Cooldown(Move move)

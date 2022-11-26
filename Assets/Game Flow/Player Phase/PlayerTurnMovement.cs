@@ -6,7 +6,6 @@ using System;
 public class PlayerTurnMovement : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] bool canDoMovement;
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] MovementPlanningInput input;
     Dictionary<Location, MovementOption> movementOptions;
@@ -15,8 +14,6 @@ public class PlayerTurnMovement : MonoBehaviour
     /// Returns false if no movement was actually made.
     /// </summary>
     public event Action<bool> DidMovement;
-
-    public bool CanDoMovement { get => canDoMovement; }
 
     void Start()
     {

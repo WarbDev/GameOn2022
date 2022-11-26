@@ -7,6 +7,7 @@ public class PlayerTurnComponent : MonoBehaviour
 {
     [SerializeField] PlayerTurnMovement movement;
     [SerializeField] PlayerTurnAction action;
+    [SerializeField] PlayerActions actionPool;
 
     [SerializeField] TurnPlanningInput input;
 
@@ -14,11 +15,6 @@ public class PlayerTurnComponent : MonoBehaviour
 
     bool hasPlannedMovement;
     bool hasPlannedAction;
-
-    private void Start()
-    {
-
-    }
 
     public void BeginNewRound()
     {
@@ -32,6 +28,7 @@ public class PlayerTurnComponent : MonoBehaviour
     {
         STATE = PLAN_STATE.AWAITING;
         input.MovementSelected += TryEnterMovementState;
+        input.ActionSelected += TryEnterActionState;
 
         while (STATE == PLAN_STATE.AWAITING)
         {
@@ -43,6 +40,7 @@ public class PlayerTurnComponent : MonoBehaviour
         }
 
         input.MovementSelected -= TryEnterMovementState;
+        input.ActionSelected -= TryEnterActionState;
 
         void TryEnterMovementState()
         {
@@ -50,6 +48,15 @@ public class PlayerTurnComponent : MonoBehaviour
             {
                 STATE = PLAN_STATE.PLAN_MOVEMENT;
                 StartCoroutine(PlanningMovement());
+            }
+        }
+
+        void TryEnterActionState(Move move)
+        {
+            if (CanDoAction(move))
+            {
+                STATE = PLAN_STATE.DOING_ACTION;
+                StartCoroutine(PlanningAction(move));
             }
         }
 
@@ -71,21 +78,30 @@ public class PlayerTurnComponent : MonoBehaviour
 
         void OnMovementCallback(bool success)
         {
-            if (success)
-            {
-                hasPlannedMovement = success;
-                STATE = PLAN_STATE.AWAITING;
-                StartCoroutine(AwaitingSelection());
-            }
+            hasPlannedMovement = success;
+            STATE = PLAN_STATE.AWAITING;
+            StartCoroutine(AwaitingSelection());
         }
     }
 
-    IEnumerator PlanningAction()
+    IEnumerator PlanningAction(Move move)
     {
-        yield return null;
-        //STATE = PLAN_STATE.DOING_ACTION;
-        //action.DidAction += OnActionCallback;
-        
+
+        STATE = PLAN_STATE.DOING_ACTION;
+        action.DidAction += OnActionCallback;
+        action.PlanAction(move);
+        while(STATE == PLAN_STATE.DOING_ACTION)
+        {
+            yield return null;
+        }
+        action.DidAction -= OnActionCallback;
+
+        void OnActionCallback(bool success)
+        {
+            hasPlannedAction = success;
+            STATE = PLAN_STATE.AWAITING;
+            StartCoroutine(AwaitingSelection());
+        }
     }
 
     public bool CanDoMovement()
@@ -96,6 +112,11 @@ public class PlayerTurnComponent : MonoBehaviour
     public bool CanDoAction()
     {
         return !hasPlannedAction;
+    }
+
+    public bool CanDoAction(Move move)
+    {
+        return CanDoAction() && actionPool.CanDo(move);
     }
 
     /// <summary>

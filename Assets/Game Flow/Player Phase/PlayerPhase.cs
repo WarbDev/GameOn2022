@@ -11,6 +11,14 @@ public class PlayerPhase : MonoBehaviour
 
     [SerializeField] PendingTurns pendingTurns;
     [SerializeField] TurnPlans playerPlanInitializer;
+    
+    [InspectorButton("OnStartPhaseClicked")]
+    public bool StartPlayerPhase;
+
+    private void OnStartPhaseClicked()
+    {
+        StartPlayerRound();
+    }
 
     private void Awake()
     {
