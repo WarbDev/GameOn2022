@@ -31,8 +31,8 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
     {
         enabled = true;
         spriteRenderer = animationProperties.TargetRenderer;
-        currentlyPlaying = DOTween.Sequence();
-        currentlyPlaying.Append(DOTween.To(() => spriteIndex, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration).SetEase(ease).OnComplete(animationFinished)).SetLoops(-1); ;
+        currentlyPlaying = DOTween.Sequence().SetEase(ease).SetLoops(loops).OnComplete(animationFinished);
+        currentlyPlaying.Append(DOTween.To(() => spriteIndex, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration));
 
         void animationFinished()
         {

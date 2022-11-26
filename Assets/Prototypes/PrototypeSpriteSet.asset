@@ -15,11 +15,11 @@ MonoBehaviour:
   sprites:
   - {fileID: 689472687, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
   - {fileID: -1308253628, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1591938956, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: 1803667530, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: -564708862, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: -1691529124, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: -1425396411, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: 66033922, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: -1739840788, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
+  - {fileID: -1056456749, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}
