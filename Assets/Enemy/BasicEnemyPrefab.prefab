@@ -62,7 +62,7 @@ MonoBehaviour:
   obstruction: {fileID: 373659571355388555}
   enemyMovement: {fileID: -4302722198924480434}
   enemyAction: {fileID: 8948364920145355036}
-  enemyAnimations: {fileID: 0}
+  enemyAnimations: {fileID: 5847531353693503317}
 --- !u!114 &-7149672031301082918
 MonoBehaviour:
   m_ObjectHideFlags: 0
