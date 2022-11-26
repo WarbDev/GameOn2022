@@ -252,6 +252,7 @@ public class GameMap : MonoBehaviour
         PlayersDictionary.Add(to, player);
 
         player.GetComponent<Player>().SetLocation(to);
+        player.transform.localPosition = Vector3.zero;
     }
 
     public static void SwapPlayers(GameEntity player1, GameEntity player2)
