@@ -20,6 +20,7 @@ public class Move_Punch : Move
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
     Player player;
 
+    public override event Action<bool> MoveCompleted;
 
     public override void DoMove(Player player)
     {
