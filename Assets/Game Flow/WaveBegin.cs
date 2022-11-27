@@ -7,8 +7,9 @@ using System;
 public class WaveBegin : MonoBehaviour
 {
     [SerializeField] LevelConstructor levelConstructor;
-    [SerializeField] EnemyPhase enemyPhase;
+    [SerializeField] PlayerPhase playerPhase;
     [SerializeField] PhaseEnd phaseEnd;
+    [SerializeField] WaveRunner waveRunner;
     
     public void BeginWave(Wave wave)
     {
@@ -28,24 +29,8 @@ public class WaveBegin : MonoBehaviour
         levelConstructor.Finished -= FinishedLevelConstruction;
 
         void FinishedLevelConstruction() => finishedLevelConstruction = true;
-
-        int phasesToDo = 3;
-        Action doConsecutivePhases = DoConsecutivePhases;
-        enemyPhase.StartRound(doConsecutivePhases);
-
-        void DoConsecutivePhases()
-        {
-            if (phasesToDo > 0)
-            {
-                Action moreConsecutivePhases = DoConsecutivePhases;
-                enemyPhase.StartRound(moreConsecutivePhases);
-                phasesToDo--;
-            }
-            else
-            {
-                Action goToPhaseEnd = () => phaseEnd.EndPhase(Phase.ENEMY_PHASE);
-                enemyPhase.StartRound(goToPhaseEnd);
-            }
-        }
+        waveRunner.PopulateInitialEnemies(wave);
+        playerPhase.StartPlayerRound();
+        
     }
 }

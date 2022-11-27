@@ -19,11 +19,13 @@ public class ClickableTileUpdater : MonoBehaviour
 
     public void OnTileAdded(MapTile Tile)
     {
-        clickListener.AddClickable(Tile.GetComponent<ClickableEntity>());
+        if (Tile)
+            clickListener.AddClickable(Tile.GetComponent<ClickableEntity>());
     }
 
     public void OnTileRemoved(MapTile Tile)
     {
-        clickListener.RemoveClickable(Tile.GetComponent<ClickableEntity>());
+        if (Tile)
+            clickListener.RemoveClickable(Tile.GetComponent<ClickableEntity>());
     }
 }

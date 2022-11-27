@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 598226858740325122}
   - component: {fileID: 6632498414180516054}
   - component: {fileID: 1140153172828628676}
+  - component: {fileID: 7344342866212137279}
   m_Layer: 0
   m_Name: PlayerPhase
   m_TagString: Untagged
@@ -50,8 +51,8 @@ MonoBehaviour:
   pendingTurns: {fileID: 1140153172828628676}
   playerPlanInitializer: {fileID: 598226858740325122}
   currentPlannerTracker: {fileID: 6632498414180516054}
+  phaseEnd: {fileID: 0}
   isRunning: 0
-  StartPlayerPhase: 0
 --- !u!114 &598226858740325122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,3 +92,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnPlanners: []
   isTracking: 0
+--- !u!114 &7344342866212137279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611004704386558918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5d869cf8413e7488ba62d76f714580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

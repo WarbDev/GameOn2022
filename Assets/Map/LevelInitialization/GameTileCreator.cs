@@ -10,16 +10,19 @@ public class GameTileCreator : MonoBehaviour
 {
     [SerializeField] GameObject tilePrefab;
     [SerializeField] int scale;
+
+    [SerializeField] bool speedy;
+
+    [Tooltip("How many times faster the tiles are created if speedy is checked.")]
+    [SerializeField] float speedyMultiplier;
+
     public event Action<MapTile> TileCreated;
 
-    Queue<Location> locationsToAdd = new();
+    
     bool isRunningRoutine = false;
-
-    public event Action PlayerColumnMade;
-    public event Action BattlefieldMade;
     ObjectPool<MapTile> pool;
 
-    
+    public float SpeedyMultiplier { get { if (speedy) return speedyMultiplier; else return 1f; } }
 
     private void Awake()
     {
@@ -83,7 +86,7 @@ public class GameTileCreator : MonoBehaviour
         foreach(var column in columns)
         {
             StartCoroutine(AscendMapTiles(column, height));
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
         }
         
 
@@ -119,7 +122,7 @@ public class GameTileCreator : MonoBehaviour
         foreach (var tile in ordered)
         {
             AscendMapTile(tile, tile.Location);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f / SpeedyMultiplier);
         }
     }
 

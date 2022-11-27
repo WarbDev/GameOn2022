@@ -30,7 +30,7 @@ public class EnemyActionRunner : MonoBehaviour
             enemy.EnemyAction.DoEnemyAction();
             yield return new WaitUntil(() => readyForNext == true);
         }
-
+        yield return new WaitForSeconds(0.5f);
         Finished?.Invoke();
 
         // Simple unsubscription and bool set to allow the Coroutine to continue.

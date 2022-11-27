@@ -14,7 +14,10 @@ public class RunEnemyMovement : MonoBehaviour
     [SerializeField] bool useTimer = true;
 
     [Tooltip("The time in seconds that must pass until the next enemy movement is ran if UseTimer is checked.")]
-    [SerializeField] float timer = 0.1f;
+    [SerializeField] float timer = 0.2f;
+
+    [Tooltip("The time in seconds that passes after all enemies have calculated their movements.")]
+    [SerializeField] float additionalDelay = 1.0f;
 
     Coroutine enemyTurnMovementCoroutine;
 
@@ -57,7 +60,7 @@ public class RunEnemyMovement : MonoBehaviour
                 yield return new WaitForSeconds(timer);
             }
         }
-
+        yield return new WaitForSeconds(additionalDelay);
         Finished?.Invoke();
 
         // Simple unsubscription and bool set to allow the Coroutine to continue.

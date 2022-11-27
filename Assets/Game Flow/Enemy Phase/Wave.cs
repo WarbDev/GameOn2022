@@ -17,11 +17,13 @@ public class Wave : ScriptableObject
     [Range(0, 16)][SerializeField] int leftLength;
 
     public (int, int, int) WaveMapSize { get => (leftLength, rightLength, height); }
+    [SerializeField] public InitialEnemies initialEnemies;
 
     [Tooltip("Represents a set of batches. Each batch will not run until the first one is finished.")]
     [Table (new string[] {"Batch: Sortable(false)", "Delay: Sortable(false)", "Notes: Sortable(false)"})] [SerializeField] List<WaveBatchEntry> batchEntries = new();
     public List<BatchBase> Batches { get => batchEntries.Select((batch) => batch.Batch).ToList(); }
     public List<int> Delays { get => batchEntries.Select((batch) => batch.Delay).ToList(); }
+
 }
 
 [System.Serializable]

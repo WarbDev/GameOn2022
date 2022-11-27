@@ -112,6 +112,11 @@ public class GameMap : MonoBehaviour
 
         Entities.TerrainCollection.EntityAdded -= OnEntityAdded;
         Entities.TerrainCollection.EntityRemoved -= OnEntityRemoved;
+
+        foreach(var dictionary in allEntityDictionaries)
+        {
+            dictionary.Clear();
+        }
     }
 
     public static void SetBorders(int l, int r, int h)

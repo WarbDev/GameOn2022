@@ -1356,6 +1356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 5551106925577122105, guid: dd8fbf4422fec574cb0bed17f87054ab, type: 3}
   scale: 1
+  speedy: 1
+  speedyMultiplier: 5
 --- !u!114 &1187247940
 MonoBehaviour:
   m_ObjectHideFlags: 0

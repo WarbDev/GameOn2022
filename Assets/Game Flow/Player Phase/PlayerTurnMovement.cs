@@ -44,7 +44,7 @@ public class PlayerTurnMovement : MonoBehaviour
         input.StopRetrieving();
     }
 
-    void CancelPlanning()
+    public void CancelPlanning()
     {
         input.StopRetrieving();
         DidMovement?.Invoke(false);

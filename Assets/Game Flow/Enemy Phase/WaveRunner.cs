@@ -29,6 +29,14 @@ public class WaveRunner : MonoBehaviour
         return currentWave;
     }
 
+    public void PopulateInitialEnemies(Wave wave)
+    {
+        foreach (var kvp in wave.initialEnemies.GetInitialEnemies())
+        {
+            Entities.SpawnEnemy(kvp.Key, PrefabDictionary[kvp.Value]);
+        }
+    }
+
     public void RunNextBatch()
     {
         if (delay > 0)

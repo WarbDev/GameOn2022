@@ -15,6 +15,7 @@ MonoBehaviour:
   height: 6
   rightLength: 8
   leftLength: 8
+  initialEnemies: {fileID: 11400000, guid: 851f8421362d6de4e96cd5b22a1bb629, type: 2}
   batchEntries:
   - Batch: {fileID: 11400000, guid: 32cb39cfcb071ff4290546c0c3eb19d2, type: 2}
     Delay: 0

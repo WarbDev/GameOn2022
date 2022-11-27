@@ -24,18 +24,20 @@ public class PhaseEnd : MonoBehaviour
 
     void CheckNewRound(Phase phase)
     {
+        Action GoToPhaseEnd = () => CheckNewRound(Phase.ENEMY_PHASE);
         completedPhases.Add(phase);
 
         if (completedPhases.Contains(Phase.PLAYER_PHASE) && completedPhases.Contains(Phase.ENEMY_PHASE))
         {
             completedPhases.Clear();
+            playerPhase.StartPlayerRound();
             NewRound?.Invoke();
         }
         else
         {
             if (phase == Phase.PLAYER_PHASE)
             {
-                Action GoToPhaseEnd = () => CheckNewRound(Phase.ENEMY_PHASE);
+                
                 enemyPhase.StartRound(GoToPhaseEnd);
             }
             else if (phase == Phase.ENEMY_PHASE)
