@@ -63,7 +63,11 @@ public class Move_Fireball : Move, IDamage
         }
         foreach (MapTile tile in tiles)
         {
-            terrainLog.Add(Entities.SpawnTerrain(tile.Location, fireTerrain));
+            TerrainBase terrain = Entities.SpawnTerrain(tile.Location, fireTerrain);
+            if (terrain)
+            {
+                terrainLog.Add(terrain);
+            }
         }
 
         
