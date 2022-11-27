@@ -17,19 +17,12 @@ public class FireTerrain : TerrainBase
 
     int damage = 1;
 
-    private void Awake()
-    {
-
-        //Subscribe to roundEnd event;
-    }
-
     public override void DestroyEntity()
     {
-        //Unsubscribe to roundEnd event;
         Destroy(gameObject);
     }
 
-    private void onRoundEnd()
+    public override void OnRoundEnd()
     {
         TurnsUntilExtinguish--;
         if(TurnsUntilExtinguish <= 0)
