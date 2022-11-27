@@ -37,6 +37,7 @@ public class Move_Lightning : Move
         if (locations == null)
         {
             MoveCompleted?.Invoke(false);
+            return;
         }
 
         List<Location> area;
