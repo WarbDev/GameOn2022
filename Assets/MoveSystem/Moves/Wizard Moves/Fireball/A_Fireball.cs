@@ -25,15 +25,16 @@ public class A_Fireball : MonoBehaviour
         projectileFireball.enabled = false;
 
         boomFireball.Play(new BFireballAnimationProperties());
+        foreach (DamageLog damaged in log)
+        {
+            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+        }
     }
 
     private void End(EntityAnimation<BFireballAnimationProperties> obj)
     {
         //log[0].Target.GameObject.GetComponent<AnimatableEntity>();
-        foreach(DamageLog damaged in log)
-        {
-            damaged.Target.Entity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
-        }
+        
 
 
         boomFireball.AnimationFinished -= End;

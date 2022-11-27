@@ -107,6 +107,8 @@ MonoBehaviour:
     list:
     - Key: 0
       Value: {fileID: 5675939221526179406}
+    - Key: 3
+      Value: {fileID: 4807935752813304585}
     keyCollision: 0
 --- !u!114 &5453654757865739973
 MonoBehaviour:
@@ -412,6 +414,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1104857092845329071, guid: 924c9a4d142af47458bcc372ba774adc, type: 3}
   m_PrefabInstance: {fileID: 3046607940117590463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4807935752813304585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7565627155753839286, guid: 924c9a4d142af47458bcc372ba774adc, type: 3}
+  m_PrefabInstance: {fileID: 3046607940117590463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a4fcc127ed34b4490e0f55f1788fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7848388758577525943
 PrefabInstance:
   m_ObjectHideFlags: 0

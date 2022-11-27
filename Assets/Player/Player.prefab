@@ -292,7 +292,6 @@ GameObject:
   - component: {fileID: 5330943147852817725}
   - component: {fileID: 1622290207071599376}
   - component: {fileID: 7115869970798139037}
-  - component: {fileID: 465606882310798395}
   - component: {fileID: 8486106820603326401}
   m_Layer: 0
   m_Name: TurnHandling
@@ -332,7 +331,6 @@ MonoBehaviour:
   action: {fileID: 8486106820603326401}
   actionPool: {fileID: 6551433914616070669}
   input: {fileID: 1622290207071599376}
-  STATE: 0
 --- !u!114 &6012677884370942995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementButton: {fileID: 7115869970798139037}
-  actionButton: {fileID: 465606882310798395}
+  actionButton: {fileID: 0}
 --- !u!114 &7115869970798139037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,20 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fadaaee04e6cdc469b215083eb225ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &465606882310798395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4055489919663900120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc75125cc4ac714f9901b094092d528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moves:
-  - {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+  keyCode: 0
 --- !u!114 &8486106820603326401
 MonoBehaviour:
   m_ObjectHideFlags: 0

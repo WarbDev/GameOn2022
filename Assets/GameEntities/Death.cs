@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Obsolete
-public class RunActionButton : MonoBehaviour
+public class Death : EntityComponent
 {
-
+    public bool IsDead = false;
 }

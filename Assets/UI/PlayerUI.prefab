@@ -82,7 +82,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1137952486535041272, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Name
-      value: PlayerPanel (1)
+      value: SpyPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1137952486535041279, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Pivot.x
@@ -280,7 +280,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1137952486535041272, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Name
-      value: PlayerPanel
+      value: BuffPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1137952486535041279, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Pivot.x
@@ -498,7 +498,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1137952486535041272, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Name
-      value: PlayerPanel (2)
+      value: WizardPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1137952486535041279, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: m_Pivot.x

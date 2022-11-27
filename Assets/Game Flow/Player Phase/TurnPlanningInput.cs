@@ -5,8 +5,8 @@ using System;
 
 public class TurnPlanningInput : MonoBehaviour
 {
-    [SerializeField] MonoBehaviour movementButton;
-    [SerializeField] MonoBehaviour actionButton;
+    [SerializeField] MovementButton movementButton;
+    [SerializeField] MovePanel actionButton;
 
     IBroadcastVoid movementSelect;
     IBroadcastMove actionSelect;
