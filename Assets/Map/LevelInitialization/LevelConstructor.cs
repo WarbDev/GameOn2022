@@ -27,7 +27,7 @@ public class LevelConstructor : MonoBehaviour
         {
             yield return null;
         }
-        playerSpawning.SpawnPlayers();
+        
 
         isBusy = tileCreator.BuildMapTiles(currentWave.WaveMapSize);
         while (isBusy())
@@ -35,6 +35,7 @@ public class LevelConstructor : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(1f);
+        playerSpawning.SpawnPlayers();
         wall.RaiseWall();
         Finished?.Invoke();
     }
