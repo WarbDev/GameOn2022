@@ -8,6 +8,7 @@ public class WaveBegin : MonoBehaviour
 {
     [SerializeField] LevelConstructor levelConstructor;
     [SerializeField] EnemyPhase enemyPhase;
+    [SerializeField] PhaseEnd phaseEnd;
     
     public void BeginWave(Wave wave)
     {
@@ -25,7 +26,26 @@ public class WaveBegin : MonoBehaviour
             yield return null;
         }
         levelConstructor.Finished -= FinishedLevelConstruction;
-        enemyPhase.StartRound();
+
         void FinishedLevelConstruction() => finishedLevelConstruction = true;
+
+        int phasesToDo = 3;
+        Action doConsecutivePhases = DoConsecutivePhases;
+        enemyPhase.StartRound(doConsecutivePhases);
+
+        void DoConsecutivePhases()
+        {
+            if (phasesToDo > 0)
+            {
+                Action moreConsecutivePhases = DoConsecutivePhases;
+                enemyPhase.StartRound(moreConsecutivePhases);
+                phasesToDo--;
+            }
+            else
+            {
+                Action goToPhaseEnd = () => phaseEnd.EndPhase(Phase.ENEMY_PHASE);
+                enemyPhase.StartRound(goToPhaseEnd);
+            }
+        }
     }
 }

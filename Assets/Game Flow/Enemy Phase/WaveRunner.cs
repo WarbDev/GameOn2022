@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class WaveRunner : MonoBehaviour
 {
     [SerializeField] Wave waveToRun;
     [SerializeField] GenericDictionary<ENEMY_TYPE, GameObject> PrefabDictionary;
-    [SerializeField] EnemyPhase enemyPhase;
     [SerializeField] LevelConstructor levelConstructor;
+
+    public event Action Finished;
+
 
     List<BatchBase> batchesInWave;
     int currentBatchIndex = 0;
@@ -19,7 +22,6 @@ public class WaveRunner : MonoBehaviour
     void Start()
     {
         batchesInWave = waveToRun.Batches;
-        enemyPhase.Finished += RunNextBatch;
     }
 
     public Wave GetNextWave()
@@ -27,11 +29,18 @@ public class WaveRunner : MonoBehaviour
         return currentWave;
     }
 
-    void RunNextBatch()
+    public void RunNextBatch()
     {
         if (delay > 0)
         {
             delay -= 1;
+            Finished?.Invoke();
+            return;
+        }
+
+        if (batchesInWave.Count <= currentBatchIndex)
+        {
+            Finished?.Invoke();
             return;
         }
 
@@ -46,6 +55,7 @@ public class WaveRunner : MonoBehaviour
             delay += waveToRun.Delays[currentBatchIndex];
             currentBatchIndex++;
         }
+        Finished?.Invoke();
         
     }
 }

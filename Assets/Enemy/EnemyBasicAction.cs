@@ -29,6 +29,11 @@ public class EnemyBasicAction : EnemyAction
                 ActionFinished?.Invoke(this);
             }
         }
+        else
+        {
+            ActionFinished?.Invoke(this);
+        }
+       
     }
 
     IDamageable HostileEntityInFront()

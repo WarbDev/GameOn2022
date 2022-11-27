@@ -15,7 +15,6 @@ public class PlayerPhase : MonoBehaviour
     [SerializeField] PhaseEnd phaseEnd;
 
     [SerializeField] bool isRunning;
-    public event Action Finished;
 
     private void Awake()
     {
@@ -38,6 +37,6 @@ public class PlayerPhase : MonoBehaviour
     void EndPlayerRound()
     {
         isRunning = false;
-        phaseEnd.EndedPlayerPhase();
+        phaseEnd.EndPhase(Phase.PLAYER_PHASE);
     }
 }
