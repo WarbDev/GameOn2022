@@ -218,6 +218,21 @@ public static class LocationUtility
         return tile;
     }
 
+    public static bool TryGetTerrain(Location location, out TerrainBase terrain)
+    {
+        bool hasTerrain = GameMap.TerrainDictionary.TryGetValue(location, out GameEntity terrainEntity);
+        if (hasTerrain)
+            terrain = terrainEntity as TerrainBase;
+        else
+            terrain = null;
+        return hasTerrain;
+    }
+
+    public static bool HasTerrain(Location location)
+    {
+        return GameMap.TerrainDictionary.ContainsKey(location);
+    }
+
     public static bool HasMapTile(Location location)
     {
         return GameMap.MapTilesDictionary.ContainsKey(location);

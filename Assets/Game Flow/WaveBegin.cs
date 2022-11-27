@@ -7,7 +7,7 @@ using System;
 public class WaveBegin : MonoBehaviour
 {
     [SerializeField] LevelConstructor levelConstructor;
-    public event Action Finished;
+    [SerializeField] EnemyPhase enemyPhase;
     
     public void BeginWave(Wave wave)
     {
@@ -25,8 +25,7 @@ public class WaveBegin : MonoBehaviour
             yield return null;
         }
         levelConstructor.Finished -= FinishedLevelConstruction;
-        Finished?.Invoke();
-
+        enemyPhase.StartRound();
         void FinishedLevelConstruction() => finishedLevelConstruction = true;
     }
 }

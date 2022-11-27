@@ -12,33 +12,19 @@ public class PlayerPhase : MonoBehaviour
     [SerializeField] PendingTurns pendingTurns;
     [SerializeField] TurnPlans playerPlanInitializer;
     [SerializeField] CurrentlyPlanningPlayer currentPlannerTracker;
-    [SerializeField] EnemyPhase enemyPhase;
+    [SerializeField] PhaseEnd phaseEnd;
 
     [SerializeField] bool isRunning;
-    
-    [InspectorButton("OnStartPhaseClicked")]
-    public bool StartPlayerPhase;
     public event Action Finished;
-
-    private void OnStartPhaseClicked()
-    {
-        isRunning = true;
-        StartPlayerRound();
-    }
 
     private void Awake()
     {
         pendingTurns.AllTurnsComplete += EndPlayerRound;
-        
     }
 
-    private void Start()
+    public void StartPlayerRound()
     {
-        enemyPhase.Finished += StartPlayerRound;
-    }
-
-    void StartPlayerRound()
-    {
+        isRunning = true;
         var planners = playerPlanInitializer.InitializePlanners();
         currentPlannerTracker.TrackPlanningPlayer(planners, IsRunningPlayerPhase);
         pendingTurns.TrackPendingTurns(planners);
@@ -52,5 +38,6 @@ public class PlayerPhase : MonoBehaviour
     void EndPlayerRound()
     {
         isRunning = false;
+        phaseEnd.EndedPlayerPhase();
     }
 }
