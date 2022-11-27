@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
-  tileCreator: {fileID: 0}
+  tileCreator: {fileID: 3688791}
 --- !u!114 &3688791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,11 +330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513081452634914740, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.38
+      value: 2.93
       objectReference: {fileID: 0}
     - target: {fileID: 1513081452634914740, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.19
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 1513081452634914740, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0fad501017a541bdadfe9bcdadbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveA: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
+  moveA: {fileID: 11400000, guid: 39b2d8dad5b48fc4f82fa9b3d749eacf, type: 2}
   moveB: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
 --- !u!114 &334392758
 MonoBehaviour:

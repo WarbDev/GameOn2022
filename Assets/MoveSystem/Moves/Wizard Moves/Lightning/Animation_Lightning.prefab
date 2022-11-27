@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4901019379110069006}
   - component: {fileID: -6260973254439082384}
-  - component: {fileID: 4718663974773978156}
   - component: {fileID: 6947872479731971709}
-  - component: {fileID: 1613154337669303881}
   - component: {fileID: 1653767561643200709}
+  - component: {fileID: 3903317040086563475}
+  - component: {fileID: 6041429624493851154}
   m_Layer: 0
-  m_Name: Animation_
+  m_Name: Animation_Lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,30 +77,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6e49c58e5f0e1bf4ea927f275dfa34ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 0.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4718663974773978156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964562316847796961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f33ab2082f4054eaf7d445c9e9a14c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveAnimation: {fileID: 1613154337669303881}
 --- !u!114 &6947872479731971709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,24 +103,6 @@ MonoBehaviour:
   animations:
     list: []
     keyCollision: 0
---- !u!114 &1613154337669303881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964562316847796961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79a4e7e7c9045945acd789b48ba2315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  durationForPartA: 0
-  durationForPartB: 0
-  targetSprite: {fileID: -6260973254439082384}
-  spriteAnimation: {fileID: 1653767561643200709}
-  clip: {fileID: 0}
-  clip2: {fileID: 0}
 --- !u!114 &1653767561643200709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +115,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: 6866d917ad35d0a4d9b8eb4c2038302b, type: 2}
-  ease: 0
-  duration: 0
+  spriteSet: {fileID: 11400000, guid: 115f6af50001ced4786002d3e023ef42, type: 2}
+  ease: 1
+  duration: 2
   loops: 0
+--- !u!114 &3903317040086563475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964562316847796961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4c31cfb32b4dd4287f622744497405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAnimation: {fileID: 6041429624493851154}
+--- !u!114 &6041429624493851154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964562316847796961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b243022e3ca2c8943be50ef9235bf19f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durationForPartA: 0
+  durationForPartB: 0
+  targetSprite: {fileID: -6260973254439082384}
+  spriteAnimation: {fileID: 1653767561643200709}
+  lengthToWidthRatio: 2
+  clip: {fileID: 8300000, guid: 1008937fe3b722345a40a03cf870cdec, type: 3}
