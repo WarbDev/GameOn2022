@@ -21,8 +21,10 @@ public class Move_Fireball : Move, IDamage
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
     Player player;
 
+    private List<TerrainBase> terrainLog;
 
-    
+
+
 
     private List<Location> locations;
 
@@ -45,6 +47,7 @@ public class Move_Fireball : Move, IDamage
         if (locations == null)
         {
             MoveCompleted?.Invoke(false);
+            return;
         }
 
         Location selected = locations[0]; //locations[0] is the player-selected point
@@ -53,14 +56,17 @@ public class Move_Fireball : Move, IDamage
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
         List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
         List<DamageLog> log = new();
+        terrainLog = new();
         foreach (Enemy enemy in enemies)
         {
             log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
         }
         foreach (MapTile tile in tiles)
         {
-            Entities.SpawnTerrain(tile.Location, fireTerrain);
+            terrainLog.Add(Entities.SpawnTerrain(tile.Location, fireTerrain));
         }
+
+        
 
         PlayGraphics(selected, log);
         
@@ -78,10 +84,17 @@ public class Move_Fireball : Move, IDamage
         animation.PlayAnimation(endPoint.transform.position, log);
         animation.boomFireball.AnimationFinished -= MoveDone;
         animation.boomFireball.AnimationFinished += MoveDone;
+
+        
     }
 
     private void MoveDone(EntityAnimation<BFireballAnimationProperties> obj)
     {
+        foreach (TerrainBase terrain in terrainLog)
+        {
+            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.GetComponent<SpriteRenderer>()));
+        }
+
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }

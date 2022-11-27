@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteSet: {fileID: 11400000, guid: 115f6af50001ced4786002d3e023ef42, type: 2}
   ease: 1
-  duration: 2
+  duration: 0.5
   loops: 0
 --- !u!114 &3903317040086563475
 MonoBehaviour:
@@ -144,8 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b243022e3ca2c8943be50ef9235bf19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durationForPartA: 0
-  durationForPartB: 0
   targetSprite: {fileID: -6260973254439082384}
   spriteAnimation: {fileID: 1653767561643200709}
   lengthToWidthRatio: 2

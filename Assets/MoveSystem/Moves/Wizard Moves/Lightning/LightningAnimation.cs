@@ -29,6 +29,12 @@ public class LightningAnimation : EntityAnimation<LightningAnimationProperties>
         float scale = (float) animationProperties.area.Count / (float) lengthToWidthRatio;
         gameObject.transform.localScale += new Vector3(scale, 1, 1);
 
+        int direction = LocationUtility.DirectionTowardsCenter(animationProperties.area[0]);
+        if (direction > -1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
         // Initialize the current sequence
         currentlyPlaying = DOTween.Sequence(); // primary animation
 

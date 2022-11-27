@@ -11,6 +11,7 @@ public class FireTerrain : TerrainBase
     public override Location Location { get => location; protected set => location = value; }
 
     public override EntityType EntityType { get => EntityType.TERRAIN; }
+    
 
     public int TurnsUntilExtinguish;
 
@@ -18,6 +19,7 @@ public class FireTerrain : TerrainBase
 
     private void Awake()
     {
+
         //Subscribe to roundEnd event;
     }
 
