@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_Fire
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 255a8cddc4f450045b65c29000e2fefd, type: 3}
+  - {fileID: 21300000, guid: c1628f21aaf0a1842afd0a79c2795f06, type: 3}
+  - {fileID: 21300000, guid: a4c82dd90dfbcdb469a36d9abeacba23, type: 3}

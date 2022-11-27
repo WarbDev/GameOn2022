@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class TerrainBase : GameEntity
 {
-
+    public abstract void OnEntityMoveOver(GameEntity entity);
 }

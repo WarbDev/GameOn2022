@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b4afa4137341f4d91ab5bdfa78a464, type: 3}
   m_Name: Move_Fireball
   m_EditorClassIdentifier: 
+  myName: Fireball
+  tooltip: "If you play with fire, they\u2019re gonna get burned"
+  cooldown: 3
   range: 4
   radius: 1
   damage: 5
   Projectile: {fileID: 5933564648966118571, guid: bd0c28b7dba033547a53738ae35f17a3, type: 3}
+  fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}
+  turnsTillExtinguish: 2
