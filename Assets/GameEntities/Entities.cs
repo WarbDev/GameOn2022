@@ -61,13 +61,18 @@ public class Entities : MonoBehaviour
         return enemy;
     }
 
+    //returns null if can't spawn the terran
     public static TerrainBase SpawnTerrain(Location location, GameObject terrainPrefab)
     {
-        TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
-        terrain.SetLocation(location, true);
-        terrain.GetComponent<SpriteRenderer>().flipX = (location.X < 0);
-        Entities.TerrainCollection.AddEntity(terrain);
-        return terrain;
+        if (!LocationUtility.HasTerrain(location))
+        {
+            TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
+            terrain.SetLocation(location, true);
+            terrain.GetComponent<SpriteRenderer>().flipX = (location.X < 0);
+            Entities.TerrainCollection.AddEntity(terrain);
+            return terrain;
+        }
+        return null;
     }
 
     private void OnDestroy()
