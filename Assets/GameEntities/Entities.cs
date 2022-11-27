@@ -61,6 +61,15 @@ public class Entities : MonoBehaviour
         return enemy;
     }
 
+    public static TerrainBase SpawnTerrain(Location location, GameObject terrainPrefab)
+    {
+        TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
+        terrain.SetLocation(location, true);
+        terrain.GetComponent<SpriteRenderer>().flipX = (location.X < 0);
+        Entities.TerrainCollection.AddEntity(terrain);
+        return terrain;
+    }
+
     private void OnDestroy()
     {
         EnemyCollection.RemoveAll();

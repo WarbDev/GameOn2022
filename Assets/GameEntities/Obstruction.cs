@@ -30,5 +30,7 @@ public interface IObstruct : IHaveGameEntity
 public enum OBSTRUCTION_TAG
 {
     ENEMY,
-    PLAYER
+    PLAYER,
+    BARRICADE,
+    BOMB
 }

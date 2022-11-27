@@ -12,6 +12,8 @@ public class Move_Fireball : Move, IDamage
     [SerializeField] int radius;
     [SerializeField] float damage;
     [SerializeField] GameObject Projectile;
+    [SerializeField] GameObject fireTerrain;
+    [SerializeField] int turnsTillExtinguish;
     public int Range { get => range; }
     public int Radius { get => radius; }
     public float Damage { get => damage; }
@@ -28,6 +30,7 @@ public class Move_Fireball : Move, IDamage
 
     public override void DoMove(Player player)
     {
+        fireTerrain.GetComponent<FireTerrain>().TurnsUntilExtinguish = turnsTillExtinguish;
         this.player = player;
         locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, radius);
         locator.DeterminedLocations -= DoEffects;
@@ -56,10 +59,7 @@ public class Move_Fireball : Move, IDamage
         }
         foreach (MapTile tile in tiles)
         {
-            //
-            //SET TILES ON FIRE
-            //TERRAIN MODIFIER
-            //
+            Entities.SpawnTerrain(tile.Location, fireTerrain);
         }
 
         PlayGraphics(selected, log);
