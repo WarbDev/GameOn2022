@@ -38,6 +38,7 @@ public class Move_Punch : Move
         if (locations == null)
         {
             MoveCompleted?.Invoke(false);
+            return;
         }
 
         Location selected = locations[0]; //locations[0] is the player-selected point
