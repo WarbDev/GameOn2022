@@ -61,7 +61,7 @@ public class Entities : MonoBehaviour
         return enemy;
     }
 
-    private void Awake()
+    private void OnDestroy()
     {
         EnemyCollection.RemoveAll();
         PlayerCollection.RemoveAll();

@@ -6,15 +6,10 @@ using DG.Tweening;
 
 public class GameMap : MonoBehaviour
 {
-    public static event Action<List<Location>> MapExpanded;
     public static event Action<int> TopBorderExpanded;
 
     #region Map Properties
     [SerializeField] bool hasTwoFronts;
-
-    [SerializeField] int initialRight;
-    [SerializeField] int initialLeft;
-    [SerializeField] int initialHeight;
     public bool HasTwoFronts { get => hasTwoFronts; }
 
     static int leftBorder;
@@ -29,19 +24,12 @@ public class GameMap : MonoBehaviour
     #endregion
 
     #region GameEntity Dictionaries
-    static Dictionary<Location, List<Location>> neighborsDictionary = new();
     static Dictionary<Location, GameEntity> mapTilesDictionary = new();
     static Dictionary<Location, GameEntity> playersDictionary = new();
     static Dictionary<Location, GameEntity> enemiesDictionary = new();
     static Dictionary<Location, GameEntity> terrainDictionary = new();
     static Dictionary<EntityType, Dictionary<Location, GameEntity>> typeDictionary = new();
     static List<Dictionary<Location, GameEntity>> allEntityDictionaries = new();
-
-    public static Dictionary<Location, List<Location>> NeighborsDictionary
-    {
-        get => neighborsDictionary; 
-        private set => neighborsDictionary = value; 
-    }
 
     public static Dictionary<Location, GameEntity> MapTilesDictionary
     {
@@ -81,7 +69,6 @@ public class GameMap : MonoBehaviour
         DOTween.SetTweensCapacity(500, 312);
         typeDictionary.Clear();
 
-        neighborsDictionary = new();
         mapTilesDictionary = new();
         playersDictionary = new();
         enemiesDictionary = new();
@@ -127,117 +114,17 @@ public class GameMap : MonoBehaviour
         Entities.TerrainCollection.EntityRemoved -= OnEntityRemoved;
     }
 
-    private void Start()
+    public static void SetBorders(int l, int r, int h)
     {
-        InitializeMap();
+        leftBorder = -Math.Abs(l);
+        rightBorder = r;
+        topBorder = h;
     }
 
-
-    void Update()
+    public static void SetBorders((int, int, int) lrh)
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            ExpandLeft(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ExpandRight(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            ExpandUp(1);
-        }
-    }
-
-    void InitializeMap()
-    {
-        Location start = new(0, 1);
-        topBorder = 1;
-        leftBorder = 0;
-        rightBorder = 0;
-        MapExpanded?.Invoke(new List<Location> { start });
-
-
-        //ExpandTo(initialLeft, initialRight, initialHeight);
-    }
-
-    public static void ExpandTo(int l, int r, int h)
-    {
-        if (l > 0)
-        {
-            l = -l;
-        }
-
-        while (l < leftBorder)
-        {
-            ExpandLeft(1);
-        }
-
-        while (r > rightBorder)
-        {
-            ExpandRight(1);
-        }
-
-        while (h > topBorder)
-        {
-            ExpandUp(1);
-        }
-    }
-
-    static void ExpandRight(int amount)
-    {
-        (List<Location>, int) expansion;
-        expansion = ExpandHorizontal(amount, 1);
-        rightBorder = expansion.Item2;
-        MapExpanded?.Invoke(expansion.Item1);
-    }
-    static void ExpandLeft(int amount)
-    {
-        (List<Location>, int) expansion;
-        expansion = ExpandHorizontal(amount, -1);
-        leftBorder = expansion.Item2;
-        MapExpanded?.Invoke(expansion.Item1);
-
-    }
-
-    static (List<Location>, int) ExpandHorizontal(int amount, int direction)
-    {
-        int border = rightBorder;
-        if (direction > 0)
-        {
-            border = rightBorder;
-        }
-        if (direction < 0)
-        {
-            border = leftBorder;
-        }
-
-        List<Location> newLocations = new();
-        for(int i = Math.Abs(border) + 1; i <= Math.Abs(border) + amount; i++)
-        {
-            for(int j = topBorder; j >= 1; j--)
-            {
-                newLocations.Add(new Location(i * direction, j));
-            }
-        }
-        return (newLocations, border + (amount * direction));
-    }
-
-    static void ExpandUp(int amount)
-    {
-        List<Location> newLocations = new();
-        for(int i = topBorder + 1; i <= topBorder + amount; i++)
-        {
-            for(int j = leftBorder; j <= rightBorder; j++)
-            {
-                newLocations.Add(new Location(j, i));
-            }
-        }
-        topBorder = topBorder + amount;
-        MapExpanded?.Invoke(newLocations);
-        TopBorderExpanded?.Invoke(topBorder);
+        SetBorders(lrh.Item1, lrh.Item2, lrh.Item3);
+        TopBorderExpanded?.Invoke(lrh.Item3);
     }
 
     public static void MovePlayer(GameEntity player, Location to)

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  height: 5
-  rightLength: 6
-  leftLength: 6
+  height: 8
+  rightLength: 16
+  leftLength: 16
   batchEntries:
   - Batch: {fileID: 11400000, guid: 32cb39cfcb071ff4290546c0c3eb19d2, type: 2}
     Delay: 0

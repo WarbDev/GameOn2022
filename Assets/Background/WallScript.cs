@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class WallScript : MonoBehaviour
 {
     //[SerializeField] GameObject wallTile;
@@ -11,14 +12,13 @@ public class WallScript : MonoBehaviour
     [SerializeField] Ease wobbleEase;
     private int mapHeight;
 
-    private void Awake()
+    public void RaiseWall()
     {
-        mapHeight = GameMap.TopBorder;
-        GameMap.TopBorderExpanded += MapHeightExpanded;
-    }
+        int mapHeight = GameMap.TopBorder;
+        Vector3 currentPosition = gameObject.transform.position;
+        gameObject.transform.position = new Vector3(currentPosition.x, mapHeight + .85f, currentPosition.z);
 
-    private void Start()
-    {
+        gameObject.SetActive(true);
         Vector3 targetPositionovershoot = new Vector3(-60, 0);
         Vector3 targetPosition = new Vector3(-45, 0);
 
@@ -28,11 +28,24 @@ public class WallScript : MonoBehaviour
         
     }
 
-    private void MapHeightExpanded(int newHeight)
+    public void LowerWall()
     {
-        mapHeight = newHeight;
-        Vector3 currentPosition = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(currentPosition.x, mapHeight + .85f, currentPosition.z);
+        Vector3 targetPosition = new Vector3(40, 0);
+
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Append(gameObject.transform.DORotate(targetPosition, 2f).SetEase(wobbleEase)).OnComplete(deactivate);
+
+        void deactivate()
+        {
+            int mapHeight = GameMap.TopBorder;
+            Vector3 currentPosition = gameObject.transform.position;
+            gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
+        }
+    }
+
+    private void MapHeightExpanded()
+    {
+        
     }
 
     /*private IEnumerator MakeWall()

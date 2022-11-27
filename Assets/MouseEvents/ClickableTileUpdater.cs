@@ -11,7 +11,7 @@ public class ClickableTileUpdater : MonoBehaviour
         Entities.MapTileCollection.EntityRemoved += OnTileRemoved;
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         Entities.MapTileCollection.EntityAdded -= OnTileAdded;
         Entities.MapTileCollection.EntityRemoved -= OnTileRemoved;

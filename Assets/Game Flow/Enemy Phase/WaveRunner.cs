@@ -8,23 +8,26 @@ public class WaveRunner : MonoBehaviour
     [SerializeField] Wave waveToRun;
     [SerializeField] GenericDictionary<ENEMY_TYPE, GameObject> PrefabDictionary;
     [SerializeField] EnemyPhase enemyPhase;
+    [SerializeField] LevelConstructor levelConstructor;
 
     List<BatchBase> batchesInWave;
     int currentBatchIndex = 0;
     [SerializeField] int delay = 0;
 
+    [SerializeField] Wave currentWave;
+
+    [InspectorButton("BuildNextWave")]
+    public bool DoNextWave;
+
     void Start()
     {
-        StartCoroutine(WaitRun());
         batchesInWave = waveToRun.Batches;
-
         enemyPhase.Finished += RunNextBatch;
     }
 
-    IEnumerator WaitRun()
+    public void BuildNextWave()
     {
-        yield return new WaitForSeconds(2);
-        waveToRun.InitializeWave();
+        levelConstructor.Run(currentWave);
     }
 
     void RunNextBatch()

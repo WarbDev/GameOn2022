@@ -5,10 +5,6 @@ using System.Linq;
 
 public static class LocationUtility
 {
-    public static List<Location> Neighbors(Location l)
-    {
-        return GameMap.NeighborsDictionary[l];
-    }
 
     public static List<List<Location>> GetEndColumns()
     {
