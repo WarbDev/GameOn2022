@@ -16,18 +16,15 @@ public class WaveRunner : MonoBehaviour
 
     [SerializeField] Wave currentWave;
 
-    [InspectorButton("BuildNextWave")]
-    public bool DoNextWave;
-
     void Start()
     {
         batchesInWave = waveToRun.Batches;
         enemyPhase.Finished += RunNextBatch;
     }
 
-    public void BuildNextWave()
+    public Wave GetNextWave()
     {
-        levelConstructor.Run(currentWave);
+        return currentWave;
     }
 
     void RunNextBatch()
