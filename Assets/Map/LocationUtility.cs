@@ -163,6 +163,14 @@ public static class LocationUtility
         return locationsInLine;
     }
 
+    public static List<Location> LocationsInHorizonalLine(Location l, int range)
+    {
+        List<Location> rightLine = LocationsInLine(l, range, Directions.E);
+        List<Location> leftLine = LocationsInLine(l + Directions.W, range -1, Directions.W);
+        rightLine.AddRange(leftLine);
+        return rightLine;
+    }
+
     public static bool TryGetPlayer(Location location, out Player player)
     {
         bool hasPlayer = GameMap.PlayersDictionary.TryGetValue(location, out GameEntity playerEntity);

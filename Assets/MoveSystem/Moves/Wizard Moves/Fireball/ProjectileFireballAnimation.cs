@@ -20,11 +20,13 @@ public class ProjectileFireballAnimation : EntityAnimation<PFireballAnimationPro
 
     public override void Play(PFireballAnimationProperties animationProperties)
     {
-        Sequence currentlyPlaying = DOTween.Sequence();
+        currentlyPlaying = DOTween.Sequence();
         currentlyPlaying.SetEase(ease);
         currentlyPlaying.Append(affectedTransform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));
+
         spriteAnimation.Play(new(targetSprite));
         currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+
         currentlyPlaying.OnComplete(onComplete);
         void onComplete() => AnimationFinished?.Invoke(this);
     }
