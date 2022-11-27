@@ -21,7 +21,7 @@ public class GameTileCreator : MonoBehaviour
 
     
 
-    private void Start()
+    private void Awake()
     {
         pool = new ObjectPool<MapTile>(() => { return Instantiate(tilePrefab, new Vector3(500, 500), new Quaternion()).GetComponent<MapTile>(); },
             tile => { tile.gameObject.SetActive(true); },
