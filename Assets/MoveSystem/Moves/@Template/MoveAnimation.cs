@@ -11,7 +11,7 @@ using DG.Tweening;
 
 namespace HoldTheLine.Examples
 {
-    public abstract class MoveAnimation : EntityAnimation<MoveAnimationProperties>
+    public class MoveAnimation : EntityAnimation<MoveAnimationProperties>
     {
         Sequence currentlyPlaying;
         public override Sequence CurrentlyPlaying { get => currentlyPlaying; }

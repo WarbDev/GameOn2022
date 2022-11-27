@@ -14,6 +14,8 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
     SpriteRenderer spriteRenderer;
     Sequence currentlyPlaying;
     int spriteIndex = 0;
+
+    public SpriteSet Set { get => spriteSet; }
     public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
     public override event Action<EntityAnimation<SpriteAnimationProperties>> AnimationFinished;
