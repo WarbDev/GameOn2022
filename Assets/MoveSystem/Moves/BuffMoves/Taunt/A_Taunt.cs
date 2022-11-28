@@ -16,9 +16,6 @@ public class A_Taunt : MonoBehaviour
     private void End(EntityAnimation<TauntAnimationProperties> obj)
     {
 
-        //ADD TAUNTED ENEMY ANIMATION
-
-
         animate.AnimationFinished -= End;
         Destroy(gameObject);
     }

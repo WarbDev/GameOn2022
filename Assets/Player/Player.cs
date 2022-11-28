@@ -18,11 +18,13 @@ public class Player : GameEntity, IHaveHealth, IDamageable, IAnimatable, IObstru
     [SerializeField] Obstruction obstruction;
     [SerializeField] AnimatableEntity playerAnimations;
     [SerializeField] PlayerTurnComponent turnComponent;
+    [SerializeField] FaceCamera faceCamera;
 
     public IDamageable Damageable { get => damageableHealth; }
     public IObstruct Obstruct { get => obstruction; }
     public IAnimatable Animatable { get => playerAnimations; }
     public IObstructionChecker ObstructionChecker { get => obstructionChecker; }
     public PlayerTurnComponent TurnComponent { get => turnComponent; }
+    public FaceCamera FaceCamera { get => faceCamera; }
     public string Name;
 }

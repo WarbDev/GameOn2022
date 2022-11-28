@@ -9,6 +9,8 @@ public class FaceCamera : MonoBehaviour
     [SerializeField] Transform transformToAdjust;
     [SerializeField] SpriteRenderer spriteRenderer;
 
+    int i = 0;
+
     private void Start()
     {
         mainCamera = Camera.main;
