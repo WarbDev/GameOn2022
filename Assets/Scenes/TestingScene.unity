@@ -1294,6 +1294,26 @@ PrefabInstance:
       propertyPath: pivot
       value: 
       objectReference: {fileID: 301447241}
+    - target: {fileID: 3237201840857439496, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
+      propertyPath: moveEase
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237201840857439496, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
+      propertyPath: liftSpeed
+      value: 2.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237201840857439496, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
+      propertyPath: initialEase
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237201840857439496, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
+      propertyPath: rotateSpeed
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237201840857439496, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
+      propertyPath: wobbleSpeed
+      value: 1.54
+      objectReference: {fileID: 0}
     - target: {fileID: 8220156999251108038, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
       propertyPath: m_RootOrder
       value: 0
