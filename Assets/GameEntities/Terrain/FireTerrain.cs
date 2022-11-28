@@ -19,6 +19,7 @@ public class FireTerrain : TerrainBase
 
     public override void DestroyEntity()
     {
+        Entities.TerrainCollection.RemoveEntity(this);
         Destroy(gameObject);
     }
 
