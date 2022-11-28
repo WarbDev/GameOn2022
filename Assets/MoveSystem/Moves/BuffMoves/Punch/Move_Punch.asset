@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176db306238af4843b28c78f46dd794e, type: 3}
   m_Name: Move_Punch
   m_EditorClassIdentifier: 
+  myName: Bald Eagle Punch
+  tooltip: EAGLE PUUUNCH
+  cooldown: 0
   animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
-  range: 1
-  radius: 0
-  damage: 999
+  radius: 2
+  damage: 3
+  pushDistance: 5
   Projectile: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}

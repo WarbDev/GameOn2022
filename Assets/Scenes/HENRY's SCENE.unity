@@ -1820,11 +1820,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveA: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
   moveB: {fileID: 11400000, guid: bd372b1eae7f841418ccf1424ce5c906, type: 2}
-  moveC: {fileID: 11400000, guid: 39b2d8dad5b48fc4f82fa9b3d749eacf, type: 2}
+  moveC: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
   moveD: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
   moveE: {fileID: 11400000, guid: 6f437bc8666357841aec8cbd0c73d0e5, type: 2}
   moveF: {fileID: 11400000, guid: 1c36d434d546a3b469f5956eb3da0ab6, type: 2}
   moveG: {fileID: 11400000, guid: 178c54ae99b402d4296c7c4cdf8c1519, type: 2}
+--- !u!114 &1778479425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8803805380119124504, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+  m_PrefabInstance: {fileID: 3026037266190599982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e13f4506966e0245a3c5fe714570e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2057685867 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4569273767175580426, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
@@ -2041,6 +2052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
+    - target: {fileID: 7120613299343743233, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: faceCamera
+      value: 
+      objectReference: {fileID: 1778479425}
     - target: {fileID: 8147330691446363383, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
       value: 

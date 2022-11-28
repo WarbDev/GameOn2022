@@ -5,24 +5,19 @@ using UnityEngine;
 public class A_Punch : MonoBehaviour
 {
     [SerializeField] public PunchAnimation moveAnimation;
-    List<DamageLog> log;
 
-    public void PlayAnimation(Vector3 endPoint, List<DamageLog> log)
+    public void PlayAnimation(Vector3 endPoint, List<DamageLog> damageLog, List<PushLog> pushLog)
     {
-        this.log = log;
         moveAnimation.AnimationFinished -= End;
         moveAnimation.AnimationFinished += End;
-        moveAnimation.Play(new PunchAnimationProperties(endPoint));
+        moveAnimation.Play(new PunchAnimationProperties(endPoint, damageLog, pushLog));
     }
 
 
     private void End(EntityAnimation<PunchAnimationProperties> obj)
     {
 
-        foreach (DamageLog damaged in log)
-        {
-            damaged.Target.Entity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
-        }
+        
 
         moveAnimation.AnimationFinished -= End;
         Destroy(gameObject);

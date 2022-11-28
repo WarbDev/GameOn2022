@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6179359015172805173}
   - component: {fileID: -2298484162534747061}
   - component: {fileID: 2840602897288036105}
+  - component: {fileID: 10982962343138478}
   m_Layer: 0
   m_Name: Animation_Punch
   m_TagString: Untagged
@@ -112,6 +113,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
+  ease: 1
   targetSprite: {fileID: -6179359015172805173}
   spriteSet: {fileID: 11400000, guid: f117b3cc8c01fd64a90606c6301e3496, type: 2}
   clip: {fileID: 8300000, guid: 3f7e1a288ffa60c488117fdc9673860d, type: 3}
+  spriteAnimation: {fileID: 10982962343138478}
+--- !u!114 &10982962343138478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655011950942705168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 11400000, guid: f117b3cc8c01fd64a90606c6301e3496, type: 2}
+  ease: 1
+  duration: 1
+  loops: 0
