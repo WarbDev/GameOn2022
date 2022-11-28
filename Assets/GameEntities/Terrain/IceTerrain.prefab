@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4863763988814595443}
   - component: {fileID: 7594493105154858882}
   - component: {fileID: -852607584455701432}
+  - component: {fileID: 8509285132738109422}
   m_Layer: 0
   m_Name: IceTerrain
   m_TagString: Untagged
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   health: {fileID: 5744079474469722965}
+  deathManager: {fileID: 8509285132738109422}
 --- !u!114 &-7289072154689251597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +118,10 @@ MonoBehaviour:
     - Key: 3
       Value: {fileID: 7594493105154858882}
     keyCollision: 0
+  playingActiveAnimation: 0
+  spriteRenderer: {fileID: -852607584455701432}
+  IdleOnStart: 0
+  IdleAfterAnimationEnds: 1
 --- !u!114 &7594493105154858882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +190,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8509285132738109422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910661333486350054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf1e0b11e15a24696f81198074f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  HasAnimator: 1
+  Animator: {fileID: -4863763988814595443}
