@@ -9,7 +9,7 @@ public class MapTile : GameEntity
     public override EntityType EntityType { get => EntityType.MAPTILE; }
     public GameObject GameObject { get => gameObject; }
 
-    public override void DestroyEntity()
+    public override void RemoveFromEntityTracker()
     {
         Destroy(gameObject);
     }

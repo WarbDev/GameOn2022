@@ -4,5 +4,5 @@ using System;
 
 public interface ICanDie
 {
-    public event Action<GameEntity> HasDied;
+    public void Kill();
 }

@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604551722407317062, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 74d36f2752d8cef488c3a86eac79248e, type: 2}
+    - target: {fileID: 649796567368159066, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cc90cfef60a3134480a3da557f50be1, type: 3}
     - target: {fileID: 1513081452634914696, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: m_Name
       value: Buff
@@ -55,6 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678900656982705254, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87ffa5205d1523143a8b6ff3818f1c9e, type: 3}
     - target: {fileID: 6551433914616070669, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: moves.Array.size
       value: 4

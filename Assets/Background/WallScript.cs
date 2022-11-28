@@ -18,7 +18,7 @@ public class WallScript : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence mySequence = DOTween.Sequence();
-        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, -1000);
+        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, 1000);
         mySequence.Append(pivot.transform.DOMove(new Vector3(0, GameMap.TopBorder + 0.5f, 0), 1f).SetEase(moveEase));
         
 

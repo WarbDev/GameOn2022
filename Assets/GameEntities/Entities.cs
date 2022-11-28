@@ -12,44 +12,26 @@ public class Entities : MonoBehaviour
     public static Entities<MapTile> MapTileCollection = new();
     public static Entities<TerrainBase> TerrainCollection = new();
 
+    static Dictionary<EntityType, IEntityCollection> Collections = new() { 
+        { EntityType.ENEMY, EnemyCollection },
+        { EntityType.PLAYER, PlayerCollection },
+        { EntityType.MAPTILE, MapTileCollection },
+        { EntityType.TERRAIN, TerrainCollection }
+    };
+
     public static void RemoveEntity(GameEntity entity)
     {
-        if (entity.EntityType == EntityType.ENEMY)
-        {
-            EnemyCollection.RemoveEntity(entity as Enemy);
-        }
-        if (entity.EntityType == EntityType.MAPTILE)
-        {
-            MapTileCollection.RemoveEntity(entity as MapTile);
-        }
-        if (entity.EntityType == EntityType.PLAYER)
-        {
-            PlayerCollection.RemoveEntity(entity as Player);
-        }
-        if (entity.EntityType == EntityType.TERRAIN)
-        {
-            TerrainCollection.RemoveEntity(entity as TerrainBase);
-        }
+        Collections[entity.EntityType].RemoveEntity(entity);
     }
 
     public static void AddEntity(GameEntity entity)
     {
-        if (entity.EntityType == EntityType.ENEMY)
-        {
-            EnemyCollection.AddEntity(entity as Enemy);
-        }
-        if (entity.EntityType == EntityType.MAPTILE)
-        {
-            MapTileCollection.AddEntity(entity as MapTile);
-        }
-        if (entity.EntityType == EntityType.PLAYER)
-        {
-            PlayerCollection.AddEntity(entity as Player);
-        }
-        if (entity.EntityType == EntityType.TERRAIN)
-        {
-            TerrainCollection.AddEntity(entity as TerrainBase);
-        }
+        Collections[entity.EntityType].AddEntity(entity);
+    }
+
+    public static bool HasEntity(GameEntity entity)
+    {
+        return Collections[entity.EntityType].HasEntity(entity);
     }
 
     public static Enemy SpawnEnemy(Location location, GameObject enemyPrefab)
@@ -85,25 +67,30 @@ public class Entities : MonoBehaviour
     // important code
 }
 
-public class Entities<T> where T : GameEntity
+public class Entities<T> : IEntityCollection where T : GameEntity
 {
-    HashSet<T> entities = new();
+    HashSet<GameEntity> entities = new();
 
-    public HashSet<T> EntitiesSet { get => entities; }
+    public HashSet<GameEntity> EntitiesSet { get => entities; }
 
     public event Action<T> EntityAdded;
     public event Action<T> EntityRemoved;
 
-    public void AddEntity(T entity)
+    public void AddEntity(GameEntity entity)
     {
         entities.Add(entity);
-        EntityAdded?.Invoke(entity);
+        EntityAdded?.Invoke(entity as T);
     }
 
-    public void RemoveEntity(T entity)
+    public void RemoveEntity(GameEntity entity)
     {
         entities.Remove(entity);
-        EntityRemoved?.Invoke(entity);
+        EntityRemoved?.Invoke(entity as T);
+    }
+
+    public bool HasEntity(GameEntity entity)
+    {
+        return entities.Contains(entity);
     }
 
     public void RemoveAll()
@@ -113,6 +100,13 @@ public class Entities<T> where T : GameEntity
             RemoveEntity(entities.First());
         }
     }
+}
+
+public interface IEntityCollection
+{
+    public void AddEntity(GameEntity entity);
+    public void RemoveEntity(GameEntity entity);
+    public bool HasEntity(GameEntity entity);
 }
 
 public class TrackedCollection<T>

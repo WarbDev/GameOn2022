@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerActions : EntityComponent
 {
     [SerializeField] List<Move> moves = new();
-    [SerializeField] GenericDictionary<Move, int> movesOnCooldown;
+    [SerializeField] GenericDictionary<Move, int> movesOnCooldown = new();
 
 
     public List<Move> AllMoves { get => moves; }

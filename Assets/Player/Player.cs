@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable, IAnimatable, IObstruct
+public class Player : GameEntity, IHaveHealth, IDamageable, IAnimatable, IObstruct
 {
     Location location;
     public override Location Location { get => location; protected set => location = value; }
@@ -11,6 +11,7 @@ public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable, IAnimatable
 
     [SerializeField] Health health;
     public Health Health { get => health; }
+    public bool IsDead { get => Damageable.IsDead; }
 
     [SerializeField] DamageableWithHealthComponent damageableHealth;
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
@@ -23,15 +24,5 @@ public class Player : GameEntity, IHaveHealth, ICanDie, IDamageable, IAnimatable
     public IAnimatable Animatable { get => playerAnimations; }
     public IObstructionChecker ObstructionChecker { get => obstructionChecker; }
     public PlayerTurnComponent TurnComponent { get => turnComponent; }
-
-
     public string Name;
-
-    
-    public event Action<GameEntity> HasDied;
-
-    public override void DestroyEntity()
-    {
-        Entities.PlayerCollection.RemoveEntity(this);
-    }
 }
