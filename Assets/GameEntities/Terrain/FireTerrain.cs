@@ -23,7 +23,7 @@ public class FireTerrain : TerrainBase
         Destroy(gameObject);
     }
 
-    public override void OnRoundEnd()
+    public override void OnRoundTick()
     {
         TurnsUntilExtinguish--;
         if(TurnsUntilExtinguish <= 0)

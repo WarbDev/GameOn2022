@@ -24,7 +24,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
         
     }
 
-    public override void OnRoundEnd()
+    public override void OnRoundTick()
     {
         TurnsUntilExtinguish--;
         if (TurnsUntilExtinguish <= 0)

@@ -36,4 +36,12 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
     {
         stunDuration += 1;
     }
+
+    public void OnRoundTick()
+    {
+        if (stunDuration > 0)
+        {
+            stunDuration -= 1;
+        }
+    }
 }
