@@ -6,11 +6,17 @@ using System;
 public class EnemyBasicAction : EnemyAction
 {
     [SerializeField] float damage;
+    [SerializeField] Enemy stun;
     public override event Action<EnemyAction> ActionFinished;
 
 
     public override void DoEnemyAction()
     {
+        if (stun.StunDuration > 0)
+        {
+            ActionFinished?.Invoke(this);
+        }
+
         IDamageable damageable = HostileEntityInFront();
         if (damageable != null)
         {

@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3630c1ab6ea3dc4c887e40308dbd484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunDuration: 0
   spriteRenderer: {fileID: 3742150126084035941}
   damageable: {fileID: 5453654757865739973}
   pushable: {fileID: 2058947421420331837}
@@ -119,6 +120,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3742150126084035941}
   IdleOnStart: 1
   IdleAfterAnimationEnds: 1
+  currentAnimationID: 0
 --- !u!114 &5453654757865739973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +179,7 @@ MonoBehaviour:
   autoAssignGameEntity: 1
   obstructionChecker: {fileID: 8316588675829435490}
   animatableEntity: {fileID: 5847531353693503317}
+  stun: {fileID: 4898490024321455818}
 --- !u!114 &8316588675829435490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +209,7 @@ MonoBehaviour:
   autoAssignGameEntity: 1
   animatableEntity: {fileID: 5847531353693503317}
   damage: 2
+  stun: {fileID: 4898490024321455818}
 --- !u!114 &5842079393352438404
 MonoBehaviour:
   m_ObjectHideFlags: 0
