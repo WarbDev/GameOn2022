@@ -12,25 +12,12 @@ public class DeathComponent : EntityComponent
     {
         RemoveFromEntityCollection();
 
-        if (HasAnimator)
-        {
-            StartCoroutine(VanishOnceAnimationFinished());
-        }
-        else OnDeath();
+        OnDeath();
     }
 
     protected virtual void OnDeath()
     {
         Destroy(gameEntity.gameObject);
-    }
-
-    protected IEnumerator VanishOnceAnimationFinished()
-    {
-        while (Animator.PlayingActiveAnimation)
-        {
-            yield return null;
-        }
-        OnDeath();
     }
 
     protected void RemoveFromEntityCollection()

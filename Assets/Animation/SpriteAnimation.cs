@@ -32,8 +32,10 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
     public override void Play(SpriteAnimationProperties animationProperties)
     {
         enabled = true;
+        
         spriteRenderer = animationProperties.TargetRenderer;
-        currentlyPlaying = DOTween.Sequence().SetEase(ease).SetLoops(loops).OnComplete(animationFinished);
+        currentlyPlaying = DOTween.Sequence().SetEase(ease).SetLoops(loops).OnKill(animationFinished);
+        currentlyPlaying.OnComplete(animationFinished);
         currentlyPlaying.Append(DOTween.To(() => spriteIndex, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration));
 
         void animationFinished()

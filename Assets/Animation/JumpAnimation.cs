@@ -28,6 +28,9 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
     public override void Play(JumpAnimationProperties properties)
     {
+        bool spriteCompleted = false;
+        bool jumpCompleted = false;
+
         Sequence jumpSequence = DOTween.Sequence();
         jumpSequence.SetEase(ease);
         jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x) / 2f, properties.EndPosition.y + jumpHeight), jumpStartDuration));
@@ -38,9 +41,21 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
         // Join together the primary animation with the sprite animation, and announce completion when done.
         currentlyPlaying = jumpSequence;
         spriteAnimation.Play(new(targetSprite));
-        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
-        currentlyPlaying.OnComplete(onComplete);
-        void onComplete() => AnimationFinished?.Invoke(this);
+        spriteAnimation.AnimationFinished += onSpriteAnimationComplete;
+        currentlyPlaying.OnComplete(onJumpComplete);
+
+        void onJumpComplete()
+        {
+            jumpCompleted = true;
+            if (spriteCompleted) AnimationFinished?.Invoke(this);
+        }
+        void onSpriteAnimationComplete(EntityAnimation<SpriteAnimationProperties> animation)
+        {
+            spriteAnimation.AnimationFinished -= onSpriteAnimationComplete;
+            spriteCompleted = true;
+            if (jumpCompleted) AnimationFinished?.Invoke(this);
+        }
+        
     }
 }
 

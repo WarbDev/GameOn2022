@@ -12,7 +12,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
 
     [Tooltip("Is true if playing an animation that is not an idle animation.")]
     [SerializeField] bool playingActiveAnimation = false;
-    public bool PlayingActiveAnimation { get => playingActiveAnimation; }
+    public bool PlayingActiveAnimation() => playingActiveAnimation;
     [SerializeField] Sequence activeIdleSequence = null;
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -21,6 +21,9 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
 
     [Tooltip("If enabled, the entity will automatically play its idle animation after any non-idle animation ends.")]
     [SerializeField] public bool IdleAfterAnimationEnds = false;
+    public void SetIdleAfterAnimationEnds(bool b) => IdleAfterAnimationEnds = b;
+
+    public event Action<ANIMATION_ID> PlayedNewAnimation;
 
 
     void Start()
@@ -48,17 +51,18 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
             // If not an idle animation, cancel any playing idleAnimation and unassign it.
             else
             {
+                if (activeIdleSequence != null)
+                {
+                    activeIdleSequence.Kill();
+                    activeIdleSequence = null;
+                }
+
                 playingActiveAnimation = true;
                 animation = PlayValidAnimation(id, animationProperties);
                 animation.AnimationFinished += OnAnimationFinished;
-
-                if (activeIdleSequence != null)
-                {
-                    activeIdleSequence.Complete();
-                    activeIdleSequence = null;
-                }
             }
-            
+
+            PlayedNewAnimation?.Invoke(id);
             return animation;
         }
             
@@ -71,7 +75,6 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
     {
         var animation = Animations[id] as EntityAnimation<T>;
         animation.Play(animationProperties);
-        animation.AnimationFinished += OnAnimationFinished;
         return animation;
     }
 
@@ -88,7 +91,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
         playingActiveAnimation = false;
         animation.AnimationFinished -= OnAnimationFinished;
 
-        if (IdleAfterAnimationEnds)
+        if (gameObject && IdleAfterAnimationEnds)
         {
             PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(spriteRenderer));
         }
@@ -119,9 +122,19 @@ public interface IAnimatable
         return Animatable.HasAnimation(id);
     }
 
+    public bool PlayingActiveAnimation()
+    {
+        return Animatable.PlayingActiveAnimation();
+    }
+
     // Must be implemented by the Animatable reference.
     public EntityAnimation<T> PlayAnimation<T>(ANIMATION_ID id, T animationProperties) where T : IAnimationProperties
     {
         return Animatable.PlayAnimation(id, animationProperties);
+    }
+
+    void SetIdleAfterAnimationEnds(bool b)
+    {
+        Animatable.SetIdleAfterAnimationEnds(b);
     }
 }

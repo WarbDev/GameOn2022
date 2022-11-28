@@ -26,7 +26,7 @@ public class DeathAnimation : EntityAnimation<HurtAnimationProperties>
         Color color = targetSprite.color;
         // Play an audio clip if needed.
         GlobalAudioSource.Instance.Play(clip);
-        currentlyPlaying.Append(DOTween.To(() => color, x => color = x, new Color(color.r, color.g, color.b, 0), duration));
+        currentlyPlaying.Append(DOTween.To(() => color, x => targetSprite.color = x, new Color(color.r, color.g, color.b, 0), duration));
 
         // Invoke completed once the sequence is finished.
         currentlyPlaying.OnComplete(onComplete);
