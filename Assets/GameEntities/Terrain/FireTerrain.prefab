@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4455694562972800867}
   - component: {fileID: 2134107070905863446}
   - component: {fileID: -786084951405403770}
+  - component: {fileID: 8144910687239401348}
   m_Layer: 0
   m_Name: FireTerrain
   m_TagString: Untagged
@@ -48,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainAnimations: {fileID: -786084951405403770}
-  spriteAnimation: {fileID: 2134107070905863446}
   TurnsUntilExtinguish: 2
 --- !u!212 &-4455694562972800867
 SpriteRenderer:
@@ -135,3 +135,22 @@ MonoBehaviour:
     - Key: 7
       Value: {fileID: 2134107070905863446}
     keyCollision: 0
+  playingActiveAnimation: 0
+  spriteRenderer: {fileID: -4455694562972800867}
+  IdleOnStart: 0
+  IdleAfterAnimationEnds: 1
+--- !u!114 &8144910687239401348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520850072045439940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf1e0b11e15a24696f81198074f94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  HasAnimator: 1
+  Animator: {fileID: -786084951405403770}

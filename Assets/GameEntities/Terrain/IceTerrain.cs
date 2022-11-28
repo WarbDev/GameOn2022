@@ -12,7 +12,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
 
     [SerializeField] Obstruction obstruction;
     [SerializeField] DamageableComponent damageable;
-
+    public bool IsDead { get => damageable.IsDead; }
     public IObstruct Obstruct { get => obstruction; }
 
     public IDamageable Damageable { get => damageable; }
@@ -29,7 +29,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
         TurnsUntilExtinguish--;
         if (TurnsUntilExtinguish <= 0)
         {
-            DestroyEntity();
+            damageable.Kill();
         }
     }
 
