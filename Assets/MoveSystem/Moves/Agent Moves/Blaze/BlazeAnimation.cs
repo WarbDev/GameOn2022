@@ -10,17 +10,12 @@ public class BlazeAnimation : EntityAnimation<BlazeAnimationProperties>
     Sequence currentlyPlaying;
     public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
-    // DURATIONS: Various durations for each animation.
-    [SerializeField] float durationForPartA;
-    [SerializeField] float durationForPartB;
-
     // SPRITES: If animation changes sprite, use a SpriteAnimation.
     [SerializeField] SpriteRenderer targetSprite;
     [SerializeField] SpriteAnimation spriteAnimation;
 
     // AUDIO : AudioClips
     [SerializeField] AudioClip clip;
-    [SerializeField] AudioClip clip2;
 
     // AnimationFinished must be called once currentlyPlaying finishes.
     public override event Action<EntityAnimation<BlazeAnimationProperties>> AnimationFinished;

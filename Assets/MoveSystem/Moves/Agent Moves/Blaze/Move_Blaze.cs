@@ -64,7 +64,7 @@ public class Move_Blaze : Move
         }
 
 
-        List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
+        List<MapTile> tiles = LocationUtility.GetTilesInPositions(burnArea);
         terrainLog = new();
         foreach (MapTile tile in tiles)
         {
