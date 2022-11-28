@@ -9,11 +9,6 @@ public class MapTile : GameEntity
     public override EntityType EntityType { get => EntityType.MAPTILE; }
     public GameObject GameObject { get => gameObject; }
 
-    public override void RemoveFromEntityTracker()
-    {
-        Destroy(gameObject);
-    }
-
     public override void SetLocation(Location newLocation)
     {
         Location = newLocation;

@@ -8,7 +8,7 @@ public abstract class GameEntity : MonoBehaviour, IHaveGameEntity
     public abstract Location Location { get; protected set; }
     public abstract EntityType EntityType { get; }
 
-    public virtual void RemoveFromEntityTracker()
+    public void RemoveFromEntityTracker()
     {
         if (Entities.HasEntity(Entity))
         {

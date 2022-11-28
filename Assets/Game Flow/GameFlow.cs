@@ -28,22 +28,29 @@ public class GameFlow : MonoBehaviour
 
     void TickTimers()
     {
+        List<ITickable> list = new List<ITickable>();
+
         foreach(var enemy in Entities.EnemyCollection.EntitiesSet)
         {
             var tickable = (enemy as ITickable);
-            if (tickable != null) tickable.OnRoundTick();
+            if (tickable != null) list.Add(tickable);
         }
 
         foreach(var terrainEffect in Entities.TerrainCollection.EntitiesSet)
         {
             var tickable = (terrainEffect as ITickable);
-            if (tickable != null) tickable.OnRoundTick();
+            if (tickable != null) list.Add(tickable);
         }
 
         foreach(var player in Entities.PlayerCollection.EntitiesSet)
         {
             var tickable = player as ITickable;
-            if (tickable != null) tickable.OnRoundTick();
+            if (tickable != null) list.Add(tickable);
+        }
+
+        foreach(var tickable in list)
+        {
+            tickable.OnRoundTick();
         }
     }
 }
