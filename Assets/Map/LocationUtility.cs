@@ -175,7 +175,7 @@ public static class LocationUtility
 
         for (int i = 0; i < range; i++)
         {
-            cone.AddRange(LocationsInLine(new Location(l.X + 1 + i, l.Y + i), (i+1)*2-1, Directions.S ));
+            cone.AddRange(LocationsInLine(new Location(l.X + 1 + i, l.Y + i), (i+1)*2-2, Directions.S ));
         }
         return cone;
     }

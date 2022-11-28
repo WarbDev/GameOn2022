@@ -16,6 +16,7 @@ public class Move_Lightning : Move
 
 
     private List<Location> locations;
+    List<DamageLog> log;
 
     public override event Action<bool> MoveCompleted;
 
@@ -51,7 +52,7 @@ public class Move_Lightning : Move
         }
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(area);
-        List<DamageLog> log = new();
+        log = new();
         foreach (Enemy enemy in enemies)
         {
             log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
@@ -76,6 +77,12 @@ public class Move_Lightning : Move
 
     private void MoveDone(EntityAnimation<LightningAnimationProperties> obj)
     {
+
+        foreach (DamageLog damaged in log)
+        {
+            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+        }
+
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }
