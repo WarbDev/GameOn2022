@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd48e308cb9c604ca9186cfe2ca0388, type: 3}
+  m_Name: Move_Barricade
+  m_EditorClassIdentifier: 
+  myName: Erect Barricade
+  tooltip: A Labor of Love
+  cooldown: 0
+  animatorObject: {fileID: 4964562316847796961, guid: 2f76554d5d69d50469d528b9069669e1, type: 3}
+  barricadeTerrain: {fileID: 8455133145688163614, guid: 860485bc081752b4f82338957c4d2230, type: 3}

@@ -18,5 +18,5 @@ MonoBehaviour:
   animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
   radius: 2
   damage: 3
-  pushDistance: 5
-  Projectile: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
+  pushDistance: 99
+  fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}

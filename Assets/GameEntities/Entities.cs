@@ -50,7 +50,7 @@ public class Entities : MonoBehaviour
         {
             TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
             terrain.SetLocation(location, true);
-            terrain.GetComponent<SpriteRenderer>().flipX = (location.X < 0);
+            terrain.SpriteRenderer.flipX = (location.X < 0);
             Entities.TerrainCollection.AddEntity(terrain);
             return terrain;
         }

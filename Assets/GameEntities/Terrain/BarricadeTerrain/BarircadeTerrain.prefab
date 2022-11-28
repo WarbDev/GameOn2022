@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainAnimations: {fileID: 1483232083879780903}
+  spriteRenderer: {fileID: 2625243430796039084}
   obstruction: {fileID: -7995049245966763568}
   damageable: {fileID: 7627563186320036763}
 --- !u!114 &1483232083879780903

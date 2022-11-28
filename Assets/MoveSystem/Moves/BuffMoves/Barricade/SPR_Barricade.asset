@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SPR_Barricade
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 3fcb3ccd948f68b40abbad9e0ead8fe2, type: 3}
+  - {fileID: -1507480312, guid: 3067048e6936d7a45b9c416054a3dd7a, type: 3}
+  - {fileID: -726715355, guid: 3067048e6936d7a45b9c416054a3dd7a, type: 3}
+  - {fileID: -550412046, guid: 3067048e6936d7a45b9c416054a3dd7a, type: 3}
