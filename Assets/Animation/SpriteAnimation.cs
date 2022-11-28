@@ -11,7 +11,7 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
     [SerializeField] float duration;
     [Tooltip("-1 for infinite loops")]
     [SerializeField] int loops;
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer = null;
     Sequence currentlyPlaying;
     int spriteIndex = 0;
 
@@ -22,7 +22,7 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
 
     private void Update()
     {
-        if (spriteRenderer)
+        if (spriteRenderer != null)
         {
             spriteRenderer.sprite = spriteSet.Sprites[spriteIndex];
         }
@@ -36,12 +36,12 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
         spriteRenderer = animationProperties.TargetRenderer;
         currentlyPlaying = DOTween.Sequence().SetEase(ease).SetLoops(loops).OnKill(animationFinished);
         currentlyPlaying.OnComplete(animationFinished);
-        currentlyPlaying.Append(DOTween.To(() => spriteIndex, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration));
+        currentlyPlaying.Append(DOTween.To(() => 0, x => spriteIndex = x, spriteSet.Sprites.Count - 1, duration));
 
         void animationFinished()
         {
             AnimationFinished?.Invoke(this);
-            spriteRenderer = null;
+            enabled = false;
         }
 
     }

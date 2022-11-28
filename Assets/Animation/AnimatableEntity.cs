@@ -23,6 +23,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
     [SerializeField] public bool IdleAfterAnimationEnds = false;
     public void SetIdleAfterAnimationEnds(bool b) => IdleAfterAnimationEnds = b;
 
+    [SerializeField] ANIMATION_ID currentAnimationID;
     public event Action<ANIMATION_ID> PlayedNewAnimation;
 
 
@@ -38,6 +39,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
     {
         if (HasAnimation(id))
         {
+            
             EntityAnimation<T> animation;
 
             // If this is an idle animation, assign the idleAnimation to the new animation.
@@ -75,11 +77,13 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
     {
         var animation = Animations[id] as EntityAnimation<T>;
         animation.Play(animationProperties);
+        currentAnimationID = id;
         return animation;
     }
 
     protected EntityAnimation<T> PlayBadAnimation<T>() where T : IAnimationProperties
     {
+
         EntityAnimation<BadAnimationProperties> animation = BadAnimation.Instance;
         animation.Play(new());
         animation.AnimationFinished += OnAnimationFinished;
@@ -88,6 +92,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
 
     protected virtual void OnAnimationFinished<T>(EntityAnimation<T> animation) where T : IAnimationProperties
     {
+        currentAnimationID = ANIMATION_ID.ENTITY_ANGRY;
         playingActiveAnimation = false;
         animation.AnimationFinished -= OnAnimationFinished;
 
@@ -100,6 +105,7 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
 
     protected virtual void OnIdleAnimationFinished<T>(EntityAnimation<T> animation) where T: IAnimationProperties
     {
+        currentAnimationID = ANIMATION_ID.ENTITY_ANGRY;
         animation.AnimationFinished -= OnIdleAnimationFinished;
     }
 
