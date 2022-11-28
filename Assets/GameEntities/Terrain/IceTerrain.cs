@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class IceTerrain : TerrainBase, IDamageable, IObstruct
 {
@@ -19,9 +20,9 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
 
     public int TurnsUntilExtinguish;
 
-    public override void OnEntityMoveOver(GameEntity entity)
+    public override Func<bool> OnEntityMoveOver(GameEntity entity)
     {
-        
+        return ()=> true; // pp
     }
 
     public override void OnRoundTick()

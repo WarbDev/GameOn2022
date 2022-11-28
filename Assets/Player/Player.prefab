@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   health: {fileID: 7886695812729171924}
+  mostRecentDamageWasAnimated: 1
+  animatableEntity: {fileID: 4152544370693114016}
   deathManager: {fileID: 8859144135050375165}
 --- !u!114 &9020505713785838135
 MonoBehaviour:
@@ -505,6 +507,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3052717168916523939}
   IdleOnStart: 1
   IdleAfterAnimationEnds: 1
+  currentAnimationID: 0
 --- !u!1001 &1991533689391152262
 PrefabInstance:
   m_ObjectHideFlags: 0

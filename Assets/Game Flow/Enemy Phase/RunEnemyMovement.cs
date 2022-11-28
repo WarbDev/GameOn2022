@@ -24,6 +24,9 @@ public class RunEnemyMovement : MonoBehaviour
     // Called once all enemies are finished with their movement.
     public event Action Finished;
 
+    // Called each time an enemy finishes their movement.
+    public event Action MovementTick;
+
     /// <summary>
     /// Gets all of the enemies on the map and runs through each of their turns. Invokes Finishedonce done.
     /// </summary> 
@@ -59,6 +62,8 @@ public class RunEnemyMovement : MonoBehaviour
                 enemy.EnemyMovement.DoTurnMovement();
                 yield return new WaitForSeconds(timer);
             }
+
+            MovementTick?.Invoke();
         }
         yield return new WaitForSeconds(additionalDelay);
         Finished?.Invoke();

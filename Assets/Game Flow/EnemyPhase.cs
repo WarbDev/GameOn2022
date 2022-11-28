@@ -9,6 +9,8 @@ public class EnemyPhase : MonoBehaviour
     [SerializeField] EnemyActionRunner enemyActionRunner;
     [SerializeField] WaveRunner waveRunner;
 
+    public event Action DeathAnimationTick;
+
     public void StartRound(Action OnEnd)
     {
         StartCoroutine(PhaseRoutine(OnEnd));
@@ -29,6 +31,7 @@ public class EnemyPhase : MonoBehaviour
 
         // Run movements
         enemyMovementRunner.Finished += SetFinished;
+        enemyMovementRunner.MovementTick += InvokeAnimationTick;
         enemyMovementRunner.RunEnemyMovements();
         while (!isFinished)
         {
@@ -36,9 +39,11 @@ public class EnemyPhase : MonoBehaviour
         }
         isFinished = false;
         enemyMovementRunner.Finished -= SetFinished;
+        enemyMovementRunner.MovementTick -= InvokeAnimationTick;
 
         // Run actions
         enemyActionRunner.Finished += SetFinished;
+        enemyActionRunner.ActionTick += InvokeAnimationTick;
         enemyActionRunner.RunEnemyActions();
         while (!isFinished)
         {
@@ -46,12 +51,14 @@ public class EnemyPhase : MonoBehaviour
         }
         isFinished = false;
         enemyActionRunner.Finished -= SetFinished;
+        enemyActionRunner.ActionTick -= InvokeAnimationTick;
 
-        
+
 
         // Finish
         OnEnd();
 
         void SetFinished() => isFinished = true;
+        void InvokeAnimationTick() => DeathAnimationTick?.Invoke();
     }
 }

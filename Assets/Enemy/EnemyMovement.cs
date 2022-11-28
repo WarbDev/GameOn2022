@@ -26,21 +26,39 @@ public class EnemyMovement : EntityComponent
             GameMap.MoveEnemy(GameEntity, targetLocation);
 
             var animation = MakeAnimation(startLocation, targetLocation);
-            animation.AnimationFinished += AnnounceFinishedOnAnimationEnd;
+            animation.AnimationFinished += MoveEndTick;
         }
 
         else
         {
-            MovementFinished?.Invoke(this);
+            MoveEndTick();
         }
+    }
 
-        void AnnounceFinishedOnAnimationEnd(EntityAnimation<JumpAnimationProperties> animation)
+    void MoveEndTick(EntityAnimation<JumpAnimationProperties> animation)
+    {
+        animation.AnimationFinished -= MoveEndTick;
+        MoveEndTick();
+    }
+
+    void MoveEndTick()
+    {
+        var hasTerrain = LocationUtility.TryGetTerrain(Location, out TerrainBase terrain);
+        Func<bool> isFinished = ()=>true;
+        if (hasTerrain)
         {
-            animation.AnimationFinished -= AnnounceFinishedOnAnimationEnd;
-            MovementFinished?.Invoke(this);
+            isFinished = terrain.OnEntityMoveOver(gameEntity);
         }
 
-        
+        StartCoroutine(MoveEndRoutine());
+        IEnumerator MoveEndRoutine()
+        {
+            while (!isFinished())
+            {
+                yield return null;
+            }
+            MovementFinished?.Invoke(this);
+        }
     }
 
     EntityAnimation<JumpAnimationProperties> MakeAnimation(Location start, Location end)
