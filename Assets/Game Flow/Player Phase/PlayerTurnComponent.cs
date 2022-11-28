@@ -13,6 +13,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
     PLAN_STATE STATE = PLAN_STATE.AWAITING;
     public event Action<PlayerTurnComponent, PLAN_STATE> StateChanged;
+    public event Action TriedAction;
 
     bool hasPlannedMovement;
     bool hasPlannedAction;
@@ -105,6 +106,7 @@ public class PlayerTurnComponent : MonoBehaviour
         STATE = PLAN_STATE.DOING_ACTION;
         action.DidAction += OnActionCallback;
         action.PlanAction(move);
+        move.MoveCompleted += InvokeTriedAction;
         while (STATE == PLAN_STATE.DOING_ACTION)
         {
             yield return null;
@@ -117,6 +119,12 @@ public class PlayerTurnComponent : MonoBehaviour
             STATE = PLAN_STATE.AWAITING;
             StateChanged?.Invoke(this, STATE);
             StartCoroutine(AwaitingSelection());
+        }
+
+        void InvokeTriedAction(bool idc)
+        {
+            TriedAction?.Invoke();
+            move.MoveCompleted -= InvokeTriedAction;
         }
     }
 

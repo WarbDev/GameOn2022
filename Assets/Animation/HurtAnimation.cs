@@ -15,7 +15,6 @@ public class HurtAnimation : EntityAnimation<HurtAnimationProperties>
     [SerializeField] Ease ease;
     [SerializeField] DefaultSprite defaultSprite;
     [SerializeField] SpriteRenderer targetSprite;
-    [SerializeField] DeathAnimation deathAnimation;
 
     // AUDIO : AudioClips
     [SerializeField] AudioClip clip;
@@ -43,18 +42,7 @@ public class HurtAnimation : EntityAnimation<HurtAnimationProperties>
         void onComplete() 
         {
             defaultSprite.ResetToDefaultColor();
-            if (animationProperties.Log.Target.IsDead)
-            {
-                deathAnimation.AnimationFinished += OnDeathAnimationComplete;
-                deathAnimation.Play(new(animationProperties.Log));
-            }
-            else AnimationFinished?.Invoke(this);
-
-            void OnDeathAnimationComplete(EntityAnimation<HurtAnimationProperties> a)
-            {
-                deathAnimation.AnimationFinished -= OnDeathAnimationComplete;
-                AnimationFinished?.Invoke(this);
-            }
+            AnimationFinished?.Invoke(this);
         }
         
     }

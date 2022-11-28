@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FireTerrain : TerrainBase
 {
@@ -23,11 +24,14 @@ public class FireTerrain : TerrainBase
         if(TurnsUntilExtinguish <= 0)
         {
             RemoveFromEntityTracker();
+            Destroy(gameObject);
         }
     }
 
-    public override void OnEntityMoveOver(GameEntity entity)
+    public override Func<bool> OnEntityMoveOver(GameEntity entity)
     {
+        bool isFinished = false;
+        Func<bool> isFinishedFunc = ()=>isFinished;
         IDamageable damageable = entity as IDamageable;
         if (damageable != null)
         {
@@ -35,8 +39,21 @@ public class FireTerrain : TerrainBase
             IAnimatable animatable = entity as IAnimatable;
             if (animatable != null)
             {
-                animatable.PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(log));
+                var animation = animatable.PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(log));
+                animation.AnimationFinished += OnAniFin;
+
+                void OnAniFin(EntityAnimation<HurtAnimationProperties> a)
+                {
+                    a.AnimationFinished -= OnAniFin;
+                    isFinished = true;
+                }
+            }
+            else
+            {
+                isFinished = true;
             }
         }
+        else isFinished = true;
+        return isFinishedFunc;
     }
 }

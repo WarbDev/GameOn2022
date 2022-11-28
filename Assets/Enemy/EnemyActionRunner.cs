@@ -7,6 +7,7 @@ public class EnemyActionRunner : MonoBehaviour
 {
     Coroutine enemyTurnActionCoroutine;
     public event Action Finished;
+    public event Action ActionTick;
 
     public void RunEnemyActions()
     {
@@ -29,6 +30,7 @@ public class EnemyActionRunner : MonoBehaviour
             enemy.EnemyAction.ActionFinished += IndicateReady;
             enemy.EnemyAction.DoEnemyAction();
             yield return new WaitUntil(() => readyForNext == true);
+            ActionTick?.Invoke();
         }
         yield return new WaitForSeconds(0.5f);
         Finished?.Invoke();

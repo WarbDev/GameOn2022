@@ -135,6 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
   health: {fileID: -7149672031301082918}
+  mostRecentDamageWasAnimated: 1
+  animatableEntity: {fileID: 5847531353693503317}
   deathManager: {fileID: 5842079393352438404}
 --- !u!114 &2058947421420331837
 MonoBehaviour:

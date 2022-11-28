@@ -9,6 +9,8 @@ using System;
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] PhaseEnd phaseEnd;
+    [SerializeField] DeathAnimationTicker deathAnimationTicker;
+    
 
     /// <summary>
     /// Invoked when a new player phase has started.
@@ -20,10 +22,22 @@ public class GameFlow : MonoBehaviour
     /// </summary>
     public static event Action NewRound;
 
+    /// <summary>
+    /// Invoked after a move has finished or an enemy has finished a movement/action tick.
+    /// </summary>
+    public static event Action DeathAnimationTick;
+
     private void Start()
     {
         phaseEnd.NewRound += (() => NewRound?.Invoke());
         phaseEnd.NewRound += TickTimers;
+        deathAnimationTicker.DeathAnimationTick += TickDeathAnimation;
+    }
+
+    void TickDeathAnimation()
+    {
+        DeathAnimationTick?.Invoke();
+        Debug.Log("DEath naimat clicked");
     }
 
     void TickTimers()

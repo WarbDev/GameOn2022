@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class TerrainBase : GameEntity, IAnimatable, ITickable
 {
@@ -8,5 +9,5 @@ public abstract class TerrainBase : GameEntity, IAnimatable, ITickable
     public IAnimatable Animatable { get => terrainAnimations; }
 
     public abstract void OnRoundTick();
-    public abstract void OnEntityMoveOver(GameEntity entity);
+    public abstract Func<bool> OnEntityMoveOver(GameEntity entity);
 }
