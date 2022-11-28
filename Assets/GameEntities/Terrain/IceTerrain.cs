@@ -19,12 +19,6 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
 
     public int TurnsUntilExtinguish;
 
-    public override void DestroyEntity()
-    {
-        Entities.TerrainCollection.RemoveEntity(this);
-        Destroy(gameObject);
-    }
-
     public override void OnEntityMoveOver(GameEntity entity)
     {
         
