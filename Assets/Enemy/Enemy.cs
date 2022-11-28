@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable
+public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable, IStunnable
 {
     Location location;
     public override Location Location { get => location; protected set => location = value; }
     public override EntityType EntityType { get => EntityType.ENEMY; }
     public bool IsDead { get => Damageable.IsDead; }
+
+    [SerializeField] int stunDuration = 0;
+    public int StunDuration { get => stunDuration; }
+
 
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] DamageableComponent damageable;
@@ -27,8 +31,9 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable
     public EnemyAction EnemyAction { get => enemyAction; }
     public IObstruct Obstruct { get => obstruction; }
     public IAnimatable Animatable { get => enemyAnimations; }
-    public override void RemoveFromEntityTracker()
+
+    public virtual void AddStun(int duration)
     {
-        Destroy(gameObject);
+        stunDuration += 1;
     }
 }

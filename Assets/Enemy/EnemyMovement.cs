@@ -7,7 +7,7 @@ public class EnemyMovement : EntityComponent
 {
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] AnimatableEntity animatableEntity;
-
+    [SerializeField] Enemy stun;
 
     Location Location { get => GameEntity.Location; }
     public event Action<EnemyMovement> MovementFinished;
@@ -51,6 +51,11 @@ public class EnemyMovement : EntityComponent
 
     Location DetermineLocationToMoveTo()
     {
+        if (stun.StunDuration > 0)
+        {
+            return Location;
+        }
+
         Location desiredLocation = (Location.X + LocationUtility.DirectionTowardsCenter(Location), Location.Y);
         if (obstructionChecker.IsObstructedBy(desiredLocation))
         {
