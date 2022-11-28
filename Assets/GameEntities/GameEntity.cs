@@ -8,11 +8,17 @@ public abstract class GameEntity : MonoBehaviour, IHaveGameEntity
     public abstract Location Location { get; protected set; }
     public abstract EntityType EntityType { get; }
 
-    public abstract void DestroyEntity();
+    public virtual void RemoveFromEntityTracker()
+    {
+        if (Entities.HasEntity(Entity))
+        {
+            Entities.RemoveEntity(Entity);
+        }
+    }
 
     public void OnDestroy()
     {
-        DestroyEntity();
+        RemoveFromEntityTracker();
     }
 
     public virtual void SetLocation(Location newLocation)

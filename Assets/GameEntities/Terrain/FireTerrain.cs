@@ -17,7 +17,7 @@ public class FireTerrain : TerrainBase
 
     int damage = 1;
 
-    public override void DestroyEntity()
+    public override void RemoveFromEntityTracker()
     {
         Entities.TerrainCollection.RemoveEntity(this);
         Destroy(gameObject);
@@ -28,7 +28,7 @@ public class FireTerrain : TerrainBase
         TurnsUntilExtinguish--;
         if(TurnsUntilExtinguish <= 0)
         {
-            DestroyEntity();
+            RemoveFromEntityTracker();
         }
     }
 
