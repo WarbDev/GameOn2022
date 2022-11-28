@@ -16,6 +16,6 @@ MonoBehaviour:
   tooltip: Cool it
   cooldown: 0
   animatorObject: {fileID: 4964562316847796961, guid: e07e17fef6552034f80acd3ce7c433c9, type: 3}
-  range: 2
-  length: 0
-  iceTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}
+  range: 6
+  length: 2
+  iceTerrain: {fileID: 2910661333486350054, guid: 884016dd0002a4647a12467426a30968, type: 3}

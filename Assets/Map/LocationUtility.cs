@@ -169,6 +169,26 @@ public static class LocationUtility
         return rectangle;
     }
 
+    public static List<Location> LocationsInCone(Location l, int range)
+    {
+        List<Location> cone = new();
+
+        for (int i = 0; i < range; i++)
+        {
+            cone.AddRange(LocationsInLine(new Location(l.X + 1 + i, l.Y + i), (i+1)*2-1, Directions.S ));
+        }
+        return cone;
+    }
+
+    public static List<Location> LocationsInEmptyCone(Location l, int range)
+    {
+        List<Location> cone = new();
+
+        cone.AddRange(LocationsInLine(l + (new Location(Directions.E)), range, Directions.NE));
+        cone.AddRange(LocationsInLine(l + (new Location(Directions.E)) * 2 + (new Location(Directions.S)), range-1, Directions.SE));
+        return cone;
+    }
+
     public static List<Location> LocationsInLine(Location l, int range, (int, int) direction)
     {
         List<Location> locationsInLine = new();
