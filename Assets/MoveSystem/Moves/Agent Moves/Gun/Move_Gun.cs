@@ -28,7 +28,7 @@ public class Move_Gun : Move
     public override void DoMove(Player player)
     {
         this.player = player;
-        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, 2);
+        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, 0);
         locator.DeterminedLocations -= DoEffects;
         locator.DeterminedLocations += DoEffects;
         locator.StartLocate(this);

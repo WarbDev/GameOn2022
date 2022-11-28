@@ -23,8 +23,8 @@ public class Locator_StaticArea : ILocate
         targeter.Selected += SendLocation;
         targeter.StartTargeting(area.Concat(LocationUtility.FlipLocations(area)).ToList());
 
-        KeyManager.Instance.OnEscapeDown -= Cancel;
-        KeyManager.Instance.OnEscapeDown += Cancel;
+        CancelScript.Instance.OnCancel -= Cancel;
+        CancelScript.Instance.OnCancel += Cancel;
 
         highlighter = HighlightStaticArea.Instance;
         highlighter.StartHighlighting(area);
@@ -51,7 +51,7 @@ public class Locator_StaticArea : ILocate
 
     private void Cancel()
     {
-        KeyManager.Instance.OnEscapeDown -= Cancel;
+        CancelScript.Instance.OnCancel -= Cancel;
 
         highlighter.stopHighlighting();
         targeter.Selected -= SendLocation;

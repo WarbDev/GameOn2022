@@ -16,6 +16,7 @@ public class Move_Blaze : Move
     ShapeWithRadius rangeShape = LocationUtility.LocationsInCone;
 
     private List<TerrainBase> terrainLog;
+    List<DamageLog> log;
 
     private List<Location> locations;
 
@@ -57,7 +58,7 @@ public class Move_Blaze : Move
         }
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(area);
-        List<DamageLog> log = new();
+        log = new();
         foreach (Enemy enemy in enemies)
         {
             log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
@@ -97,6 +98,11 @@ public class Move_Blaze : Move
         foreach (TerrainBase terrain in terrainLog)
         {
             terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.GetComponent<SpriteRenderer>()));
+        }
+
+        foreach (DamageLog damaged in log)
+        {
+            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
         }
 
         obj.AnimationFinished -= MoveDone;

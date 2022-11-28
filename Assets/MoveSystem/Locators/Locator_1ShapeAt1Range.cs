@@ -31,8 +31,8 @@ public class Locator_1ShapeAt1Range : ILocate
         List<Location> availableRange = LocationUtility.RemoveOffMapLocations(rangeShape(playerLocation, range));
         targeter.StartTargeting(availableRange);
 
-        KeyManager.Instance.OnEscapeDown -= Cancel;
-        KeyManager.Instance.OnEscapeDown += Cancel;
+        CancelScript.Instance.OnCancel -= Cancel;
+        CancelScript.Instance.OnCancel += Cancel;
 
         highlighter = HighlightEffectArea.Instance;
         highlighter.StartHighlighting(availableRange, effectShape, radius);
@@ -58,7 +58,7 @@ public class Locator_1ShapeAt1Range : ILocate
 
     private void Cancel()
     {
-        KeyManager.Instance.OnEscapeDown -= Cancel;
+        CancelScript.Instance.OnCancel -= Cancel;
 
         highlighter.stopHighlighting();
         targeter.Selected -= SendLocation;

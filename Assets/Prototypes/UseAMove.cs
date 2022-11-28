@@ -7,6 +7,11 @@ public class UseAMove : MonoBehaviour
 
     [SerializeField] Move moveA;
     [SerializeField] Move moveB;
+    [SerializeField] Move moveC;
+    [SerializeField] Move moveD;
+    [SerializeField] Move moveE;
+    [SerializeField] Move moveF;
+    [SerializeField] Move moveG;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,26 @@ public class UseAMove : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.N))
         {
             moveB.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            moveC.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            moveD.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            moveE.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            moveF.DoMove(GetComponent<Player>());
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
+        {
+            moveG.DoMove(GetComponent<Player>());
         }
     }
 
