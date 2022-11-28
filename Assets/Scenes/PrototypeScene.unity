@@ -476,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f0fad501017a541bdadfe9bcdadbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveA: {fileID: 11400000, guid: 178c54ae99b402d4296c7c4cdf8c1519, type: 2}
-  moveB: {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+  moveA: {fileID: 11400000, guid: 670899b49005b464f851c039ca82d87f, type: 2}
+  moveB: {fileID: 11400000, guid: 1c36d434d546a3b469f5956eb3da0ab6, type: 2}
 --- !u!114 &334392758
 MonoBehaviour:
   m_ObjectHideFlags: 0

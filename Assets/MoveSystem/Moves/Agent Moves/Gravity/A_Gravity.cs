@@ -7,11 +7,11 @@ public class A_Gravity : MonoBehaviour
 {
     [SerializeField] public GravityAnimation moveAnimation;
 
-    public void PlayAnimation()
+    public void PlayAnimation(Vector3 endPoint)
     {
         moveAnimation.AnimationFinished -= End;
         moveAnimation.AnimationFinished += End;
-        moveAnimation.Play(new GravityAnimationProperties());
+        moveAnimation.Play(new GravityAnimationProperties(transform.position, endPoint));
     }
 
 

@@ -41,11 +41,9 @@ public class GunAnimation : EntityAnimation<GunAnimationProperties>
         spriteAnimation.Play(new(targetSprite));
         currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
 
-        // Invoke completed once the sequence is finished.
+
+
         currentlyPlaying.OnComplete(smallExplosion);
-
-
-
         
     }
 

@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: -6260973254439082384}
   - component: {fileID: 6947872479731971709}
   - component: {fileID: 1653767561643200709}
-  - component: {fileID: 5649827940242217418}
-  - component: {fileID: 936152203583065038}
-  - component: {fileID: 3294463085320091556}
+  - component: {fileID: -3923747541256061220}
+  - component: {fileID: 5765109000463325434}
   m_Layer: 0
-  m_Name: Animation_Gravity
+  m_Name: Animation_Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,11 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: bd408d7675396614497708cd1097d6d4, type: 2}
+  spriteSet: {fileID: 11400000, guid: 54ac79af02a55b24c906a05f0fc5c977, type: 2}
   ease: 1
   duration: 0.5
-  loops: 1
---- !u!114 &5649827940242217418
+  loops: 0
+--- !u!114 &-3923747541256061220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,14 +128,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4964562316847796961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Script: {fileID: 11500000, guid: 3558ce2bf03686843b14d86a7dacbb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: d8766d06494d7214c938fc88ee355c3b, type: 2}
-  ease: 1
-  duration: 0.5
-  loops: 1
---- !u!114 &936152203583065038
+  moveAnimation: {fileID: 5765109000463325434}
+--- !u!114 &5765109000463325434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,26 +141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4964562316847796961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c493713468f0dea4fbadd56cf40b354b, type: 3}
+  m_Script: {fileID: 11500000, guid: 51895205609cc7546afbdd7023b92778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAnimation: {fileID: 3294463085320091556}
---- !u!114 &3294463085320091556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964562316847796961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8cb281b5f11c44b9549b86b6ab2a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ease: 23
-  duration: 1
+  risingDuration: 0.5
   targetSprite: {fileID: -6260973254439082384}
-  spriteAnimation: {fileID: 5649827940242217418}
-  spriteAnimationBoom: {fileID: 1653767561643200709}
-  clip: {fileID: 8300000, guid: c08ebf519a841b744be8e1e0030e6c5c, type: 3}
-  clipBoom: {fileID: 8300000, guid: a110a10c11842134bb2ac88b8e3f899e, type: 3}
+  spriteAnimation: {fileID: 1653767561643200709}
+  castClip: {fileID: 8300000, guid: c56cf5810f84b924988748b4f8d6bd05, type: 3}
+  iceClip: {fileID: 8300000, guid: fe29ca62aaa18d54292149772449b3b7, type: 3}

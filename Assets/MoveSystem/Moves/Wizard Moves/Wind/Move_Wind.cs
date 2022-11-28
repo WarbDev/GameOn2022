@@ -14,6 +14,8 @@ public class Move_Wind : Move
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
     Player player;
 
+    List<PushLog> log;
+
     public override event Action<bool> MoveCompleted;
 
     public override void DoMove(Player player)
@@ -32,13 +34,14 @@ public class Move_Wind : Move
         if (locations == null)
         {
             MoveCompleted?.Invoke(false);
+            return;
         }
 
         Location selected = locations[0]; //locations[0] is the player-selected point
         locations = effectShape(selected, radius);
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
-        List<PushLog> log = new();
+        log = new();
         List<PushRequest> requests = new();
         foreach (Enemy enemy in enemies)
         {
@@ -50,11 +53,11 @@ public class Move_Wind : Move
         log = Push.CalculatePushes(requests);
         Push.DoPushes(log);
 
-        PlayGraphics(selected, log);
+        PlayGraphics(selected);
 
     }
 
-    private void PlayGraphics(Location location, List<PushLog> log)
+    private void PlayGraphics(Location location)
     {
         GameObject Wind = Instantiate(AnimationObject);
         A_Wind animation = Wind.GetComponent<A_Wind>();
@@ -63,10 +66,6 @@ public class Move_Wind : Move
         LocationUtility.TryGetTile(location, out endPoint);
         Wind.transform.position = endPoint.transform.position;
 
-        foreach (PushLog lo in log)
-        {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
-        }
 
         animation.PlayAnimation();
 
@@ -76,6 +75,11 @@ public class Move_Wind : Move
 
     private void MoveDone(EntityAnimation<WindAnimationProperties> obj)
     {
+        foreach (PushLog lo in log)
+        {
+            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        }
+
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }

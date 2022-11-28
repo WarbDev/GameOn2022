@@ -3,32 +3,29 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Moves/Gun")]
-public class Move_Gun : Move
+[CreateAssetMenu(menuName = "Moves/Ice")]
+public class Move_Ice : Move
 {
     private ILocate locator;
     [SerializeField] GameObject animatorObject;
     Player player;
 
     ShapeWithRadius rangeShape = LocationUtility.LocationsInHorizonalLine;
-    ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
-
-    [SerializeField] float damage;
+    ShapeWithRadius effectShape = LocationUtility.LocationsAsRectangleWithLength;
     [SerializeField] int range;
+    [SerializeField] int length;
 
-    [SerializeField] GameObject IceTerrain;
-
-
-
+    [SerializeField] GameObject iceTerrain;
 
     private List<Location> locations;
+    private List<TerrainBase> terrainLog;
 
     public override event Action<bool> MoveCompleted;
 
     public override void DoMove(Player player)
     {
         this.player = player;
-        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, 2);
+        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, length);
         locator.DeterminedLocations -= DoEffects;
         locator.DeterminedLocations += DoEffects;
         locator.StartLocate(this);
@@ -45,35 +42,45 @@ public class Move_Gun : Move
         }
 
         Location selected = locations[0]; //locations[0] is the player-selected point
+        locations = effectShape(selected, length);
 
-        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
-        List<DamageLog> log = new();
-        foreach (Enemy enemy in enemies)
+        List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
+        terrainLog = new();
+        foreach (MapTile tile in tiles)
         {
-            log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
+            TerrainBase terrain = Entities.SpawnTerrain(tile.Location, iceTerrain);
+            if (terrain)
+            {
+                terrainLog.Add(terrain);
+            }
         }
 
-        PlayGraphics(selected, log);
+        PlayGraphics();
 
     }
 
-    private void PlayGraphics(Location location, List<DamageLog> log)
+    private void PlayGraphics()
     {
         GameObject animation = Instantiate(animatorObject);
         animation.transform.position = player.transform.position;
 
-        A_Gun animationManager = animation.GetComponent<A_Gun>();
+        A_Ice animationManager = animation.GetComponent<A_Ice>();
 
-        animationManager.PlayAnimation(LocationUtility.LocationToVector3(location), log);
+        animationManager.PlayAnimation(terrainLog);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
         animationManager.moveAnimation.AnimationFinished += MoveDone;
     }
 
-    private void MoveDone(EntityAnimation<GunAnimationProperties> obj)
+    private void MoveDone(EntityAnimation<IceAnimationProperties> obj)
     {
+
+        foreach (TerrainBase terrain in terrainLog)
+        {
+            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.GetComponent<SpriteRenderer>()));
+        }
+
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }
 }
-

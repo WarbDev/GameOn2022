@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
-  m_Name: SPR_Gravity
+  m_Name: SPR_Ice
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: efa138f49d84e0146943a90277e76cd0, type: 3}
+  - {fileID: 21300000, guid: c231cc5972da0e0468e4b9cbe5e70039, type: 3}

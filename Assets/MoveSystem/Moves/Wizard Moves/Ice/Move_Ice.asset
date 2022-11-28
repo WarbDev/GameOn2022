@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7801a4696c95fa4da93cf850601b330, type: 3}
+  m_Name: Move_Ice
+  m_EditorClassIdentifier: 
+  myName: Ice Wall
+  tooltip: Cool it
+  cooldown: 0
+  animatorObject: {fileID: 4964562316847796961, guid: e07e17fef6552034f80acd3ce7c433c9, type: 3}
+  range: 2
+  length: 0
+  iceTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}

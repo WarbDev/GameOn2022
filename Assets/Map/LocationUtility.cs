@@ -152,6 +152,23 @@ public static class LocationUtility
         return square;
     }
 
+    public static List<Location> LocationsAsRectangleWithLength(Location l, int range)
+    {
+        List<Location> rectangle = new();
+
+        if (l.X > 0)
+        {
+            rectangle.AddRange(LocationsInLine(l + (new Location(Directions.N) * range), 2 * range, Directions.S));
+            rectangle.AddRange(LocationsInLine(l + new Location(Directions.E) + (new Location(Directions.N) * range), 2 * range, Directions.S));
+        }
+        else
+        {
+            rectangle.AddRange(LocationsInLine(l + (new Location(Directions.N) * range), 2 * range, Directions.S));
+            rectangle.AddRange(LocationsInLine(l + new Location(Directions.W) + (new Location(Directions.N) * range), 2 * range, Directions.S));
+        }
+        return rectangle;
+    }
+
     public static List<Location> LocationsInLine(Location l, int range, (int, int) direction)
     {
         List<Location> locationsInLine = new();
@@ -169,6 +186,20 @@ public static class LocationUtility
         List<Location> leftLine = LocationsInLine(l + Directions.W, range -1, Directions.W);
         rightLine.AddRange(leftLine);
         return rightLine;
+    }
+
+    public static List<Location> LocationsInAllCardinalAndOrdinalDirections(Location l, int range)
+    {
+        List<Location> locations = new();
+        locations.AddRange(LocationsInLine(l+Directions.E, range-1, Directions.E));
+        locations.AddRange(LocationsInLine(l + Directions.SE, range - 1, Directions.SE));
+        locations.AddRange(LocationsInLine(l + Directions.S, range - 1, Directions.S));
+        locations.AddRange(LocationsInLine(l + Directions.SW, range - 1, Directions.SW));
+        locations.AddRange(LocationsInLine(l + Directions.W, range - 1, Directions.W));
+        locations.AddRange(LocationsInLine(l + Directions.NW, range - 1, Directions.NW));
+        locations.AddRange(LocationsInLine(l + Directions.N, range - 1, Directions.N));
+        locations.AddRange(LocationsInLine(l + Directions.NE, range - 1, Directions.NE));
+        return locations;
     }
 
     public static bool TryGetPlayer(Location location, out Player player)
