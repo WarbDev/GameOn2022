@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 
 public class WallScript : MonoBehaviour
@@ -13,13 +14,28 @@ public class WallScript : MonoBehaviour
     [SerializeField] Ease wobbleEase;
     [SerializeField] Ease moveEase;
 
+    [Range(0.25f, 10f)]
+    [SerializeField] float liftSpeed = 1f;
+
+    [Range(0.25f, 10f)]
+    [SerializeField] float wobbleSpeed = 1f;
+
+    [Range(0.25f, 10f)]
+    [SerializeField] float rotateSpeed = 1f;
+
+    public event Action Finished;
+
+    private void Start()
+    {
+        pivot.transform.position = new Vector3(1000, GameMap.TopBorder + 0.5f, 200);
+    }
     public void RaiseWall()
     {
         gameObject.SetActive(true);
 
         Sequence mySequence = DOTween.Sequence();
-        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, 1000);
-        mySequence.Append(pivot.transform.DOMove(new Vector3(0, GameMap.TopBorder + 0.5f, 0), 1f).SetEase(moveEase));
+        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, 200);
+        mySequence.Append(pivot.transform.DOMove(new Vector3(0, GameMap.TopBorder + 0.5f, 0), 1f / liftSpeed).SetEase(moveEase));
         
 
         
@@ -27,9 +43,9 @@ public class WallScript : MonoBehaviour
         Vector3 targetPositionovershoot = new Vector3(-60, 0, 0); // to go from 180 to -60
         Vector3 targetPosition = new Vector3(-45, 0, 0); // to go from -60 to -45
 
-        
-        mySequence.Append(pivot.transform.DORotate(targetPositionovershoot, 2f).SetEase(initialEase));
-        mySequence.Append(pivot.transform.DORotate(targetPosition, 2f).SetEase(wobbleEase));
+
+        mySequence.Append(pivot.transform.DORotate(targetPositionovershoot, 1.25f / rotateSpeed).SetEase(initialEase).OnComplete(() => Finished?.Invoke()));
+        mySequence.Append(pivot.transform.DORotate(targetPosition, wobbleSpeed).SetEase(wobbleEase));
         
     }
 
@@ -46,11 +62,6 @@ public class WallScript : MonoBehaviour
             Vector3 currentPosition = gameObject.transform.position;
             gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
         }
-    }
-
-    private void MapHeightExpanded()
-    {
-        
     }
 
     /*private IEnumerator MakeWall()

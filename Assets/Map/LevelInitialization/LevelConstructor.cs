@@ -22,12 +22,12 @@ public class LevelConstructor : MonoBehaviour
 
         // Raise the player line first, passing in the height of the new map.
         Func<bool> isBusy = tileCreator.RaisePlayerLine(currentWave.WaveMapSize.Item3);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         while (isBusy())
         {
             yield return null;
         }
-        
+
 
         isBusy = tileCreator.BuildMapTiles(currentWave.WaveMapSize);
         while (isBusy())
@@ -35,8 +35,24 @@ public class LevelConstructor : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(1f);
-        playerSpawning.SpawnPlayers();
+        
+
+
+        bool wallFinished = false;
+        wall.Finished += onWallFinish;
         wall.RaiseWall();
+        void onWallFinish()
+        {
+            wallFinished = true;
+        }
+
+        while (!wallFinished)
+        {
+            yield return null;
+        }
+        wall.Finished -= onWallFinish;
+        playerSpawning.SpawnPlayers();
+
         Finished?.Invoke();
     }
 

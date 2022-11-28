@@ -24,6 +24,8 @@ public class A_Fireball : MonoBehaviour
         boomFireball.AnimationFinished += End;
         projectileFireball.enabled = false;
 
+        
+
         boomFireball.Play(new BFireballAnimationProperties());
         
     }
@@ -32,11 +34,12 @@ public class A_Fireball : MonoBehaviour
     {
         //log[0].Target.GameObject.GetComponent<AnimatableEntity>();
 
-
         foreach (DamageLog damaged in log)
         {
             damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
         }
+
+
         boomFireball.AnimationFinished -= End;
         Destroy(gameObject);
     }
