@@ -12,6 +12,8 @@ public class UIPlayerEvents : MonoBehaviour
     /// </summary>
     public event Action<int> HealthChanged;
 
+    public float MaxHealth { get => player.Health.MaxHealth; }
+
     /// <summary>
     /// Called whenever the player starts or stops being an available option to plan movement.
     /// </summary>
