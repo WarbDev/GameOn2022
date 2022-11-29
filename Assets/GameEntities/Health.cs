@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public float MaxHealth { get => maxHealth; }
 
     public event Action<GameEntity> LostAllHealth;
+    public event Action<int> HealthChanged;
 
     public float ReduceHealth(float reduction)
     {

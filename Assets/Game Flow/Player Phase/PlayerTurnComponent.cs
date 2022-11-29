@@ -11,9 +11,13 @@ public class PlayerTurnComponent : MonoBehaviour
 
     [SerializeField] TurnPlanningInput input;
 
-    PLAN_STATE STATE = PLAN_STATE.AWAITING;
+    PLAN_STATE STATE = PLAN_STATE.ASLEEP;
     public event Action<PlayerTurnComponent, PLAN_STATE> StateChanged;
     public event Action TriedAction;
+    public event Action<Move> StartedPlanningMove;
+    public event Action StartedPlanningMovement;
+    public event Action<Move, bool> PlannedMove;
+    public event Action<bool> PlannedMovement;
 
     bool hasPlannedMovement;
     bool hasPlannedAction;
@@ -83,6 +87,7 @@ public class PlayerTurnComponent : MonoBehaviour
         STATE = PLAN_STATE.PLAN_MOVEMENT;
         movement.DidMovement += OnMovementCallback;
         movement.PlanMovement();
+        StartedPlanningMovement?.Invoke();
 
         while (STATE == PLAN_STATE.PLAN_MOVEMENT)
         {
@@ -94,6 +99,7 @@ public class PlayerTurnComponent : MonoBehaviour
         void OnMovementCallback(bool success)
         {
             hasPlannedMovement = success;
+            PlannedMovement?.Invoke(success);
             STATE = PLAN_STATE.AWAITING;
             StateChanged?.Invoke(this, STATE);
             StartCoroutine(AwaitingSelection());
@@ -105,6 +111,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
         STATE = PLAN_STATE.DOING_ACTION;
         action.DidAction += OnActionCallback;
+        StartedPlanningMove?.Invoke(move);
         action.PlanAction(move);
         move.MoveCompleted += InvokeTriedAction;
         while (STATE == PLAN_STATE.DOING_ACTION)
@@ -124,6 +131,7 @@ public class PlayerTurnComponent : MonoBehaviour
         void InvokeTriedAction(bool idc)
         {
             TriedAction?.Invoke();
+            PlannedMove?.Invoke(move, idc);
             move.MoveCompleted -= InvokeTriedAction;
         }
     }
@@ -142,12 +150,12 @@ public class PlayerTurnComponent : MonoBehaviour
 
     public bool CanDoMovement()
     {
-        return !hasPlannedMovement;
+        return !hasPlannedMovement && STATE != PLAN_STATE.LOCKED;
     }
 
     public bool CanDoAction()
     {
-        return !hasPlannedAction;
+        return !hasPlannedAction && STATE != PLAN_STATE.LOCKED;
     }
 
     public bool CanDoAction(Move move)
@@ -160,7 +168,7 @@ public class PlayerTurnComponent : MonoBehaviour
     /// </summary>
     public bool IsTurnPending()
     {
-        return (STATE == PLAN_STATE.ASLEEP);
+        return (STATE != PLAN_STATE.ASLEEP);
     }
 
     public enum PLAN_STATE

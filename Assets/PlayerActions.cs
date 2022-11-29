@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// Contains all actions this player character has access to, and if they're on cooldown.
@@ -9,7 +10,7 @@ public class PlayerActions : EntityComponent
 {
     [SerializeField] List<Move> moves = new();
     [SerializeField] GenericDictionary<Move, int> movesOnCooldown = new();
-
+    public event Action<Move, int> CoolDownUpdated;
 
     public List<Move> AllMoves { get => moves; }
 
@@ -17,7 +18,9 @@ public class PlayerActions : EntityComponent
     {
         foreach (var mC in movesOnCooldown)
         {
-            movesOnCooldown[mC.Key] = Mathf.Max(0, mC.Value - 1);
+            int newValue = Mathf.Max(0, mC.Value - 1);
+            movesOnCooldown[mC.Key] = newValue;
+            CoolDownUpdated?.Invoke(mC.Key, newValue);
         }
     }
 
