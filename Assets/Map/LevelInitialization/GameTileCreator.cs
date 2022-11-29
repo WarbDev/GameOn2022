@@ -103,7 +103,11 @@ public class GameTileCreator : MonoBehaviour
             var row2 = darkTileRowPool.Get();
             AttachRows(i + 1, row, row2);
         }
-        
+
+        //yield return new WaitForSeconds(2f);
+        //StartCoroutine(UnbuildBattlefieldRoutine);
+        //yield return new WaitForSeconds(2f);
+
 
         isRunningRoutine = false;
     }
