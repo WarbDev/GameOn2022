@@ -39,7 +39,6 @@ public class MovementPlanningInput : MonoBehaviour
         unavailableHighlighter.HighlightTiles(unavailableLocations.ToHashSet());
 
         GlobalClickListener.Instance.MapTileListener.EntityClicked += LocationClicked;
-        GlobalClickListener.Instance.PlayerListener.EntityClicked += LocationClicked;
     }
 
     void LocationClicked(ClickableEntity entity)
@@ -58,7 +57,6 @@ public class MovementPlanningInput : MonoBehaviour
     public void StopRetrieving()
     {
         GlobalClickListener.Instance.MapTileListener.EntityClicked -= LocationClicked;
-        GlobalClickListener.Instance.PlayerListener.EntityClicked -= LocationClicked;
 
         freeHighlighter.StopHighlighting();
         unavailableHighlighter.StopHighlighting();
@@ -67,6 +65,5 @@ public class MovementPlanningInput : MonoBehaviour
     private void OnDisable()
     {
         GlobalClickListener.Instance.MapTileListener.EntityClicked -= LocationClicked;
-        GlobalClickListener.Instance.PlayerListener.EntityClicked -= LocationClicked;
     }
 }
