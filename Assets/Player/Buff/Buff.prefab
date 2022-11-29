@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 87ffa5205d1523143a8b6ff3818f1c9e, type: 3}
+    - target: {fileID: 5459020171704802935, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: faceCamera
+      value: 
+      objectReference: {fileID: 4459184542776977749}
     - target: {fileID: 6551433914616070669, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: moves.Array.size
       value: 4
@@ -97,3 +101,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+--- !u!114 &4459184542776977749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5998429273877781870, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+  m_PrefabInstance: {fileID: 7988408358948860987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e13f4506966e0245a3c5fe714570e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
