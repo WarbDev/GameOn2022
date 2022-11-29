@@ -1210,6 +1210,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6134094217991233335, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
   m_PrefabInstance: {fileID: 940885834}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &940885836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6134094217991233328, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
+  m_PrefabInstance: {fileID: 940885834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1003752290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7210684830561631820, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
@@ -1473,6 +1478,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2733212626558086299, guid: ee360d4744dd6384ab898e21531ce7e8, type: 3}
+      propertyPath: playerUi
+      value: 
+      objectReference: {fileID: 940885836}
     - target: {fileID: 8481152731581225047, guid: ee360d4744dd6384ab898e21531ce7e8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
