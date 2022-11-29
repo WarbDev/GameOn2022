@@ -204,18 +204,34 @@ PrefabInstance:
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 178c54ae99b402d4296c7c4cdf8c1519, type: 2}
+    - target: {fileID: 5732959958172893158, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 3980863940344207342}
     - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 288b159b31039454dad6a122a9760204, type: 2}
+    - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 3980863940344207342}
     - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 1c36d434d546a3b469f5956eb3da0ab6, type: 2}
+    - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 3980863940344207342}
     - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 6f437bc8666357841aec8cbd0c73d0e5, type: 2}
+    - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 3980863940344207342}
     - target: {fileID: 5793641827606781471, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: events
       value: 
@@ -524,18 +540,34 @@ PrefabInstance:
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 05e3ce5dae63d744bac3bfd6a4806916, type: 2}
+    - target: {fileID: 5732959958172893158, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 6542157020956336528}
     - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 63a5fbe1c6f6f3944af2752229c49e93, type: 2}
+    - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 6542157020956336528}
     - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: bd372b1eae7f841418ccf1424ce5c906, type: 2}
+    - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 6542157020956336528}
     - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 4a8e239fa3e8c904d8da1ca014803f60, type: 2}
+    - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 6542157020956336528}
     - target: {fileID: 5793641827606781471, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: events
       value: 
@@ -836,18 +868,34 @@ PrefabInstance:
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 982d2fe4ce8cbd84fb1131775d735196, type: 2}
+    - target: {fileID: 5732959958172893158, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 7802190894786822824}
     - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 39b2d8dad5b48fc4f82fa9b3d749eacf, type: 2}
+    - target: {fileID: 5732959959157115444, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 7802190894786822824}
     - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: 670899b49005b464f851c039ca82d87f, type: 2}
+    - target: {fileID: 5732959959259067688, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 7802190894786822824}
     - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: move
       value: 
       objectReference: {fileID: 11400000, guid: b564147f2dc400f4eaceb5bb6d891d06, type: 2}
+    - target: {fileID: 5732959959274504451, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: events
+      value: 
+      objectReference: {fileID: 7802190894786822824}
     - target: {fileID: 5793641827606781471, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
       propertyPath: events
       value: 

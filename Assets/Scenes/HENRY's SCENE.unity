@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 3848629776535226893, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
+    - target: {fileID: 1748161762856481653, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2212260935134469323, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1156,6 +1160,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 639379680}
+    - target: {fileID: 6662564561815614790, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002369871926955234, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

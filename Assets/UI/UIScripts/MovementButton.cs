@@ -18,27 +18,25 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid
     {
 
         myImage = gameObject.GetComponent<Image>();
-        flash = myImage.DOFade(.7f, .7f).SetLoops(-1, LoopType.Yoyo);
+        flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
 
 
         events.MovementNeeded += moveChanged;
-        //events.PlannedMovementSuccessful;
-        //events.StartedPlanningMovement;
     }
 
     private void moveChanged(bool isAvailable)
     {
-        if(flash != null)
+        if (flash != null)
         {
             flash.Kill();
         }
-        
+
         Color col = myImage.color;
         col.a = .4f;
         myImage.color = col;
         if (isAvailable)
         {
-            flash = myImage.DOFade(.7f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
 
     }

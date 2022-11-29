@@ -6,7 +6,6 @@ using UnityEngine;
 public class MovePanel : MonoBehaviour, IBroadcastMove
 {
     [SerializeField] List<MoveButton> moveButtons;
-    [SerializeField] UIPlayerEvents events;
 
     public event Action<Move> Broadcast;
 
