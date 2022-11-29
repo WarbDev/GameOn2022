@@ -14,6 +14,8 @@ public class PlayerActions : EntityComponent
 
     public List<Move> AllMoves { get => moves; }
 
+
+
     public void TickCooldown()
     {
         foreach (var mC in movesOnCooldown)
@@ -22,6 +24,15 @@ public class PlayerActions : EntityComponent
             movesOnCooldown[mC.Key] = newValue;
             CoolDownUpdated?.Invoke(mC.Key, newValue);
         }
+    }
+
+    public void UsedMove(Move move)
+    {
+        if (!movesOnCooldown.TryAdd(move, move.Cooldown))
+        {
+            movesOnCooldown[move] = move.Cooldown;
+        }
+        CoolDownUpdated?.Invoke(move, move.Cooldown);
     }
 
     public bool CanDo(Move move)

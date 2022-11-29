@@ -6,6 +6,7 @@ using System;
 public class PlayerTurnAction : MonoBehaviour
 {
     [SerializeField] Player player;
+    [SerializeField] PlayerActions playerActions;
     public event Action<bool> DidAction;
 
     Move planningMove = null;
