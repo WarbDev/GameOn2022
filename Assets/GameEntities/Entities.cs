@@ -47,7 +47,7 @@ public class Entities : MonoBehaviour
     //returns null if can't spawn the terran
     public static TerrainBase SpawnTerrain(Location location, GameObject terrainPrefab)
     {
-        if (!LocationUtility.HasTerrain(location))
+        if (!LocationUtility.HasTerrain(location) && !LocationUtility.HasEnemy(location) && location.X != 0)
         {
             //TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
             TerrainBase terrain = Instantiate(terrainPrefab).GetComponent<TerrainBase>();

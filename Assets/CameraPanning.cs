@@ -17,8 +17,8 @@ public class CameraPanning : MonoBehaviour
     public int maxCameraUp;
 
 
-    private int cameraHorizontal;
-    private int cameraVertical;
+    private int cameraHorizontal = 0;
+    private int cameraVertical = -1;
 
 
     private int speed = 1;
@@ -72,7 +72,7 @@ public class CameraPanning : MonoBehaviour
         {
             holdingButton = true;
             verticalTime++;
-            if(moveDirection(new Vector3(0, speed), verticalTime, cameraVertical, maxCameraDown))
+            if(moveDirection(new Vector3(0, speed), verticalTime, cameraVertical, maxCameraUp))
             {
                 cameraVertical++;
             }
@@ -96,18 +96,40 @@ public class CameraPanning : MonoBehaviour
             {
                 if (maxBound * bound > 0) //same side
                 {
-                    if (Mathf.Abs(bound) < Mathf.Abs(maxBound) )
+                    if (Mathf.Abs(bound) < Mathf.Abs(maxBound))
+                    {
+                        if (Mathf.Abs(direction.y) > 0)
+                        {
+                            moveTime = 0;
+                            myCamera.transform.position += direction;
+                            Vector3 rotation = myCamera.transform.localEulerAngles;
+                            myCamera.transform.localEulerAngles = new Vector3(rotation.x + 10 * direction.y, rotation.y, rotation.z);
+                            return true;
+                        }
+                        else
+                        {
+                            moveTime = 0;
+                            myCamera.transform.position += direction;
+                            return true;
+                        }
+                    }
+                }
+                else //opposite side
+                {
+                    if (Mathf.Abs(direction.y) > 0)
+                    {
+                        moveTime = 0;
+                        myCamera.transform.position += direction;
+                        Vector3 rotation = myCamera.transform.localEulerAngles;
+                        myCamera.transform.localEulerAngles = new Vector3(rotation.x + 10 * direction.y, rotation.y, rotation.z);
+                        return true;
+                    }
+                    else
                     {
                         moveTime = 0;
                         myCamera.transform.position += direction;
                         return true;
                     }
-                }
-                else //opposite side
-                {
-                    moveTime = 0;
-                    myCamera.transform.position += direction;
-                    return true;
                 }
                 
             }

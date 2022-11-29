@@ -494,11 +494,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b1289b0a35b91489e013ee9574a214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCamera: {fileID: 0}
-  maxCameraRight: 0
+  myCamera: {fileID: 741557224}
+  maxCameraRight: 3
   maxCameraDown: 0
-  maxCameraLeft: 0
-  maxCameraUp: 0
+  maxCameraLeft: 3
+  maxCameraUp: 3
+--- !u!20 &741557224 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 229536629642190161, guid: 40229a3e3b249b241b82ce842fd3b9d1, type: 3}
+  m_PrefabInstance: {fileID: 229536629041143475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &880032220 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5080993900121344367, guid: 0c0d01d82dbee7b4c9c2709416221035, type: 3}
@@ -1500,6 +1505,14 @@ PrefabInstance:
       propertyPath: levelConstructor
       value: 
       objectReference: {fileID: 1187247943}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60967a21e5a620942ab3ac9988c8b742, type: 2}
     - target: {fileID: 7663696889126628851, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: levelConstructor
       value: 
@@ -1950,67 +1963,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ff7a6f5af00b23468a1b953e0e8d4d7, type: 3}
---- !u!1001 &1687943705
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 361911609779888863, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5058798063701513202, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_SortingOrder
-      value: -500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7549273057839571559, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
-      propertyPath: m_Name
-      value: FloorPlane
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dd7e8f56b89559d428f681bc90be2891, type: 3}
 --- !u!114 &1689562597 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7663696889126628851, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
