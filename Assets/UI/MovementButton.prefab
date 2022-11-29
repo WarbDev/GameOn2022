@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2133883011780399125}
   - component: {fileID: 6460848780977788454}
   - component: {fileID: 1739753336817860425}
+  - component: {fileID: 8067528795373908273}
   m_Layer: 0
   m_Name: MovementButton
   m_TagString: Untagged
@@ -145,6 +146,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d349ef82fafcf344a0ec3539f661292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8067528795373908273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133883011780399127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb4db89b3465ef418b6be6d52805316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4315982675675721008

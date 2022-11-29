@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1137952486535041279}
   - component: {fileID: 1137952486535041277}
   - component: {fileID: 1137952486535041278}
+  - component: {fileID: 9032310578175904}
   m_Layer: 0
   m_Name: PlayerPanel
   m_TagString: Untagged
@@ -81,6 +82,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9032310578175904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137952486535041272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237ee98621b92d143bd9e110a1dd476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1001 &228719025776971139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Name
       objectReference: {fileID: 0}
+    - target: {fileID: 8930635755323591509, guid: e967ac11ce330b84b8024987b34daecd, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3848629776535226893, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e967ac11ce330b84b8024987b34daecd, type: 3}
 --- !u!224 &3768555687168157745 stripped
@@ -644,7 +662,8 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 18
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8067528795373908273, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
 --- !u!224 &8368904498947960444 stripped
 RectTransform:
