@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5459020171704802935}
-  playerActions: {fileID: 0}
+  playerActions: {fileID: 6551433914616070669}
 --- !u!1 &7726748034088475039
 GameObject:
   m_ObjectHideFlags: 0
