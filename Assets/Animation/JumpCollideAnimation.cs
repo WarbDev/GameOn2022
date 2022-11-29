@@ -15,13 +15,10 @@ public class JumpCollideAnimation : EntityAnimation<JumpCollideProperties>
 
     [SerializeField] float jumpStartDuration;
     [SerializeField] float jumpEndDuration;
+    [SerializeField] float distanceRatio = 5;
 
     [SerializeField] float jumpHeight;
-
     [SerializeField] Transform affectedTransform;
-    [SerializeField] SpriteAnimation spriteAnimation;
-    // [SerializeField] SpriteSet spriteSet;
-    [SerializeField] SpriteRenderer targetSprite;
     Sequence currentlyPlaying;
 
     public override event Action<EntityAnimation<JumpCollideProperties>> AnimationFinished;
@@ -29,16 +26,13 @@ public class JumpCollideAnimation : EntityAnimation<JumpCollideProperties>
     public override void Play(JumpCollideProperties properties)
     {
         Sequence jumpSequence = DOTween.Sequence();
-        jumpSequence.SetEase(ease);
-        jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x) / 2f, properties.EndPosition.y + jumpHeight), jumpStartDuration)).OnComplete(properties.InvokeCollide);
-        jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.StartPosition.x, properties.StartPosition.y), jumpEndDuration));
+        jumpSequence.Append(affectedTransform.DOMove(new Vector3((properties.StartPosition.x + properties.EndPosition.x * distanceRatio) / (1 + distanceRatio), properties.EndPosition.y + jumpHeight), jumpStartDuration).SetEase(ease).OnComplete(properties.InvokeCollide));
+        jumpSequence.Append(affectedTransform.DOPunchPosition(new Vector3(0f, 0.2f, 0f), 0.4f, 2, 0.5f).SetEase(squishEase));
+        jumpSequence.Append(affectedTransform.DOMove(new Vector3(properties.StartPosition.x, properties.StartPosition.y), jumpEndDuration).SetEase(ease)).OnComplete(onComplete);
         
 
         // Join together the primary animation with the sprite animation, and announce completion when done.
         currentlyPlaying = jumpSequence;
-        spriteAnimation.Play(new(targetSprite));
-        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
-        currentlyPlaying.OnComplete(onComplete);
         void onComplete() => AnimationFinished?.Invoke(this);
     }
 }
