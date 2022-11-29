@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class WaveWin : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class WaveWin : MonoBehaviour
     [SerializeField] GameObject playerUi;
     [SerializeField] TextMeshProUGUI textMesh;
     [SerializeField] List<GameObject> children;
+
+    public event Action onWinScreenDismissed;
 
     private int waveNumber;
 
