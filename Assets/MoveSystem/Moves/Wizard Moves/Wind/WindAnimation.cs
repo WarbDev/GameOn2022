@@ -21,7 +21,7 @@ public class WindAnimation : EntityAnimation<WindAnimationProperties>
         // Join together the primary animation with the sprite animation, and announce completion when done.
         currentlyPlaying = DOTween.Sequence(); // primary animation
         spriteAnimation.Play(new(targetSprite));
-        //currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
 
         currentlyPlaying.OnComplete(onComplete);
         void onComplete() => AnimationFinished?.Invoke(this);
