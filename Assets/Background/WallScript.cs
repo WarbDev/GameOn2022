@@ -14,6 +14,9 @@ public class WallScript : MonoBehaviour
     [SerializeField] Ease wobbleEase;
     [SerializeField] Ease moveEase;
 
+    [SerializeField] GameObject backGroundObject;
+    private GameObject backGround;
+
     [Range(0.25f, 10f)]
     [SerializeField] float liftSpeed = 1f;
 
@@ -44,9 +47,21 @@ public class WallScript : MonoBehaviour
         Vector3 targetPosition = new Vector3(-45, 0, 0); // to go from -60 to -45
 
 
-        mySequence.Append(pivot.transform.DORotate(targetPositionovershoot, 1.25f / rotateSpeed).SetEase(initialEase).OnComplete(() => Finished?.Invoke()));
-        mySequence.Append(pivot.transform.DORotate(targetPosition, wobbleSpeed).SetEase(wobbleEase));
-        
+        mySequence.Append(pivot.transform.DORotate(targetPositionovershoot, 1.25f / rotateSpeed).SetEase(initialEase));
+        mySequence.Append(pivot.transform.DORotate(targetPosition, wobbleSpeed).SetEase(wobbleEase)).OnComplete(finished);
+
+
+    }
+
+    private void finished()
+    {
+        backGround = Instantiate(backGroundObject);
+        backGround.transform.position = new Vector3(0, 10, 0);
+        backGround.transform.localEulerAngles = new Vector3(-40, 0);
+
+        backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).From();
+
+        Finished?.Invoke();
     }
 
     public void LowerWall()
@@ -61,6 +76,10 @@ public class WallScript : MonoBehaviour
             int mapHeight = GameMap.TopBorder;
             Vector3 currentPosition = gameObject.transform.position;
             gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
+
+            backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => Destroy(backGround));
+
+            Finished?.Invoke();
         }
     }
 
