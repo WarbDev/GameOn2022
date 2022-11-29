@@ -11,11 +11,9 @@ public class DeathComponent : EntityComponent
     public void Die()
     {
         RemoveFromEntityCollection();
-
-        OnDeath();
     }
 
-    protected virtual void OnDeath()
+    public virtual void OnDeathAnimationComplete()
     {
         Destroy(gameEntity.gameObject);
     }
