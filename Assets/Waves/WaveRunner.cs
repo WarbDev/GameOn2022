@@ -20,7 +20,7 @@ public class WaveRunner : MonoBehaviour
     // 1-indexed wave number. Wave number 0 is null. Wave number 1 is index 0 in the list of waves.
     [SerializeField] int waveNumber = 0;
     public int WaveNumber { get => waveNumber; }
-    [SerializeField] Wave currentWave;
+    [SerializeField] public Wave currentWave;
 
     void Start()
     {

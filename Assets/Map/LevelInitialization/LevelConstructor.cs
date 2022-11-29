@@ -16,6 +16,11 @@ public class LevelConstructor : MonoBehaviour
         StartCoroutine(Construct(newWave));
     }
 
+    public void Derun(Wave oldWave)
+    {
+        StartCoroutine(Deconstruct(oldWave));
+    }
+
     IEnumerator Construct(Wave currentWave)
     {
         GameMap.SetBorders(currentWave.WaveMapSize);
@@ -53,9 +58,7 @@ public class LevelConstructor : MonoBehaviour
         wall.Finished -= onWallFinish;
         playerSpawning.SpawnPlayers();
 
-        StartCoroutine(Deconstruct(currentWave));
-
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(0.2f);
         Finished?.Invoke();
     }
 
