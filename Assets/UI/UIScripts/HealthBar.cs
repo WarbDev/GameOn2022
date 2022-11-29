@@ -10,6 +10,9 @@ public class HealthBar : MonoBehaviour
 
     [SerializeField] Slider slider;
     [SerializeField] UIPlayerEvents events;
+    [SerializeField] Image healthBarImage;
+
+    private int durationOfChange = 1;
 
     private void Start()
     {
@@ -21,7 +24,8 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(int heal)
     {
 
-        DOTween.To(() => slider.value, x => slider.value = x, (float) heal, 1).SetEase(Ease.InSine);
+        DOTween.To(() => slider.value, x => slider.value = x, (float) heal, durationOfChange).SetEase(Ease.InSine);
+        healthBarImage.DOColor(Color.Lerp(Color.red, Color.green, (float) heal / slider.maxValue), durationOfChange);
         //slider.value = 0;
         Debug.Log("I AM HURT");
     }

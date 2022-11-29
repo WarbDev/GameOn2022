@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_IdleAgent
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2108908511, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: -1002300981, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: 444288238, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: -728834830, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: 2062910363, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: -1412691866, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: 1980412631, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
+  - {fileID: -371615901, guid: 9ccf4cdab2b065e4db0b6e8957889236, type: 3}
