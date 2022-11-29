@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 0}
+  spriteSet: {fileID: 11400000, guid: 01377fee5f763494c96af3704a0c0728, type: 2}
   ease: 1
   duration: 1
   loops: -1

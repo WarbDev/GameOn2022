@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 604551722407317062, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
-      propertyPath: spriteSet
-      value: 
-      objectReference: {fileID: 11400000, guid: 74d36f2752d8cef488c3a86eac79248e, type: 2}
     - target: {fileID: 649796567368159066, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: clip
       value: 
