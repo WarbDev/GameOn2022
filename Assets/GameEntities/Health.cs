@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
                 LostAllHealth?.Invoke(gameObject.GetComponent<GameEntity>());
             }
         }
+        HealthChanged?.Invoke(currentHealth);
         return currentHealth;
     }
 
