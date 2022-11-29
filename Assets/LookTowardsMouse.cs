@@ -6,7 +6,7 @@ public class LookTowardsMouse : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
 
-    private void OnEnable()
+    private void Start()
     {
         GlobalClickListener.Instance.MapTileListener.EntityMousedOver += UpdateSpritePos;
     }
