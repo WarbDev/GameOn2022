@@ -50,6 +50,12 @@ public class Move_Punch : Move
         Location selected = locations[0]; //locations[0] is the player-selected point
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        if (enemies == null || enemies.Count == 0)
+        {
+            MoveCompleted?.Invoke(false);
+            return;
+        }
+
         pushLog = new();
         List<PushRequest> requests = new();
         foreach (Enemy enemy in enemies)

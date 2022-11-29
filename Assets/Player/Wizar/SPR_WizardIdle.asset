@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
-  m_Name: PrototypeSpriteSet
+  m_Name: SPR_WizardIdle
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 689472687, guid: 5e65c7e87c5a26c4ab5e1752941922b6, type: 3}

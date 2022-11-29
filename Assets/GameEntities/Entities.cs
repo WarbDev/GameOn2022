@@ -36,7 +36,8 @@ public class Entities : MonoBehaviour
 
     public static Enemy SpawnEnemy(Location location, GameObject enemyPrefab)
     {
-        Enemy enemy = (PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject).GetComponent<Enemy>();
+        //Enemy enemy = (PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject).GetComponent<Enemy>();
+        Enemy enemy = Instantiate(enemyPrefab).GetComponent<Enemy>();
         enemy.SetLocation(location, true);
         enemy.SpriteRenderer.flipX = (location.X < 0);
         Entities.EnemyCollection.AddEntity(enemy);
@@ -48,7 +49,8 @@ public class Entities : MonoBehaviour
     {
         if (!LocationUtility.HasTerrain(location))
         {
-            TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
+            //TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
+            TerrainBase terrain = Instantiate(terrainPrefab).GetComponent<TerrainBase>();
             terrain.SetLocation(location, true);
             terrain.SpriteRenderer.flipX = (location.X < 0);
             Entities.TerrainCollection.AddEntity(terrain);

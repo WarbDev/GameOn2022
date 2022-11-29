@@ -394,6 +394,31 @@ public static class LocationUtility
         return longestChain;
     }
 
+    public static List<IDamageable> GetDamageablesAtPosition(Location position)
+    {
+        var entities = GetEntitiesAtPosition(position);
+        var damageables = new List<IDamageable>();
+        foreach (var entity in entities)
+        {
+            var obstructingEntity = entity as IDamageable;
+            if (obstructingEntity != null)
+            {
+                damageables.Add(obstructingEntity);
+            }
+        }
+        return damageables;
+    }
+
+    public static List<IDamageable> GetDamageablesAtPositions(List<Location> positions)
+    {
+        List<IDamageable> damageables = new List<IDamageable>();
+        foreach (var pos in positions)
+        {
+            damageables.AddRange(GetDamageablesAtPosition(pos));
+        }
+        return damageables;
+    }
+
     /// <summary>
     /// Goes through all Entities in a location and return the first damageable one it can find.
     /// Returns null if no damageable exists.

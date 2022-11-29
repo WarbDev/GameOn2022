@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_BuffIdle
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1659844874, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: 503748903, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: 149568260, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -1446400234, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -231305381, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: 1094440911, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: 2098156538, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -1028407763, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -1888632394, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -1992037191, guid: e137c6fa58c498041b152d9486c83933, type: 3}

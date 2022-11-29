@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 604551722407317062, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: spriteSet
       value: 
-      objectReference: {fileID: 11400000, guid: 74d36f2752d8cef488c3a86eac79248e, type: 2}
+      objectReference: {fileID: 11400000, guid: 0bde94e2b7bd8654db9632a91cc6b688, type: 2}
     - target: {fileID: 649796567368159066, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: clip
       value: 

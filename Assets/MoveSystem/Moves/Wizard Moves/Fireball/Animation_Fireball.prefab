@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1832433300658058830}
   - component: {fileID: -9050332943932631345}
   - component: {fileID: -8523885256654111760}
+  - component: {fileID: -5081446714696292354}
   m_Layer: 0
   m_Name: Animation_Fireball
   m_TagString: Untagged
@@ -122,6 +123,10 @@ MonoBehaviour:
     - Key: 2
       Value: {fileID: -9050332943932631345}
     keyCollision: 0
+  playingActiveAnimation: 0
+  spriteRenderer: {fileID: 0}
+  IdleOnStart: 0
+  IdleAfterAnimationEnds: 0
 --- !u!114 &1832433300658058830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ease: 8
-  duration: 0.7
+  duration: 1
   affectedTransform: {fileID: 7585738517785785045}
   targetSprite: {fileID: -1133660939758460633}
   spriteAnimation: {fileID: -8523885256654111760}
@@ -152,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSprite: {fileID: -1133660939758460633}
-  spriteAnimation: {fileID: -8523885256654111760}
+  spriteAnimation: {fileID: -5081446714696292354}
   clip: {fileID: 8300000, guid: c5c32763ff369ee4baf648367ad3b60b, type: 3}
 --- !u!114 &-8523885256654111760
 MonoBehaviour:
@@ -168,5 +173,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteSet: {fileID: 11400000, guid: e7de8a8de2ca941488c73a87dcb1fecb, type: 2}
   ease: 1
-  duration: 2
-  loops: 1
+  duration: 1
+  loops: 0
+--- !u!114 &-5081446714696292354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933564648966118571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 11400000, guid: 6f5095c76f82a9446bce12711a513614, type: 2}
+  ease: 1
+  duration: 1
+  loops: 0

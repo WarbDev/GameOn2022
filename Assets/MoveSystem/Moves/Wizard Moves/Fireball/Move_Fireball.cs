@@ -53,13 +53,13 @@ public class Move_Fireball : Move, IDamage
         Location selected = locations[0]; //locations[0] is the player-selected point
         locations = effectShape(selected, radius);
 
-        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
+        List<IDamageable> damageables = LocationUtility.GetDamageablesAtPositions(locations);
         List<MapTile> tiles = LocationUtility.GetTilesInPositions(locations);
         List<DamageLog> log = new();
         terrainLog = new();
-        foreach (Enemy enemy in enemies)
+        foreach (IDamageable dam in damageables)
         {
-            log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
+            log.Add(dam.DealDamage(new Damage(damage, player)));
         }
         foreach (MapTile tile in tiles)
         {
