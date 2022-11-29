@@ -3,55 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EnemyBasicAction : EnemyAction
+// obsolete
+public class EnemyBasicAction : EnemyAction, IObstructionChecker
 {
-    [SerializeField] float damage;
-    [SerializeField] Enemy stun;
     public override event Action<EnemyAction> ActionFinished;
 
 
     public override void DoEnemyAction()
     {
-        if (stun.StunDuration > 0)
-        {
-            ActionFinished?.Invoke(this);
-        }
+        //IDamageable damageable = NonAlliedObstructionInFront(GameEntity.Location, ObstructionChecker);
+        //IAnimatable animatable = damageable.Entity as IAnimatable;
+        //DamageLog log = damageable.DealDamage(new Damage(0f, GameEntity));
 
-        IDamageable damageable = HostileEntityInFront();
-        if (damageable != null)
-        {
-            var animatable = damageable.Entity as IAnimatable;
-            var log = damageable.DealDamage(new Damage(damage, GameEntity));
+        //var animation = animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(log));
 
-            if (animatable != null)
-            {
-                var animation = animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(log));
-                animation.AnimationFinished += animationFinished;
-            }
-
-            void animationFinished(EntityAnimation<HurtAnimationProperties> animation)
-            {
-                animation.AnimationFinished -= animationFinished;
-                ActionFinished?.Invoke(this);
-            }
-        }
-        else
-        {
-            ActionFinished?.Invoke(this);
-        }
-       
-    }
-
-    IDamageable HostileEntityInFront()
-    {
-        var frontLocation = LocationUtility.NextClosestToCenter(GameEntity.Location);
-        IDamageable damageable = null;
-
-        if (!LocationUtility.HasEnemy(frontLocation) && LocationUtility.HasObstructionsAtPosition(frontLocation))
-        {
-            damageable = LocationUtility.GetDamageableInLocation(frontLocation);
-        }
-
-        return damageable;
+        //animation.AnimationFinished += animationFinished;
+        //void animationFinished(EntityAnimation<HurtAnimationProperties> animation)
+        //{
+        //    animation.AnimationFinished -= animationFinished;
+        //    ActionFinished?.Invoke(this);
+        //}
     }
 }

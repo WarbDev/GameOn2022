@@ -28,7 +28,7 @@ public class EnemyActionRunner : MonoBehaviour
             var enemy = enemiesToCalculate.Dequeue();
 
             enemy.EnemyAction.ActionFinished += IndicateReady;
-            enemy.EnemyAction.DoEnemyAction();
+            enemy.EnemyAction.MakeAction();
             yield return new WaitUntil(() => readyForNext == true);
             ActionTick?.Invoke();
         }

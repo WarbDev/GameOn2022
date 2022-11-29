@@ -9,7 +9,7 @@ public class WaveEnd : MonoBehaviour
     [InspectorButton("RunWaveEnd")]
     public bool Run;
 
-    private void RunWaveEnd()
+    public void RunWaveEnd()
     {
         waveBegin.BeginWave(waveRunner.GetNextWave());
     }

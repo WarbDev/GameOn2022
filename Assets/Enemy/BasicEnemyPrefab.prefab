@@ -18,8 +18,10 @@ GameObject:
   - component: {fileID: 373659571355388555}
   - component: {fileID: -4302722198924480434}
   - component: {fileID: 8316588675829435490}
-  - component: {fileID: 8948364920145355036}
   - component: {fileID: 5842079393352438404}
+  - component: {fileID: 1783147123674814168}
+  - component: {fileID: 6014007722388824765}
+  - component: {fileID: 543003453947591539}
   m_Layer: 0
   m_Name: BasicEnemyPrefab
   m_TagString: Untagged
@@ -63,7 +65,7 @@ MonoBehaviour:
   obstructionChecker: {fileID: 8316588675829435490}
   obstruction: {fileID: 373659571355388555}
   enemyMovement: {fileID: -4302722198924480434}
-  enemyAction: {fileID: 8948364920145355036}
+  enemyActionManager: {fileID: 543003453947591539}
   enemyAnimations: {fileID: 5847531353693503317}
 --- !u!114 &-7149672031301082918
 MonoBehaviour:
@@ -194,23 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
-  obstructingTags: 0000000001000000
---- !u!114 &8948364920145355036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3801775929619048066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc056f1b91edab4bb8f90af89a3529b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoAssignGameEntity: 1
-  animatableEntity: {fileID: 5847531353693503317}
-  damage: 2
-  stun: {fileID: 4898490024321455818}
+  obstructingTags: 000000000100000002000000
 --- !u!114 &5842079393352438404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +212,56 @@ MonoBehaviour:
   autoAssignGameEntity: 1
   HasAnimator: 1
   Animator: {fileID: 5847531353693503317}
+--- !u!114 &1783147123674814168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801775929619048066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77b5ae074086d649b5f1ea770d47a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  obstructionCheckerComponent: {fileID: 8316588675829435490}
+  animatableEntity: {fileID: 5847531353693503317}
+  actionAnimation: {fileID: 0}
+  damage: 0
+--- !u!114 &6014007722388824765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801775929619048066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b827d26d461fd2e4aa4504f7cd6babd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  obstructionCheckerComponent: {fileID: 8316588675829435490}
+  animatableEntity: {fileID: 5847531353693503317}
+  actionAnimation: {fileID: 0}
+--- !u!114 &543003453947591539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3801775929619048066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2750a82779063a443a9b97d72a2abebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoAssignGameEntity: 1
+  obstructionChecker: {fileID: 8316588675829435490}
+  enemy: {fileID: 4898490024321455818}
+  meleeAction: {fileID: 1783147123674814168}
+  nonAction: {fileID: 6014007722388824765}
 --- !u!1 &4152826136885527659
 GameObject:
   m_ObjectHideFlags: 0
