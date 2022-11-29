@@ -346,6 +346,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &449430586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5285215172763000682, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+  m_PrefabInstance: {fileID: 3026037266190599982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e13f4506966e0245a3c5fe714570e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &484416906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8220156999251108038, guid: d3c811bd83aa2c44fb3a0465eb0853f2, type: 3}
@@ -2092,6 +2103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
+    - target: {fileID: 5882894609426226291, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: faceCamera
+      value: 
+      objectReference: {fileID: 449430586}
     - target: {fileID: 7120613299343743233, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: faceCamera
       value: 

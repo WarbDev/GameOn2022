@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: SPR_Wind
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 4aeeaa6fe9b5ede428c2723d78bf94ad, type: 3}
-  - {fileID: 21300000, guid: a40eaecd9478db845b850709c78e7565, type: 3}
-  - {fileID: 21300000, guid: a342eecf7cbe27b47b2b95393e861457, type: 3}
+  - {fileID: -631515366, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
+  - {fileID: -1129529736, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
+  - {fileID: -575080862, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
+  - {fileID: -1507480312, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
+  - {fileID: -726715355, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
+  - {fileID: -550412046, guid: f9b364126f3f7924496ef3f9c2e130a5, type: 3}
