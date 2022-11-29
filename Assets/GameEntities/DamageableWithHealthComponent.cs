@@ -23,6 +23,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
         animatableEntity.PlayedNewAnimation += checkIfHurtPlayed;
         if (IsDead)
         {
+            deathManager.Die();
             GameFlow.DeathAnimationTick += DoDeathAnimation;
         }
         return new DamageLog(this, oldHealth, newHealth, damage);
@@ -80,6 +81,6 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
 
     public override void Kill()
     {
-        deathManager.Die();
+        deathManager.OnDeathAnimationComplete();
     }
 }
