@@ -54,6 +54,8 @@ MonoBehaviour:
     list:
     - Key: 0
       Value: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
+    - Key: 2
+      Value: {fileID: 5212399030703316054, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
     keyCollision: 0
   levelConstructor: {fileID: 0}
   delay: 0

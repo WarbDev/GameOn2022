@@ -53,5 +53,17 @@ public interface IObstructionChecker
     {
         return ObstructionChecker.IsObstructedBy(LocationUtility.GetObstructionsAtPosition(location));
     }
+
+    public bool IsObstructedBy(IEnumerable<Location> locations)
+    {
+        foreach(var location in locations)
+        {
+            if (ObstructionChecker.IsObstructedBy(location))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 

@@ -47,6 +47,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
             yield return new WaitUntil(() => mostRecentDamageWasAnimated);
             yield return new WaitUntil(() => !animatableEntity.PlayingActiveAnimation());
             animatableEntity.SetIdleAfterAnimationEnds(false);
+            
             animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
             StartCoroutine(WaitForAnimationEnd(animatableEntity));
         }
@@ -55,11 +56,23 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
 
     IEnumerator WaitForAnimationEnd(IAnimatable animator)
     {
-        while (animator.PlayingActiveAnimation())
+        bool isDone = false;
+        animatableEntity.PlayedNewAnimation += onNewAnimationPlayed;
+        while (animator.PlayingActiveAnimation() || isDone)
         {
             yield return null;
         }
+        animatableEntity.PlayedNewAnimation -= onNewAnimationPlayed;
         Kill();
+
+        void onNewAnimationPlayed(ANIMATION_ID id)
+        {
+            if (id != ANIMATION_ID.ENTITY_DIE)
+            {
+                isDone = true;
+            }
+            animatableEntity.PlayedNewAnimation -= onNewAnimationPlayed;
+        }
     }
 
     public override void Kill()

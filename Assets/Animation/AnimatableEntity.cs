@@ -25,7 +25,6 @@ public class AnimatableEntity : MonoBehaviour, IAnimatable
 
     public event Action<ANIMATION_ID> PlayedNewAnimation;
 
-
     void Start()
     {
         if (IdleOnStart)

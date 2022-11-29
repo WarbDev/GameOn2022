@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ENEMY_TYPE
 {
-    REGULAR,
-    NONE
+    NORMAL_MELEE,
+    NONE,
+    LIGHT_BOW
 }
