@@ -35,6 +35,10 @@ public class WaveRunner : MonoBehaviour
         }
         currentWave = waves[waveNumber - 1];
         batchesInWave = currentWave.Batches;
+        foreach(var batch in batchesInWave)
+        {
+            batch.ResetBatch();
+        }
         return currentWave;
     }
 
@@ -79,6 +83,7 @@ public class WaveRunner : MonoBehaviour
 
         if (isBatchFinished)
         {
+            batchesInWave[currentBatchIndex].ResetBatch();
             delay += currentWave.Delays[currentBatchIndex];
             currentBatchIndex++;
         }

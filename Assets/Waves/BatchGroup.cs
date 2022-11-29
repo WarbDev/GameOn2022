@@ -25,6 +25,7 @@ public class BatchGroup : BatchBase
         if (isIndividualBatchFinished)
         {
             currentBatch++;
+            batches[currentBatch].ResetBatch();
         }
         isFinished = AtEndOfBatches();
         return popDictionary;
