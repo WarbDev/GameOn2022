@@ -77,7 +77,7 @@ public class WallScript : MonoBehaviour
             Vector3 currentPosition = gameObject.transform.position;
             gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
 
-            Destroy(backGround);
+            backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => Destroy(backGround));
 
             Finished?.Invoke();
         }
