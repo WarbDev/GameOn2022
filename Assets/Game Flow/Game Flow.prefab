@@ -314,6 +314,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbe30d12efc740428f9b07aa1839483, type: 3}
+--- !u!114 &5857330480380608536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7715967284479479044, guid: 9bbe30d12efc740428f9b07aa1839483, type: 3}
+  m_PrefabInstance: {fileID: 5017585765676692196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309ff9a8490ee8a4eba0fde06e8bd122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6501978817102856920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2277027980942307388, guid: 9bbe30d12efc740428f9b07aa1839483, type: 3}
@@ -467,9 +478,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
+      propertyPath: waveEnd
+      value: 
+      objectReference: {fileID: 5857330480380608536}
+    - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
       propertyPath: enemyPhase
       value: 
       objectReference: {fileID: 8646271296684871649}
+    - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
+      propertyPath: waveRunner
+      value: 
+      objectReference: {fileID: 7064093579480934785}
     - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
       propertyPath: playerPhase
       value: 
