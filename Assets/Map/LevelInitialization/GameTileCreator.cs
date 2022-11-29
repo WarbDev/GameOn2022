@@ -9,6 +9,7 @@ using System.Linq;
 public class GameTileCreator : MonoBehaviour
 {
     [SerializeField] GameObject tilePrefab;
+    [SerializeField] GameObject darkTileRow;
     [SerializeField] int scale;
 
     [SerializeField] bool speedy;
@@ -21,6 +22,7 @@ public class GameTileCreator : MonoBehaviour
     
     bool isRunningRoutine = false;
     ObjectPool<MapTile> pool;
+    ObjectPool<GameObject> darkTileRowPool;
 
     public float SpeedyMultiplier { get { if (speedy) return speedyMultiplier; else return 1f; } }
 
@@ -31,6 +33,12 @@ public class GameTileCreator : MonoBehaviour
             tile => { tile.gameObject.SetActive(false); },
             tile => { Destroy(tile); },
             true, 100, 500);
+
+        darkTileRowPool = new ObjectPool<GameObject>(() => { return Instantiate(darkTileRow, new Vector3(500, 500), new Quaternion()); },
+            tile => { tile.SetActive(true); },
+            tile => { tile.SetActive(false); },
+            tile => { Destroy(tile); },
+            true, 12, 50);
     }
 
     private void OnDestroy()
@@ -88,7 +96,46 @@ public class GameTileCreator : MonoBehaviour
             StartCoroutine(AscendMapTiles(column, height));
             yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
         }
-        
+
+        for(int i = 0; i < height; i++)
+        {
+            var row = darkTileRowPool.Get();
+            var row2 = darkTileRowPool.Get();
+            AttachRows(i + 1, row, row2);
+        }
+
+        //yield return new WaitForSeconds(2f);
+        //StartCoroutine(UnbuildBattlefieldRoutine);
+        //yield return new WaitForSeconds(2f);
+
+
+        isRunningRoutine = false;
+    }
+
+    IEnumerator UnbuildBattlefieldRoutine(int left, int right, int height)
+    {
+        List<List<MapTile>> columns = new();
+
+        int furthest = Math.Max(Math.Abs(left), right);
+        for (int i = 1; i <= furthest; i++)
+        {
+            if (right >= i)
+            {
+                columns.Add(MakeGameTiles(LocationUtility.GetColumn(i)));
+            }
+
+            if (left >= -i)
+            {
+                columns.Add(MakeGameTiles(LocationUtility.GetColumn(-i)));
+            }
+        }
+
+        foreach (var column in columns)
+        {
+            StartCoroutine(AscendMapTiles(column, height));
+            yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
+        }
+
 
         isRunningRoutine = false;
     }
@@ -103,6 +150,8 @@ public class GameTileCreator : MonoBehaviour
         return list;
     }
 
+
+
     MapTile MakeGameTile(Location location)
     {
         MapTile tileScript = pool.Get();
@@ -113,6 +162,13 @@ public class GameTileCreator : MonoBehaviour
         Entities.MapTileCollection.AddEntity(tileScript);
         TileCreated?.Invoke(tileScript);
         return tileScript;
+    }
+
+    void RemoveGameTile(Location location)
+    {
+        LocationUtility.TryGetTile(location, out MapTile tile);
+        Entities.MapTileCollection.RemoveEntity(tile);
+        pool.Release(tile);
     }
     
     IEnumerator AscendMapTiles(List<MapTile> tiles, int height)
@@ -126,6 +182,51 @@ public class GameTileCreator : MonoBehaviour
         }
     }
 
+    void AttachRows(int height, GameObject row1, GameObject row2)
+    {
+        int xLeftPosition = GameMap.LeftBorder;
+        int xRightPosition = GameMap.RightBorder;
+
+        int xPosition = GameMap.LeftBorder;
+
+        GameObject[] gameObjects = { row1, row2 };
+        foreach (var row in gameObjects)
+        {
+            int targetXPosition; 
+            if (xPosition > 0)
+            {
+                targetXPosition = xPosition + 1;
+            }
+            else
+            {
+                targetXPosition = xPosition - 12;
+            }
+
+
+
+
+            Vector3 targetPosition = new(targetXPosition, height, 0f);
+            row.transform.position = targetPosition + new Vector3(60 * Mathf.Sign(xPosition), 0, 0);
+
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Append(row.transform.DOMove(targetPosition, 0.8f).SetEase(Ease.InOutSine));
+            xPosition = GameMap.RightBorder;
+        }
+    }
+
+    IEnumerator DescendMapTiles(List<MapTile> tiles, int height)
+    {
+        IEnumerable<MapTile> ordered = tiles.OrderByDescending(tile => Math.Abs((height / 2) - tile.Location.Y));
+
+        foreach (var tile in ordered)
+        {
+            DescendMapTile(tile, tile.Location);
+            yield return new WaitForSeconds(0.05f / SpeedyMultiplier);
+        }
+    }
+
+
+
     void AscendMapTile(MapTile tileScript, Location location)
     {
         var targetPosition = Location2Position(location.X, location.Y);
@@ -136,6 +237,23 @@ public class GameTileCreator : MonoBehaviour
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(tileScript.gameObject.transform.DOMove(targetVector3overshoot, 0.8f).SetEase(Ease.InOutSine));
         mySequence.Append(tileScript.gameObject.transform.DOMove(targetVector3, 0.7f).SetEase(Ease.InSine));
+    }
+
+    void DescendMapTile(MapTile tileScript, Location location)
+    {
+        var targetPosition = Location2Position(location.X, location.Y);
+        tileScript.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0f);
+        var targetVector3overshoot = new Vector3(targetPosition.x, targetPosition.y, -0.2f);
+        var targetVector3 = new Vector3(targetPosition.x, targetPosition.y, -50f);
+
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Append(tileScript.gameObject.transform.DOMove(targetVector3overshoot, 0.8f).SetEase(Ease.InOutSine));
+        mySequence.Append(tileScript.gameObject.transform.DOMove(targetVector3, 0.3f).SetEase(Ease.InSine)).OnComplete(onComplete);
+
+        void onComplete()
+        {
+            RemoveGameTile(location);
+        }
     }
 
     Vector2 Location2Position(int x, int y)
