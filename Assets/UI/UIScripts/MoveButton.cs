@@ -20,6 +20,8 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
     private Tween flash;
     private int cooldown = 0;
 
+    private bool isAvailable = true;
+
     public Move Move { get => move; }
 
     private void Start()
@@ -32,16 +34,60 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
         events.ActionNeeded += moveChanged;
         events.CoolDownChanged += onCooldownChange;
         events.StartedPlanningAction += planAction;
+        events.StartedPlanningMovement += planMovement;
+
+        events.PlannedActionSuccessful += actionSuccess;
+        events.PlannedMovementSuccessful += moveSuccess;
+    }
+
+    private void actionSuccess(Move move, bool actionSuccessful)
+    {
+        if (isAvailable)
+        {
+            //Color col = myImage.color;
+            //col.a = .4f;
+            //myImage.color = col;
+            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        }
+        
+    }
+
+    private void moveSuccess(bool moveSuccessful)
+    {
+        if (isAvailable)
+        {
+            //Color col = myImage.color;
+            //col.a = .4f;
+            //myImage.color = col;
+            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        }
+        
+    }
+
+    private void planMovement()
+    {
+        if (flash != null)
+        {
+            flash.Kill();
+        }
+        Color col = myImage.color;
+        col.a = .4f;
+        myImage.color = col;
     }
 
     private void planAction(Move move)
     {
-
+        if (flash != null)
+        {
+            flash.Kill();
+        }
+        Color col = myImage.color;
+        col.a = .4f;
+        myImage.color = col;
     }
 
     private void onCooldownChange(Move move, int cooldown)
     {
-
         if (move == this.move)
         {
             this.cooldown = cooldown;
@@ -58,6 +104,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
 
     private void moveChanged(bool isAvailable)
     {
+        this.isAvailable = isAvailable;
         if (flash != null)
         {
             flash.Kill();

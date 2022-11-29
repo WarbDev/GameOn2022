@@ -14,6 +14,8 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid
     private Image myImage;
     private Tween flash;
 
+    private bool isAvailable = true;
+
     private void Start()
     {
 
@@ -22,10 +24,65 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid
 
 
         events.MovementNeeded += moveChanged;
+        events.StartedPlanningAction += planAction;
+        events.StartedPlanningMovement += planMovement;
+
+        events.PlannedActionSuccessful += actionSuccess;
+        events.PlannedMovementSuccessful += moveSuccess;
     }
 
+    private void actionSuccess(Move move, bool actionSuccessful)
+    {
+        if (isAvailable)
+        {
+            //Color col = myImage.color;
+            //col.a = .4f;
+            //myImage.color = col;
+            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        }
+        
+
+    }
+
+    private void moveSuccess(bool moveSuccessful)
+    {
+        if (isAvailable)
+        {
+            //Color col = myImage.color;
+            //col.a = .4f;
+            //myImage.color = col;
+            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        }
+    }
+
+    private void planMovement()
+    {
+        if (flash != null)
+        {
+            flash.Kill();
+        }
+        Color col = myImage.color;
+        col.a = .4f;
+        myImage.color = col;
+    }
+
+    private void planAction(Move move)
+    {
+        if (flash != null)
+        {
+            flash.Kill();
+        }
+        Color col = myImage.color;
+        col.a = .4f;
+        myImage.color = col;
+    }
+
+
+    //THIS IS NOT CALLED WHEN THE PLAYER'S OWN MOVES BECOME AVAILABLE OR UNAVAILABLE
+    //PERHAPS DEBUG?
     private void moveChanged(bool isAvailable)
     {
+        this.isAvailable = isAvailable;
         if (flash != null)
         {
             flash.Kill();
