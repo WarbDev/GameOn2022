@@ -6,7 +6,7 @@ using System;
 
 public class WaveRunner : MonoBehaviour
 {
-    [SerializeField] Wave waveToRun;
+    [SerializeField] List<Wave> waves;
     [SerializeField] GenericDictionary<ENEMY_TYPE, GameObject> PrefabDictionary;
     [SerializeField] LevelConstructor levelConstructor;
 
@@ -17,16 +17,35 @@ public class WaveRunner : MonoBehaviour
     int currentBatchIndex = 0;
     [SerializeField] int delay = 0;
 
+    // 1-indexed wave number. Wave number 0 is null. Wave number 1 is index 0 in the list of waves.
+    [SerializeField] int waveNumber = 0;
+    public int WaveNumber { get => waveNumber; }
     [SerializeField] Wave currentWave;
 
     void Start()
     {
-        batchesInWave = waveToRun.Batches;
     }
 
     public Wave GetNextWave()
     {
+        waveNumber++;
+        if (waveNumber > waves.Count)
+        {
+            return null;
+        }
+        currentWave = waves[waveNumber - 1];
+        batchesInWave = currentWave.Batches;
         return currentWave;
+    }
+
+    public bool OnLastWave()
+    {
+        return waveNumber >= waves.Count;
+    }
+
+    public bool NoMoreBatches()
+    {
+        return currentBatchIndex >= batchesInWave.Count;
     }
 
     public void PopulateInitialEnemies(Wave wave)
@@ -60,7 +79,7 @@ public class WaveRunner : MonoBehaviour
 
         if (isBatchFinished)
         {
-            delay += waveToRun.Delays[currentBatchIndex];
+            delay += currentWave.Delays[currentBatchIndex];
             currentBatchIndex++;
         }
         Finished?.Invoke();

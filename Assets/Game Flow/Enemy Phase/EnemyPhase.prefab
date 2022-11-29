@@ -48,14 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5503fdf464af81f4a9e19dfe5f53993c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveToRun: {fileID: 11400000, guid: 7983b72ec082ebb4c9e403951e144da4, type: 2}
+  waves:
+  - {fileID: 11400000, guid: 7983b72ec082ebb4c9e403951e144da4, type: 2}
   PrefabDictionary:
     list:
     - Key: 0
       Value: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
     keyCollision: 0
-  enemyPhase: {fileID: 3581966122094214041}
+  levelConstructor: {fileID: 0}
   delay: 0
+  waveNumber: 0
+  currentWave: {fileID: 0}
 --- !u!114 &-6532805648510506160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916db682a043e3648ab6b45c767f3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovementRunner: {fileID: -8048920275025577188}
-  enemyActionRunner: {fileID: -6532805648510506160}
 --- !u!114 &-8048920275025577188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 1
   timer: 0.1
+  additionalDelay: 1
 --- !u!114 &3581966122094214041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,4 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMovementRunner: {fileID: -8048920275025577188}
   enemyActionRunner: {fileID: -6532805648510506160}
-  playerPhase: {fileID: 0}
+  waveRunner: {fileID: 0}

@@ -20,7 +20,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] Obstruction obstruction;
     [SerializeField] EnemyMovement enemyMovement;
-    [SerializeField] EnemyAction enemyAction;
+    [SerializeField] EnemyActionSelectionComponent enemyActionManager;
     [SerializeField] AnimatableEntity enemyAnimations;
 
     public IDamageable Damageable { get => damageable; }
@@ -28,7 +28,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
     public IPushable Pushable { get => pushable; }
     public IObstructionChecker ObstructionChecker { get => obstructionChecker; }    
     public EnemyMovement EnemyMovement { get => enemyMovement; }
-    public EnemyAction EnemyAction { get => enemyAction; }
+    public EnemyActionSelectionComponent EnemyAction { get => enemyActionManager; }
     public IObstruct Obstruct { get => obstruction; }
     public IAnimatable Animatable { get => enemyAnimations; }
 
