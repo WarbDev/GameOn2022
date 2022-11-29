@@ -51,11 +51,11 @@ public class Move_Lightning : Move
             area = rangeShape(player.Location + Directions.W, range, Directions.W);
         }
 
-        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(area);
+        List<IDamageable> damageables = LocationUtility.GetDamageablesAtPositions(area);
         log = new();
-        foreach (Enemy enemy in enemies)
+        foreach (IDamageable enemy in damageables)
         {
-            log.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
+            log.Add(enemy.DealDamage(new Damage(damage, player)));
         }
 
         PlayGraphics(area, log);

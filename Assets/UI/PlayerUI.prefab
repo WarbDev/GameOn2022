@@ -360,6 +360,10 @@ PrefabInstance:
       propertyPath: events
       value: 
       objectReference: {fileID: 3980863940344207342}
+    - target: {fileID: 8701921341017179862, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: m_text
+      value: SECRET AGENT
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
 --- !u!114 &1712819387433986708 stripped
@@ -700,6 +704,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8701921341017179862, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: m_text
+      value: BUFF MAN
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
 --- !u!224 &6134094219538394831 stripped
@@ -1024,6 +1032,10 @@ PrefabInstance:
       propertyPath: events
       value: 
       objectReference: {fileID: 7802190894786822824}
+    - target: {fileID: 8701921341017179862, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
+      propertyPath: m_text
+      value: A WIZARD
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18e6e6b3acff21647aa36df141334c41, type: 3}
 --- !u!114 &5529582265552158674 stripped
