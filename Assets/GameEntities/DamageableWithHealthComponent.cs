@@ -9,16 +9,18 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
     [SerializeField] bool mostRecentDamageWasAnimated = true;
     [SerializeField] AnimatableEntity animatableEntity;
     [SerializeField] DeathComponent deathManager;
+
+    public event Action<int> HealthChanged;
     public override bool IsDead { get => health.CurrentHealth <= 0; }
 
     public override DamageLog DealDamage(Damage damage)
     {
         mostRecentDamageWasAnimated = false;
-        animatableEntity.PlayedNewAnimation += checkIfHurtPlayed;
+        
 
         float oldHealth = health.CurrentHealth;
         float newHealth = health.ReduceHealth(damage.Base);
-
+        animatableEntity.PlayedNewAnimation += checkIfHurtPlayed;
         if (IsDead)
         {
             GameFlow.DeathAnimationTick += DoDeathAnimation;
@@ -29,6 +31,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
         {
             if (id == ANIMATION_ID.ENTITY_HURT)
             {
+                HealthChanged?.Invoke((int)newHealth);
                 mostRecentDamageWasAnimated = true;
                 animatableEntity.PlayedNewAnimation -= checkIfHurtPlayed;
             }
