@@ -5,19 +5,24 @@ using System;
 
 [RequireComponent(typeof(EnemyMeleeAction))]
 [RequireComponent(typeof(EnemyNonAction))]
-[RequireComponent(typeof(EnemyBowAction))]
-public class BowEnemyActionSelector : EnemyActionSelectionComponent
+[RequireComponent(typeof(EnemyChargeLightning))]
+[RequireComponent(typeof(EnemyLightningAttack))]
+public class LightningEnemyActionSelector : EnemyActionSelectionComponent
 {
     [SerializeField] EnemyMeleeAction meleeAction;
     [SerializeField] EnemyNonAction nonAction;
-    [SerializeField] EnemyBowAction bowAction;
+    [SerializeField] EnemyLightningAttack lightningAction;
+    [SerializeField] EnemyChargeLightning chargeLightningAction;
+
+
     public override event Action<EnemyAction> ActionFinished;
 
     public override void MakeAction()
     {
         meleeAction.ActionFinished += onActionFinished;
         nonAction.ActionFinished += onActionFinished;
-        bowAction.ActionFinished += onActionFinished;
+        lightningAction.ActionFinished += onActionFinished;
+        chargeLightningAction.ActionFinished += onActionFinished;
 
         if (Stun.StunDuration > 0)
         {
@@ -31,22 +36,19 @@ public class BowEnemyActionSelector : EnemyActionSelectionComponent
             return;
         }
 
-        if (EnemyAction.IsPlayerLineInHorizontalRange(1, bowAction.Range, GameEntity.Location))
+        if (EnemyAction.IsPlayerLineInHorizontalRange(1, lightningAction.Range, GameEntity.Location) && LocationUtility.HasPlayer((0, GameEntity.Location.Y)))
         {
-            Location location = GameEntity.Location;
-            int absoluteX = Math.Abs(location.X);
-            int centerDirection = LocationUtility.DirectionTowardsCenter(location);
-            var locationsInRange = EnemyAction.HorizontalLocationsInRange(1, absoluteX, centerDirection, location);
-            if (locationsInRange.Contains((0, location.Y)))
+            if (chargeLightningAction.TimesCharged >= chargeLightningAction.ChargeRequired)
             {
-                locationsInRange.Remove((0, location.Y));
-            }
-
-            if (!ObstructionChecker.IsObstructedBy(locationsInRange) && LocationUtility.HasPlayer((0, location.Y)))
-            {
-                bowAction.DoEnemyAction();
+                lightningAction.DoEnemyAction();
                 return;
             }
+        }
+
+        if (chargeLightningAction.TimesCharged < chargeLightningAction.ChargeRequired)
+        {
+            chargeLightningAction.DoEnemyAction();
+            return;
         }
 
 
@@ -57,7 +59,8 @@ public class BowEnemyActionSelector : EnemyActionSelectionComponent
         {
             meleeAction.ActionFinished -= onActionFinished;
             nonAction.ActionFinished -= onActionFinished;
-            bowAction.ActionFinished -= onActionFinished;
+            lightningAction.ActionFinished -= onActionFinished;
+            chargeLightningAction.ActionFinished -= onActionFinished;
             ActionFinished?.Invoke(a);
         }
     }
