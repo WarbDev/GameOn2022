@@ -27,15 +27,10 @@ public class PendingTurns : MonoBehaviour
         StartCoroutine(CheckIfAllPlayersFinished());
     }
 
-    public List<PlayerTurnComponent> PlayersPendingTurns()
-    {
-        return turnPlanners.Where(x => x.IsTurnPending()).ToList();
-    }
-
     IEnumerator CheckIfAllPlayersFinished()
     {
         // Keep checking every .2 seconds until all players cannot make a turn.
-        while(!turnPlanners.All(turn => turn.IsTurnPending()))
+        while(turnPlanners.Any(turn => turn.IsTurnPending()))
         {
             yield return new WaitForSeconds(.1f);
         }
