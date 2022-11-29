@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7526490831846806938}
   - component: {fileID: 6551433914616070669}
   - component: {fileID: 8859144135050375165}
+  - component: {fileID: 6374049237844899772}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
   obstruction: {fileID: 9020505713785838135}
   playerAnimations: {fileID: 4152544370693114016}
   turnComponent: {fileID: 8365744609381522056}
-  faceCamera: {fileID: 0}
+  faceCamera: {fileID: 5998429273877781870}
   Name: 
 --- !u!114 &7886695812729171924
 MonoBehaviour:
@@ -168,6 +169,19 @@ MonoBehaviour:
   autoAssignGameEntity: 1
   HasAnimator: 1
   Animator: {fileID: 4152544370693114016}
+--- !u!114 &6374049237844899772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513081452634914696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be6237346d08e746b97f3d20be8d066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3052717168916523939}
 --- !u!1 &1900587806213811467
 GameObject:
   m_ObjectHideFlags: 0
