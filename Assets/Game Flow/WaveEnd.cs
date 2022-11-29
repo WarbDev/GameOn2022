@@ -6,11 +6,13 @@ public class WaveEnd : MonoBehaviour
 {
     [SerializeField] WaveRunner waveRunner;
     [SerializeField] WaveBegin waveBegin;
+    [SerializeField] WaveWin waveWin;
     [InspectorButton("RunWaveEnd")]
     public bool Run;
 
-    public void RunWaveEnd()
+    public void RunWaveEnd(int waveNumber)
     {
+        waveWin.WaveWon(waveNumber);
         waveBegin.BeginWave(waveRunner.GetNextWave());
     }
 

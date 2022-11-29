@@ -72,11 +72,12 @@ public class PhaseEnd : MonoBehaviour
         }
         if (winState == WinState.VICTORY)
         {
+            waveEnd.RunWaveEnd(-1);
             Debug.Log("WINNNNNNNNNNNNNNNNNN!");
         }
         if (winState == WinState.BEAT_WAVE)
         {
-            waveEnd.RunWaveEnd();
+            waveEnd.RunWaveEnd(waveRunner.WaveNumber);
             Debug.Log("WAVE ENDEDEDEDEDEDED!");
         }
     }

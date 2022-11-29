@@ -53,12 +53,30 @@ public class LevelConstructor : MonoBehaviour
         wall.Finished -= onWallFinish;
         playerSpawning.SpawnPlayers();
 
+        StartCoroutine(Deconstruct(currentWave));
+
+        yield return new WaitForSeconds(10f);
         Finished?.Invoke();
     }
 
-    IEnumerator Deconstruct()
+    IEnumerator Deconstruct(Wave currentWave)
     {
-        Func<bool> isBusy = tileCreator.LowerPlayerLine();
+        bool wallFinished = false;
+        wall.Finished += onWallFinish;
+        wall.LowerWall();
+        void onWallFinish()
+        {
+            wallFinished = true;
+        }
+        while (!wallFinished)
+        {
+            yield return null;
+        }
+
+
+        // Raise the player line first, passing in the height of the new map.
+        Func<bool> isBusy = tileCreator.LowerPlayerLine(GameMap.TopBorder);
+        yield return new WaitForSeconds(0.5f);
         while (isBusy())
         {
             yield return null;
@@ -69,7 +87,7 @@ public class LevelConstructor : MonoBehaviour
         {
             yield return null;
         }
-        wall.LowerWall();
+        
         Finished?.Invoke();
     }
 }
