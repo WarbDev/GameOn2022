@@ -85,7 +85,7 @@ public class PhaseEnd : MonoBehaviour
 
     void CheckNewRound(Phase phase)
     {
-        Action GoToPhaseEnd = () => CheckNewRound(Phase.ENEMY_PHASE);
+        Action GoToPhaseEnd = () => EndPhase(Phase.ENEMY_PHASE);
         completedPhases.Add(phase);
 
         if (completedPhases.Contains(Phase.PLAYER_PHASE) && completedPhases.Contains(Phase.ENEMY_PHASE))

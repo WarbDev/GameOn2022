@@ -81,7 +81,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_Name
-      value: LightningEnemyPrefab
+      value: Lightning_Normal
       objectReference: {fileID: 0}
     - target: {fileID: 4898490024321455818, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: enemyActionManager
@@ -210,7 +210,7 @@ MonoBehaviour:
   animatableEntity: {fileID: 5394375645645544910}
   actionAnimation: {fileID: 6324950473714590867}
   timesCharged: 0
-  ChargeRequired: 2
+  ChargeRequired: 3
 --- !u!114 &6679932138184508104
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513081452634914740}
-  - component: {fileID: 1513081452634914697}
   - component: {fileID: 5459020171704802935}
   - component: {fileID: 7886695812729171924}
   - component: {fileID: 5481305851333762838}
@@ -43,18 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1513081452634914697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513081452634914696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14ce6b8ed66569a449746f607233fef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5459020171704802935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +60,7 @@ MonoBehaviour:
   obstruction: {fileID: 9020505713785838135}
   playerAnimations: {fileID: 4152544370693114016}
   turnComponent: {fileID: 8365744609381522056}
+  faceCamera: {fileID: 0}
   Name: 
 --- !u!114 &7886695812729171924
 MonoBehaviour:
@@ -507,7 +495,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3052717168916523939}
   IdleOnStart: 1
   IdleAfterAnimationEnds: 1
-  currentAnimationID: 0
 --- !u!1001 &1991533689391152262
 PrefabInstance:
   m_ObjectHideFlags: 0

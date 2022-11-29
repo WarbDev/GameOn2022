@@ -30,12 +30,6 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
             return;
         }
 
-        if (EnemyAction.NonAlliedObstructionInFront(GameEntity.Location, ObstructionChecker) != null)
-        {
-            meleeAction.DoEnemyAction();
-            return;
-        }
-
         if (EnemyAction.IsPlayerLineInHorizontalRange(1, lightningAction.Range, GameEntity.Location) && LocationUtility.HasPlayer((0, GameEntity.Location.Y)))
         {
             if (chargeLightningAction.TimesCharged >= chargeLightningAction.ChargeRequired)
@@ -43,6 +37,12 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
                 lightningAction.DoEnemyAction();
                 return;
             }
+        }
+
+        if (EnemyAction.NonAlliedObstructionInFront(GameEntity.Location, ObstructionChecker) != null)
+        {
+            meleeAction.DoEnemyAction();
+            return;
         }
 
         if (chargeLightningAction.TimesCharged < chargeLightningAction.ChargeRequired)

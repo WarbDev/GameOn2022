@@ -159,6 +159,8 @@ public class GameMap : MonoBehaviour
 
         player1.GetComponent<Player>().SetLocation(new Location(player2.Location.X, player2.Location.Y));
         player2.GetComponent<Player>().SetLocation(tempLocation);
+        player1.transform.localPosition = Vector3.zero;
+        player2.transform.localPosition = Vector3.zero;
     }
 
     public static void MoveEnemy(GameEntity enemy, Location to)
