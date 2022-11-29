@@ -20,14 +20,17 @@ public class Health : MonoBehaviour
         if (!reachedZeroHealth)
         {
             currentHealth -= reduction;
+
             if (currentHealth <= 0f)
             {
                 currentHealth = 0f;
                 reachedZeroHealth = true;
                 LostAllHealth?.Invoke(gameObject.GetComponent<GameEntity>());
+                
             }
+            HealthChanged?.Invoke((int)currentHealth);
         }
-        HealthChanged?.Invoke((int)currentHealth);
+        
         return currentHealth;
     }
 
