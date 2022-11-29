@@ -48,7 +48,6 @@ public class Move_Punch : Move
         }
 
         Location selected = locations[0]; //locations[0] is the player-selected point
-        locations = effectShape(selected, radius);
 
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
         pushLog = new();

@@ -23,7 +23,7 @@ public class FaceCamera : MonoBehaviour
         transformToAdjust.SetPositionAndRotation(AdjustPositionBasedOnCameraAngle(), new Quaternion(mainCamera.transform.rotation.x, transformToAdjust.rotation.y, transformToAdjust.rotation.z, transformToAdjust.rotation.w));
     }
 
-    Vector2 AdjustPositionBasedOnCameraAngle()
+    Vector3 AdjustPositionBasedOnCameraAngle()
     {
         float adjustedEulerX = mainCamera.transform.eulerAngles.x;
         if (adjustedEulerX >= 270)
@@ -31,7 +31,7 @@ public class FaceCamera : MonoBehaviour
 
 
         float adjustedY = adjustedEulerX/100;
-        Vector2 vec = new Vector2(parentTransform.position.x, parentTransform.position.y + adjustedY);
+        Vector3 vec = new Vector3(parentTransform.position.x, parentTransform.position.y + adjustedY, parentTransform.position.z);
 
         return vec;
     }

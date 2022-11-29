@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Moves/Barricade")]
-public class Move_Barricade : Move
+[CreateAssetMenu(menuName = "Moves/Time")]
+public class Move_Time : Move
 {
     private ILocate locator;
     [SerializeField] GameObject animatorObject;
     Player player;
-
-    [SerializeField] GameObject barricadeTerrain;
-
-    ShapeWithRadius rangeShape = LocationUtility.LocationsInHorizonalLine;
+    [SerializeField] int range;
+    [SerializeField] GameObject timeBombTerrain;
+    ShapeWithRadius rangeShape = LocationUtility.LocationsInSquareRadius;
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
 
     private List<Location> locations;
 
     public override event Action<bool> MoveCompleted;
 
-    List<TerrainBase> terrainLog = new();
-
     public override void DoMove(Player player)
     {
         this.player = player;
-        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, 1, 0);
+        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, range, 0);
         locator.DeterminedLocations -= DoEffects;
         locator.DeterminedLocations += DoEffects;
         locator.StartLocate(this);
@@ -40,35 +37,35 @@ public class Move_Barricade : Move
             return;
         }
 
-        Location selected = locations[0]; //locations[0] is the player-selected point
+        TimebombTerrain bomb = (TimebombTerrain) Entities.SpawnTerrain(locations[0], timeBombTerrain);
 
-        TerrainBase terrain = Entities.SpawnTerrain(selected, barricadeTerrain);
-        if (terrain == null)
+        if (bomb == null)
         {
             MoveCompleted?.Invoke(false);
             return;
         }
-        terrainLog.Add(terrain);
-        PlayGraphics(selected);
+
+        PlayGraphics(bomb, LocationUtility.LocationToVector3(locations[0]));
 
     }
 
-    private void PlayGraphics(Location selected)
+    private void PlayGraphics(TimebombTerrain bomb, Vector3 endPoint)
     {
         GameObject animation = Instantiate(animatorObject);
-        animation.transform.position = LocationUtility.LocationToVector3(selected);
+        bomb.transform.position = player.transform.position;
 
-        A_Barricade animationManager = animation.GetComponent<A_Barricade>();
+        A_Time animationManager = animation.GetComponent<A_Time>();
 
-        animationManager.PlayAnimation();
+        animationManager.PlayAnimation(bomb, endPoint);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
         animationManager.moveAnimation.AnimationFinished += MoveDone;
     }
 
-    private void MoveDone(EntityAnimation<BarricadeAnimationProperties> obj)
+    private void MoveDone(EntityAnimation<TimeAnimationProperties> obj)
     {
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }
 }
+

@@ -22,7 +22,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
 
     public override Func<bool> OnEntityMoveOver(GameEntity entity)
     {
-        return ()=> true; // pp
+        return ()=> true; // p
     }
 
     public override void OnRoundTick()
