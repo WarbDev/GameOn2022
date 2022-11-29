@@ -61,8 +61,6 @@ public class WallScript : MonoBehaviour
 
         backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).From();
 
-        Debug.Log("HEHE");
-
         Finished?.Invoke();
     }
 
