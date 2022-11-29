@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SPR_Gun
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 47c124f43a519144cbf1a712689f58dc, type: 3}
+  - {fileID: 21300000, guid: 7751675c9270f9c46b1bdaffa388c98d, type: 3}
