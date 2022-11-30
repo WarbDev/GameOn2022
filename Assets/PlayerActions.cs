@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 /// <summary>
 /// Contains all actions this player character has access to, and if they're on cooldown.
@@ -27,7 +28,7 @@ public class PlayerActions : EntityComponent
 
     public void TickCooldown()
     {
-        var keys = movesOnCooldown.Keys;
+        List<Move> keys = movesOnCooldown.Keys.ToList();
         foreach (var mC in keys)
         {
             int newValue = Mathf.Max(0, movesOnCooldown[mC] - 1);
