@@ -381,7 +381,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -630280021
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &642895713
@@ -401,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 474.5, y: 267}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 949, y: 534}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &729271204
@@ -548,6 +548,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 149889077715209608, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4551437386549088644, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: m_Name
       value: Game Flow
@@ -1507,6 +1511,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 642895712}
+    - target: {fileID: 7692335473658351590, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: cameraa
+      value: 
+      objectReference: {fileID: 741557224}
     - target: {fileID: 8147330691446363383, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
       value: 
