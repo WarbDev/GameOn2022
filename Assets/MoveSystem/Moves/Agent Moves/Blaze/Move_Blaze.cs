@@ -87,10 +87,12 @@ public class Move_Blaze : Move
 
         A_Blaze animationManager = animation.GetComponent<A_Blaze>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.GetComponent<SpriteRenderer>()));
         animationManager.PlayAnimation();
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
         animationManager.moveAnimation.AnimationFinished += MoveDone;
+
     }
 
     private void MoveDone(EntityAnimation<BlazeAnimationProperties> obj)

@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: SPR_Punch
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 9cd02b677a1c10341bc60330e5844294, type: 3}
+  - {fileID: -1863433012, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 1324586652, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 39510811, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: -1903898744, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: -997689867, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 1184229772, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: -217544938, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 1059365967, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 2072279223, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 1691970978, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
+  - {fileID: 1675498366, guid: ffed444c440cc4e46ac51b9b992b7dcf, type: 3}
