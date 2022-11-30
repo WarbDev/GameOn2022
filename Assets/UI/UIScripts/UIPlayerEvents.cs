@@ -49,6 +49,11 @@ public class UIPlayerEvents : MonoBehaviour
     /// </summary>
     public event Action<Move> StartedPlanningAction;
 
+    /// <summary>
+    /// Invoked whenever a player starts or stops planning. Returns if there is currently now a player planning.
+    /// </summary>
+    public static Action<bool> AnyPlayerNowPlanning;
+
     private void Start()
     {
         player.GetComponent<DamageableWithHealthComponent>().HealthChanged += ((health)=>HealthChanged?.Invoke(health));
@@ -57,11 +62,18 @@ public class UIPlayerEvents : MonoBehaviour
         player.TurnComponent.PlannedMovement += ((x) => PlannedMovementSuccessful?.Invoke(x));
         player.TurnComponent.StartedPlanningMove += (x) => StartedPlanningAction?.Invoke(x);
         player.TurnComponent.StartedPlanningMovement += () => StartedPlanningMovement?.Invoke();
-        
+        GameFlow.AnyPlayerNowPlanning += InvokeAPNP;
+
 
 
         StartCoroutine(TrackMovementNeeded());
         StartCoroutine(TrackActionNeeded());
+
+    }
+
+    void InvokeAPNP(bool x)
+    {
+        AnyPlayerNowPlanning?.Invoke(x);
     }
     IEnumerator TrackMovementNeeded()
     {
