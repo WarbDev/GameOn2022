@@ -21,7 +21,11 @@ public class PlayerTurnAction : MonoBehaviour
         {
             DidAction?.Invoke(success);
             move.MoveCompleted -= OnMoveCompletion;
-            if (success) playerActions.UsedMove(move);
+            if (success)
+            {
+                playerActions.UsedMove(move);
+            }
+            
             planningMove = null;
         }
     }

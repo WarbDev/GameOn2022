@@ -26,7 +26,7 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
 
         if (Stun.StunDuration > 0)
         {
-            nonAction.DoEnemyAction();
+            stunnedAction.DoEnemyAction();
             return;
         }
 

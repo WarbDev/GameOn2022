@@ -31,9 +31,6 @@ public class MovementPlanningInput : MonoBehaviour
             }
         }
 
-        freeHighlighter.ChangeColor(Color.green);
-        unavailableHighlighter.ChangeColor(Color.red);
-
 
         freeHighlighter.HighlightTiles(availableLocations.ToHashSet());
         unavailableHighlighter.HighlightTiles(unavailableLocations.ToHashSet());

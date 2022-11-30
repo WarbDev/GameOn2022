@@ -29,6 +29,7 @@ public class PlayerTurnMovement : MonoBehaviour
 
     void OnSelectedLocation(Location location)
     {
+        input.StopRetrieving();
         if (movementOptions[location] == MovementOption.SWAP)
         {
             Player secondPlayer;
