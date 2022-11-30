@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_AgentAttack
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1543317693, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -266214481, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -348045250, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -967120411, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -1658957976, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -1376235000, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: 459064147, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -332671816, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -633513762, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -116986321, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -1690771631, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: -2070529601, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
+  - {fileID: 619501636, guid: 70c0fd91a39b6114dadff71c05468160, type: 3}
