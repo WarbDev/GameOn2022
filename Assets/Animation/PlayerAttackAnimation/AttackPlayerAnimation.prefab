@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &192718707530364812
+--- !u!1 &2084266496150712734
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2770807091619824031}
-  - component: {fileID: -6124864553666725877}
+  - component: {fileID: 7271755137251175479}
+  - component: {fileID: 1189028455526643124}
+  - component: {fileID: 7933947244210430599}
   m_Layer: 0
-  m_Name: StunAnimation
+  m_Name: AttackPlayerAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2770807091619824031
+--- !u!4 &7271755137251175479
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192718707530364812}
+  m_GameObject: {fileID: 2084266496150712734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,20 +33,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6124864553666725877
+--- !u!114 &1189028455526643124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192718707530364812}
+  m_GameObject: {fileID: 2084266496150712734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e980c290ec38be4bbf21249ccd33c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: ae60fdfd09a328143b7c9a52cfafb790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedTransform: {fileID: 0}
-  duration: 0.5
-  intensity: 1
-  vibrato: 50
-  clip: {fileID: 8300000, guid: 949d0b2241a32ba449a00c6f7ed4b8f4, type: 3}
+  animate: {fileID: 7933947244210430599}
+--- !u!114 &7933947244210430599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084266496150712734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 0}
+  ease: 1
+  duration: 1
+  loops: 0
