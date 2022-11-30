@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673f39bdc9bda174cba37b02a9dc8ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightPrefab: {fileID: 9215078409191468384, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
+  highlightPrefab: {fileID: 7391650056355594738, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
   color: {r: 0, g: 1, b: 0.007976532, a: 0}
 --- !u!114 &5330943147852817725
 MonoBehaviour:
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673f39bdc9bda174cba37b02a9dc8ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightPrefab: {fileID: 9215078409191468384, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
-  color: {r: 0.6603774, g: 0, b: 0, a: 0}
+  highlightPrefab: {fileID: 7391650056355594738, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &1622290207071599376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementButton: {fileID: 0}
   actionButton: {fileID: 0}
+  skipPlayerTurn: {fileID: 0}
 --- !u!114 &7115869970798139037
 MonoBehaviour:
   m_ObjectHideFlags: 0
