@@ -655,9 +655,17 @@ PrefabInstance:
       value: MovementButton
       objectReference: {fileID: 0}
     - target: {fileID: 3661288657461371780, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
+    - target: {fileID: 3661288657461371780, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
       propertyPath: m_fontSizeBase
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 3661288657461371780, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3446356216804036036, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
     m_RemovedComponents:
     - {fileID: 8067528795373908273, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8206c9bfbe5faae4c924872c3d19ec5c, type: 3}
