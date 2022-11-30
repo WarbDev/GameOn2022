@@ -1318,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1362,7 +1362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[7]
-      value: I could do with a good pipe smoke right now
+      value: I could do with a good pipe smoke
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[8]
@@ -1371,6 +1371,10 @@ PrefabInstance:
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[9]
       value: hooHOO HEEHEE
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[10]
+      value: you whippersnappers
       objectReference: {fileID: 0}
     - target: {fileID: 929396078369437972, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
@@ -1462,7 +1466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1522,7 +1526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[10]
-      value: Ha, get a load of THESE guns
+      value: These punching bags feel weird
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[11]
+      value: Amino Acids
       objectReference: {fileID: 0}
     - target: {fileID: 4494437110941057808, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: clip
@@ -1546,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1582,7 +1590,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[4]
-      value: We should have just snuck in
+      value: He lives in fear of what he's created
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[5]
+      value: Gentlemen, I have a plan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[6]
+      value: My parents aren't spies
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[7]
+      value: Can your mommy do that
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[8]
+      value: I am shook, while I stir
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[9]
+      value: it's much worse than you think
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[10]
+      value: I spent six years in evil medical school..
       objectReference: {fileID: 0}
     - target: {fileID: 5854767218460035224, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_Name
