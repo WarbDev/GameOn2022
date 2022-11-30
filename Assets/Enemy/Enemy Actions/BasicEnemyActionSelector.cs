@@ -15,6 +15,7 @@ public class BasicEnemyActionSelector : EnemyActionSelectionComponent
     {
         meleeAction.ActionFinished += onActionFinished;
         nonAction.ActionFinished += onActionFinished;
+        stunnedAction.ActionFinished += onActionFinished;
 
         if (Stun.StunDuration > 0)
         {
@@ -35,6 +36,7 @@ public class BasicEnemyActionSelector : EnemyActionSelectionComponent
         {
             meleeAction.ActionFinished -= onActionFinished;
             nonAction.ActionFinished -= onActionFinished;
+            stunnedAction.ActionFinished -= onActionFinished;
             ActionFinished?.Invoke(a);
         }
     }

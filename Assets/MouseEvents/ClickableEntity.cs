@@ -6,7 +6,8 @@ using System;
 [RequireComponent(typeof(Collider))]
 public class ClickableEntity : MonoBehaviour
 {
-
+    [SerializeField] GameEntity gameEntity;
+    public Location Location { get => gameEntity.Location; }
     public event Action<ClickableEntity> EntityClicked;
     public event Action<ClickableEntity> EntityMousedOver;
     public event Action<ClickableEntity> EntityRightClicked;

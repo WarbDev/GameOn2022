@@ -79,6 +79,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7149672031301082918, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7149672031301082918, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: currentHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214266325346917402, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_Name
       value: Lightning_Normal
@@ -169,6 +181,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b5ae074086d649b5f1ea770d47a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2870164107745838529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4336660596186474330, guid: bed06654961aa864eac528555d4541cc, type: 3}
+  m_PrefabInstance: {fileID: 2015984090756719259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3402656202637067289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c2ed91fe1f05d43af1a8ab46d3d604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3402656202637067289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
@@ -224,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
+  stunnedAction: {fileID: 2870164107745838529}
   obstructionChecker: {fileID: 7534596458448498425}
   enemy: {fileID: 6341306183124333649}
   meleeAction: {fileID: 235651755789071427}

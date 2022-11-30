@@ -23,6 +23,7 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
         nonAction.ActionFinished += onActionFinished;
         lightningAction.ActionFinished += onActionFinished;
         chargeLightningAction.ActionFinished += onActionFinished;
+        stunnedAction.ActionFinished += onActionFinished;
 
         if (Stun.StunDuration > 0)
         {
@@ -61,6 +62,7 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
             nonAction.ActionFinished -= onActionFinished;
             lightningAction.ActionFinished -= onActionFinished;
             chargeLightningAction.ActionFinished -= onActionFinished;
+            stunnedAction.ActionFinished -= onActionFinished;
             ActionFinished?.Invoke(a);
         }
     }

@@ -9,7 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 564623248923724015, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
       propertyPath: m_Name
-      value: Melee_Base
+      value: Melee_Super_Heavy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145883182678800565, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: damage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445304162707082935, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: maxHealth
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445304162707082935, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: currentHealth
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5688009264749702312, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
       propertyPath: m_RootOrder

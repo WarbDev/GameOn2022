@@ -21,13 +21,13 @@ public class CameraPanning : MonoBehaviour
     private int cameraVertical = -1;
 
 
-    private int speed = 1;
+    [SerializeField] private int speed = 1;
 
     
     private int horizonalTime = 0;
     private int verticalTime = 0;
     //private bool startedPressingButton = true;
-    private int waitTime = 20;
+    private int waitTime = 8;
 
     private int moveTime = 0;
     private int timePerCameraMove = 20;

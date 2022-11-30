@@ -15,6 +15,4 @@ public abstract class EnemyActionSelectionComponent : EntityComponent
     protected IObstructionChecker ObstructionChecker { get => obstructionChecker; }
 
     public abstract void MakeAction();
-
-
 }

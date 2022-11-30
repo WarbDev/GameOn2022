@@ -141,6 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3630c1ab6ea3dc4c887e40308dbd484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4664145402337648014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4336660596186474330, guid: bed06654961aa864eac528555d4541cc, type: 3}
+  m_PrefabInstance: {fileID: 8977000471902010068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212399030703316054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c2ed91fe1f05d43af1a8ab46d3d604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5212399030703316054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
@@ -159,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoAssignGameEntity: 1
+  stunnedAction: {fileID: 4664145402337648014}
   obstructionChecker: {fileID: 1152573009113003702}
   enemy: {fileID: 4570688411312204830}
   meleeAction: {fileID: 7218061296030067724}

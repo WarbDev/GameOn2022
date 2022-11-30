@@ -18,6 +18,7 @@ public class BowEnemyActionSelector : EnemyActionSelectionComponent
         meleeAction.ActionFinished += onActionFinished;
         nonAction.ActionFinished += onActionFinished;
         bowAction.ActionFinished += onActionFinished;
+        stunnedAction.ActionFinished += onActionFinished;
 
         if (Stun.StunDuration > 0)
         {
@@ -58,6 +59,7 @@ public class BowEnemyActionSelector : EnemyActionSelectionComponent
             meleeAction.ActionFinished -= onActionFinished;
             nonAction.ActionFinished -= onActionFinished;
             bowAction.ActionFinished -= onActionFinished;
+            stunnedAction.ActionFinished -= onActionFinished;
             ActionFinished?.Invoke(a);
         }
     }
