@@ -459,6 +459,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5857330480380608536, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waveWin
+      value: 
+      objectReference: {fileID: 1230107333}
+    - target: {fileID: 5857330480380608536, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waveBegin
       value: 
       objectReference: {fileID: 1689562597}
@@ -466,6 +470,10 @@ PrefabInstance:
       propertyPath: waveRunner
       value: 
       objectReference: {fileID: 1248240898}
+    - target: {fileID: 5857330480380608536, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: levelConstructor
+      value: 
+      objectReference: {fileID: 1187247943}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: currentWave
       value: 
@@ -476,8 +484,12 @@ PrefabInstance:
       objectReference: {fileID: 1187247943}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60967a21e5a620942ab3ac9988c8b742, type: 2}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[1]
       value: 
@@ -621,6 +633,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bed55bc3a6815848a14f911faccfada, type: 3}
+--- !u!114 &1230107333 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+  m_PrefabInstance: {fileID: 1404152193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2222234767de14994ac4d593faec49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1248240898 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}

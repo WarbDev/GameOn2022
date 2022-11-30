@@ -56,7 +56,8 @@ public class WallScript : MonoBehaviour
     private void finished()
     {
         backGround = Instantiate(backGroundObject);
-        backGround.transform.position = new Vector3(0, 10, 0);
+        
+        backGround.transform.position = new Vector3(0, GameMap.TopBorder +4, 0);
         backGround.transform.localEulerAngles = new Vector3(-40, 0);
 
         backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).From();

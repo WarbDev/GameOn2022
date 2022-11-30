@@ -8,7 +8,7 @@ public class RoundEndButton : MonoBehaviour
 
     public event Action Click;
     
-    void onClick()
+    public void onCLICKClick()
     {
         Click?.Invoke();
     }

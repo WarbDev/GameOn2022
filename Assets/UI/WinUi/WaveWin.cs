@@ -42,6 +42,8 @@ public class WaveWin : MonoBehaviour
     private void FinishedFading()
     {
         gameObject.SetActive(false);
+
+        playerUi.transform.DOScaleY(1f, 1f).SetEase(Ease.OutBack);
         onWinScreenDismissed?.Invoke();
     }
 
