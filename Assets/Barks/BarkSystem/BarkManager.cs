@@ -24,20 +24,25 @@ public class BarkManager : MonoBehaviour
 
     private void onTurnBegin()
     {
-        float rand = Random.Range(0f, 1f);
 
-        if (rand < .33)
+        float rand = Random.Range(0f, 1f);
+        if (rand > .5)
         {
-            bufBark.PlayMyBark(canvas, cameraa);
-        } 
-        else if (rand > .66)
-        {
-            spyBark.PlayMyBark(canvas, cameraa);
+            rand = Random.Range(0f, 1f);
+            if (rand < .33)
+            {
+                bufBark.PlayMyBark(canvas, cameraa);
+            }
+            else if (rand > .66)
+            {
+                spyBark.PlayMyBark(canvas, cameraa);
+            }
+            else
+            {
+                wizBark.PlayMyBark(canvas, cameraa);
+            }
         }
-        else
-        {
-            wizBark.PlayMyBark(canvas, cameraa);
-        }
+        
     }
 
     private void OnDestroy()

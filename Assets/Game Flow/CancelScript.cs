@@ -15,6 +15,14 @@ public class CancelScript : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(2))
+        {
+            Cancel();
+        }
+    }
+
     public void Cancel()
     {
         OnCancel?.Invoke();
