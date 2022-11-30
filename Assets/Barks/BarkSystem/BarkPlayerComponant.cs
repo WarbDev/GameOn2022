@@ -15,9 +15,9 @@ public class BarkPlayerComponant : MonoBehaviour
         talkBark.setBark(camera);
     }
 
-    public void PlayMyBark(Canvas canvas)
+    public void PlayMyBark(Canvas canvas, Camera camera)
     {
-        talkBark.PlayBark(gameObject, canvas);
+        talkBark.PlayBark(gameObject, canvas, camera);
     }
 
     

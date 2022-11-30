@@ -28,15 +28,15 @@ public class BarkManager : MonoBehaviour
 
         if (rand < .33)
         {
-            bufBark.PlayMyBark(canvas);
+            bufBark.PlayMyBark(canvas, cameraa);
         } 
         else if (rand > .66)
         {
-            spyBark.PlayMyBark(canvas);
+            spyBark.PlayMyBark(canvas, cameraa);
         }
         else
         {
-            wizBark.PlayMyBark(canvas);
+            wizBark.PlayMyBark(canvas, cameraa);
         }
     }
 
