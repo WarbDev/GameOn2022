@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
   m_Name: DTW4
   m_EditorClassIdentifier: 
-  height: 5
-  rightLength: 6
-  leftLength: 8
-  initialEnemies: {fileID: 11400000, guid: 4f27689441c1404459ec1187d1f91034, type: 2}
+  height: 8
+  rightLength: 16
+  leftLength: 16
+  initialEnemies: {fileID: 11400000, guid: 75ade6fa30dcfab41863d4bc21c9dc51, type: 2}
   batchEntries:
   - Batch: {fileID: 11400000, guid: c307852813c38734c86aff209fc28af3, type: 2}
     Delay: 0
