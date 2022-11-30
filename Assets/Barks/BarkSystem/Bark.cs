@@ -5,7 +5,6 @@ using TMPro;
 using DG.Tweening;
 
 
-//[CreateAssetMenu(menuName = "Bark")]
 public class Bark : MonoBehaviour
 {
 
@@ -15,8 +14,13 @@ public class Bark : MonoBehaviour
     [SerializeField] float DurationInSeconds;
     private GameObject instance;
 
-    public void PlayBark(GameObject player)
+    Canvas canvas;
+
+
+    public void PlayBark(GameObject player, Canvas canvas)
     {
+        this.canvas = canvas;
+
         int randNumber = Random.Range(1, Clips.Count);
         GlobalAudioSource.Instance.Play(Clips[randNumber]);
 
@@ -27,24 +31,25 @@ public class Bark : MonoBehaviour
     {
 
         instance = Instantiate(gameObject);
+        instance.transform.SetParent(canvas.transform, false);
+
         Destroy(instance, DurationInSeconds);
 
         int randNumber = Random.Range(0, Words.Count);
-        instance.GetComponent<TextMeshPro>().SetText(Words[randNumber]);
+        TextBox.GetComponent<TextMeshProUGUI>().SetText(Words[randNumber]);
 
-        instance.transform.SetParent(player.transform, false);
+        
 
         SpriteRenderer textBoxRenderer = TextBox.GetComponent<SpriteRenderer>();
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
 
         instance.transform.DOScale(0, DurationInSeconds).From();
 
-        Vector3 to = instance.transform.position + new Vector3(1, 1);
+        Vector3 to = player.transform.position + new Vector3(1, 1);
 
         instance.transform.DOMove(to, DurationInSeconds);
 
-        rectTransform.sizeDelta = 
-            new Vector2(textBoxRenderer.bounds.size.x, textBoxRenderer.bounds.size.y);
+        //rectTransform.sizeDelta =  new Vector2(textBoxRenderer.bounds.size.x, textBoxRenderer.bounds.size.y);
 
     }
 
