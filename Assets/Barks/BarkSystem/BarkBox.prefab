@@ -277,8 +277,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: HELLO WORLD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
-  m_sharedMaterial: {fileID: 5986618756877166212, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
+  m_sharedMaterial: {fileID: 3446356216804036036, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

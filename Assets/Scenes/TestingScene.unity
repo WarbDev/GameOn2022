@@ -1820,6 +1820,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4154785706237800924, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4233959018408201293, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2172,6 +2176,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -4.6626
       objectReference: {fileID: 0}
+    - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 443.4444
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 41.653
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 38.2418
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 94.372
+      objectReference: {fileID: 0}
     - target: {fileID: 8062188226512541143, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2204,5 +2224,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8840281634195472422, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840281634195472422, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
+    - target: {fileID: 8840281634195472422, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840281634195472422, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3446356216804036036, guid: c4b71d3f56b5fa2499f6056ee674b3f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
