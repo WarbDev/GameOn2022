@@ -52,7 +52,7 @@ public class Bark : MonoBehaviour
 
 
 
-        instance.cameraa = cameraa;
+        //instance.cameraa = cameraa;
 
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = player.transform.position + new Vector3(0, 1.5f);
