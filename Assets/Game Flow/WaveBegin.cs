@@ -10,7 +10,11 @@ public class WaveBegin : MonoBehaviour
     [SerializeField] PlayerPhase playerPhase;
     [SerializeField] PhaseEnd phaseEnd;
     [SerializeField] WaveRunner waveRunner;
-    
+    [SerializeField] AudioClip music_A;
+    [SerializeField] AudioClip music_B;
+    [SerializeField] AudioSource audioSource;
+
+    [SerializeField] int BMusicThreshold = 2;
     public void BeginWave(Wave wave)
     {
         StartCoroutine(WaveBeginRoutine(wave));
@@ -18,6 +22,7 @@ public class WaveBegin : MonoBehaviour
 
     IEnumerator WaveBeginRoutine(Wave wave)
     {
+        audioSource.clip = GetAppropriateMusic(waveRunner.WaveNumber);
         bool finishedLevelConstruction = false;
         levelConstructor.Finished += FinishedLevelConstruction;
         levelConstructor.Run(wave);
@@ -31,6 +36,16 @@ public class WaveBegin : MonoBehaviour
         void FinishedLevelConstruction() => finishedLevelConstruction = true;
         waveRunner.PopulateInitialEnemies(wave);
         playerPhase.StartPlayerRound();
+        audioSource.Play();
         
+    }
+
+    AudioClip GetAppropriateMusic(int waveNumber)
+    {
+        if (waveNumber >= BMusicThreshold)
+        {
+            return music_B;
+        }
+        else return music_A;
     }
 }
