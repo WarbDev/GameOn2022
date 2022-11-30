@@ -54,9 +54,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5792537915183999313}
   pushable: {fileID: 2311836700536482170}
   obstructionChecker: {fileID: 459776572540433599}
-  radius: 1
-  stunDuration: 1
-  TurnsUntilBoom: 3
+  radius: 5
+  stunDuration: 5
+  adjustedRenderer: {fileID: 5792537915183999313}
+  explodeAnimation: {fileID: -3057631007491969950}
+  explodeClip: {fileID: 8300000, guid: 0b9ca925b7a31f94a8eaa5bdf5a0a9b5, type: 3}
+  TurnsUntilBoom: 1
 --- !u!114 &9006775245249310953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteSet: {fileID: 11400000, guid: 511475a6f3ac0c545bb6251a21a2c3fa, type: 2}
   ease: 1
-  duration: 0.5
+  duration: 1
   loops: 0
 --- !u!114 &-4713411095974017487
 MonoBehaviour:
