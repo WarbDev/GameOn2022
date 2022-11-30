@@ -70,6 +70,7 @@ public class Move_Gravity : Move
 
         A_Gravity animationManager = animation.GetComponent<A_Gravity>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(LocationUtility.LocationToVector3(location));
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;

@@ -56,6 +56,7 @@ public class Move_Time : Move
 
         A_Time animationManager = animation.GetComponent<A_Time>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(bomb, endPoint);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;

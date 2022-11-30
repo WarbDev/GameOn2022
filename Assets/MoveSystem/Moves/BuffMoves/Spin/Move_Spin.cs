@@ -73,6 +73,15 @@ public class Move_Spin : Move
 
         A_Spin animationManager = animation.GetComponent<A_Spin>();
 
+        foreach (PushLog lo in pushLog)
+        {
+            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        }
+        foreach (DamageLog damaged in damageLog)
+        {
+            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+        }
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(player, player.FaceCamera);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
@@ -82,14 +91,7 @@ public class Move_Spin : Move
     private void MoveDone(EntityAnimation<SpinAnimationProperties> obj)
     {
 
-        foreach (PushLog lo in pushLog)
-        {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
-        }
-        foreach (DamageLog damaged in damageLog)
-        {
-            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
-        }
+        
 
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);

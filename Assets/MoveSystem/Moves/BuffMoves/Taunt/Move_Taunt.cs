@@ -82,6 +82,7 @@ public class Move_Taunt : Move
             lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
         }
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animation.PlayAnimation(log);
 
         animation.animate.AnimationFinished -= MoveDone;

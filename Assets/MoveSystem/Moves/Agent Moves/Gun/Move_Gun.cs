@@ -64,6 +64,7 @@ public class Move_Gun : Move
 
         A_Gun animationManager = animation.GetComponent<A_Gun>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(LocationUtility.LocationToVector3(location), log);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
