@@ -1554,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1590,31 +1590,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[4]
-      value: He lives in fear of what he's created
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[5]
       value: Gentlemen, I have a plan
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[6]
+      propertyPath: Words.Array.data[5]
       value: My parents aren't spies
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[7]
+      propertyPath: Words.Array.data[6]
       value: Can your mommy do that
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[8]
-      value: I am shook, while I stir
+      propertyPath: Words.Array.data[7]
+      value: I am shook (not stirred)
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[9]
+      propertyPath: Words.Array.data[8]
       value: it's much worse than you think
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[9]
+      value: six years in evil medical school..
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[10]
-      value: I spent six years in evil medical school..
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5854767218460035224, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_Name

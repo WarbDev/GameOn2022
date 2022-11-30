@@ -16,6 +16,6 @@ MonoBehaviour:
   tooltip: Shoot ya, it's gonna hurt
   cooldown: 1
   animatorObject: {fileID: 4964562316847796961, guid: 76aebd04f43bbd7418a872fcbfdd9bbc, type: 3}
-  damage: 2
+  damage: 3
   range: 10
   IceTerrain: {fileID: 0}

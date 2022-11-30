@@ -175,6 +175,18 @@ PrefabInstance:
       propertyPath: moves.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 670899b49005b464f851c039ca82d87f, type: 2}
+    - target: {fileID: 7728712109953760874, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: m_Color.b
+      value: 0.39607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728712109953760874, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728712109953760874, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: m_Color.r
+      value: 0.007843138
+      objectReference: {fileID: 0}
     - target: {fileID: 7886695812729171924, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: maxHealth
       value: 4

@@ -16,6 +16,6 @@ MonoBehaviour:
   tooltip: 
   cooldown: 2
   range: 6
-  radius: 2
+  radius: 1
   pushStrength: 2
   AnimationObject: {fileID: 9157243919626633532, guid: ebd91027fb123ed46bc80f7bb967dd1b, type: 3}

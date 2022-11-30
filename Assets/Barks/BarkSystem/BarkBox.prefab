@@ -47,7 +47,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828699188535531401}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6a59b50df6a6a94380c91a426132e68, type: 3}
   m_Name: 
@@ -56,6 +56,7 @@ MonoBehaviour:
   Words: []
   TextBox: {fileID: 8313531341921526562}
   DurationInSeconds: 5
+  cameraa: {fileID: 0}
 --- !u!1 &6613880760320307567
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,10 +275,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NEW  TEXT
+  m_text: HELLO WORLD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
-  m_sharedMaterial: {fileID: -105722419260762142, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
+  m_sharedMaterial: {fileID: 5986618756877166212, guid: 5a8f01055bef0904c8056eff87451bf7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
