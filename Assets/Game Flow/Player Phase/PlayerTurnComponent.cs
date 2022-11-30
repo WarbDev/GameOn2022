@@ -8,7 +8,6 @@ public class PlayerTurnComponent : MonoBehaviour
     [SerializeField] PlayerTurnMovement movement;
     [SerializeField] PlayerTurnAction action;
     [SerializeField] PlayerActions actionPool;
-
     [SerializeField] TurnPlanningInput input;
 
     PLAN_STATE STATE = PLAN_STATE.ASLEEP;
@@ -36,6 +35,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
         input.MovementSelected += TryEnterMovementState;
         input.ActionSelected += TryEnterActionState;
+        
 
         while (STATE == PLAN_STATE.AWAITING)
         {

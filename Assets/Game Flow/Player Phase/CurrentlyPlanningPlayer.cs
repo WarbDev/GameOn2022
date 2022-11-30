@@ -8,6 +8,7 @@ public class CurrentlyPlanningPlayer : MonoBehaviour
 {
     public static PlayerTurnComponent CurrentlyPlanning;
     public event Action TriedAction;
+    public event Action<bool> AnyPlayerNowPlanning;
 
     public void TrackPlanningPlayer(List<PlayerTurnComponent> planners, Func<bool> requirement)
     {
@@ -36,12 +37,14 @@ public class CurrentlyPlanningPlayer : MonoBehaviour
                 if (!PlayerTurnComponent.ActiveStates.Contains(state))
                 {
                     CurrentlyPlanning = null;
+                    AnyPlayerNowPlanning?.Invoke(false);
                 }
             }
 
             if (PlayerTurnComponent.ActiveStates.Contains(state))
             {
                 CurrentlyPlanningPlayer.CurrentlyPlanning = planner;
+                AnyPlayerNowPlanning?.Invoke(true);
             }
         }
         foreach (var planner in planners)

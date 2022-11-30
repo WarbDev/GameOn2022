@@ -15,6 +15,7 @@ public class PlayerPhase : MonoBehaviour
     [SerializeField] PhaseEnd phaseEnd;
 
     public event Action DeathAnimationTick;
+    public event Action<bool> AnyPlayerNowPlanning;
 
     [SerializeField] bool isRunning;
 
@@ -29,6 +30,7 @@ public class PlayerPhase : MonoBehaviour
         var planners = playerPlanInitializer.InitializePlanners();
         currentPlannerTracker.TrackPlanningPlayer(planners, IsRunningPlayerPhase);
         currentPlannerTracker.TriedAction += TickDeathAnimation;
+        currentPlannerTracker.AnyPlayerNowPlanning += BroadcastAnyPlayerNowPlanning;
         pendingTurns.TrackPendingTurns(planners);
     }
 
@@ -41,11 +43,17 @@ public class PlayerPhase : MonoBehaviour
     {
         isRunning = false;
         currentPlannerTracker.TriedAction -= TickDeathAnimation;
+        currentPlannerTracker.AnyPlayerNowPlanning -= BroadcastAnyPlayerNowPlanning;
         phaseEnd.EndPhase(Phase.PLAYER_PHASE);
     }
 
     void TickDeathAnimation()
     {
         DeathAnimationTick?.Invoke();
+    }
+
+    void BroadcastAnyPlayerNowPlanning(bool b)
+    {
+        AnyPlayerNowPlanning?.Invoke(b);
     }
 }
