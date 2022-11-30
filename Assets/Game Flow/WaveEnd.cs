@@ -28,7 +28,10 @@ public class WaveEnd : MonoBehaviour
         void onWinScreenDismissed()
         {
             waveWin.onWinScreenDismissed -= onWinScreenDismissed;
-            waveBegin.BeginWave(waveRunner.GetNextWave());
+            if (waveRunner.OnLastWave())
+            {
+                waveBegin.BeginWave(waveRunner.GetNextWave());
+            }
         }
     }
 
