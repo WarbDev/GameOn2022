@@ -24,7 +24,7 @@ public class SkipPlayerTurn : MonoBehaviour
     {
         if (!isPlanning)
         {
-            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(.9f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         else
         {

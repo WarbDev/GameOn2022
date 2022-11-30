@@ -28,7 +28,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
     {
 
         myImage = gameObject.GetComponent<Image>();
-        flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
 
 
         events.ActionNeeded += moveChanged;
@@ -47,7 +47,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         
     }
@@ -59,7 +59,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         
     }
@@ -115,7 +115,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
         myImage.color = col;
         if (isAvailable && cooldown == 0)
         {
-            flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
 
     }
