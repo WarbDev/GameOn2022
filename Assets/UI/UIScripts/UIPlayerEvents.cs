@@ -57,6 +57,7 @@ public class UIPlayerEvents : MonoBehaviour
         player.TurnComponent.PlannedMovement += ((x) => PlannedMovementSuccessful?.Invoke(x));
         player.TurnComponent.StartedPlanningMove += (x) => StartedPlanningAction?.Invoke(x);
         player.TurnComponent.StartedPlanningMovement += () => StartedPlanningMovement?.Invoke();
+        
 
 
         StartCoroutine(TrackMovementNeeded());
