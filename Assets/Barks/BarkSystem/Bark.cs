@@ -41,27 +41,28 @@ public class Bark : MonoBehaviour
     private void SetText(GameObject player)
     {
 
-        instance = Instantiate(gameObject);
-        instance.GetComponent<Bark>().cameraa = cameraa;
-        
+
+        int randNumber = Random.Range(0, Words.Count - 1);
+        string saying = Words[randNumber];
+        TextBox.GetComponent<TextMeshProUGUI>().SetText(saying);
+        Debug.Log(saying);
+
+        Bark instance = Instantiate(this);
+        Destroy(instance.gameObject, DurationInSeconds);
+
+
+
+        //instance.cameraa = cameraa;
+
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = player.transform.position + new Vector3(0, 1.5f);
 
-        Destroy(instance, DurationInSeconds);
+        
 
-        int randNumber = Random.Range(0, Words.Count-1);
-        string saying = Words[randNumber];
 
-        Debug.Log(saying);
-
-        TextBox.GetComponent<TextMeshProUGUI>().SetText(saying);
 
         RectTransform transform = instance.GetComponent<RectTransform>();
         transform.sizeDelta = new Vector2(2 + Mathf.Sqrt(saying.Length)*.2f, 2 + Mathf.Sqrt(saying.Length)*.1f);
-
-
-        SpriteRenderer textBoxRenderer = TextBox.GetComponent<SpriteRenderer>();
-        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
 
         instance.transform.DOScale(0, 1).From();
 
@@ -77,9 +78,6 @@ public class Bark : MonoBehaviour
         }
 
         instance.transform.DOMove(to, 1);
-
-
-        //rectTransform.sizeDelta =  new Vector2(textBoxRenderer.bounds.size.x, textBoxRenderer.bounds.size.y);
 
     }
 
