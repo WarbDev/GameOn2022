@@ -25,5 +25,10 @@ public class TurnPlanningInput : MonoBehaviour
         actionSelect.Broadcast += (x => ActionSelected?.Invoke(x));
     }
 
+    public void TellPlayersToSkip()
+    {
+        SkippingTurn?.Invoke();
+    }
+
 
 }
