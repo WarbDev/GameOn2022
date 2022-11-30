@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseEnd: {fileID: 4390088176716757112}
+  playerPhase: {fileID: 1829104868691896278}
   deathAnimationTicker: {fileID: 1100956760676829759}
 --- !u!114 &1100956760676829759
 MonoBehaviour:

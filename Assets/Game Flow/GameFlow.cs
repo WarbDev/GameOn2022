@@ -9,6 +9,7 @@ using System;
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] PhaseEnd phaseEnd;
+    [SerializeField] PlayerPhase playerPhase;
     [SerializeField] DeathAnimationTicker deathAnimationTicker;
     
 
@@ -16,6 +17,11 @@ public class GameFlow : MonoBehaviour
     /// Invoked when a new player phase has started.
     /// </summary>
     public static event Action NewPlayerPhase;
+
+    /// <summary>
+    /// Invoked whenever a player starts or stops planning. Returns if there is currently now a player planning.
+    /// </summary>
+    public static event Action<bool> AnyPlayerNowPlanning;
 
     /// <summary>
     /// Invoked when a new round has started.
@@ -32,6 +38,7 @@ public class GameFlow : MonoBehaviour
         phaseEnd.NewRound += (() => NewRound?.Invoke());
         phaseEnd.NewRound += TickTimers;
         phaseEnd.NewPlayerPhase += (() => NewPlayerPhase?.Invoke());
+        playerPhase.AnyPlayerNowPlanning += ((x) => AnyPlayerNowPlanning?.Invoke(x));
         deathAnimationTicker.DeathAnimationTick += TickDeathAnimation;
     }
 
