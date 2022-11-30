@@ -19,7 +19,11 @@ public class EnemyMovement : EntityComponent
     public void DoTurnMovement()
     {
         if (!gameObject)
+        {
             MoveEndTick();
+            return;
+        }
+            
 
         Location startLocation = Location;
         Location targetLocation = DetermineLocationToMoveTo();
