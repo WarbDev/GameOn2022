@@ -40,6 +40,7 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
 
         void animationFinished()
         {
+            spriteRenderer = null;
             AnimationFinished?.Invoke(this);
             enabled = false;
         }
