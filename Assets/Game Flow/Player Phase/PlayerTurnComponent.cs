@@ -40,7 +40,11 @@ public class PlayerTurnComponent : MonoBehaviour
 
         while (STATE == PLAN_STATE.AWAITING)
         {
-            
+            if (PhaseEnd.PlayerWon())
+            {
+                SkipPlanning();
+            }
+
             if (CurrentlyPlanningPlayer.CurrentlyPlanning != null &&
                 CurrentlyPlanningPlayer.CurrentlyPlanning != this)
             {

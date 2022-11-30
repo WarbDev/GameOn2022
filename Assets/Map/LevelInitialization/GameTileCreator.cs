@@ -121,6 +121,7 @@ public class GameTileCreator : MonoBehaviour
         List<List<MapTile>> columns = new();
 
         int furthest = Math.Max(Math.Abs(left), right);
+        left = Math.Abs(left);
         for (int i = 1; i <= furthest; i++)
         {
             if (right >= i)

@@ -19,10 +19,21 @@ public class PhaseEnd : MonoBehaviour
     [SerializeField] List<Phase> completedPhases = new();
     public event Action NewRound;
     public event Action NewPlayerPhase;
+    static Func<bool> batchCheck = () => false;
+
+    private void Start()
+    {
+        batchCheck = waveRunner.NoMoreBatches;
+    }
 
     public void EndPhase(Phase phase)
     {
         StartCoroutine(EndPhaseRoutine(phase));
+    }
+
+    public static bool PlayerWon()
+    {
+        return Entities.EnemyCollection.EntitiesSet.Count == 0 && batchCheck();
     }
 
     IEnumerator EndPhaseRoutine(Phase phase)
@@ -51,7 +62,7 @@ public class PhaseEnd : MonoBehaviour
         }
 
         // Check if no enemies are left and the wave has no batches to spawn.
-        if (Entities.EnemyCollection.EntitiesSet.Count == 0 && waveRunner.NoMoreBatches())
+        if (Entities.EnemyCollection.EntitiesSet.Count == 0 && batchCheck())
         {
             winState = WinState.BEAT_WAVE;
             if (waveRunner.OnLastWave())
@@ -110,7 +121,10 @@ public class PhaseEnd : MonoBehaviour
             }
         }
     }
+
 }
+
+
 
 public enum Phase
 {
