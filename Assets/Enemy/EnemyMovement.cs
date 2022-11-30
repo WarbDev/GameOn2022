@@ -18,6 +18,9 @@ public class EnemyMovement : EntityComponent
     // Once the animation is finished, MovementFinished is invoked.
     public void DoTurnMovement()
     {
+        if (!gameObject)
+            MoveEndTick();
+
         Location startLocation = Location;
         Location targetLocation = DetermineLocationToMoveTo();
 

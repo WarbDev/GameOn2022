@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af1a9e5bd9fbe3f4c8f7cb32c0389517, type: 3}
-  m_Name: DTW3_B1G
+  m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
+  m_Name: DTW4_B6
   m_EditorClassIdentifier: 
-  batches:
-  - {fileID: 11400000, guid: c74c5fd7cfc89084f88cacde10dff1aa, type: 2}
-  - {fileID: 11400000, guid: 39f42b10f8642a4409156ad06ff0182f, type: 2}
+  enemiesInBatch: 0100000000000000010000000000000004000000
+  enforceEmptySpaces: 0
+  side: 0
+  enforceSide: 0
+  isRigid: 0
+  mustFitSingleColumn: 0
