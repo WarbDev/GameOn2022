@@ -23,6 +23,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
         animatableEntity.PlayedNewAnimation += checkIfHurtPlayed;
         if (IsDead)
         {
+            
             deathManager.Die();
             GameFlow.DeathAnimationTick += DoDeathAnimation;
         }
@@ -52,30 +53,26 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
             yield return new WaitUntil(() => !animatableEntity.PlayingActiveAnimation());
             animatableEntity.SetIdleAfterAnimationEnds(false);
             
-            animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
-            StartCoroutine(WaitForAnimationEnd(animatableEntity));
+            var animation = animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
+            StartCoroutine(WaitForAnimationEnd(animatableEntity, animation));
         }
         
     }
 
-    IEnumerator WaitForAnimationEnd(IAnimatable animator)
+    IEnumerator WaitForAnimationEnd(IAnimatable animator, EntityAnimation<HurtAnimationProperties> animation)
     {
         bool isDone = false;
-        animatableEntity.PlayedNewAnimation += onNewAnimationPlayed;
-        while (animator.PlayingActiveAnimation() || isDone)
+        animation.AnimationFinished += onNewAnimationPlayed;
+        while (!isDone)
         {
             yield return null;
         }
-        animatableEntity.PlayedNewAnimation -= onNewAnimationPlayed;
         Kill();
 
-        void onNewAnimationPlayed(ANIMATION_ID id)
+        void onNewAnimationPlayed(EntityAnimation<HurtAnimationProperties> ani)
         {
-            if (id != ANIMATION_ID.ENTITY_DIE)
-            {
-                isDone = true;
-            }
-            animatableEntity.PlayedNewAnimation -= onNewAnimationPlayed;
+            isDone = true;
+            ani.AnimationFinished -= onNewAnimationPlayed;
         }
     }
 
@@ -97,8 +94,8 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
             yield return new WaitUntil(() => !animatableEntity.PlayingActiveAnimation());
             animatableEntity.SetIdleAfterAnimationEnds(false);
 
-            animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
-            StartCoroutine(WaitForAnimationEnd(animatableEntity));
+            var animation = animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
+            StartCoroutine(WaitForAnimationEnd(animatableEntity, animation));
         }
     }
 }

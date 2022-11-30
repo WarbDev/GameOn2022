@@ -35,6 +35,8 @@ public class WallScript : MonoBehaviour
     public void RaiseWall()
     {
         pivot.transform.position = new Vector3(1000, GameMap.TopBorder + 0.5f, 200);
+        gameObject.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        gameObject.transform.localRotation = Quaternion.identity;
         gameObject.SetActive(true);
 
         Sequence mySequence = DOTween.Sequence();
