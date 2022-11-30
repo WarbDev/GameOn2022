@@ -35,13 +35,11 @@ public class PlayerTurnMovement : MonoBehaviour
             LocationUtility.TryGetPlayer(location, out secondPlayer);
             Swap(secondPlayer);
         }
-
-        if (movementOptions[location] == MovementOption.FREE)
+        else if (movementOptions[location] == MovementOption.FREE)
         {
             MoveTo(location);
         }
-
-        input.StopRetrieving();
+        else CancelPlanning();
     }
 
     public void CancelPlanning()
@@ -73,9 +71,18 @@ public class PlayerTurnMovement : MonoBehaviour
 
         MovementOption GetMovementOption(Location location)
         {
-            if (LocationUtility.HasPlayer(location))
+            if (Math.Abs(location.Y - player.Location.Y) > 1)
             {
-                return MovementOption.SWAP;
+                return MovementOption.OBSTRUCTED;
+            }
+
+            if (LocationUtility.TryGetPlayer(location, out Player p))
+            {
+                if (p == player)
+                {
+                    return MovementOption.OBSTRUCTED;
+                }
+                else return MovementOption.SWAP;
             }
             if (obstructionChecker.IsObstructedBy(location))
             {

@@ -5,10 +5,10 @@ using UnityEditor;
 
 public class Highlighter : MonoBehaviour
 {
-    [SerializeField] GameObject highlightPrefab;
-    ObjectPool<GameObject> pool;
+    [SerializeField] Highlight highlightPrefab;
+    ObjectPool<Highlight> pool;
     Vector2 position;
-    Dictionary<Location, GameObject> highlightedTiles = new();
+    Dictionary<Location, Highlight> highlightedTiles = new();
 
     [SerializeField] Color color;
     public Color Color { get => color; }
@@ -17,18 +17,19 @@ public class Highlighter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pool = new ObjectPool<GameObject>(() => { return Instantiate(highlightPrefab); },
-            highlight => { if (highlight) { highlight.SetActive(true); highlight.transform.position = position; } },
-            highlight => { if (highlight) highlight.SetActive(false); },
-            highlight => { if (highlight) Destroy(highlight); },
+        pool = new ObjectPool<Highlight>(() => { return Instantiate(highlightPrefab); },
+            highlight => { if (highlight) { highlight.gameObject.SetActive(true); highlight.transform.position = position; } },
+            highlight => { if (highlight) highlight.gameObject.SetActive(false); },
+            highlight => { if (highlight) Destroy(highlight.gameObject); },
             true, 30, 150);
     }
 
     public void ChangeColor(Color newColor)
     {
+        color = newColor;
         foreach (var kvp in highlightedTiles)
         {
-            kvp.Value.GetComponent<Highlight>().Color = newColor;
+            kvp.Value.GetComponent<Highlight>().Color = color;
         }
     }
 
@@ -51,7 +52,10 @@ public class Highlighter : MonoBehaviour
             if (!highlightedTiles.ContainsKey(location) && LocationUtility.IsOnMap(location))
             {
                 position = new Vector2(location.X, location.Y);
-                highlightedTiles.Add(location, pool.Get());
+                Highlight highlight = pool.Get();
+                highlight.Color = Color;
+                highlightedTiles.Add(location, highlight);
+                
             }
         }
 
