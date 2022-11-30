@@ -40,9 +40,16 @@ public class SpriteAnimation : EntityAnimation<SpriteAnimationProperties>
 
         void animationFinished()
         {
+            StartCoroutine(justwait());
             spriteRenderer = null;
-            AnimationFinished?.Invoke(this);
+            
             enabled = false;
+
+            IEnumerator justwait()
+            {
+                yield return null;
+                AnimationFinished?.Invoke(this);
+            }
         }
 
     }
