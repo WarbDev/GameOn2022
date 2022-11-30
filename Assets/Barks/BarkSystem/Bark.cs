@@ -47,7 +47,7 @@ public class Bark : MonoBehaviour
     {
 
 
-        int randNumber = Random.Range(0, Words.Count - 1);
+        int randNumber = Random.Range(0, Words.Count);
         string saying = Words[randNumber];
         TextBox.GetComponent<TextMeshProUGUI>().SetText(saying);
         Debug.Log(saying);
