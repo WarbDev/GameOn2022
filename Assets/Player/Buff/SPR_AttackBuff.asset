@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_AttackBuff
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2004113181, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: 478515645, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -1130405884, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -479223577, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -580813643, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -1015382833, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -552374832, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: 550427627, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: -1063528639, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
+  - {fileID: 197054300, guid: 56ca4b504fbea264e89f4e95724a52c7, type: 3}
