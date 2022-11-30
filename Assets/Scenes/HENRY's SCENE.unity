@@ -381,6 +381,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 229536629642190161, guid: 40229a3e3b249b241b82ce842fd3b9d1, type: 3}
   m_PrefabInstance: {fileID: 229536629041143475}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &890692882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3934552664776802, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+  m_PrefabInstance: {fileID: 1404152193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7e220cc51b87a4c90c7504f6c68d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &898104142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1396927458283769182, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
@@ -1697,6 +1708,10 @@ PrefabInstance:
       propertyPath: movementButton
       value: 
       objectReference: {fileID: 1703669275}
+    - target: {fileID: 929396078369437972, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: skipPlayerTurn
+      value: 
+      objectReference: {fileID: 890692882}
     - target: {fileID: 1159778448341331541, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1769,6 +1784,10 @@ PrefabInstance:
       propertyPath: movementButton
       value: 
       objectReference: {fileID: 1866365426}
+    - target: {fileID: 4580263783842102374, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: skipPlayerTurn
+      value: 
+      objectReference: {fileID: 890692882}
     - target: {fileID: 5854767218460035224, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_Name
       value: Players
@@ -1789,6 +1808,10 @@ PrefabInstance:
       propertyPath: movementButton
       value: 
       objectReference: {fileID: 1664296602}
+    - target: {fileID: 8147330691446363383, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: skipPlayerTurn
+      value: 
+      objectReference: {fileID: 890692882}
     - target: {fileID: 8803805380119124504, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_Enabled
       value: 1

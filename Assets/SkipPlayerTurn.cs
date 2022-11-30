@@ -8,15 +8,16 @@ using DG.Tweening;
 public class SkipPlayerTurn : MonoBehaviour
 {
 
-    [SerializeField] Image myImage;
+    private Image myImage;
     private Tween flash;
 
     public event Action RequestedPlayerSkip;
 
     private void Start()
     {
+        myImage = gameObject.GetComponent<Image>();
         UIPlayerEvents.AnyPlayerNowPlanning += nowPlanning;
-        flash = myImage.DOFade(.75f, .7f).SetLoops(-1, LoopType.Yoyo);
+        flash = myImage.DOFade(.9f, .7f).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void nowPlanning(bool isPlanning)
@@ -27,7 +28,10 @@ public class SkipPlayerTurn : MonoBehaviour
         }
         else
         {
-            flash.Kill();
+            if (flash != null)
+            {
+                flash.Kill();
+            }
             Color col = myImage.color;
             col.a = .4f;
             myImage.color = col;
