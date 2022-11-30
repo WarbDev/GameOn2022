@@ -66,6 +66,7 @@ public class Move_Ice : Move
 
         A_Ice animationManager = animation.GetComponent<A_Ice>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(terrainLog);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;

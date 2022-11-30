@@ -66,6 +66,7 @@ public class Move_Wind : Move
         LocationUtility.TryGetTile(location, out endPoint);
         Wind.transform.position = endPoint.transform.position;
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
 
         animation.PlayAnimation();
 

@@ -85,7 +85,7 @@ public class Move_Fireball : Move, IDamage
         MapTile endPoint;
         LocationUtility.TryGetTile(location, out endPoint);
 
-        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.GetComponent<SpriteRenderer>()));
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animation.PlayAnimation(endPoint.transform.position, log);
         animation.boomFireball.AnimationFinished -= MoveDone;
         animation.boomFireball.AnimationFinished += MoveDone;

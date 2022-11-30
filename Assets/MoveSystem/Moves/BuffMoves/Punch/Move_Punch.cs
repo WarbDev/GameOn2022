@@ -114,7 +114,7 @@ public class Move_Punch : Move
         MapTile endPoint;
         LocationUtility.TryGetTile(location, out endPoint);
 
-        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.GetComponent<SpriteRenderer>()));
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog);
 
         //foreach (DamageLog damaged in damageLog)

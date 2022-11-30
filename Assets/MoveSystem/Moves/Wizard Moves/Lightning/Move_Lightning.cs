@@ -69,6 +69,7 @@ public class Move_Lightning : Move
 
         A_Lightning animationManager = animation.GetComponent<A_Lightning>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(area, damageLogs);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;

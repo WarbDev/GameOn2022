@@ -60,6 +60,7 @@ public class Move_Barricade : Move
 
         A_Barricade animationManager = animation.GetComponent<A_Barricade>();
 
+        player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation();
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
