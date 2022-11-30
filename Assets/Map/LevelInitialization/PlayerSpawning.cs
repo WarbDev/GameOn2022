@@ -14,6 +14,15 @@ public class PlayerSpawning : MonoBehaviour
         }
     }
 
+    public void DespawnPlayers()
+    {
+        foreach(var player in players)
+        {
+            Entities.PlayerCollection.RemoveEntity(player.GetComponent<Player>());
+            player.transform.position = new Vector3(200f, 200f, 200f);
+        }
+    }
+
     void SpawnPlayer(GameObject playerPrefab, Location location)
     {
         Player playerScript = playerPrefab.GetComponent<Player>();

@@ -31,6 +31,7 @@ public class GameFlow : MonoBehaviour
     {
         phaseEnd.NewRound += (() => NewRound?.Invoke());
         phaseEnd.NewRound += TickTimers;
+        phaseEnd.NewPlayerPhase += (() => NewPlayerPhase?.Invoke());
         deathAnimationTicker.DeathAnimationTick += TickDeathAnimation;
     }
 

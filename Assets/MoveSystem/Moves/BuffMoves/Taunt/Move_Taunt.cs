@@ -35,6 +35,7 @@ public class Move_Taunt : Move
         if (locations == null)
         {
             MoveCompleted?.Invoke(false);
+            return;
         }
 
         List<Location> area;

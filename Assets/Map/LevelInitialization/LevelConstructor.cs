@@ -84,6 +84,7 @@ public class LevelConstructor : MonoBehaviour
         {
             yield return null;
         }
+        playerSpawning.DespawnPlayers();
 
         isBusy = tileCreator.UnbuildMapTiles();
         while (isBusy())
