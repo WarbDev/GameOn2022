@@ -8,6 +8,11 @@ public class LookTowardsMouse : MonoBehaviour
 
     private void Start()
     {
+
+    }
+
+    private void OnEnable()
+    {
         GlobalClickListener.Instance.MapTileListener.EntityMousedOver += UpdateSpritePos;
     }
 
@@ -26,6 +31,6 @@ public class LookTowardsMouse : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        GlobalClickListener.Instance.MapTileListener.EntityMousedOver -= UpdateSpritePos;
     }
 }

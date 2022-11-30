@@ -15,6 +15,7 @@ public class PhaseEnd : MonoBehaviour
 
     [SerializeField] WaveRunner waveRunner;
     [SerializeField] WaveEnd waveEnd;
+    [SerializeField] AudioSource musicPlayer;
 
     [SerializeField] List<Phase> completedPhases = new();
     public event Action NewRound;
@@ -44,6 +45,8 @@ public class PhaseEnd : MonoBehaviour
         yield return new WaitUntil(()=>isFinished);
         if (winState != WinState.NONE)
         {
+            musicPlayer.Stop();
+            yield return new WaitForSeconds(1f);
             completedPhases.Clear();
             GoToWinState(winState);
             yield break;

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513081452634914696}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12063a67c56859e4d9c9e2141fc2c66d, type: 3}
   m_Name: 
@@ -352,6 +352,7 @@ MonoBehaviour:
   action: {fileID: 8486106820603326401}
   actionPool: {fileID: 6551433914616070669}
   input: {fileID: 1622290207071599376}
+  mouseLook: {fileID: 8790743022909615239}
 --- !u!114 &6012677884370942995
 MonoBehaviour:
   m_ObjectHideFlags: 0

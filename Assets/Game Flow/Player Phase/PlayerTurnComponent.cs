@@ -9,6 +9,7 @@ public class PlayerTurnComponent : MonoBehaviour
     [SerializeField] PlayerTurnAction action;
     [SerializeField] PlayerActions actionPool;
     [SerializeField] TurnPlanningInput input;
+    [SerializeField] LookTowardsMouse mouseLook;
 
     PLAN_STATE STATE = PLAN_STATE.ASLEEP;
     public event Action<PlayerTurnComponent, PLAN_STATE> StateChanged;
@@ -40,6 +41,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
         while (STATE == PLAN_STATE.AWAITING)
         {
+            mouseLook.enabled = true;
             if (PhaseEnd.PlayerWon())
             {
                 SkipPlanning();
@@ -60,7 +62,7 @@ public class PlayerTurnComponent : MonoBehaviour
             }
             yield return null;
         }
-
+        mouseLook.enabled = false;
         input.MovementSelected -= TryEnterMovementState;
         input.ActionSelected -= TryEnterActionState;
         input.SkippingTurn -= SkipPlanning;
@@ -94,6 +96,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
     IEnumerator PlanningMovement()
     {
+        
         STATE = PLAN_STATE.PLAN_MOVEMENT;
         movement.DidMovement += OnMovementCallback;
         movement.PlanMovement();
@@ -101,10 +104,12 @@ public class PlayerTurnComponent : MonoBehaviour
 
         while (STATE == PLAN_STATE.PLAN_MOVEMENT)
         {
+            mouseLook.enabled = true;
             yield return null;
         }
 
         movement.DidMovement -= OnMovementCallback;
+        mouseLook.enabled = false;
 
         void OnMovementCallback(bool success)
         {
@@ -118,7 +123,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
     IEnumerator PlanningAction(Move move)
     {
-
+        mouseLook.enabled = true;
         STATE = PLAN_STATE.DOING_ACTION;
         action.DidAction += OnActionCallback;
         StartedPlanningMove?.Invoke(move);
@@ -126,10 +131,11 @@ public class PlayerTurnComponent : MonoBehaviour
         move.MoveCompleted += InvokeTriedAction;
         while (STATE == PLAN_STATE.DOING_ACTION)
         {
+            mouseLook.enabled = true;
             yield return null;
         }
         action.DidAction -= OnActionCallback;
-
+        mouseLook.enabled = false;
         void OnActionCallback(bool success)
         {
             hasPlannedAction = success;

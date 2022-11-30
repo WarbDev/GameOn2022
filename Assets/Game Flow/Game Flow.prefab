@@ -153,6 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 1829104868691896278}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a198cd85ba4bd6146b2aa815e8d5389d, type: 3}
+--- !u!82 &149889077715209608 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2309820553890697905, guid: a198cd85ba4bd6146b2aa815e8d5389d, type: 3}
+  m_PrefabInstance: {fileID: 2457455613423132473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3216995902014570213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1062764189415055836, guid: a198cd85ba4bd6146b2aa815e8d5389d, type: 3}
@@ -490,6 +495,10 @@ PrefabInstance:
       propertyPath: waveRunner
       value: 
       objectReference: {fileID: 7064093579480934785}
+    - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
+      propertyPath: musicPlayer
+      value: 
+      objectReference: {fileID: 149889077715209608}
     - target: {fileID: 5503274658983040024, guid: d5f7e03dd8db7434dabcc3898a5638e1, type: 3}
       propertyPath: playerPhase
       value: 
