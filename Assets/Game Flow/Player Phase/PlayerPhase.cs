@@ -42,9 +42,17 @@ public class PlayerPhase : MonoBehaviour
     void EndPlayerRound()
     {
         isRunning = false;
-        currentPlannerTracker.TriedAction -= TickDeathAnimation;
-        currentPlannerTracker.AnyPlayerNowPlanning -= BroadcastAnyPlayerNowPlanning;
-        phaseEnd.EndPhase(Phase.PLAYER_PHASE);
+        StartCoroutine(EndRoundRoutine());
+        IEnumerator EndRoundRoutine()
+        {
+            
+            yield return new WaitForSeconds(1f);
+            currentPlannerTracker.TriedAction -= TickDeathAnimation;
+            currentPlannerTracker.AnyPlayerNowPlanning -= BroadcastAnyPlayerNowPlanning;
+            phaseEnd.EndPhase(Phase.PLAYER_PHASE);
+        }
+
+        
     }
 
     void TickDeathAnimation()
