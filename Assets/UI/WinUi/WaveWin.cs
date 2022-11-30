@@ -21,13 +21,18 @@ public class WaveWin : MonoBehaviour
     private void Start()
     {
         button.GetComponent<RoundEndButton>().Click += onClick;
+
+        foreach (GameObject child in children)
+        {
+            
+        }
     }
 
     private void onClick()
     {
         foreach (GameObject child in children)
         {
-            child.transform.DOScale(0, 1);
+            child.transform.DOScale(0, 1);  //scales all the buttons to nothing
         }
 
         StartCoroutine(FadeOut());
@@ -36,15 +41,28 @@ public class WaveWin : MonoBehaviour
     private IEnumerator FadeOut()
     {
         yield return new WaitForSeconds(1.1f);
-        gameObject.GetComponent<Image>().DOFade(0, 3).SetEase(Ease.OutBack).OnComplete(FinishedFading);
+        gameObject.GetComponent<Image>().DOFade(0, 3).SetEase(Ease.OutBack).OnComplete(FinishedFading); //fades image's alpha to nothing
     }
 
     private void FinishedFading()
     {
         gameObject.SetActive(false);
 
-        playerUi.transform.DOScaleY(1f, 1f).SetEase(Ease.OutBack);
+        playerUi.transform.DOScaleY(1f, 1f).SetEase(Ease.OutBack); //scales in player UI
         onWinScreenDismissed?.Invoke();
+
+
+        //reinitializes variables
+
+        foreach (GameObject child in children)
+        {
+            child.transform.localScale = new Vector3(1, 1, 1);  //scales all the buttons to nothing
+        }
+
+        Image image = gameObject.GetComponent<Image>();
+        Color color = image.color;
+        color.a = 1;
+        image.color = color;
     }
 
 
@@ -63,7 +81,7 @@ public class WaveWin : MonoBehaviour
         }
         else
         {
-            playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(afterUiShrinks);
+            playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(afterUiShrinks); // shrinks UI
         }
     }
 
@@ -74,7 +92,7 @@ public class WaveWin : MonoBehaviour
         {
             child.SetActive(false);
         }
-        gameObject.GetComponent<Image>().DOFade(0, 3).From().SetEase(Ease.OutBack).OnComplete(afterExists);
+        gameObject.GetComponent<Image>().DOFade(0, 3).From().SetEase(Ease.OutBack).OnComplete(afterExists); // fade from black to white. Assumes that it is currently white
 
     }
 
@@ -83,7 +101,7 @@ public class WaveWin : MonoBehaviour
         foreach (GameObject child in children)
         {
             child.SetActive(true);
-            child.transform.DOScale(0, 1).From();
+            child.transform.DOScale(0, 1).From(); //fades alpha from 0 to 1. assumes that it is currently at full alpha
         }
         textMesh.text = "WAVE " + waveNumber + " COMPLETE!";
     }

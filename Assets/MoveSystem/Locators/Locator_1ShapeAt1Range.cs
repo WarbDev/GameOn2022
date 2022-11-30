@@ -59,7 +59,7 @@ public class Locator_1ShapeAt1Range : ILocate
     private void Cancel()
     {
         CancelScript.Instance.OnCancel -= Cancel;
-
+        Debug.Log("I Cancel");
         highlighter.stopHighlighting();
         targeter.Selected -= SendLocation;
 

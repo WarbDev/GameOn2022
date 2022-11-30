@@ -52,7 +52,7 @@ public class Locator_StaticArea : ILocate
     private void Cancel()
     {
         CancelScript.Instance.OnCancel -= Cancel;
-
+        Debug.Log("I Cancel");
         highlighter.stopHighlighting();
         targeter.Selected -= SendLocation;
 
