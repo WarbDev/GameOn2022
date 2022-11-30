@@ -14,7 +14,16 @@ public class PlayerActions : EntityComponent
 
     public List<Move> AllMoves { get => moves; }
 
+    protected override void Start()
+    {
+        base.Start();
+        GameFlow.NewPlayerPhase += TickCooldown;
+    }
 
+    private void OnDestroy()
+    {
+        GameFlow.NewPlayerPhase -= TickCooldown;
+    }
 
     public void TickCooldown()
     {
