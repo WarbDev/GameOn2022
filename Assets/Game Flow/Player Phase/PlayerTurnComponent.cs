@@ -35,6 +35,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
         input.MovementSelected += TryEnterMovementState;
         input.ActionSelected += TryEnterActionState;
+        input.SkippingTurn += SkipPlanning;
         
 
         while (STATE == PLAN_STATE.AWAITING)
@@ -58,6 +59,7 @@ public class PlayerTurnComponent : MonoBehaviour
 
         input.MovementSelected -= TryEnterMovementState;
         input.ActionSelected -= TryEnterActionState;
+        input.SkippingTurn -= SkipPlanning;
 
         void TryEnterMovementState()
         {
@@ -79,7 +81,11 @@ public class PlayerTurnComponent : MonoBehaviour
             }
         }
 
-
+        void SkipPlanning()
+        {
+            hasPlannedAction = true;
+            hasPlannedMovement = true;
+        }
     }
 
     IEnumerator PlanningMovement()
