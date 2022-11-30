@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: timebomb
   tooltip: bb
-  cooldown: 1
+  cooldown: 3
   animatorObject: {fileID: 4964562316847796961, guid: a770bb9f06f9b7e4fa1519f4126066ad, type: 3}
-  range: 4
+  range: 6
   timeBombTerrain: {fileID: 6243492300884968968, guid: c896589dc53baae43990d26a7edc136c, type: 3}

@@ -48,13 +48,13 @@ public class Move_Blaze : Move
         if (locations[0].X > 0)
         {
             area = rangeShape(player.Location, range);
-            burnArea = LocationUtility.LocationsInEmptyCone(player.Location, range);
+            burnArea = LocationUtility.LocationsInEmptyCone(player.Location, range-1);
 
         }
         else
         {
             area = LocationUtility.FlipLocations(rangeShape(player.Location, range));
-            burnArea = LocationUtility.FlipLocations(LocationUtility.LocationsInEmptyCone(player.Location, range));
+            burnArea = LocationUtility.FlipLocations(LocationUtility.LocationsInEmptyCone(player.Location, range-1));
         }
 
         List<IDamageable> damageables = LocationUtility.GetDamageablesAtPositions(area);

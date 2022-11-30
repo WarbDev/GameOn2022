@@ -51,7 +51,7 @@ public class GunAnimation : EntityAnimation<GunAnimationProperties>
     {
         smallExplodeAnimation.Play(new(targetSprite));
 
-        GlobalAudioSource.Instance.Play(clipShot);
+        //GlobalAudioSource.Instance.Play(clipShot);
 
         smallExplodeAnimation.AnimationFinished += onComplete;
 

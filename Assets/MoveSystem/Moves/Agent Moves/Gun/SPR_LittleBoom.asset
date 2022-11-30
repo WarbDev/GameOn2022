@@ -13,14 +13,7 @@ MonoBehaviour:
   m_Name: SPR_LittleBoom
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1863433012, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
   - {fileID: 1324586652, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
   - {fileID: 39510811, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
   - {fileID: -1903898744, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: -997689867, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: 1184229772, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: -217544938, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: 1059365967, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: 2072279223, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: 1691970978, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
-  - {fileID: 1675498366, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}
+  - {fileID: -1903898744, guid: c721ebeaece84e24e9911a4c48d1c823, type: 3}

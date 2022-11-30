@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8772243836365792889
+--- !u!1 &627593537036459797
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2512336043091112566}
-  - component: {fileID: 8061355038420995742}
-  - component: {fileID: 2275074240304609009}
-  - component: {fileID: 2940846310654578906}
-  - component: {fileID: 8030593820636470633}
-  - component: {fileID: 8719552039330795227}
-  - component: {fileID: 5504023742851986462}
-  - component: {fileID: 6195449941706836503}
+  - component: {fileID: 4802301516369172292}
+  - component: {fileID: 1080452424329092732}
+  - component: {fileID: 7754568325653687133}
   m_Layer: 0
-  m_Name: Animation_Fireball
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2512336043091112566
+--- !u!4 &4802301516369172292
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8772243836365792889}
-  m_LocalRotation: {x: -0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_GameObject: {fileID: 627593537036459797}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2512336043091112566}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -40, y: 0, z: 0}
---- !u!212 &8061355038420995742
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080452424329092732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627593537036459797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e13f4506966e0245a3c5fe714570e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentTransform: {fileID: 2512336043091112566}
+  transformToAdjust: {fileID: 4802301516369172292}
+  spriteRenderer: {fileID: 7754568325653687133}
+--- !u!212 &7754568325653687133
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8772243836365792889}
+  m_GameObject: {fileID: 627593537036459797}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,20 +86,58 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1137503210, guid: ca9b836256eee5440bd5bad1cca6638c, type: 3}
+  m_SortingLayerID: 1675898911
+  m_SortingLayer: 2
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.07, y: 1.4866667}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8772243836365792889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2512336043091112566}
+  - component: {fileID: 2275074240304609009}
+  - component: {fileID: 2940846310654578906}
+  - component: {fileID: 8030593820636470633}
+  - component: {fileID: 8719552039330795227}
+  - component: {fileID: 5504023742851986462}
+  - component: {fileID: 6195449941706836503}
+  m_Layer: 0
+  m_Name: Animation_Fireball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2512336043091112566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772243836365792889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4802301516369172292}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2275074240304609009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +172,7 @@ MonoBehaviour:
       Value: {fileID: 8719552039330795227}
     keyCollision: 0
   playingActiveAnimation: 0
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 7754568325653687133}
   IdleOnStart: 0
   IdleAfterAnimationEnds: 0
 --- !u!114 &8030593820636470633
@@ -142,7 +190,7 @@ MonoBehaviour:
   ease: 8
   duration: 1
   affectedTransform: {fileID: 2512336043091112566}
-  targetSprite: {fileID: 8061355038420995742}
+  targetSprite: {fileID: 7754568325653687133}
   spriteAnimation: {fileID: 5504023742851986462}
 --- !u!114 &8719552039330795227
 MonoBehaviour:
@@ -156,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2b354a5da8aa746ba53d09bb7b16af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSprite: {fileID: 8061355038420995742}
+  targetSprite: {fileID: 7754568325653687133}
   spriteAnimation: {fileID: 6195449941706836503}
   clip: {fileID: 8300000, guid: c5c32763ff369ee4baf648367ad3b60b, type: 3}
 --- !u!114 &5504023742851986462

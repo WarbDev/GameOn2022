@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb9429d6e3786941a49c634fd1dbf01, type: 3}
   m_Name: Move_Wind
   m_EditorClassIdentifier: 
-  range: 4
+  myName: 
+  tooltip: 
+  cooldown: 2
+  range: 6
   radius: 2
   pushStrength: 2
   AnimationObject: {fileID: 9157243919626633532, guid: ebd91027fb123ed46bc80f7bb967dd1b, type: 3}

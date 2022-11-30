@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2df99681a4c5f4fbf7e4e37b2ae7bd, type: 3}
   m_Name: Move_Taunt
   m_EditorClassIdentifier: 
-  myName: 
-  tooltip: 
-  cooldown: 0
+  myName: Taunt
+  tooltip: tanuta
+  cooldown: 1
   range: 10
   force: 2
   AnimatorObject: {fileID: 634249668997598628, guid: f52a2c92851c61f478fbe632cca8a3e7, type: 3}

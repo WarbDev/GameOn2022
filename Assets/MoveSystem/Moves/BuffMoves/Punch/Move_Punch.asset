@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Bald Eagle Punch
   tooltip: EAGLE PUUUNCH
-  cooldown: 0
+  cooldown: 1
   animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
-  radius: 2
+  radius: 1
   damage: 3
-  pushDistance: 99
+  pushDistance: 20
   fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}

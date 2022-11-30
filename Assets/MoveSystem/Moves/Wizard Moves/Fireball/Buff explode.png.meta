@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c721ebeaece84e24e9911a4c48d1c823
+guid: 71a655806e0e2cf4d80210737e6267f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,9 +47,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -116,232 +116,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0752_0
+      name: Buff explode_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf56398a5d082c34287e64cac230f778
-      internalID: -1863433012
+      spriteID: 8baae29d9402e5d459f3c8a55571c844
+      internalID: -1801865347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_1
+      name: Buff explode_1
       rect:
         serializedVersion: 2
         x: 64
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3f162ed5786fcb42b6b93eccef2c879
-      internalID: 1324586652
+      spriteID: 7937fce1dd3a7b344b692ed7f67b629c
+      internalID: 745214253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_2
+      name: Buff explode_2
       rect:
         serializedVersion: 2
         x: 128
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28dbbf1d9d064b64aa73aa37276dedd1
-      internalID: 39510811
+      spriteID: 8e13596664026af4192e42e721dbf10b
+      internalID: -182668823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_3
+      name: Buff explode_3
       rect:
         serializedVersion: 2
         x: 192
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e766cba8bbd1a2c45abae61b4ef9b832
-      internalID: -1903898744
+      spriteID: 2507d17de7f4e8e439b0b0a41df843e1
+      internalID: 1776659898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_4
+      name: Buff explode_4
       rect:
         serializedVersion: 2
         x: 256
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 709b7d40297c60e4a9ad4cbc693a6fb2
-      internalID: -997689867
+      spriteID: bd51377c5866d4e479df8b2dedb3a4ce
+      internalID: -101261473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_5
+      name: Buff explode_5
       rect:
         serializedVersion: 2
         x: 320
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43116f37a255349429fbecc98d424cad
-      internalID: 1184229772
+      spriteID: bcc7748c4e299284898367d2bd4c3e34
+      internalID: 34766736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_6
+      name: Buff explode_6
       rect:
         serializedVersion: 2
         x: 384
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ac71e101fd2ddb4e884d1e0fe5bab0e
-      internalID: -217544938
+      spriteID: 2f3454f6f99c9a743a1aaf7d39023ca8
+      internalID: -1777263655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_7
+      name: Buff explode_7
       rect:
         serializedVersion: 2
         x: 448
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10014ca1da362ed4886575e3743e6ae2
-      internalID: 1059365967
+      spriteID: 062b54889daf6894d8ace2deb97fa4c0
+      internalID: -1731976621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_8
+      name: Buff explode_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f348578bcb19e14681c204dfa2f959c
-      internalID: 2072279223
+      spriteID: 921707ba99f92d8489d63da8637b9027
+      internalID: 2144099586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0752_9
+      name: Buff explode_9
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bdb5fb91b77df043a6544128a53dcb7
-      internalID: 1691970978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_0752_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a1f9354e9b729e429d73952ee5e7f79
-      internalID: 1675498366
+      spriteID: 13e27b2d172803c498ca43e9804b464c
+      internalID: 2118104857
       vertices: []
       indices: 
       edges: []
@@ -357,17 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IMG_0752_4: -997689867
-      IMG_0752_1: 1324586652
-      IMG_0752_6: -217544938
-      IMG_0752_3: -1903898744
-      IMG_0752_2: 39510811
-      IMG_0752_9: 1691970978
-      IMG_0752_0: -1863433012
-      IMG_0752_7: 1059365967
-      IMG_0752_8: 2072279223
-      IMG_0752_10: 1675498366
-      IMG_0752_5: 1184229772
+      Buff explode_3: 1776659898
+      Buff explode_7: -1731976621
+      Buff explode_5: 34766736
+      Buff explode_0: -1801865347
+      Buff explode_9: 2118104857
+      Buff explode_2: -182668823
+      Buff explode_4: -101261473
+      Buff explode_8: 2144099586
+      Buff explode_1: 745214253
+      Buff explode_6: -1777263655
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
