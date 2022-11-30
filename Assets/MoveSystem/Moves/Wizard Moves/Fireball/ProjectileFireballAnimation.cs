@@ -20,6 +20,11 @@ public class ProjectileFireballAnimation : EntityAnimation<PFireballAnimationPro
 
     public override void Play(PFireballAnimationProperties animationProperties)
     {
+        if (animationProperties.EndPosition.x > 0)
+        {
+            targetSprite.flipX = true;
+        }
+
         currentlyPlaying = DOTween.Sequence();
         currentlyPlaying.SetEase(ease);
         currentlyPlaying.Append(affectedTransform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));

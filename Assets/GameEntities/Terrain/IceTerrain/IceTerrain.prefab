@@ -57,7 +57,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4456850595055178080}
   obstruction: {fileID: -7289072154689251597}
   damageable: {fileID: 523361679427242543}
-  TurnsUntilExtinguish: 1
+  TurnsUntilExtinguish: 3
 --- !u!114 &5744079474469722965
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1756,21 +1756,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1203332907453665238, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: animations.keyCollision
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: animations.keyCollision
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: animations.list.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: animations.list.Array.data[2].Key
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: animations.list.Array.data[3].Key
-      value: 6
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: animations.list.Array.data[4].Key
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: animations.list.Array.data[1].Value
@@ -1783,7 +1787,11 @@ PrefabInstance:
     - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: animations.list.Array.data[3].Value
       value: 
-      objectReference: {fileID: 898104142}
+      objectReference: {fileID: 3026037266190599983}
+    - target: {fileID: 2577929859996519076, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: animations.list.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 3026037266190599983}
     - target: {fileID: 4494437110941057808, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: clip
       value: 
@@ -1830,3 +1838,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+--- !u!114 &3026037266190599983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4397453782685855080, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+  m_PrefabInstance: {fileID: 3026037266190599982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60fdfd09a328143b7c9a52cfafb790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

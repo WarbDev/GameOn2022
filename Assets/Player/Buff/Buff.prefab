@@ -61,6 +61,17 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0bb2e79adc16ed544b11187674d8edde, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce406da15eb92b14e955fc2f656533d3, type: 3}
+--- !u!114 &5313134233556441943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1189028455526643124, guid: ce406da15eb92b14e955fc2f656533d3, type: 3}
+  m_PrefabInstance: {fileID: 6430098463243267811}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60fdfd09a328143b7c9a52cfafb790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7988408358948860987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 4152544370693114016, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: animations.list.Array.data[3].Value
       value: 
-      objectReference: {fileID: 7482745740210944865}
+      objectReference: {fileID: 5313134233556441943}
     - target: {fileID: 5459020171704802935, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: faceCamera
       value: 
@@ -192,16 +203,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e13f4506966e0245a3c5fe714570e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7482745740210944865 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 649796567368159066, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
-  m_PrefabInstance: {fileID: 7988408358948860987}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9fc3e6120799b14fbe0e2978bd15db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

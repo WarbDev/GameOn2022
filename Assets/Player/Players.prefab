@@ -167,7 +167,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6303994982451543195, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
       propertyPath: animations.keyCollision
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6303994982451543195, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
       propertyPath: animations.list.Array.size
@@ -176,10 +176,6 @@ PrefabInstance:
     - target: {fileID: 6303994982451543195, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
       propertyPath: animations.list.Array.data[1].Key
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303994982451543195, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
-      propertyPath: animations.list.Array.data[2].Key
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6303994982451543195, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
       propertyPath: animations.list.Array.data[1].Value

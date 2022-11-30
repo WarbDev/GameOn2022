@@ -208,6 +208,16 @@ public static class LocationUtility
         return rightLine;
     }
 
+    public static List<Location> LocationsInDiagonalLines(Location l, int range)
+    {
+        List<Location> area = new();
+        area.AddRange(LocationsInLine(l, range, Directions.SW));
+        area.AddRange(LocationsInLine(l + Directions.SE, range - 1, Directions.SE));
+        area.AddRange(LocationsInLine(l + Directions.NW, range - 1, Directions.NW));
+        area.AddRange(LocationsInLine(l + Directions.NE, range - 1, Directions.NE));
+        return area;
+    }
+
     public static List<Location> LocationsInAllCardinalAndOrdinalDirections(Location l, int range)
     {
         List<Location> locations = new();

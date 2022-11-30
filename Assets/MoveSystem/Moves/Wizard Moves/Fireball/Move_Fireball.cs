@@ -17,7 +17,7 @@ public class Move_Fireball : Move, IDamage
     public int Range { get => range; }
     public int Radius { get => radius; }
     public float Damage { get => damage; }
-    ShapeWithRadius rangeShape = LocationUtility.LocationsInSquareRadius;
+    ShapeWithRadius rangeShape = LocationUtility.LocationsInDiagonalLines;
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
     Player player;
 

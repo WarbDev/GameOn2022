@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: SPR_Projectile_Fireball
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: cac56be0d98f79740a43b42ffffd472e, type: 3}
+  - {fileID: 1564092028, guid: ca9b836256eee5440bd5bad1cca6638c, type: 3}
+  - {fileID: -1248407462, guid: ca9b836256eee5440bd5bad1cca6638c, type: 3}
+  - {fileID: -410239659, guid: ca9b836256eee5440bd5bad1cca6638c, type: 3}
+  - {fileID: 1137503210, guid: ca9b836256eee5440bd5bad1cca6638c, type: 3}

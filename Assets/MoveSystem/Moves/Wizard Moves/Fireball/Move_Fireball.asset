@@ -18,6 +18,6 @@ MonoBehaviour:
   range: 4
   radius: 1
   damage: 2
-  Projectile: {fileID: 5933564648966118571, guid: bd0c28b7dba033547a53738ae35f17a3, type: 3}
+  Projectile: {fileID: 8772243836365792889, guid: bd0c28b7dba033547a53738ae35f17a3, type: 3}
   fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}
   turnsTillExtinguish: 2
