@@ -27,11 +27,11 @@ public class PlayerActions : EntityComponent
 
     public void TickCooldown()
     {
-        foreach (var mC in movesOnCooldown)
+        foreach (var mC in movesOnCooldown.Keys)
         {
-            int newValue = Mathf.Max(0, mC.Value - 1);
-            movesOnCooldown[mC.Key] = newValue;
-            CoolDownUpdated?.Invoke(mC.Key, newValue);
+            int newValue = Mathf.Max(0, movesOnCooldown[mC] - 1);
+            movesOnCooldown[mC] = newValue;
+            CoolDownUpdated?.Invoke(mC, newValue);
         }
     }
 

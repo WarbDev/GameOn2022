@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7e220cc51b87a4c90c7504f6c68d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: {fileID: 7802190894786822824}
+  myImage: {fileID: 805295058077737603}
 --- !u!1 &2926506301467650963
 GameObject:
   m_ObjectHideFlags: 0
