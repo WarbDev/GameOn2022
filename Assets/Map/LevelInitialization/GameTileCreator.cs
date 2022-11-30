@@ -64,7 +64,9 @@ public class GameTileCreator : MonoBehaviour
 
     public Func<bool> UnbuildMapTiles()
     {
-        return (() => false);
+        isRunningRoutine = true;
+        StartCoroutine(UnbuildBattlefieldRoutine(GameMap.LeftBorder, GameMap.RightBorder, GameMap.TopBorder));
+        return (() => isRunningRoutine);
     }
 
     public Func<bool> BuildMapTiles((int, int, int) lrh)

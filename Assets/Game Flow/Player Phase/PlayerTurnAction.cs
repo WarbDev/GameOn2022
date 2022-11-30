@@ -26,15 +26,5 @@ public class PlayerTurnAction : MonoBehaviour
         }
     }
 
-    public void StopPlanning()
-    {
-        throw new NotImplementedException();
-        if (planningMove != null)
-        {
-            DidAction?.Invoke(false);
-            // cancel planning move
-        }
-    }
-
     
 }
