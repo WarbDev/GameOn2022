@@ -37,7 +37,7 @@ public class MovementPlanningInput : MonoBehaviour
 
         freeHighlighter.HighlightTiles(availableLocations.ToHashSet());
         unavailableHighlighter.HighlightTiles(unavailableLocations.ToHashSet());
-
+        GlobalClickListener.Instance.MapTileListener.EntityClicked -= LocationClicked;
         GlobalClickListener.Instance.MapTileListener.EntityClicked += LocationClicked;
     }
 

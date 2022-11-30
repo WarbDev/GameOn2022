@@ -12,6 +12,7 @@ public class GameTileCreator : MonoBehaviour
     [SerializeField] GameObject darkTileRow;
     [SerializeField] int scale;
 
+    [SerializeField] float baseSpeedMult = 1f;
     [SerializeField] bool speedy;
 
     [Tooltip("How many times faster the tiles are created if speedy is checked.")]
@@ -23,8 +24,9 @@ public class GameTileCreator : MonoBehaviour
     bool isRunningRoutine = false;
     ObjectPool<MapTile> pool;
     ObjectPool<GameObject> darkTileRowPool;
+    List<GameObject> activeRows = new();
 
-    public float SpeedyMultiplier { get { if (speedy) return speedyMultiplier; else return 1f; } }
+    public float SpeedyMultiplier { get { if (speedy) return speedyMultiplier * baseSpeedMult; else return 1f * baseSpeedMult; } }
 
     private void Awake()
     {
@@ -35,9 +37,9 @@ public class GameTileCreator : MonoBehaviour
             true, 100, 500);
 
         darkTileRowPool = new ObjectPool<GameObject>(() => { return Instantiate(darkTileRow, new Vector3(500, 500), new Quaternion()); },
-            tile => { tile.SetActive(true); },
+            tile => { activeRows.Add(tile); tile.SetActive(true); },
             tile => { tile.SetActive(false); },
-            tile => { Destroy(tile); },
+            tile => { activeRows.Remove(tile); Destroy(tile); },
             true, 12, 50);
     }
 
@@ -54,10 +56,12 @@ public class GameTileCreator : MonoBehaviour
         return (() => false);
     }
 
-    public Func<bool> LowerPlayerLine()
+    public Func<bool> LowerPlayerLine(int height)
     {
+        StartCoroutine(DescendMapTiles(GetMapTilesInColumn(0), height));
         return (() => false);
     }
+
     public Func<bool> UnbuildMapTiles()
     {
         return (() => false);
@@ -104,9 +108,7 @@ public class GameTileCreator : MonoBehaviour
             AttachRows(i + 1, row, row2);
         }
 
-        //yield return new WaitForSeconds(2f);
-        //StartCoroutine(UnbuildBattlefieldRoutine);
-        //yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
 
         isRunningRoutine = false;
@@ -121,21 +123,31 @@ public class GameTileCreator : MonoBehaviour
         {
             if (right >= i)
             {
-                columns.Add(MakeGameTiles(LocationUtility.GetColumn(i)));
+                columns.Add(GetMapTilesInColumn(i));
             }
 
             if (left >= -i)
             {
-                columns.Add(MakeGameTiles(LocationUtility.GetColumn(-i)));
+                columns.Add(GetMapTilesInColumn(-i));
             }
         }
 
+
+
         foreach (var column in columns)
         {
-            StartCoroutine(AscendMapTiles(column, height));
+            StartCoroutine(DescendMapTiles(column, height));
             yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
         }
-
+        
+        foreach(var row in activeRows)
+        {
+            Sequence sequence = DOTween.Sequence();
+            row.transform.DOLocalMoveZ(100, 1f);
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(1f);
+        darkTileRowPool.Dispose();
 
         isRunningRoutine = false;
     }
@@ -150,7 +162,17 @@ public class GameTileCreator : MonoBehaviour
         return list;
     }
 
-
+    List<MapTile> GetMapTilesInColumn(int x)
+    {
+        List<MapTile> tiles = new List<MapTile>();
+        var col = LocationUtility.GetColumn(x);
+        foreach (var loc in col)
+        {
+            LocationUtility.TryGetTile(loc, out MapTile tile);
+            tiles.Add(tile);
+        }
+        return tiles;
+    }
 
     MapTile MakeGameTile(Location location)
     {
