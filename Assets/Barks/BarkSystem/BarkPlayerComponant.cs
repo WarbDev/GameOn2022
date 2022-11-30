@@ -10,6 +10,11 @@ public class BarkPlayerComponant : MonoBehaviour
     public int MaxDuration = 500;
 
 
+    public void setBark(Camera camera)
+    {
+        talkBark.setBark(camera);
+    }
+
     public void PlayMyBark(Canvas canvas)
     {
         talkBark.PlayBark(gameObject, canvas);

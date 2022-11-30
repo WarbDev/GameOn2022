@@ -10,11 +10,16 @@ public class BarkManager : MonoBehaviour
     [SerializeField] BarkPlayerComponant wizBark;
 
     [SerializeField] Canvas canvas;
+    [SerializeField] Camera cameraa;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameFlow.NewPlayerPhase += onTurnBegin;
+
+        bufBark.setBark(cameraa);
+        spyBark.setBark(cameraa);
+        wizBark.setBark(cameraa);
     }
 
     private void onTurnBegin()
