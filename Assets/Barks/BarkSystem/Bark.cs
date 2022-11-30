@@ -16,16 +16,17 @@ public class Bark : MonoBehaviour
 
 
     Canvas canvas;
-    Camera cameraa;
+    public Camera cameraa;
 
     public void setBark(Camera camera)
     {
-        cameraa = camera;
+        //cameraa = camera;
     }
 
 
     public void PlayBark(GameObject player, Canvas canvas, Camera camera)
     {
+        this.enabled = true;
         this.canvas = canvas;
         cameraa = camera;
 
@@ -41,6 +42,7 @@ public class Bark : MonoBehaviour
     {
 
         instance = Instantiate(gameObject);
+        instance.GetComponent<Bark>().cameraa = cameraa;
         
         instance.transform.SetParent(canvas.transform, false);
         instance.transform.position = player.transform.position + new Vector3(0, 1.5f);

@@ -1434,7 +1434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1458,11 +1458,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[1]
-      value: Wow
+      value: Pork
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[2]
-      value: This is painful
+      value: Venison
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[3]
+      value: Beef
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[4]
+      value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[5]
+      value: Beans
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[6]
+      value: Tofu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[7]
+      value: Nuts
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[8]
+      value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[9]
+      value: Shellfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[10]
+      value: Shellfish
       objectReference: {fileID: 0}
     - target: {fileID: 4494437110941057808, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: clip
