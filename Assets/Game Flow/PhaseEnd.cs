@@ -92,6 +92,7 @@ public class PhaseEnd : MonoBehaviour
         if (completedPhases.Contains(Phase.PLAYER_PHASE) && completedPhases.Contains(Phase.ENEMY_PHASE))
         {
             completedPhases.Clear();
+            NewPlayerPhase?.Invoke();
             playerPhase.StartPlayerRound();
             NewRound?.Invoke();
         }
