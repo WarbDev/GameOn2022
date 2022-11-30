@@ -12,7 +12,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
     public override EntityType EntityType {get => EntityType.TERRAIN;}
 
     [SerializeField] Obstruction obstruction;
-    [SerializeField] DamageableComponent damageable;
+    [SerializeField] DamageableWithHealthComponent damageable;
     public bool IsDead { get => damageable.IsDead; }
     public IObstruct Obstruct { get => obstruction; }
 
@@ -30,7 +30,7 @@ public class IceTerrain : TerrainBase, IDamageable, IObstruct
         TurnsUntilExtinguish--;
         if (TurnsUntilExtinguish <= 0)
         {
-            damageable.Kill();
+            damageable.Kill(true);
         }
     }
 

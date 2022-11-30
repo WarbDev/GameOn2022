@@ -83,4 +83,22 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
     {
         deathManager.OnDeathAnimationComplete();
     }
+
+/// <summary>
+/// Forces a kill to immediately play the death animation.
+/// </summary>
+    public void Kill(bool playDeathAnimation)
+    {
+        StartCoroutine(PlayDeathAnimation());
+
+
+        IEnumerator PlayDeathAnimation()
+        {
+            yield return new WaitUntil(() => !animatableEntity.PlayingActiveAnimation());
+            animatableEntity.SetIdleAfterAnimationEnds(false);
+
+            animatableEntity.PlayAnimation(ANIMATION_ID.ENTITY_DIE, new HurtAnimationProperties(new DamageLog(null, 0, 0, null)));
+            StartCoroutine(WaitForAnimationEnd(animatableEntity));
+        }
+    }
 }
