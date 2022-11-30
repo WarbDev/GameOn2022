@@ -5,12 +5,11 @@ using UnityEngine;
 public class FaceCamera : MonoBehaviour
 {
     Camera mainCamera;
-    [SerializeField] Transform parentTransform = null;
-    [SerializeField] Transform transformToAdjust = null;
-    [SerializeField] SpriteRenderer spriteRenderer = null;
+    [SerializeField] Transform parentTransform;
+    [SerializeField] Transform transformToAdjust;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     public SpriteRenderer Sprite { get => spriteRenderer; }
-    public Transform ParentTransform { get => parentTransform; set => parentTransform = value; }
 
     int i = 0;
 
@@ -22,11 +21,7 @@ public class FaceCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.rendererPriority = 100 - Mathf.FloorToInt(parentTransform.position.y + .5f);
-        }
-        
+        spriteRenderer.rendererPriority = 100 - Mathf.FloorToInt(parentTransform.position.y + .5f);
         transformToAdjust.SetPositionAndRotation(AdjustPositionBasedOnCameraAngle(), new Quaternion(-Mathf.Abs(mainCamera.transform.rotation.x), transformToAdjust.rotation.y, transformToAdjust.rotation.z, transformToAdjust.rotation.w));
     }
 

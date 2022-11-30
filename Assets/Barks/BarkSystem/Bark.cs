@@ -14,20 +14,12 @@ public class Bark : MonoBehaviour
     [SerializeField] float DurationInSeconds;
     private GameObject instance;
 
-
     Canvas canvas;
-    Camera cameraa;
-
-    public void setBark(Camera camera)
-    {
-        cameraa = camera;
-    }
 
 
     public void PlayBark(GameObject player, Canvas canvas)
     {
         this.canvas = canvas;
-        
 
         int randNumber = Random.Range(1, Clips.Count);
         GlobalAudioSource.Instance.Play(Clips[randNumber]);
@@ -39,22 +31,12 @@ public class Bark : MonoBehaviour
     {
 
         instance = Instantiate(gameObject);
-        
         instance.transform.SetParent(canvas.transform, false);
-        instance.transform.position = player.transform.position;
 
         Destroy(instance, DurationInSeconds);
 
         int randNumber = Random.Range(0, Words.Count);
-        string saying = Words[randNumber];
-
-        TextBox.GetComponent<TextMeshProUGUI>().SetText(saying);
-
-        RectTransform transform = instance.GetComponent<RectTransform>();
-        transform.sizeDelta = new Vector2(2 + Mathf.Sqrt(saying.Length)*.2f, 2 + Mathf.Sqrt(saying.Length)*.1f);
-
-
-        
+        TextBox.GetComponent<TextMeshProUGUI>().SetText(Words[randNumber]);
 
         
 
@@ -69,11 +51,6 @@ public class Bark : MonoBehaviour
 
         //rectTransform.sizeDelta =  new Vector2(textBoxRenderer.bounds.size.x, textBoxRenderer.bounds.size.y);
 
-    }
-
-    private void Update()
-    {
-        transform.SetPositionAndRotation(transform.position, new Quaternion(-Mathf.Abs(cameraa.transform.rotation.x), transform.rotation.y, transform.rotation.z, transform.rotation.w));
     }
 
 }
