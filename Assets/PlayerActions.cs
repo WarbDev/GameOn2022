@@ -27,7 +27,8 @@ public class PlayerActions : EntityComponent
 
     public void TickCooldown()
     {
-        foreach (var mC in movesOnCooldown.Keys)
+        var keys = movesOnCooldown.Keys;
+        foreach (var mC in keys)
         {
             int newValue = Mathf.Max(0, movesOnCooldown[mC] - 1);
             movesOnCooldown[mC] = newValue;

@@ -45,7 +45,7 @@ public class PhaseEnd : MonoBehaviour
     void CheckWinCondition(ref bool isFinished, ref WinState winState)
     {
         // Check if an enemy is on the enemy line.
-        if (LocationUtility.GetEnemiesInPositions(LocationUtility.GetColumn(0)).Count > 0)
+        if (LocationUtility.GetEnemiesInPositions(LocationUtility.GetColumn(0)).Count > 0 || Entities.PlayerCollection.EntitiesSet.Count == 0)
         {
             winState = WinState.ENEMY_WIN;
         }
