@@ -1318,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1343,6 +1343,34 @@ PrefabInstance:
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[2]
       value: TALLY HO
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[3]
+      value: I CAN SPELL
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[4]
+      value: MAGIC IS ALL AROUND US
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[5]
+      value: YOU KIDS CAN'T KEEP UP WITH ME!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[6]
+      value: SLIMES ARE TASTY
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[7]
+      value: I could do with a good pipe smoke right now
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[8]
+      value: Heehoo
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[9]
+      value: hooHOO HEEHEE
       objectReference: {fileID: 0}
     - target: {fileID: 929396078369437972, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
@@ -1494,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[10]
-      value: Shellfish
+      value: Ha, get a load of THESE guns
       objectReference: {fileID: 0}
     - target: {fileID: 4494437110941057808, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: clip
@@ -1518,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -1538,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 6ab01c1bddd7cbd4798e1cd0d30dbc7a, type: 3}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[0]
-      value: I love eating technology
+      value: technology
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[1]
@@ -1547,6 +1575,14 @@ PrefabInstance:
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[2]
       value: GUNS GUNS GUNS
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[3]
+      value: We should have just snuck in
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[4]
+      value: We should have just snuck in
       objectReference: {fileID: 0}
     - target: {fileID: 5854767218460035224, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: m_Name
