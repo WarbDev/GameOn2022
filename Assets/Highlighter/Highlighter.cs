@@ -18,9 +18,9 @@ public class Highlighter : MonoBehaviour
     void Start()
     {
         pool = new ObjectPool<Highlight>(() => { return Instantiate(highlightPrefab); },
-            highlight => { if (highlight) { highlight.gameObject.SetActive(true); highlight.transform.position = position; } },
-            highlight => { if (highlight) highlight.gameObject.SetActive(false); },
-            highlight => { if (highlight) Destroy(highlight.gameObject); },
+            highlight => { if (highlight) { highlight.gameObject.SetActive(true); highlight.Color = color; highlight.transform.position = position; } },
+            highlight => { highlight.gameObject.SetActive(false); },
+            highlight => { Destroy(highlight.gameObject); },
             true, 30, 150);
     }
 

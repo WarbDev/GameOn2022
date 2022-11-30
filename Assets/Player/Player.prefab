@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightPrefab: {fileID: 7391650056355594738, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
-  color: {r: 0, g: 1, b: 0.007976532, a: 0}
+  color: {r: 0, g: 1, b: 0.007976532, a: 0.50980395}
 --- !u!114 &5330943147852817725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightPrefab: {fileID: 7391650056355594738, guid: 1a7141cd616b9a44390c401207c6e44e, type: 3}
-  color: {r: 1, g: 0, b: 0, a: 0}
+  color: {r: 0.5, g: 0.16909504, b: 0.021226406, a: 0.57254905}
 --- !u!114 &1622290207071599376
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class BasicEnemyActionSelector : EnemyActionSelectionComponent
 
         if (Stun.StunDuration > 0)
         {
-            nonAction.DoEnemyAction();
+            stunnedAction.DoEnemyAction();
             return;
         }
 
