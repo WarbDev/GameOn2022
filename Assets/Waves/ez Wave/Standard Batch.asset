@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
   m_Name: Standard Batch
   m_EditorClassIdentifier: 
-  enemiesInBatch: 
+  enemiesInBatch: 00000000
   enforceEmptySpaces: 0
-  side: 0
+  side: 1
   enforceSide: 0
   isRigid: 0
   mustFitSingleColumn: 0

@@ -14,6 +14,9 @@ public class Bark : MonoBehaviour
     [SerializeField] float DurationInSeconds;
     private GameObject instance;
 
+    public bool finishedAnimation = false;
+    public Vector3 diff;
+    public GameObject player;
 
     Canvas canvas;
     public Camera cameraa;
@@ -26,8 +29,10 @@ public class Bark : MonoBehaviour
 
     public void PlayBark(GameObject player, Canvas canvas, Camera camera)
     {
+        
         this.enabled = true;
         this.canvas = canvas;
+        this.player = player;
         cameraa = camera;
 
 
@@ -50,40 +55,49 @@ public class Bark : MonoBehaviour
         Bark instance = Instantiate(this);
         Destroy(instance.gameObject, DurationInSeconds);
 
+        instance.player = player;
 
 
         //instance.cameraa = cameraa;
 
         instance.transform.SetParent(canvas.transform, false);
-        instance.transform.position = player.transform.position + new Vector3(0, 1.5f);
+        instance.transform.position = player.transform.position + new Vector3(0, 1f);
 
         
 
 
 
         RectTransform transform = instance.GetComponent<RectTransform>();
-        transform.sizeDelta = new Vector2(2 + Mathf.Sqrt(saying.Length)*.2f, 2 + Mathf.Sqrt(saying.Length)*.1f);
+        transform.sizeDelta = new Vector2(1 + Mathf.Sqrt(saying.Length)* 1f, 1 + Mathf.Sqrt(saying.Length)* .15f);
 
         instance.transform.DOScale(0, 1).From();
 
-        Vector3 to = new();
-
         if (Random.Range(0f, 1f) > .5)
         {
-            to = player.transform.position + new Vector3(-1, 1);
+            instance.diff = new Vector3(-(.5f + transform.sizeDelta.x / 2), 1);
         }
         else
         {
-            to = player.transform.position + new Vector3(1, 1);
+            instance.diff = new Vector3(.5f + transform.sizeDelta.x / 2, 1);
         }
 
-        instance.transform.DOMove(to, 1);
+        instance.transform.DOMove(player.transform.position + instance.diff, 1).OnComplete(() => instance.finishedAnimation = true);
 
     }
 
+
+
     private void Update()
     {
-        transform.SetPositionAndRotation(transform.position, new Quaternion(-Mathf.Abs(cameraa.transform.rotation.x), transform.rotation.y, transform.rotation.z, transform.rotation.w));
+        if (finishedAnimation)
+        {
+             transform.SetPositionAndRotation(player.transform.position + diff, new Quaternion(-Mathf.Abs(cameraa.transform.rotation.x), transform.rotation.y, transform.rotation.z, transform.rotation.w));
+        }
+        else
+        {
+            transform.SetPositionAndRotation(transform.position, new Quaternion(-Mathf.Abs(cameraa.transform.rotation.x), transform.rotation.y, transform.rotation.z, transform.rotation.w));
+        }
+        
     }
 
 }

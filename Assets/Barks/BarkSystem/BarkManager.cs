@@ -12,6 +12,8 @@ public class BarkManager : MonoBehaviour
     [SerializeField] Canvas canvas;
     [SerializeField] Camera cameraa;
 
+    [SerializeField] bool alwaysPlay;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,7 +28,7 @@ public class BarkManager : MonoBehaviour
     {
 
         float rand = Random.Range(0f, 1f);
-        if (rand > .5)
+        if (rand > .5 || alwaysPlay)
         {
             rand = Random.Range(0f, 1f);
             if (rand < .33)

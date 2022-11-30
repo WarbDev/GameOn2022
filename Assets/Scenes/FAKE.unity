@@ -628,11 +628,15 @@ PrefabInstance:
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 33d6c9fcaa6f8aa43ab59ac8796a4d14, type: 2}
+      objectReference: {fileID: 11400000, guid: 4ea6de4dc4ce5f34f94af62a04833c19, type: 2}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 84edd3167df459e479e88aa92b0eb624, type: 2}
+      objectReference: {fileID: 11400000, guid: 4ea6de4dc4ce5f34f94af62a04833c19, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ea6de4dc4ce5f34f94af62a04833c19, type: 2}
     - target: {fileID: 7663696889126628851, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: levelConstructor
       value: 
@@ -1648,6 +1652,10 @@ PrefabInstance:
       propertyPath: cameraa
       value: 
       objectReference: {fileID: 741557224}
+    - target: {fileID: 7692335473658351590, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: alwaysPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8147330691446363383, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
       value: 

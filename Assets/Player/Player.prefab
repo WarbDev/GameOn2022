@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 6551433914616070669}
   - component: {fileID: 8859144135050375165}
   - component: {fileID: 8790743022909615239}
-  - component: {fileID: 8659367206817436377}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -184,21 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3052717168916523939}
---- !u!114 &8659367206817436377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513081452634914696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b307cee2c676648b5230ad364e420e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talkBark: {fileID: 2549046503490544928}
-  CurrentDuration: 0
-  MaxDuration: 500
 --- !u!1 &1900587806213811467
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +195,7 @@ GameObject:
   - component: {fileID: 3052717168916523939}
   - component: {fileID: 5998429273877781870}
   - component: {fileID: 8335056699484605951}
+  - component: {fileID: 984529963415773728}
   m_Layer: 0
   m_Name: AdjustedSprite
   m_TagString: Untagged
@@ -314,6 +299,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3052717168916523939}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &984529963415773728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900587806213811467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7b307cee2c676648b5230ad364e420e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkBark: {fileID: 2549046503490544928}
+  CurrentDuration: 0
+  MaxDuration: 500
 --- !u!1 &4055489919663900120
 GameObject:
   m_ObjectHideFlags: 0
