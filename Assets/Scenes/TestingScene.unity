@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: currentWave
       value: 
-      objectReference: {fileID: 11400000, guid: 7983b72ec082ebb4c9e403951e144da4, type: 2}
+      objectReference: {fileID: 11400000, guid: 60967a21e5a620942ab3ac9988c8b742, type: 2}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: levelConstructor
       value: 
@@ -519,7 +519,8 @@ PrefabInstance:
       propertyPath: levelConstructor
       value: 
       objectReference: {fileID: 1187247943}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5175241218743695633, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
 --- !u!114 &1187247943 stripped
 MonoBehaviour:

@@ -45,7 +45,6 @@ public class GameFlow : MonoBehaviour
     void TickDeathAnimation()
     {
         DeathAnimationTick?.Invoke();
-        Debug.Log("DEath naimat clicked");
     }
 
     void TickTimers()
