@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
+  m_Name: Wave
+  m_EditorClassIdentifier: 
+  height: 3
+  rightLength: 1
+  leftLength: 1
+  initialEnemies: {fileID: 11400000, guid: 7a533470eb53aac4a90d085732346060, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: d88703c3dfa1808499c259a8fdec8b87, type: 2}
+    Delay: 0
+    Notes: 

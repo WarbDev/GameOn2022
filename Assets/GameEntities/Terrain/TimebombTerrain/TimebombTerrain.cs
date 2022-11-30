@@ -18,6 +18,8 @@ public class TimebombTerrain : TerrainBase, IPushable
 
     [SerializeField] int radius;
     [SerializeField] int stunDuration;
+    [SerializeField] SpriteAnimation explodeAnimation;
+    [SerializeField] AudioClip explodeClip;
     ShapeWithRadius effectShape = LocationUtility.LocationsInSquareRadius;
 
     public int TurnsUntilBoom;
@@ -40,7 +42,9 @@ public class TimebombTerrain : TerrainBase, IPushable
 
     public void Explode()
     {
-        animationPlaying = Animatable.PlayAnimation(ANIMATION_ID.MOVE_PAYLOAD, new SpriteAnimationProperties(gameObject.GetComponent<SpriteRenderer>()));
+        //animationPlaying = Animatable.PlayAnimation(ANIMATION_ID.MOVE_PAYLOAD, new SpriteAnimationProperties(gameObject.GetComponent<SpriteRenderer>()));
+        explodeAnimation.Play(new SpriteAnimationProperties(gameObject.GetComponent<SpriteRenderer>()));
+        GlobalAudioSource.Instance.Play(explodeClip);
         List<Location> areaOfEffect = effectShape(Location, radius);
         List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(areaOfEffect);
 
@@ -49,7 +53,8 @@ public class TimebombTerrain : TerrainBase, IPushable
             enemy.AddStun(stunDuration);
         }
 
-        animationPlaying.AnimationFinished += end;
+        explodeAnimation.AnimationFinished += end;
+        //animationPlaying.AnimationFinished += end;
     }
 
     private void end(EntityAnimation<SpriteAnimationProperties> entityAnimation)
