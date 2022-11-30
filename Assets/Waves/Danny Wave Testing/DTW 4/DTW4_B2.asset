@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
-  m_Name: DTW3_B2
+  m_Name: DTW4_B2
   m_EditorClassIdentifier: 
   enemiesInBatch: 0100000001000000000000000100000000000000
   enforceEmptySpaces: 0

@@ -626,6 +626,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1187247943}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 33d6c9fcaa6f8aa43ab59ac8796a4d14, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 84edd3167df459e479e88aa92b0eb624, type: 2}
@@ -1317,6 +1321,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: cameraa
+      value: 
+      objectReference: {fileID: 741557224}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1465,6 +1473,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3026037266190599983}
     - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: cameraa
+      value: 
+      objectReference: {fileID: 741557224}
+    - target: {fileID: 4109078208656205604, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1552,6 +1564,10 @@ PrefabInstance:
       propertyPath: skipPlayerTurn
       value: 
       objectReference: {fileID: 924902759}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: cameraa
+      value: 
+      objectReference: {fileID: 741557224}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.size
       value: 4

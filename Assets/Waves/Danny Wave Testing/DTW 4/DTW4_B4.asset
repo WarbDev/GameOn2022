@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
-  m_Name: DTW3_B1GA
+  m_Name: DTW4_B4
   m_EditorClassIdentifier: 
-  enemiesInBatch: 0000000002000000000000000200000001000000
-  enforceEmptySpaces: 0
-  side: 0
-  enforceSide: 1
+  enemiesInBatch: 0100000001000000040000000000000004000000
+  enforceEmptySpaces: 1
+  side: 1
+  enforceSide: 0
   isRigid: 0
   mustFitSingleColumn: 0
