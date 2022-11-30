@@ -72,7 +72,7 @@ MonoBehaviour:
   levelConstructor: {fileID: 0}
   delay: 0
   waveNumber: 0
-  currentWave: {fileID: 0}
+  currentWave: {fileID: 11400000, guid: 42219df04fdfbc74593256979db5f156, type: 2}
 --- !u!114 &-6532805648510506160
 MonoBehaviour:
   m_ObjectHideFlags: 0

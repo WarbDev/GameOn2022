@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1a9e5bd9fbe3f4c8f7cb32c0389517, type: 3}
+  m_Name: DTW2_B3G
+  m_EditorClassIdentifier: 
+  batches:
+  - {fileID: 11400000, guid: 934f3f566aede7f47820eb627735cc62, type: 2}
+  - {fileID: 11400000, guid: 5d9fc64ec55bca34587faaa165f04b2b, type: 2}

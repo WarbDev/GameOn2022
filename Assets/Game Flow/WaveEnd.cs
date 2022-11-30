@@ -14,6 +14,7 @@ public class WaveEnd : MonoBehaviour
 
     public void RunWaveEnd(int waveNumber)
     {
+        // Entities.TerrainCollection.RemoveAll();
         levelConstructor.Finished += onDeconstructed;
         levelConstructor.Derun(waveRunner.currentWave);
         
@@ -28,7 +29,7 @@ public class WaveEnd : MonoBehaviour
         void onWinScreenDismissed()
         {
             waveWin.onWinScreenDismissed -= onWinScreenDismissed;
-            if (waveRunner.OnLastWave())
+            if (!waveRunner.OnLastWave())
             {
                 waveBegin.BeginWave(waveRunner.GetNextWave());
             }

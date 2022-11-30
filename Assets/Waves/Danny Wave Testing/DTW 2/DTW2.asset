@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
+  m_Name: DTW2
+  m_EditorClassIdentifier: 
+  height: 4
+  rightLength: 6
+  leftLength: 6
+  initialEnemies: {fileID: 11400000, guid: 7b4d2e72afdccb64988b8e3b7e9af9f5, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: 934f3f566aede7f47820eb627735cc62, type: 2}
+    Delay: 1
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 5d9fc64ec55bca34587faaa165f04b2b, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: db4af1f791659ff4dac303e0ca2ac584, type: 2}
+    Delay: 1
+    Notes: 
+  - Batch: {fileID: 11400000, guid: a9af4e31f9a5a8f4f893c7b47c44b57e, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 75a1f86d3dd6eba41873b850e25e3335, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: aba3a823c34d0074283f41c84e1f3259, type: 2}
+    Delay: 2
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 69819a2af4c292a46be3f60501be46a5, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 4f7b516bdb34f674eb1d7ba34987e236, type: 2}
+    Delay: 0
+    Notes: 

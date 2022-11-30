@@ -34,6 +34,7 @@ public class WallScript : MonoBehaviour
     }
     public void RaiseWall()
     {
+        pivot.transform.position = new Vector3(1000, GameMap.TopBorder + 0.5f, 200);
         gameObject.SetActive(true);
 
         Sequence mySequence = DOTween.Sequence();

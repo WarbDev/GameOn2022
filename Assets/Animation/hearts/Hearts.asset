@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
   m_Name: Hearts
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 1a1036ea6d1db3848b012844543dfbb3, type: 3}
+  - {fileID: 21300000, guid: bbc6bacddd3f0f442a8e676fe7ef751a, type: 3}
+  - {fileID: 21300000, guid: b5b3fe8b829e7f44fbfc39db2bb91329, type: 3}
+  - {fileID: 21300000, guid: fb6909181ad65ff48921f20f87eb21be, type: 3}
+  - {fileID: 21300000, guid: c44aec6b3b947d2449463864c4d3ee44, type: 3}
+  - {fileID: 21300000, guid: 5da2bc72c0a7bd14687ec075cf721d26, type: 3}
+  - {fileID: 21300000, guid: 8674c5dc9480b6646aaa290aa3e0dd37, type: 3}
+  - {fileID: 21300000, guid: 04e2c99059227c94a8e6fcb71d1523b8, type: 3}
