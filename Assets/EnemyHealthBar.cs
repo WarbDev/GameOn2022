@@ -25,7 +25,11 @@ public class EnemyHealthBar : MonoBehaviour
     private void Update()
     {
         healthSprite.enabled = showHealth && health.CurrentHealth > 0;
-        healthSprite.sprite = spriteSet.Sprites[(int)health.CurrentHealth];
+        if (healthSprite.enabled)
+        {
+            healthSprite.sprite = spriteSet.Sprites[(int)health.CurrentHealth - 1];
+        }
+        
     }
 
     private void OnSelected(ClickableEntity click)
