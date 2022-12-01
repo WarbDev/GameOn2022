@@ -57,12 +57,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 7886695812729171924}
+  adjustedSpriteRenderer: {fileID: 3052717168916523939}
   damageableHealth: {fileID: 4294843663961539364}
   obstructionChecker: {fileID: 7526490831846806938}
   obstruction: {fileID: 9020505713785838135}
   playerAnimations: {fileID: 4152544370693114016}
   turnComponent: {fileID: 8365744609381522056}
   faceCamera: {fileID: 5998429273877781870}
+  playerActions: {fileID: 6551433914616070669}
   Name: 
 --- !u!114 &7886695812729171924
 MonoBehaviour:

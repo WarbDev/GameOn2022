@@ -10,8 +10,10 @@ public class Player : GameEntity, IHaveHealth, IDamageable, IAnimatable, IObstru
     public override EntityType EntityType { get => EntityType.PLAYER; }
 
     [SerializeField] Health health;
+    public SpriteRenderer adjustedSpriteRenderer;
     public Health Health { get => health; }
     public bool IsDead { get => Damageable.IsDead; }
+
 
     [SerializeField] DamageableWithHealthComponent damageableHealth;
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
@@ -19,6 +21,7 @@ public class Player : GameEntity, IHaveHealth, IDamageable, IAnimatable, IObstru
     [SerializeField] AnimatableEntity playerAnimations;
     [SerializeField] PlayerTurnComponent turnComponent;
     [SerializeField] FaceCamera faceCamera;
+    [SerializeField] PlayerActions playerActions;
 
     public IDamageable Damageable { get => damageableHealth; }
     public IObstruct Obstruct { get => obstruction; }
@@ -27,4 +30,9 @@ public class Player : GameEntity, IHaveHealth, IDamageable, IAnimatable, IObstru
     public PlayerTurnComponent TurnComponent { get => turnComponent; }
     public FaceCamera FaceCamera { get => faceCamera; }
     public string Name;
+
+    public void ResetCooldowns()
+    {
+        playerActions.ResetCooldowns();
+    }
 }

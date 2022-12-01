@@ -56,7 +56,7 @@ public class UIPlayerEvents : MonoBehaviour
 
     private void Start()
     {
-        player.GetComponent<Health>().HealthChanged += ((health)=>HealthChanged?.Invoke(health));
+        player.GetComponent<DamageableWithHealthComponent>().DamageAnimationPlayed += ((health)=>HealthChanged?.Invoke(health));
         player.GetComponent<PlayerActions>().CoolDownUpdated += (Move m, int c) => CoolDownChanged?.Invoke(m, c);
         player.TurnComponent.PlannedMove += (Move m, bool s) => PlannedActionSuccessful?.Invoke(m, s);
         player.TurnComponent.PlannedMovement += ((x) => PlannedMovementSuccessful?.Invoke(x));

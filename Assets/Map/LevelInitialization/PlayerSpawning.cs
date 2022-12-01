@@ -12,6 +12,9 @@ public class PlayerSpawning : MonoBehaviour
         {
             SpawnPlayer(players[i], new Location(0, i + 1));
             players[i].Health.Heal(1);
+            players[i].Animatable.SetIdleAfterAnimationEnds(true);
+            players[i].Animatable.PlayAnimation<SpriteAnimationProperties>(ANIMATION_ID.ENTITY_IDLE, new(players[i].adjustedSpriteRenderer));
+            players[i].ResetCooldowns();
         }
     }
 

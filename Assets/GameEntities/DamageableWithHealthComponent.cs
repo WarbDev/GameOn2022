@@ -10,7 +10,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
     [SerializeField] AnimatableEntity animatableEntity;
     [SerializeField] DeathComponent deathManager;
 
-    public event Action<int> HealthChanged;
+    public event Action<int> DamageAnimationPlayed;
     public override bool IsDead { get => health.CurrentHealth <= 0; }
 
     public override DamageLog DealDamage(Damage damage)
@@ -33,7 +33,7 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
         {
             if (id == ANIMATION_ID.ENTITY_HURT)
             {
-                HealthChanged?.Invoke((int)newHealth);
+                DamageAnimationPlayed?.Invoke((int)newHealth);
                 mostRecentDamageWasAnimated = true;
                 animatableEntity.PlayedNewAnimation -= checkIfHurtPlayed;
             }
