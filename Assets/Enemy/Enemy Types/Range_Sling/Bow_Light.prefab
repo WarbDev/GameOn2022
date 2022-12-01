@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: spriteSet
       value: 
       objectReference: {fileID: 11400000, guid: 7d5f60cdfd7c07d4bac0e6eb99d402b3, type: 2}
+    - target: {fileID: 3292743296726041985, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: animations.list.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 2580477633132647015}
+    - target: {fileID: 3292743296726041985, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: animations.list.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 2580477633132647015}
     - target: {fileID: 3616921401767614434, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: range
       value: 2
@@ -67,6 +75,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow_Light
       objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 74925e411d85d714692827c9ba84230f, type: 3}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: timeTillProjectileFires
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: bulletDistanceModification.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: bulletDistanceModification.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6941161342124120590, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: maxHealth
       value: 1
@@ -75,5 +99,20 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8947003965714715392, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 57a5b783e872c434bbe415424e29e152, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+--- !u!114 &2580477633132647015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+  m_PrefabInstance: {fileID: 8099774177976390389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd208b91f5c1bc428c057f91faf4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
