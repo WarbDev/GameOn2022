@@ -28,6 +28,7 @@ public class WaveRunner : MonoBehaviour
 
     public Wave GetNextWave()
     {
+        currentBatchIndex = 0;
         waveNumber++;
         if (waveNumber > waves.Count)
         {
@@ -36,6 +37,23 @@ public class WaveRunner : MonoBehaviour
         currentWave = waves[waveNumber - 1];
         batchesInWave = currentWave.Batches;
         foreach(var batch in batchesInWave)
+        {
+            batch.ResetBatch();
+        }
+        return currentWave;
+    }
+
+    // Called to get wave of current wave, but reinitialize it.
+    public Wave GetSameWave()
+    {
+        currentBatchIndex = 0;
+        if (waveNumber > waves.Count)
+        {
+            return null;
+        }
+        currentWave = waves[waveNumber - 1];
+        batchesInWave = currentWave.Batches;
+        foreach (var batch in batchesInWave)
         {
             batch.ResetBatch();
         }

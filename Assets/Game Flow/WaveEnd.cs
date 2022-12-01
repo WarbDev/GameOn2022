@@ -14,7 +14,9 @@ public class WaveEnd : MonoBehaviour
 
     public void RunWaveEnd(int waveNumber)
     {
-        // Entities.TerrainCollection.RemoveAll();
+        bool needsRestart = true;
+
+        // waveWin.RestartWave += setRestart
         levelConstructor.Finished += onDeconstructed;
         levelConstructor.Derun(waveRunner.currentWave);
         
@@ -29,10 +31,21 @@ public class WaveEnd : MonoBehaviour
         void onWinScreenDismissed()
         {
             waveWin.onWinScreenDismissed -= onWinScreenDismissed;
-            if (!waveRunner.OnLastWave())
+            // waveWin.RestartWave -= setRestart
+
+            if (needsRestart)
+            {
+                waveBegin.BeginWave(waveRunner.GetSameWave());
+            }
+            else if (!waveRunner.OnLastWave())
             {
                 waveBegin.BeginWave(waveRunner.GetNextWave());
             }
+        }
+
+        void setRestart()
+        {
+            needsRestart = true;
         }
     }
 
