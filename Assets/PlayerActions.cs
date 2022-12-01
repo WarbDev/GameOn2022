@@ -26,6 +26,17 @@ public class PlayerActions : EntityComponent
         GameFlow.NewPlayerPhase -= TickCooldown;
     }
 
+    public void ResetCooldowns()
+    {
+        List<Move> keys = movesOnCooldown.Keys.ToList();
+        foreach (var mC in keys)
+        {
+            int newValue = 0;
+            movesOnCooldown[mC] = newValue;
+            CoolDownUpdated?.Invoke(mC, newValue);
+        }
+    }
+
     public void TickCooldown()
     {
         List<Move> keys = movesOnCooldown.Keys.ToList();

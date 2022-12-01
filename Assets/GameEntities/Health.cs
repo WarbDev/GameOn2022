@@ -9,10 +9,11 @@ public class Health : MonoBehaviour
     [SerializeField] float maxHealth;
     [SerializeField] bool reachedZeroHealth;
 
-    public float CurrentHealth { get => currentHealth; }
+    public float CurrentHealth { get => currentHealth; private set => currentHealth = Mathf.Clamp(value, 0, MaxHealth); }
     public float MaxHealth { get => maxHealth; }
 
     public event Action<GameEntity> LostAllHealth;
+    public event Action<int> Healed;
 
     public float ReduceHealth(float reduction)
     {
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
         {
             currentHealth -= reduction;
 
-            if (currentHealth <= 0f)
+            if (currentHealth <= 0.1f)
             {
                 currentHealth = 0f;
                 reachedZeroHealth = true;
@@ -32,5 +33,11 @@ public class Health : MonoBehaviour
         return currentHealth;
     }
 
+    public int Heal(int amount)
+    {
+        CurrentHealth += amount;
+        Healed?.Invoke((int)currentHealth);
+        return (int)currentHealth;
+    }
 
 }
