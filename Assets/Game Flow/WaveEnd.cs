@@ -35,7 +35,7 @@ public class WaveEnd : MonoBehaviour
 
             if (needsRestart)
             {
-                waveBegin.BeginWave(waveRunner.GetSameWave());
+                // waveBegin.BeginWave(waveRunner.GetSameWave());
             }
             else if (!waveRunner.OnLastWave())
             {

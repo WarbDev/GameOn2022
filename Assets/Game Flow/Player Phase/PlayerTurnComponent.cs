@@ -32,19 +32,22 @@ public class PlayerTurnComponent : MonoBehaviour
 
     IEnumerator AwaitingSelection()
     {
+        Debug.Log("Awaiting selection!");
         STATE = PLAN_STATE.AWAITING;
 
         input.MovementSelected += TryEnterMovementState;
         input.ActionSelected += TryEnterActionState;
         input.SkippingTurn += SkipPlanning;
-        
+        Debug.Log("Subbed");
 
-        while (STATE == PLAN_STATE.AWAITING)
+        bool done = false;
+        while (STATE == PLAN_STATE.AWAITING && !done)
         {
             mouseLook.enabled = true;
             if (PhaseEnd.PlayerWon())
             {
                 SkipPlanning();
+                done = true;
             }
 
             if (CurrentlyPlanningPlayer.CurrentlyPlanning != null &&
@@ -53,12 +56,14 @@ public class PlayerTurnComponent : MonoBehaviour
                 STATE = PLAN_STATE.LOCKED;
                 StateChanged?.Invoke(this, STATE);
                 StartCoroutine(LockedState());
+                done = true;
             }
 
             else if (!CanDoAction() && !CanDoMovement())
             {
                 STATE = PLAN_STATE.ASLEEP;
                 StateChanged?.Invoke(this, STATE);
+                done = true;
             }
             yield return null;
         }
@@ -66,6 +71,7 @@ public class PlayerTurnComponent : MonoBehaviour
         input.MovementSelected -= TryEnterMovementState;
         input.ActionSelected -= TryEnterActionState;
         input.SkippingTurn -= SkipPlanning;
+        Debug.Log("Unsubbed");
 
         void TryEnterMovementState()
         {
@@ -74,6 +80,7 @@ public class PlayerTurnComponent : MonoBehaviour
                 STATE = PLAN_STATE.PLAN_MOVEMENT;
                 StateChanged?.Invoke(this, STATE);
                 StartCoroutine(PlanningMovement());
+                done = true;
             }
         }
 
@@ -84,6 +91,7 @@ public class PlayerTurnComponent : MonoBehaviour
                 STATE = PLAN_STATE.DOING_ACTION;
                 StateChanged?.Invoke(this, STATE);
                 StartCoroutine(PlanningAction(move));
+                done = true;
             }
         }
 
