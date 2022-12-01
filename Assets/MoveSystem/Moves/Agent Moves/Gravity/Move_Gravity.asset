@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Move_Gravity
   m_EditorClassIdentifier: 
   myName: Cherry Bomb
-  tooltip: Pulls all enemies in range towards the selected point. Cooldown 2.
+  tooltip: Pulls all enemies in range towards the selected point.\nCooldown 2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: 26cc5cd37f77fc242b8fe7245d5c0eba, type: 3}
   range: 10

@@ -30,15 +30,23 @@ public class ToolTipScript : MonoBehaviour
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, Input.mousePosition, myCamera, out localPoint);
         transform.localPosition = localPoint;
+        if (localPoint.x < 200)
+        {
+            myRectTransform.pivot = new Vector2(0, 0);
+        }
+        else
+        {
+            myRectTransform.pivot = new Vector2(1, 0);
+        }
     }
 
     private void ShowToolTip(string text)
     {
         gameObject.SetActive(true);
-
+        text = text.Replace("\\n", "\n");
         textComponant.text = text;
-        int padding = 15;
-        Vector2 size = new Vector2(textComponant.preferredWidth*.5f + padding*2, textComponant.preferredHeight * .5f + padding * 2);
+        int padding = 0;
+        Vector2 size = new Vector2(padding + Mathf.Sqrt(text.Length) * 35f, padding + Mathf.Sqrt(text.Length) * 15f); //new Vector2(textComponant.preferredWidth*.5f + padding*2, textComponant.preferredHeight + padding * 2);
 
         myRectTransform.sizeDelta = size;
 

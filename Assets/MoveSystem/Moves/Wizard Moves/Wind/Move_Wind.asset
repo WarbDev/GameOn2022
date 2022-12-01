@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Move_Wind
   m_EditorClassIdentifier: 
   myName: sd
-  tooltip: Pushes all enemies around a selected tile by 2 tiles. Does nothing to
-    the selected tile itself. Cooldown 2.
+  tooltip: Pushes all enemies around a selected tile by 2 tiles.\nDoes nothing to
+    the selected tile itself.\nCooldown 2.
   cooldown: 2
   range: 6
   radius: 1
