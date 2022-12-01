@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: SPR_TimeExplode
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 73083eaccec890c4991dce4a87f2bbd4, type: 3}
+  - {fileID: -377155643, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: 2027736260, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: -59631189, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: -78372062, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: -925417626, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: -2009713412, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: 1250135255, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: -1048645804, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
+  - {fileID: 597288045, guid: 594cd0ead5b706645971dbc03d08ef5a, type: 3}
