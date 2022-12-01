@@ -28,7 +28,7 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
     public override void Play(JumpAnimationProperties properties)
     {
-        bool spriteCompleted = false;
+        bool spriteCompleted = true;
         bool jumpCompleted = false;
 
         Sequence jumpSequence = DOTween.Sequence();
@@ -40,8 +40,8 @@ public class JumpAnimation : EntityAnimation<JumpAnimationProperties>
 
         // Join together the primary animation with the sprite animation, and announce completion when done.
         currentlyPlaying = jumpSequence;
-        spriteAnimation.Play(new(targetSprite));
-        spriteAnimation.AnimationFinished += onSpriteAnimationComplete;
+        //spriteAnimation.Play(new(targetSprite));
+        //spriteAnimation.AnimationFinished += onSpriteAnimationComplete;
         currentlyPlaying.OnComplete(onJumpComplete);
 
         void onJumpComplete()
