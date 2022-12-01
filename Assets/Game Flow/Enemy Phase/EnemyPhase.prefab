@@ -53,7 +53,7 @@ MonoBehaviour:
   PrefabDictionary:
     list:
     - Key: 0
-      Value: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      Value: {fileID: 4612988282577094763, guid: 0a3063e13de7e564dab7b928f7477e5b, type: 3}
     - Key: 2
       Value: {fileID: 8788848868177142615, guid: 367364febd98ac647b422e23d9dacf20, type: 3}
     - Key: 3
