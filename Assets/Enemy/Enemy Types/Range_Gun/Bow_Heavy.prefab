@@ -51,17 +51,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3292743296726041985, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: animations.keyCollision
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5212399030703316054, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: m_Name
       value: Bow_Heavy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6941161342124120590, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
-      propertyPath: maxHealth
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6941161342124120590, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
-      propertyPath: currentHealth
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}

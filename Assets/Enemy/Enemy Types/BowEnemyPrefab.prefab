@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5847531353693503317, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: animations.list.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5847531353693503317, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: animations.list.Array.data[4].Key
@@ -32,6 +32,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5847531353693503317, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: animations.list.Array.data[6].Key
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847531353693503317, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: animations.list.Array.data[4].Value
       value: 
       objectReference: {fileID: 3875975999295902650}
@@ -39,6 +43,10 @@ PrefabInstance:
       propertyPath: animations.list.Array.data[5].Value
       value: 
       objectReference: {fileID: 3875975999295902650}
+    - target: {fileID: 5847531353693503317, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: animations.list.Array.data[6].Value
+      value: 
+      objectReference: {fileID: 7007241388975464282}
     - target: {fileID: 9077199116930187973, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -194,6 +202,17 @@ MonoBehaviour:
   actionAnimation: {fileID: 3875975999295902650}
   damage: 2
   range: 5
+--- !u!114 &7007241388975464282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2137537152844014990, guid: bed06654961aa864eac528555d4541cc, type: 3}
+  m_PrefabInstance: {fileID: 8977000471902010068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e980c290ec38be4bbf21249ccd33c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7218061296030067724 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1783147123674814168, guid: bed06654961aa864eac528555d4541cc, type: 3}
