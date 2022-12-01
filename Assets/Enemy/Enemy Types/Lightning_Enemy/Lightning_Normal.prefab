@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: animations.list.Array.data[8].Value
       value: 
       objectReference: {fileID: 8694199881535665866}
+    - target: {fileID: 7814094243313345628, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: ab3b5b1672622864b8cfc3da35db067d, type: 2}
     - target: {fileID: 9077199116930187973, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -375,9 +379,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 44e3faa2af0ec0d42b4c12b2eef8085f, type: 3}
     - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: beamObject
+      value: 
+      objectReference: {fileID: 6125399380732365676, guid: 52ea019cfb7af874bba33f5289647db0, type: 3}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: myRenderer
+      value: 
+      objectReference: {fileID: 2888214117335218174}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: chargeAnimation
       value: 
       objectReference: {fileID: 6324950473714590867}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: spriteAnimation
+      value: 
+      objectReference: {fileID: 1637902657754175298}
     - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: affectedTransform
       value: 
@@ -389,11 +405,23 @@ PrefabInstance:
     - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: enemySpriteAnimation
       value: 
-      objectReference: {fileID: 5413995072087884286}
+      objectReference: {fileID: 1637902657754175298}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: timeTillProjectileFires
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: lightningSpriteAnimation
       value: 
-      objectReference: {fileID: 1637902657754175298}
+      objectReference: {fileID: 0}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: bulletDistanceModification.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
+      propertyPath: bulletDistanceModification.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6229130846197026847, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: m_Name
       value: LightningAnimation
@@ -472,23 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: 1b96c7cf7720a1349a50f0289b4c4439, type: 2}
+  spriteSet: {fileID: 11400000, guid: 4e027f1b60b1bc149b6df1a91e02fc63, type: 2}
   ease: 1
-  duration: 1
-  loops: 0
---- !u!114 &5413995072087884286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8888390245901372659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteSet: {fileID: 11400000, guid: 599b2139664cf9d429ee7988adbf6aae, type: 2}
-  ease: 1
-  duration: 2.5
+  duration: 2
   loops: 0

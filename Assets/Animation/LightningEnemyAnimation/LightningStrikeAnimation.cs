@@ -6,6 +6,55 @@ using DG.Tweening;
 
 public class LightningStrikeAnimation : EntityAnimation<LightningStrikeProperties>
 {
+    [SerializeField] SpriteRenderer myRenderer;
+    [SerializeField] AudioClip clip;
+    [SerializeField] SpriteAnimation spriteAnimation;
+
+    public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
+
+    private Sequence currentlyPlaying;
+    private LightningStrikeProperties props;
+
+    public override event Action<EntityAnimation<LightningStrikeProperties>> AnimationFinished;
+
+    public override void Play(LightningStrikeProperties animationProperties)
+    {
+        props = animationProperties;
+
+        currentlyPlaying = DOTween.Sequence();
+
+        spriteAnimation.Play(new(myRenderer));
+        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+
+
+        StartCoroutine(End());
+    }
+
+
+    private IEnumerator End()
+    {
+        yield return new WaitForSeconds(1f);
+        foreach (var damageLog in props.damageLogs)
+        {
+            IAnimatable animatable = damageLog.Target.Entity as IAnimatable;
+            animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(damageLog));
+        }
+        AnimationFinished?.Invoke(this);
+    }
+}
+
+public class LightningStrikeProperties : IAnimationProperties
+{
+    public List<DamageLog> damageLogs;
+
+    public LightningStrikeProperties(List<DamageLog> damageLogs)
+    {
+        this.damageLogs = damageLogs;
+    }
+}
+
+/*
+{
     public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
     [SerializeField] Transform affectedTransform;
@@ -83,3 +132,4 @@ public class LightningStrikeProperties : IAnimationProperties
         this.damageLogs = damageLogs;
     }
 }
+*/

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Beam : MonoBehaviour
 {
-
     [SerializeField] SpriteAnimation spriteAnimation;
     [SerializeField] SpriteRenderer render;
 
