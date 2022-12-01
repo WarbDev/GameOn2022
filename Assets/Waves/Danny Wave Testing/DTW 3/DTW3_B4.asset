@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd2781e5a137f94d83210253d20ce0d, type: 3}
   m_Name: DTW3_B4
   m_EditorClassIdentifier: 
-  enemiesInBatch: 0100000001000000040000000000000004000000
-  enforceEmptySpaces: 1
+  enemiesInBatch: 0400000000000000040000000000000004000000
   side: 1
   enforceSide: 0
-  isRigid: 0
-  mustFitSingleColumn: 0

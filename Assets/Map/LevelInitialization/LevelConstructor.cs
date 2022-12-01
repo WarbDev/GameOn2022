@@ -11,6 +11,8 @@ public class LevelConstructor : MonoBehaviour
 
     public event Action Finished;
 
+    bool restartingWave = false;
+
     public void Run(Wave newWave)
     {
         StartCoroutine(Construct(newWave));
@@ -18,6 +20,13 @@ public class LevelConstructor : MonoBehaviour
 
     public void Derun(Wave oldWave)
     {
+        restartingWave = false;
+        StartCoroutine(Deconstruct(oldWave));
+    }
+
+    public void Derun(Wave oldWave, bool isRestarting)
+    {
+        restartingWave = isRestarting;
         StartCoroutine(Deconstruct(oldWave));
     }
 
@@ -95,7 +104,9 @@ public class LevelConstructor : MonoBehaviour
         List<GameEntity> nonBarricades = new();
         foreach (var entity in Entities.TerrainCollection.EntitiesSet)
         {
-            if (!(entity is BarricadeTerrain))
+
+            // restarting wave doesn't work don't
+            if (restartingWave || !(entity is BarricadeTerrain))
             {
                 nonBarricades.Add(entity);
             }
@@ -119,5 +130,19 @@ public class LevelConstructor : MonoBehaviour
 
 
         Finished?.Invoke();
+    }
+
+    public void ClearBarricades()
+    {
+        List<GameEntity> nonBarricades = new();
+        foreach (var entity in Entities.TerrainCollection.EntitiesSet)
+        {
+                nonBarricades.Add(entity);
+        }
+        for (int i = 0; i < nonBarricades.Count; i++)
+        {
+            Entities.TerrainCollection.RemoveEntity(nonBarricades[i]);
+            Destroy(nonBarricades[i].gameObject);
+        }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   enemies:
     list:
     - Key: 6
-      Value: 01000000010000000100000001000000
+      Value: 01000000000000000100000000000000
     keyCollision: 0
   columnHeight: 4
   columns: 06000000

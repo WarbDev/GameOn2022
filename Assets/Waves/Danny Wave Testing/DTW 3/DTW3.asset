@@ -35,9 +35,3 @@ MonoBehaviour:
   - Batch: {fileID: 11400000, guid: e7612c02076da704ca7996019332ebfc, type: 2}
     Delay: 0
     Notes: 
-  - Batch: {fileID: 11400000, guid: 9ca5d91ac6f8b9042b73d3490abefb77, type: 2}
-    Delay: 0
-    Notes: 
-  - Batch: {fileID: 11400000, guid: d5123df7ac654ad48baf8ff21b3f1648, type: 2}
-    Delay: 0
-    Notes: 
