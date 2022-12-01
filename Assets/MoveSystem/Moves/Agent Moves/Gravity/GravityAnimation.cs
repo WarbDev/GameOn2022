@@ -23,15 +23,31 @@ public class GravityAnimation : EntityAnimation<GravityAnimationProperties>
     [SerializeField] AudioClip clip;
     [SerializeField] AudioClip clipBoom;
 
+    [SerializeField] Ease xEase;
+    [SerializeField] Ease yEase;
+    [SerializeField] Ease zUpEase;
+    [SerializeField] Ease zDownEase;
+    [SerializeField] int heightGain;
+
     // AnimationFinished must be called once currentlyPlaying finishes.
     public override event Action<EntityAnimation<GravityAnimationProperties>> AnimationFinished;
 
     public override void Play(GravityAnimationProperties animationProperties)
     {
         // Initialize the current sequence
+        Vector3 endPoint = animationProperties.EndPosition;
+        Transform bombtransform = transform;
+
         currentlyPlaying = DOTween.Sequence();
-        currentlyPlaying.SetEase(ease);
-        currentlyPlaying.Append(gameObject.transform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));
+        //currentlyPlaying.SetEase(ease);
+        //currentlyPlaying.Append(gameObject.transform.DOMove(new Vector3(animationProperties.EndPosition.x, animationProperties.EndPosition.y), duration));
+
+        currentlyPlaying.Append(bombtransform.DOMoveX(endPoint.x, duration).SetEase(xEase));
+        currentlyPlaying.Insert(0, bombtransform.DOMoveY(endPoint.y, duration).SetEase(yEase));
+
+        currentlyPlaying.Insert(0, bombtransform.DOMoveZ(endPoint.z - heightGain, duration / 2).SetEase(zUpEase));
+
+        currentlyPlaying.Insert(duration / 2, bombtransform.DOMoveZ(endPoint.z, duration / 2).SetEase(zDownEase));
 
         // Play an audio clip if needed.
         GlobalAudioSource.Instance.Play(clip);

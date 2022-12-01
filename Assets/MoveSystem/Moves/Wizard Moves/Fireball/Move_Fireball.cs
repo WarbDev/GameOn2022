@@ -96,7 +96,7 @@ public class Move_Fireball : Move, IDamage
     {
         foreach (TerrainBase terrain in terrainLog)
         {
-            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.GetComponent<SpriteRenderer>()));
+            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
         obj.AnimationFinished -= MoveDone;

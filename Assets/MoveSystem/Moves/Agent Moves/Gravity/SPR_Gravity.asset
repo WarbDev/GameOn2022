@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: SPR_Gravity
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: efa138f49d84e0146943a90277e76cd0, type: 3}
+  - {fileID: -101579248, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1232942554, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1032020352, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -156123660, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 841322154, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -588102199, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -607627743, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 2021956313, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1876167880, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 2021956313, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -607627743, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -588102199, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 841322154, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -156123660, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1032020352, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}

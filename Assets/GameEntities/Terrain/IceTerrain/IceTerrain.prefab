@@ -249,9 +249,9 @@ PrefabInstance:
       value: AdjustedSprite
       objectReference: {fileID: 0}
     - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ebd3ac0439e64c840a257086b0563845, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6901559519869041974, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
       propertyPath: parentTransform
       value: 
