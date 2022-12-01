@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd48e308cb9c604ca9186cfe2ca0388, type: 3}
   m_Name: Move_Barricade
   m_EditorClassIdentifier: 
-  myName: Erect Barricade
+  myName: Labor of Love
   tooltip: Erect a barricade.\nThis barricade has 3 health.\nCooldown 2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: 2f76554d5d69d50469d528b9069669e1, type: 3}

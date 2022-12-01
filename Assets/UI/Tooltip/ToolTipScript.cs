@@ -45,8 +45,7 @@ public class ToolTipScript : MonoBehaviour
         gameObject.SetActive(true);
         text = text.Replace("\\n", "\n");
         textComponant.text = text;
-        int padding = 0;
-        Vector2 size = new Vector2(padding + Mathf.Sqrt(text.Length) * 35f, padding + Mathf.Sqrt(text.Length) * 15f); //new Vector2(textComponant.preferredWidth*.5f + padding*2, textComponant.preferredHeight + padding * 2);
+        Vector2 size = new Vector2(Mathf.Sqrt(text.Length) * 35f, 50 + Mathf.Sqrt(text.Length) * 12f); //new Vector2(textComponant.preferredWidth*.5f + padding*2, textComponant.preferredHeight + padding * 2);
 
         myRectTransform.sizeDelta = size;
 

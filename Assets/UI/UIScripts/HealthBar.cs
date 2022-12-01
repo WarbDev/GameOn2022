@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] UIPlayerEvents events;
     [SerializeField] Image healthBarImage;
+    [SerializeField] TextMeshProUGUI textMesh;
 
     private int durationOfChange = 1;
 
@@ -24,7 +26,11 @@ public class HealthBar : MonoBehaviour
 
         DOTween.To(() => slider.value, x => slider.value = x, (float) heal, durationOfChange).SetEase(Ease.InSine);
         healthBarImage.DOColor(Color.Lerp(Color.red, Color.green, (float) heal / slider.maxValue), durationOfChange);
-        //slider.value = 0;
-        Debug.Log("I AM HURT");
+        
+    }
+
+    private void Update()
+    {
+        textMesh.text = "" + Mathf.Ceil(slider.value);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2df99681a4c5f4fbf7e4e37b2ae7bd, type: 3}
   m_Name: Move_Taunt
   m_EditorClassIdentifier: 
-  myName: Taunt
+  myName: Show 'em Your Moves
   tooltip: Pulls enemies forward by 2 tiles.\nCooldown 1.
   cooldown: 1
   range: 10

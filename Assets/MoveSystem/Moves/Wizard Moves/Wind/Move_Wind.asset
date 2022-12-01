@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb9429d6e3786941a49c634fd1dbf01, type: 3}
   m_Name: Move_Wind
   m_EditorClassIdentifier: 
-  myName: sd
+  myName: Blow Them Away
   tooltip: Pushes all enemies around a selected tile by 2 tiles.\nDoes nothing to
     the selected tile itself.\nCooldown 2.
   cooldown: 2

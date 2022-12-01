@@ -249,8 +249,20 @@ PrefabInstance:
       value: AdjustedSprite
       objectReference: {fileID: 0}
     - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -459596298, guid: c0f565e0ac675a748b9ee25a1da7deed, type: 3}
+    - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6901559519869041974, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
       propertyPath: parentTransform

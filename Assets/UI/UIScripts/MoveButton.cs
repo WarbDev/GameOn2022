@@ -27,7 +27,6 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
 
     private void Start()
     {
-
         myImage = gameObject.GetComponent<Image>();
         flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
 
@@ -127,7 +126,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ToolTipScript.ShowToolTip_Static(move.Tooltip);
+        ToolTipScript.ShowToolTip_Static(move.Name + "\n" + move.Tooltip);
     }
 
     public void OnPointerExit(PointerEventData eventData)
