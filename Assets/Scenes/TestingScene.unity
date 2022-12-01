@@ -999,6 +999,10 @@ PrefabInstance:
       propertyPath: myCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1464395134310281027, guid: 55a456aaae9e8fb4ab840ff87a0126e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1502240352750865327, guid: 55a456aaae9e8fb4ab840ff87a0126e7, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -1094,6 +1098,10 @@ PrefabInstance:
     - target: {fileID: 6195773292122721816, guid: 55a456aaae9e8fb4ab840ff87a0126e7, type: 3}
       propertyPath: m_text
       value: WHY HELLO THERE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848702896208998050, guid: 55a456aaae9e8fb4ab840ff87a0126e7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55a456aaae9e8fb4ab840ff87a0126e7, type: 3}
@@ -2319,7 +2327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 443.4444
+      value: 434.0536
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2327,11 +2335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 38.2418
+      value: 4.6955
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 94.372
+      value: 91.6
       objectReference: {fileID: 0}
     - target: {fileID: 8062188226512541143, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchorMax.y
