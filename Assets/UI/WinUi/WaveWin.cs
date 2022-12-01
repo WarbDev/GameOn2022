@@ -14,9 +14,18 @@ public class WaveWin : MonoBehaviour
     [SerializeField] TextMeshProUGUI textMesh;
     [SerializeField] List<GameObject> children;
 
+    [SerializeField] GameObject lostButton;
+
     public event Action onWinScreenDismissed;
 
+    public event Action RestartWave;
+
     private int waveNumber;
+
+    public void Restart()
+    {
+        RestartWave?.Invoke();
+    }
 
     private void Start()
     {
@@ -77,12 +86,36 @@ public class WaveWin : MonoBehaviour
         if (waveNumber == -1)
         {
             gameObject.SetActive(true);
-            textMesh.text = "And so the line was held";
+            textMesh.text = "the heros held the line";
+        }else if (waveNumber == 0)
+        {
+            playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(waveLost); // shrinks UI
         }
         else
         {
             playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(afterUiShrinks); // shrinks UI
         }
+    }
+
+    private void waveLost()
+    {
+        gameObject.SetActive(true);
+        foreach (GameObject child in children)
+        {
+            child.SetActive(false);
+        }
+        gameObject.GetComponent<Image>().DOFade(0, 3).SetEase(Ease.OutBack).OnComplete(afterExists2); // fade from white to black. Assumes that it is currently white
+    }
+
+    private void afterExists2()
+    {
+        textMesh.gameObject.SetActive(true);
+        lostButton.gameObject.SetActive(true);
+
+        textMesh.transform.DOScale(0, 1).From();
+        lostButton.transform.DOScale(0, 1).From();
+
+        textMesh.text = "GAME OVER";
     }
 
     private void afterUiShrinks()
