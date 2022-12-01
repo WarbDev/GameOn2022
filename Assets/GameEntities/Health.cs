@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
 
     public int Heal(int amount)
     {
+        reachedZeroHealth = false;
         CurrentHealth = CurrentHealth + amount;
         Healed?.Invoke((int)currentHealth);
         return (int)currentHealth;
