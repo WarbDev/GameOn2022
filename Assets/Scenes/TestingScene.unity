@@ -5628,6 +5628,26 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: Tutorial1
+      value: 
+      objectReference: {fileID: 1804338629}
+    - target: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: Tutorial2
+      value: 
+      objectReference: {fileID: 1768780983}
+    - target: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: Tutorial3
+      value: 
+      objectReference: {fileID: 1691799500}
+    - target: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: Tutorial4
+      value: 
+      objectReference: {fileID: 1842064717}
+    - target: {fileID: 2246268360478085224, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: Tutorial5
+      value: 
+      objectReference: {fileID: 1571480033}
     - target: {fileID: 3358690692860295394, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
