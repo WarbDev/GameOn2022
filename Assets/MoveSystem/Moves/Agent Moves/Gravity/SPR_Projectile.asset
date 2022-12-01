@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: SPR_Projectile
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 1e616602d07b5ea4ba68f440297f0df4, type: 3}
+  - {fileID: -668278197, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -668278197, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1691123155, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1691123155, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -1909365417, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -1909365417, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: -41129167, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}
+  - {fileID: 1238144100, guid: b364c1ce10bef964fb02ec4d27faeb37, type: 3}

@@ -8,7 +8,7 @@ public class CancelScript : MonoBehaviour
     public static CancelScript Instance;
 
     public event Action OnCancel;
-
+    private int leftClicked = 0;
 
     private void Awake()
     {
@@ -17,11 +17,16 @@ public class CancelScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonUp(0))
+        {
+            leftClicked = 0;
+        }
+
+        if (Input.GetMouseButtonDown(1) && leftClicked > 5)
         {
             Cancel();
         }
-
+        leftClicked++;
     }
 
     public void Cancel()

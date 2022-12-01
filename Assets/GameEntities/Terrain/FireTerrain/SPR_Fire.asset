@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SPR_Fire
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 255a8cddc4f450045b65c29000e2fefd, type: 3}
-  - {fileID: 21300000, guid: c1628f21aaf0a1842afd0a79c2795f06, type: 3}
-  - {fileID: 21300000, guid: a4c82dd90dfbcdb469a36d9abeacba23, type: 3}
+  - {fileID: -856563263, guid: 143ed49c1e9e41142818253d51ec3f54, type: 3}
+  - {fileID: -65590039, guid: 143ed49c1e9e41142818253d51ec3f54, type: 3}
+  - {fileID: -1143564003, guid: 143ed49c1e9e41142818253d51ec3f54, type: 3}
+  - {fileID: -1780694431, guid: 143ed49c1e9e41142818253d51ec3f54, type: 3}

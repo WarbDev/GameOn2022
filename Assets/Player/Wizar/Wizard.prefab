@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: fa5bab942afdaa0479d94c463ae99fbf, type: 3}
+    - target: {fileID: 2549046503490544928, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
+      propertyPath: Words.Array.size
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4152544370693114016, guid: ee2ae3da807da224b9398aeb9afe2e94, type: 3}
       propertyPath: IdleOnStart
       value: 1

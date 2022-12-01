@@ -95,7 +95,7 @@ public class Move_Punch : Move
 
         foreach (TerrainBase terrain in terrainLog)
         {
-            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.GetComponent<SpriteRenderer>()));
+            terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
         PlayGraphics(selected);

@@ -1385,10 +1385,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.size
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 87fb28d26b1de19408fd62c040ec95f9, type: 3}
@@ -1539,10 +1535,6 @@ PrefabInstance:
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.size
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
