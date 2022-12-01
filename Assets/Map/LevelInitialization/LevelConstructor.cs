@@ -91,6 +91,21 @@ public class LevelConstructor : MonoBehaviour
         {
             yield return null;
         }
+
+        List<GameEntity> nonBarricades = new();
+        foreach (var entity in Entities.TerrainCollection.EntitiesSet)
+        {
+            if (!(entity is BarricadeTerrain))
+            {
+                nonBarricades.Add(entity);
+            }
+        }
+        for(int i = 0; i < nonBarricades.Count; i++)
+        {
+            Entities.TerrainCollection.RemoveEntity(nonBarricades[i]);
+            Destroy(nonBarricades[i].gameObject);
+        }
+
         
         Finished?.Invoke();
     }
