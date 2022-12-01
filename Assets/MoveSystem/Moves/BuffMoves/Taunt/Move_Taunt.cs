@@ -74,7 +74,11 @@ public class Move_Taunt : Move
     private void PlayGraphics(List<PushLog> log, List<Enemy> enemies)
     {
         GameObject animator = Instantiate(AnimatorObject);
-        animator.transform.position = player.transform.position;
+
+        Vector3 difference = new Vector3(0, 1.5f);
+
+        animator.transform.position = player.transform.position + difference;
+
         A_Taunt animation = animator.GetComponent<A_Taunt>();
 
         foreach (PushLog lo in log)

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 27e0f5e1480345c4dae8c70de8fa5783
+guid: 03b0f4e430665514cb625e6ccdca8f76
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 60
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,211 +116,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_0
+      name: Blaze  gun_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b46544bb8702649b6e50917832468d
-      internalID: 159241884
+      spriteID: f92f3996e82035946b87435f2d419582
+      internalID: -1824426927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_1
+      name: Blaze  gun_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e17377e21f69945a4d72963492bfca
+      internalID: -833141633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blaze  gun_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f48122004475d468e4608da953542c
+      internalID: -714024193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blaze  gun_3
       rect:
         serializedVersion: 2
         x: 192
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 861d06748af630b438e1e21c0816cbf8
-      internalID: 1208610695
+      spriteID: 15b2fc3c837037d4ba51bbb5a3bd7ec3
+      internalID: 1992469240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_2
+      name: Blaze  gun_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7df89a03241c149a46efb3526b16c9
+      internalID: -573006534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blaze  gun_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc615c0a70bef6847b9ee1ae47e8a42e
+      internalID: -2059582233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blaze  gun_6
       rect:
         serializedVersion: 2
         x: 384
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42a44fa03f5394448a8550033340a756
-      internalID: 1209467652
+      spriteID: 324135a5cbbcdf745835530502225dcc
+      internalID: -767074478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_3
+      name: Blaze  gun_7
       rect:
         serializedVersion: 2
-        x: 576
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b24fbb5e07d7d3840a68f300e6afe328
-      internalID: 1341252153
+      spriteID: c81c4a4cf54c3ba4da0a47be85278e6b
+      internalID: -249934438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_4
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d49c5d2012da1a94d9defbe47abea978
-      internalID: -694238058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_5
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 472bb8bdc90efb8428274fa4985d6ac6
-      internalID: -40489381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_6
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 572dc870eaa48354a8682cd14470f457
-      internalID: 1755971905
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_7
-      rect:
-        serializedVersion: 2
-        x: 1344
-        y: 32
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24b484b292258a24ca8f116afc07f26b
-      internalID: 1303275248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_8
+      name: Blaze  gun_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.77, y: 0.48}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e7bab03e3ca3b45bc9cdbf943c3809
-      internalID: 614237860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LIGHTNING VERY SCARY_9
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 192
-        height: 32
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df524688a4d5fcb44add99f460b5bd42
-      internalID: -388536271
+      spriteID: 5743dbf35bc90a94ab43fee66cfba7b3
+      internalID: -1386835152
       vertices: []
       indices: 
       edges: []
@@ -336,22 +315,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LIGHTNING VERY SCARY_4: -694238058
-      LIGHTNING VERY SCARY_10: 1314602477
-      LIGHTNING VERY SCARY_1: 1208610695
-      LIGHTNING VERY SCARY_6: 1755971905
-      LIGHTNING VERY SCARY_8: 614237860
-      LIGHTNING VERY SCARY_15: 567304751
-      LIGHTNING VERY SCARY_2: 1209467652
-      LIGHTNING VERY SCARY_3: 1341252153
-      LIGHTNING VERY SCARY_0: 159241884
-      LIGHTNING VERY SCARY_12: 357431085
-      LIGHTNING VERY SCARY_14: 2142377024
-      LIGHTNING VERY SCARY_7: 1303275248
-      LIGHTNING VERY SCARY_11: 1362149875
-      LIGHTNING VERY SCARY_9: -388536271
-      LIGHTNING VERY SCARY_5: -40489381
-      LIGHTNING VERY SCARY_13: -1444256176
+      Blaze  gun_2: -714024193
+      Blaze  gun_1: -833141633
+      Blaze  gun_4: -573006534
+      Blaze  gun_8: -1386835152
+      Blaze  gun_5: -2059582233
+      Blaze  gun_7: -249934438
+      Blaze  gun_3: 1992469240
+      Blaze  gun_0: -1824426927
+      Blaze  gun_6: -767074478
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

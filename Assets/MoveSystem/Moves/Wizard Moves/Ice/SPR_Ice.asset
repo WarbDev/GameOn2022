@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: SPR_Ice
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: c231cc5972da0e0468e4b9cbe5e70039, type: 3}
+  - {fileID: -574310524, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 1120462695, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 1066500547, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 633804490, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: -1819239998, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 1044167585, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 510499482, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 5539011, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 856825965, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: 419577056, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}
+  - {fileID: -11900363, guid: 172c833b76c6a1c4488bfb5ba5b0c31c, type: 3}

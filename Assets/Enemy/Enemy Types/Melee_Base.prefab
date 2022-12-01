@@ -9,8 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3801775929619048066, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_Name
-      value: BasicEnemyPrefab
+      value: Melee_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 5286819140139706734, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 70271421325540104}
+    - target: {fileID: 5286819140139706734, guid: bed06654961aa864eac528555d4541cc, type: 3}
+      propertyPath: spriteAnimation
+      value: 
+      objectReference: {fileID: 7056845615823129985}
     - target: {fileID: 9077199116930187973, guid: bed06654961aa864eac528555d4541cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,3 +65,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bed06654961aa864eac528555d4541cc, type: 3}
+--- !u!212 &70271421325540104 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3742150126084035941, guid: bed06654961aa864eac528555d4541cc, type: 3}
+  m_PrefabInstance: {fileID: 3681533037492072045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8385293599797431303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5136886236494701162, guid: bed06654961aa864eac528555d4541cc, type: 3}
+  m_PrefabInstance: {fileID: 3681533037492072045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7056845615823129985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385293599797431303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 0}
+  ease: 1
+  duration: 0.7
+  loops: 0

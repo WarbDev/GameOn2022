@@ -7,6 +7,14 @@ public class A_Lightning : MonoBehaviour
 {
     [SerializeField] public LightningAnimation moveAnimation;
     List<DamageLog> log;
+    [SerializeField] SpriteRenderer render;
+
+
+    public void Flip()
+    {
+        render.flipX = true;
+    }
+
 
     public void PlayAnimation(List<Location> area, List<DamageLog> logs)
     {
