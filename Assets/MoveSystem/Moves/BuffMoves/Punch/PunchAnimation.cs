@@ -19,11 +19,13 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
     List<DamageLog> log;
     Enemy enemy;
+    List<Action> scyth;
 
     public override event Action<EntityAnimation<PunchAnimationProperties>> AnimationFinished;
 
     public override void Play(PunchAnimationProperties animationProperties)
     {
+        scyth = animationProperties.scyth;
         enemy = animationProperties.Enemy;
         log = animationProperties.DamageLog;
 
@@ -53,6 +55,11 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
         spriteAnimation.Play(new(targetSprite));
         currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
 
+        foreach (Action die in scyth)
+        {
+            die?.Invoke();
+        }
+
         foreach (DamageLog damaged in log)
         {
             damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
@@ -70,14 +77,16 @@ public class PunchAnimationProperties : IAnimationProperties
     List<DamageLog> damageLog;
     List<PushLog> pushLog;
     Enemy enemy;
+    public List<Action> scyth;
 
     public Vector3 EndPosition { get => endPosition; }
     public List<DamageLog> DamageLog { get => damageLog; }
     public List<PushLog> PushLog { get => pushLog; }
     public Enemy Enemy { get => enemy; }
 
-    public PunchAnimationProperties(Vector3 endPosition, List<DamageLog> damageLog, List<PushLog> pushLog, Enemy enemy)
+    public PunchAnimationProperties(Vector3 endPosition, List<DamageLog> damageLog, List<PushLog> pushLog, Enemy enemy, List<Action> scyth)
     {
+        this.scyth = scyth;
         this.endPosition = endPosition;
         this.damageLog = damageLog;
         this.pushLog = pushLog;

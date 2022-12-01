@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class A_Punch : MonoBehaviour
 {
     [SerializeField] public PunchAnimation moveAnimation;
 
-    public void PlayAnimation(Vector3 endPoint, List<DamageLog> damageLog, List<PushLog> pushLog, Enemy enemy)
+    public void PlayAnimation(Vector3 endPoint, List<DamageLog> damageLog, List<PushLog> pushLog, Enemy enemy, List<Action> scyth)
     {
         moveAnimation.AnimationFinished -= End;
         moveAnimation.AnimationFinished += End;
-        moveAnimation.Play(new PunchAnimationProperties(endPoint, damageLog, pushLog, enemy));
+        moveAnimation.Play(new PunchAnimationProperties(endPoint, damageLog, pushLog, enemy, scyth));
     }
 
 

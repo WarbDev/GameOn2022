@@ -74,9 +74,13 @@ public class Move_Punch : Move
 
         enemies = LocationUtility.GetEnemiesInPositions(location);
         damageLog = new();
+        List<Action> scyth = new();
         foreach (Enemy enemy in enemies)
         {
-            damageLog.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
+            DamageableWithHealthComponent dam = enemy.GetComponent<DamageableWithHealthComponent>();
+
+            damageLog.Add(dam.DealDamage(new Damage(damage, player), out Action triggerDeath));
+            scyth.Add(triggerDeath);
         }
 
 
@@ -98,11 +102,11 @@ public class Move_Punch : Move
             terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
-        PlayGraphics(selected, enemies[0]);
+        PlayGraphics(selected, enemies[0], scyth);
 
     }
 
-    private void PlayGraphics(Location location, Enemy enemy)
+    private void PlayGraphics(Location location, Enemy enemy, List<Action> scyth)
     {
 
         GameObject animation = Instantiate(animatorObject);
@@ -117,7 +121,7 @@ public class Move_Punch : Move
 
         enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(pushLog[0]));
 
-        animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog, enemy);
+        animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog, enemy, scyth);
 
         //foreach (DamageLog damaged in damageLog)
         //{
