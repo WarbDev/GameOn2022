@@ -22,6 +22,8 @@ public class PhaseEnd : MonoBehaviour
     public event Action NewPlayerPhase;
     static Func<bool> batchCheck = () => false;
 
+    public event Action DeathAnimationTick;
+
     private void Start()
     {
         batchCheck = waveRunner.NoMoreBatches;
@@ -29,6 +31,7 @@ public class PhaseEnd : MonoBehaviour
 
     public void EndPhase(Phase phase)
     {
+        DeathAnimationTick?.Invoke();
         StartCoroutine(EndPhaseRoutine(phase));
     }
 

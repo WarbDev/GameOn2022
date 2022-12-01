@@ -8,6 +8,7 @@ public class PlayerTurnMovement : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] ObstructionCheckerComponent obstructionChecker;
     [SerializeField] MovementPlanningInput input;
+    [SerializeField] CancelScript cancelScript;
     Dictionary<Location, MovementOption> movementOptions;
 
     /// <summary>
@@ -25,11 +26,13 @@ public class PlayerTurnMovement : MonoBehaviour
     {
         movementOptions = GenerateMovementOptions();
         input.StartRetrieving(movementOptions);
+        cancelScript.OnCancel += CancelPlanning;
     }
 
     void OnSelectedLocation(Location location)
     {
         input.StopRetrieving();
+        cancelScript.OnCancel -= CancelPlanning;
         if (movementOptions[location] == MovementOption.SWAP)
         {
             Player secondPlayer;
@@ -45,6 +48,7 @@ public class PlayerTurnMovement : MonoBehaviour
 
     public void CancelPlanning()
     {
+        cancelScript.OnCancel -= CancelPlanning;
         input.StopRetrieving();
         DidMovement?.Invoke(false);
     }
