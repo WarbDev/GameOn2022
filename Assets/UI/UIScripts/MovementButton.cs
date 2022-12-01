@@ -4,8 +4,9 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
-public class MovementButton : MonoBehaviour, IBroadcastVoid
+public class MovementButton : MonoBehaviour, IBroadcastVoid, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] UIPlayerEvents events;
@@ -101,5 +102,15 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid
     public void Clicked()
     {
         Broadcast?.Invoke();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ToolTipScript.ShowToolTip_Static("Move this character");
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ToolTipScript.HideToolTip_Static();
     }
 }

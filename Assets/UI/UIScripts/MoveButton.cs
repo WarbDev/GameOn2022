@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class MoveButton : MonoBehaviour, IBroadcastMove
+public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, IPointerExitHandler
 {
     public event Action<Move> Broadcast;
     [SerializeField] Move move;
@@ -122,5 +123,15 @@ public class MoveButton : MonoBehaviour, IBroadcastMove
     public void Clicked()
     {
         Broadcast?.Invoke(move);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ToolTipScript.ShowToolTip_Static(move.Tooltip);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ToolTipScript.HideToolTip_Static();
     }
 }

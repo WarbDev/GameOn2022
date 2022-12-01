@@ -19,18 +19,4 @@ public class BarkPlayerComponant : MonoBehaviour
     {
         talkBark.PlayBark(gameObject, canvas, camera);
     }
-
-    
-
-    //// Update is called once per frame
-    //void Update()
-    //{ 
-    //    CurrentDuration += 1;
-    //    if (CurrentDuration >= MaxDuration)
-    //    {
-    //        CurrentDuration = 0;
-    //        //PlayMyBark();
-    //    }
-
-    //}
 }
