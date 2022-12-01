@@ -34,7 +34,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
 
     public virtual void AddStun(int duration)
     {
-        stunDuration += 1;
+        stunDuration += duration;
     }
 
     public void OnRoundTick()

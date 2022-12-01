@@ -46,6 +46,7 @@ public class WallScript : MonoBehaviour
 
         
         pivot.transform.SetPositionAndRotation(pivot.transform.position, Quaternion.identity);
+        pivot.transform.eulerAngles = new Vector3(40, 0);
         Vector3 targetPositionovershoot = new Vector3(-60, 0, 0); // to go from 180 to -60
         Vector3 targetPosition = new Vector3(-45, 0, 0); // to go from -60 to -45
 

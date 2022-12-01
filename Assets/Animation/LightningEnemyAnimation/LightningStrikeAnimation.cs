@@ -9,7 +9,12 @@ public class LightningStrikeAnimation : EntityAnimation<LightningStrikePropertie
     public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
 
     [SerializeField] Transform affectedTransform;
+    [SerializeField] SpriteRenderer enemySpriteRenderer;
+    [SerializeField] SpriteAnimation enemySpriteAnimation;
     [SerializeField] ChargeAnimation chargeAnimation;
+    [SerializeField] AudioClip clip;
+    
+    [SerializeField] SpriteAnimation lightningSpriteAnimation;
     Sequence currentlyPlaying;
 
     public override event Action<EntityAnimation<LightningStrikeProperties>> AnimationFinished;
@@ -32,8 +37,32 @@ public class LightningStrikeAnimation : EntityAnimation<LightningStrikePropertie
                 animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(damageLog));
             }
             a.AnimationFinished -= onComplete;
-            AnimationFinished?.Invoke(this);
+
+            enemySpriteAnimation.Play(new(enemySpriteRenderer));
+
+            StartCoroutine(LightningBolt());
+
+            enemySpriteAnimation.AnimationFinished += finished;
+
+            void finished(EntityAnimation e)
+            {
+                AnimationFinished?.Invoke(this);
+            }
         } 
+    }
+
+    private IEnumerator LightningBolt()
+    {
+        yield return new WaitForSeconds(.5f);
+        gameObject.SetActive(true);
+        lightningSpriteAnimation.Play(new(gameObject.GetComponent<SpriteRenderer>()));
+        lightningSpriteAnimation.AnimationFinished += finished;
+
+
+        void finished(EntityAnimation e)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
 
