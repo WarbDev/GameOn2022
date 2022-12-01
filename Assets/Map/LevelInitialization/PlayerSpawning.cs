@@ -15,6 +15,7 @@ public class PlayerSpawning : MonoBehaviour
             players[i].Animatable.SetIdleAfterAnimationEnds(true);
             players[i].Animatable.PlayAnimation<SpriteAnimationProperties>(ANIMATION_ID.ENTITY_IDLE, new(players[i].adjustedSpriteRenderer));
             players[i].ResetCooldowns();
+            players[i].adjustedSpriteRenderer.color = Color.white;
         }
     }
 
