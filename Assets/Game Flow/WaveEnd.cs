@@ -16,7 +16,7 @@ public class WaveEnd : MonoBehaviour
     {
         bool needsRestart = false;
 
-        // waveWin.RestartWave += setRestart
+        waveWin.RestartWave += setRestart;
         levelConstructor.Finished += onDeconstructed;
         levelConstructor.Derun(waveRunner.currentWave);
         
@@ -31,11 +31,11 @@ public class WaveEnd : MonoBehaviour
         void onWinScreenDismissed()
         {
             waveWin.onWinScreenDismissed -= onWinScreenDismissed;
-            // waveWin.RestartWave -= setRestart
+            waveWin.RestartWave -= setRestart;
 
             if (needsRestart)
             {
-                // waveBegin.BeginWave(waveRunner.GetSameWave());
+                waveBegin.BeginWave(waveRunner.GetSameWave());
             }
             else if (!waveRunner.OnLastWave())
             {
