@@ -16,6 +16,12 @@ public class WaveWin : MonoBehaviour
 
     [SerializeField] GameObject lostButton;
 
+    [SerializeField] GameObject Tutorial1;
+    [SerializeField] GameObject Tutorial2;
+    [SerializeField] GameObject Tutorial3;
+    [SerializeField] GameObject Tutorial4;
+    [SerializeField] GameObject Tutorial5;
+
     public event Action onWinScreenDismissed;
 
     public event Action RestartWave;
@@ -30,11 +36,6 @@ public class WaveWin : MonoBehaviour
     private void Start()
     {
         button.GetComponent<RoundEndButton>().Click += onClick;
-
-        foreach (GameObject child in children)
-        {
-            
-        }
     }
 
     public void onClick()
@@ -42,6 +43,27 @@ public class WaveWin : MonoBehaviour
         foreach (GameObject child in children)
         {
             child.transform.DOScale(0, 1);  //scales all the buttons to nothing
+        }
+
+        if (waveNumber == 2)
+        {
+            Tutorial1.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 3)
+        {
+            Tutorial2.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 4)
+        {
+            Tutorial3.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 6)
+        {
+            Tutorial4.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 8)
+        {
+            Tutorial5.transform.DOMoveY(from, length);
         }
 
         StartCoroutine(FadeOut());
@@ -55,6 +77,12 @@ public class WaveWin : MonoBehaviour
 
     private void FinishedFading()
     {
+        Tutorial1.SetActive(false);
+        Tutorial2.SetActive(false);
+        Tutorial3.SetActive(false);
+        Tutorial4.SetActive(false);
+        Tutorial5.SetActive(false);
+
         gameObject.SetActive(false);
 
         playerUi.transform.DOScaleY(1f, 1f).SetEase(Ease.OutBack); //scales in player UI
@@ -87,7 +115,9 @@ public class WaveWin : MonoBehaviour
         {
             gameObject.SetActive(true);
             textMesh.text = "the heros held the line";
-        }else if (waveNumber == 0)
+            button.SetActive(false);
+        }
+        else if (waveNumber == 0)
         {
             playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(waveLost); // shrinks UI
         }
@@ -129,6 +159,9 @@ public class WaveWin : MonoBehaviour
 
     }
 
+    private int from = -50;
+    private float length = 1f;
+
     private void afterExists()
     {
         foreach (GameObject child in children)
@@ -137,5 +170,31 @@ public class WaveWin : MonoBehaviour
             child.transform.DOScale(0, 1).From(); //fades alpha from 0 to 1. assumes that it is currently at full alpha
         }
         textMesh.text = "WAVE " + waveNumber + " COMPLETE!";
+
+        if (waveNumber == 2)
+        {
+            Tutorial1.SetActive(true);
+            Tutorial1.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 3)
+        {
+            Tutorial2.SetActive(true);
+            Tutorial2.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 4)
+        {
+            Tutorial3.SetActive(true);
+            Tutorial3.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 6)
+        {
+            Tutorial4.SetActive(true);
+            Tutorial4.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 8)
+        {
+            Tutorial5.SetActive(true);
+            Tutorial5.transform.DOMoveY(from, length).From();
+        }
     }
 }

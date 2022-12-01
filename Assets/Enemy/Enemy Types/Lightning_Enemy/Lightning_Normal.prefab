@@ -412,10 +412,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 7680876166364120892}
     m_Modifications:
     - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 44e3faa2af0ec0d42b4c12b2eef8085f, type: 3}
-    - target: {fileID: 543961870747850097, guid: 46305be41b6ec3c42b15dbbeddca3f8a, type: 3}
       propertyPath: beamObject
       value: 
       objectReference: {fileID: 6125399380732365676, guid: 52ea019cfb7af874bba33f5289647db0, type: 3}
