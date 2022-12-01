@@ -5,6 +5,25 @@ using UnityEngine;
 public class PlayerSpawning : MonoBehaviour
 {
     [SerializeField] List<Player> players = new();
+    [SerializeField] WaveWin waveWin;
+
+    private void Start()
+    {
+        waveWin.RestartWave += HealPlayersToFull;
+    }
+
+    private void OnDestroy()
+    {
+        waveWin.RestartWave -= HealPlayersToFull;
+    }
+    
+    void HealPlayersToFull()
+    {
+        foreach (var player in players)
+        {
+            player.Health.Heal(500);
+        }
+    }
 
     public void SpawnPlayers()
     {
