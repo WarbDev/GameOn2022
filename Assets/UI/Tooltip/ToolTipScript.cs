@@ -29,7 +29,7 @@ public class ToolTipScript : MonoBehaviour
     {
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRectTransform, Input.mousePosition, myCamera, out localPoint);
-        transform.localPosition = localPoint + new Vector2(0, myRectTransform.sizeDelta.y/2);
+        transform.localPosition = localPoint;
     }
 
     private void ShowToolTip(string text)
@@ -38,7 +38,7 @@ public class ToolTipScript : MonoBehaviour
 
         textComponant.text = text;
         int padding = 15;
-        Vector2 size = new Vector2(textComponant.preferredWidth*.25f + padding*2, textComponant.preferredHeight * .25f + padding * 2);
+        Vector2 size = new Vector2(textComponant.preferredWidth*.5f + padding*2, textComponant.preferredHeight * .5f + padding * 2);
 
         myRectTransform.sizeDelta = size;
 
@@ -52,12 +52,10 @@ public class ToolTipScript : MonoBehaviour
     public static void ShowToolTip_Static(string tooltipString)
     {
         instance.ShowToolTip(tooltipString);
-        Debug.Log("Show Me");
     }
 
     public static void HideToolTip_Static()
     {
         instance.HideToolTip();
-        Debug.Log("Hide Me");
     }
 }

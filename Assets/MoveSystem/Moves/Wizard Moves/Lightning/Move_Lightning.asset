@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Move_Lightning
   m_EditorClassIdentifier: 
   myName: Lightning
-  tooltip: THUN DA
+  tooltip: Deals 2 damage to all entities in a line. Cooldown 3.
   cooldown: 3
   animatorObject: {fileID: 4964562316847796961, guid: dcc822019a2915445bcec15f74cbd611, type: 3}
   range: 10

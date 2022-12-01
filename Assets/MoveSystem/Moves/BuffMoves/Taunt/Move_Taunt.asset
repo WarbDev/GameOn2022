@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Move_Taunt
   m_EditorClassIdentifier: 
   myName: Taunt
-  tooltip: tanuta
+  tooltip: Pulls enemies forward by 2 tiles. Cooldown 1.
   cooldown: 1
   range: 10
   force: 2

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Move_Wind
   m_EditorClassIdentifier: 
   myName: sd
-  tooltip: winnd
+  tooltip: Pushes all enemies around a selected tile by 2 tiles. Does nothing to
+    the selected tile itself. Cooldown 2.
   cooldown: 2
   range: 6
   radius: 1
