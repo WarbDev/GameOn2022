@@ -12,6 +12,7 @@ public class Bark : MonoBehaviour
     [SerializeField] List<string> Words;
     [SerializeField] GameObject TextBox; //This TextBox is the child of gameObject
     [SerializeField] float DurationInSeconds;
+    [SerializeField] bool isBuff;
     private GameObject instance;
 
     public bool finishedAnimation = false;
@@ -21,6 +22,8 @@ public class Bark : MonoBehaviour
     Canvas canvas;
     public Camera cameraa;
 
+    private int barkNumber = 0;
+
     public void setBark(Camera camera)
     {
         //cameraa = camera;
@@ -29,7 +32,6 @@ public class Bark : MonoBehaviour
 
     public void PlayBark(GameObject player, Canvas canvas, Camera camera)
     {
-        
         this.enabled = true;
         this.canvas = canvas;
         this.player = player;
@@ -46,12 +48,27 @@ public class Bark : MonoBehaviour
     private void SetText(GameObject player)
     {
 
+        string saying;
+        if (barkNumber == 0 && isBuff)
+        {
+            saying = "The reason why I'm so strong is simple.";
+        } 
+        else if (barkNumber == 1 && isBuff)
+        {
+            saying = "100 push-ups every day";
+        }
+        else if (barkNumber == 2 && isBuff)
+        {
+            saying = "and a high-protein diet invented by top bodybuilders";
+        }
+        else
+        {
+            int randNumber = Random.Range(0, Words.Count);
+            saying = Words[randNumber];
+        }
 
-        int randNumber = Random.Range(0, Words.Count);
-        string saying = Words[randNumber];
+
         TextBox.GetComponent<TextMeshProUGUI>().SetText(saying);
-        Debug.Log(saying);
-
         Bark instance = Instantiate(this);
         Destroy(instance.gameObject, DurationInSeconds);
 
@@ -83,6 +100,7 @@ public class Bark : MonoBehaviour
 
         instance.transform.DOMove(player.transform.position + instance.diff, 1).OnComplete(() => instance.finishedAnimation = true);
 
+        barkNumber++;
     }
 
 

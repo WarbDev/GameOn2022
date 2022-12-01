@@ -1608,6 +1608,10 @@ PrefabInstance:
       propertyPath: cameraa
       value: 
       objectReference: {fileID: 741557224}
+    - target: {fileID: 7692335473658351590, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: alwaysPlay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8147330691446363383, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
       value: 
@@ -2158,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6595987619380932377, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6595987619380932379, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

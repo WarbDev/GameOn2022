@@ -31,7 +31,7 @@ public class BarkManager : MonoBehaviour
         if (rand > .5 || alwaysPlay)
         {
             rand = Random.Range(0f, 1f);
-            if (rand < .33)
+            if (rand < 100)
             {
                 bufBark.PlayMyBark(canvas, cameraa);
             }

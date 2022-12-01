@@ -271,6 +271,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1159778448341331541}
     m_Modifications:
     - target: {fileID: 5601509652839338267, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
+      propertyPath: isBuff
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601509652839338267, guid: 8629ccec9fea6c3448c967ea4295d44b, type: 3}
       propertyPath: Words.Array.size
       value: 34
       objectReference: {fileID: 0}

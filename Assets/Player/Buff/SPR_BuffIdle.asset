@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: SPR_BuffIdle
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1659844874, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: 503748903, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: 149568260, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: -1446400234, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: -231305381, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: 1094440911, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: 2098156538, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: -1028407763, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: -1888632394, guid: e137c6fa58c498041b152d9486c83933, type: 3}
-  - {fileID: -1992037191, guid: e137c6fa58c498041b152d9486c83933, type: 3}
+  - {fileID: -880222318, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: -1828599029, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: -1877752940, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: -993426659, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: 1007085670, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: 207926810, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: -386909469, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: 1122058782, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: 750702816, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: -2001945033, guid: deba670044bde0f479151b2756970ee2, type: 3}
+  - {fileID: 1918429463, guid: deba670044bde0f479151b2756970ee2, type: 3}
