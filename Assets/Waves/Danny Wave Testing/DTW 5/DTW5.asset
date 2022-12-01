@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
   m_Name: DTW5
   m_EditorClassIdentifier: 
-  height: 0
-  rightLength: 0
-  leftLength: 0
-  initialEnemies: {fileID: 0}
-  batchEntries: []
+  height: 5
+  rightLength: 7
+  leftLength: 7
+  initialEnemies: {fileID: 11400000, guid: a5b2c8798a562114eaf377bc781fc7f8, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: 95892d88c1860c74cbeebf5280c51315, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: a1c16f67a35ad6048b61f2a60d1d2c35, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 9c426b856bbb1f04bbc2cce2e590f4db, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 5a651f88d14f361429c449c3844b95d0, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 116438c2635aa8245973c176f8c3eb43, type: 2}
+    Delay: 0
+    Notes: 

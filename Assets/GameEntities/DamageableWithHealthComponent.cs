@@ -39,6 +39,35 @@ public class DamageableWithHealthComponent : DamageableComponent, IDamageable
             }
         }
     }
+    public DamageLog DealDamage(Damage damage, out Action action)
+    {
+        action = () => { };
+        mostRecentDamageWasAnimated = false;
+
+
+        float oldHealth = health.CurrentHealth;
+        float newHealth = health.ReduceHealth(damage.Base);
+        animatableEntity.PlayedNewAnimation += checkIfHurtPlayed;
+        if (IsDead)
+        {
+            action = () => {
+                deathManager.Die();
+                GameFlow.DeathAnimationTick += DoDeathAnimation;
+            };
+            
+        }
+        return new DamageLog(this, oldHealth, newHealth, damage);
+
+        void checkIfHurtPlayed(ANIMATION_ID id)
+        {
+            if (id == ANIMATION_ID.ENTITY_HURT)
+            {
+                DamageAnimationPlayed?.Invoke((int)newHealth);
+                mostRecentDamageWasAnimated = true;
+                animatableEntity.PlayedNewAnimation -= checkIfHurtPlayed;
+            }
+        }
+    }
 
     void DoDeathAnimation()
     {
