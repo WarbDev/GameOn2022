@@ -143,11 +143,12 @@ public class GameTileCreator : MonoBehaviour
             yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
         }
         
-        foreach(var row in activeRows)
+        for(int i = 0; i < activeRows.Count; i++)
         {
             Sequence sequence = DOTween.Sequence();
-            row.transform.DOLocalMoveZ(100, 1f);
+            activeRows[i].transform.DOLocalMoveZ(1000, 1f).SetEase(Ease.OutExpo);
             yield return new WaitForSeconds(0.05f);
+            darkTileRowPool.Release(activeRows[i]);
         }
         yield return new WaitForSeconds(1f);
         darkTileRowPool.Dispose();
