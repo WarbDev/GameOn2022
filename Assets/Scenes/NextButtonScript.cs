@@ -8,6 +8,7 @@ public class NextButtonScript : MonoBehaviour
     [SerializeField] GameObject Tutorial1;
     [SerializeField] GameObject Tutorial2;
     [SerializeField] GameObject Tutorial3;
+    [SerializeField] GameObject Credits;
     private int spot = 0;
 
     private void OnEnable()
@@ -15,6 +16,7 @@ public class NextButtonScript : MonoBehaviour
         Tutorial1.SetActive(true);
         Tutorial2.SetActive(false);
         Tutorial3.SetActive(false);
+        Credits.SetActive(false);
     }
 
     public void OnClick()
@@ -32,8 +34,13 @@ public class NextButtonScript : MonoBehaviour
         }
         else if (spot == 3)
         {
-            spot = 0;
             Tutorial3.SetActive(false);
+            Credits.SetActive(true);
+        }
+        else if (spot == 4)
+        {
+            spot = 0;
+            Credits.SetActive(false);
             TutorialPanel.SetActive(false);
         }
     }
