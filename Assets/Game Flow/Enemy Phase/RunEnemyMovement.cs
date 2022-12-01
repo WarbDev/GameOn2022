@@ -48,20 +48,24 @@ public class RunEnemyMovement : MonoBehaviour
             readyForNext = false;
             var enemy = enemiesToCalculate.Dequeue();
 
-            // If not using the timer, pause the method until the animation of the latest enemy turn ends.
-            if (!useTimer)
+            if (enemy != null)
             {
-                enemy.EnemyMovement.MovementFinished += IndicateReady;
-                enemy.EnemyMovement.DoTurnMovement();
-                yield return new WaitUntil(() => readyForNext);
-            }
+                // If not using the timer, pause the method until the animation of the latest enemy turn ends.
+                if (!useTimer)
+                {
+                    enemy.EnemyMovement.MovementFinished += IndicateReady;
+                    enemy.EnemyMovement.DoTurnMovement();
+                    yield return new WaitUntil(() => readyForNext);
+                }
 
-            // If using the timer, pause the method until the timer in seconds has passed.
-            if (useTimer)
-            {
-                enemy.EnemyMovement.DoTurnMovement();
-                yield return new WaitForSeconds(timer);
+                // If using the timer, pause the method until the timer in seconds has passed.
+                if (useTimer)
+                {
+                    enemy.EnemyMovement.DoTurnMovement();
+                    yield return new WaitForSeconds(timer);
+                }
             }
+            
 
             MovementTick?.Invoke();
         }

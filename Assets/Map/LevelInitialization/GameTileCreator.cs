@@ -186,6 +186,10 @@ public class GameTileCreator : MonoBehaviour
         tileScript.gameObject.name = "Tile (" + location.X + ", " + location.Y + ")";
 
         Entities.MapTileCollection.AddEntity(tileScript);
+        if (LocationUtility.TryGetTerrain(location, out TerrainBase terrain))
+        {
+            terrain.SetLocation(location, true);
+        }
         TileCreated?.Invoke(tileScript);
         return tileScript;
     }
