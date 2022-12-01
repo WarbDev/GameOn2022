@@ -23,6 +23,8 @@ public class LightningStrikeAnimation : EntityAnimation<LightningStrikePropertie
 
         currentlyPlaying = DOTween.Sequence();
 
+        GlobalAudioSource.Instance.Play(clip);
+
         spriteAnimation.Play(new(myRenderer));
         myRenderer.sortingLayerName = "Barks";
         currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);

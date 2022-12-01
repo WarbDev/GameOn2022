@@ -141,6 +141,8 @@ public class WaveWin : MonoBehaviour
     {
         textMesh.gameObject.SetActive(true);
         lostButton.gameObject.SetActive(true);
+        lostButton.transform.localScale = new Vector3(1, 1, 1);
+
 
         textMesh.transform.DOScale(0, 1).From();
         lostButton.transform.DOScale(0, 1).From();
@@ -155,11 +157,12 @@ public class WaveWin : MonoBehaviour
         {
             child.SetActive(false);
         }
+        lostButton.transform.DOScale(0, 1);
         gameObject.GetComponent<Image>().DOFade(0, 3).From().SetEase(Ease.OutBack).OnComplete(afterExists); // fade from black to white. Assumes that it is currently white
 
     }
 
-    private int from = -50;
+    private int from = -150;
     private float length = 1f;
 
     private void afterExists()

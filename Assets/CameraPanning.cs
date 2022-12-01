@@ -27,7 +27,7 @@ public class CameraPanning : MonoBehaviour
     private int horizonalTime = 0;
     private int verticalTime = 0;
     //private bool startedPressingButton = true;
-    private int waitTime = 8;
+    private int waitTime = 1;
 
     private int moveTime = 0;
     private int timePerCameraMove = 20;

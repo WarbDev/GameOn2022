@@ -55,7 +55,7 @@ MonoBehaviour:
   Clips: []
   Words: []
   TextBox: {fileID: 8313531341921526562}
-  DurationInSeconds: 5
+  DurationInSeconds: 4
   isBuff: 0
   finishedAnimation: 0
   diff: {x: 0, y: 0, z: 0}
