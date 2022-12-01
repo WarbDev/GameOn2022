@@ -85,7 +85,7 @@ public class PhaseEnd : MonoBehaviour
     {
         if (winState == WinState.ENEMY_WIN)
         {
-            Debug.Log("FAILURE!!!!!!!!!!!!!!!!");
+            waveEnd.RunWaveEnd(0);
         }
         if (winState == WinState.VICTORY)
         {
