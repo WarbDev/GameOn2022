@@ -14,7 +14,7 @@ public class WaveEnd : MonoBehaviour
 
     public void RunWaveEnd(int waveNumber)
     {
-        bool needsRestart = true;
+        bool needsRestart = false;
 
         // waveWin.RestartWave += setRestart
         levelConstructor.Finished += onDeconstructed;
