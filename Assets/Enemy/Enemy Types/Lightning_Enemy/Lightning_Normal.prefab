@@ -56,6 +56,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
+      propertyPath: vibrato
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
+      propertyPath: duration
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
+      propertyPath: sRenderer
+      value: 
+      objectReference: {fileID: 2888214117335218174}
+    - target: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
+      propertyPath: spriteAnimation
+      value: 
+      objectReference: {fileID: 5399847052265698023}
+    - target: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
       propertyPath: affectedTransform
       value: 
       objectReference: {fileID: 7350585260955508830}
@@ -66,12 +82,33 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6806984584379600758, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
   m_PrefabInstance: {fileID: 698612765047385061}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6324950473714590869}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d18e3255f0d1e3458d9faf1bc5a12f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6324950473714590869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6806984584379600752, guid: 5cf4d3a13ea25da4b854b8652a02f5e4, type: 3}
+  m_PrefabInstance: {fileID: 698612765047385061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5399847052265698023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324950473714590869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb512d1cb44216147b0135ab61ea5fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteSet: {fileID: 11400000, guid: bedfa5dfb13a66e499d0426ab2bb658d, type: 2}
+  ease: 1
+  duration: 0.7
+  loops: 0
 --- !u!1001 &2015984090756719259
 PrefabInstance:
   m_ObjectHideFlags: 0

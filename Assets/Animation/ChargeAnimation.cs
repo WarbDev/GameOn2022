@@ -26,6 +26,9 @@ public class ChargeAnimation : EntityAnimation<ChargeAnimationProperties>
     [SerializeField] int vibrato = 0;
     [SerializeField] List<AudioClip> clips;
 
+    [SerializeField] SpriteRenderer sRenderer;
+    [SerializeField] SpriteAnimation spriteAnimation;
+
     Sequence currentlyPlaying;
 
     public override event Action<EntityAnimation<ChargeAnimationProperties>> AnimationFinished;
@@ -42,6 +45,8 @@ public class ChargeAnimation : EntityAnimation<ChargeAnimationProperties>
 
         // Join together the primary animation with the sprite animation, and announce completion when done.
         currentlyPlaying = chargeSequence;
+        spriteAnimation.Play(new(sRenderer));
+
 
         StartCoroutine(endMe());
     }

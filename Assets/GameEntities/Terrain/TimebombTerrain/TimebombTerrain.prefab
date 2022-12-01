@@ -59,7 +59,7 @@ MonoBehaviour:
   adjustedRenderer: {fileID: 5792537915183999313}
   explodeAnimation: {fileID: -3057631007491969950}
   explodeClip: {fileID: 8300000, guid: 0b9ca925b7a31f94a8eaa5bdf5a0a9b5, type: 3}
-  TurnsUntilBoom: 1
+  TurnsUntilBoom: 3
 --- !u!114 &9006775245249310953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     keyCollision: 0
   playingActiveAnimation: 0
   spriteRenderer: {fileID: 5792537915183999313}
-  IdleOnStart: 0
+  IdleOnStart: 1
   IdleAfterAnimationEnds: 0
 --- !u!114 &459776572540433599
 MonoBehaviour:
@@ -141,8 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteSet: {fileID: 11400000, guid: bbac1b15290af4141a406dc1e29e73f4, type: 2}
   ease: 1
-  duration: 1
-  loops: 0
+  duration: 0.5
+  loops: -1
 --- !u!1001 &2256412275104076414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: cb4da065365626f438c4aa3bdd208b8f, type: 3}
+    - target: {fileID: 5707003599682206511, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6901559519869041974, guid: 5de94447b30699f4cafd3372d4144bf2, type: 3}
       propertyPath: m_Enabled
       value: 1

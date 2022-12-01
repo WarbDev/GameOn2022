@@ -24,6 +24,7 @@ public class LightningStrikeAnimation : EntityAnimation<LightningStrikePropertie
         currentlyPlaying = DOTween.Sequence();
 
         spriteAnimation.Play(new(myRenderer));
+        myRenderer.sortingLayerName = "Barks";
         currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
 
 
@@ -33,12 +34,14 @@ public class LightningStrikeAnimation : EntityAnimation<LightningStrikePropertie
 
     private IEnumerator End()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         foreach (var damageLog in props.damageLogs)
         {
             IAnimatable animatable = damageLog.Target.Entity as IAnimatable;
             animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENTITY_HURT, new(damageLog));
         }
+        yield return new WaitForSeconds(.5f);
+        myRenderer.sortingLayerName = "Entities";
         AnimationFinished?.Invoke(this);
     }
 }
