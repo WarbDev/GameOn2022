@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: SPR_Lightning
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 6e49c58e5f0e1bf4ea927f275dfa34ff, type: 3}
-  - {fileID: 21300000, guid: 6e49c58e5f0e1bf4ea927f275dfa34ff, type: 3}
-  - {fileID: 21300000, guid: 6e49c58e5f0e1bf4ea927f275dfa34ff, type: 3}
+  - {fileID: 159241884, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 1208610695, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 1209467652, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 1341252153, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: -694238058, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: -40489381, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 1755971905, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 1303275248, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: 614237860, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}
+  - {fileID: -388536271, guid: 27e0f5e1480345c4dae8c70de8fa5783, type: 3}

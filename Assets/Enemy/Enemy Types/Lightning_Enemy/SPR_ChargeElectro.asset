@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_ChargeElectro
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1013524357, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: -191264725, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: -2136457165, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 923641391, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 923641391, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 1433156946, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 1433156946, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: -1735818283, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: -463682778, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 1862559994, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 1146988664, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 1257603500, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 126381591, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
+  - {fileID: 277306006, guid: c185c1e89b11c8248b6bcbb8b85ba3d4, type: 3}
