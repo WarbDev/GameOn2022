@@ -11,5 +11,6 @@ public class FailButton : MonoBehaviour
     public void OnClick()
     {
         win.Restart();
+        win.onClick();
     }
 }

@@ -37,7 +37,7 @@ public class WaveWin : MonoBehaviour
         }
     }
 
-    private void onClick()
+    public void onClick()
     {
         foreach (GameObject child in children)
         {
