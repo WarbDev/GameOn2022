@@ -16,4 +16,22 @@ MonoBehaviour:
   rightLength: 8
   leftLength: 8
   initialEnemies: {fileID: 11400000, guid: 51b2e9c4f7d1c3f41a03297090dcbe6d, type: 2}
-  batchEntries: []
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: 6677890bc1f69cb4194b733e91a4dbcb, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: c3fae4e05786ac74ea5aa5c0aaef527a, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 10d96e199094e5444a22084a0e3160f9, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 70cd8c8dff6168f4889ede62af44778d, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: f914ab535d817b7498db5f16764c586d, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: d208a3c289a1f2842aecd5b54e36414b, type: 2}
+    Delay: 0
+    Notes: 

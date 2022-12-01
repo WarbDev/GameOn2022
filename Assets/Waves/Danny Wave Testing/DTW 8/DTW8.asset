@@ -12,8 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
   m_Name: DTW8
   m_EditorClassIdentifier: 
-  height: 0
-  rightLength: 0
-  leftLength: 0
-  initialEnemies: {fileID: 0}
-  batchEntries: []
+  height: 6
+  rightLength: 8
+  leftLength: 4
+  initialEnemies: {fileID: 11400000, guid: 7c26152b8325eff4bac30b23b4f82a63, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: aac6ea9540b09db429108f02dd1a6c6b, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: c000ab1e1061c684b82a479972970b5b, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 2e233d3f05ef264479add816fca9b956, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 42524365313b3704482ae9460fbbed7d, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 0b0d5de31faf02d44b5e0e01c7bdf09a, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: d5406a1baa82bd04cb598c15032ffb6e, type: 2}
+    Delay: 0
+    Notes: 
