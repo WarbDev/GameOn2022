@@ -106,7 +106,18 @@ public class LevelConstructor : MonoBehaviour
             Destroy(nonBarricades[i].gameObject);
         }
 
-        
+        List<GameEntity> enemies = new();
+        foreach (var entity in Entities.EnemyCollection.EntitiesSet)
+        {
+            enemies.Add(entity);
+        }
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            Entities.EnemyCollection.RemoveEntity(enemies[i]);
+            Destroy(enemies[i].gameObject);
+        }
+
+
         Finished?.Invoke();
     }
 }

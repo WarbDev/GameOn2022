@@ -103,7 +103,7 @@ public class GameTileCreator : MonoBehaviour
             yield return new WaitForSeconds(0.2f / SpeedyMultiplier);
         }
 
-        for(int i = 0; i < height; i++)
+        for(int i = -1; i < height; i++)
         {
             var row = darkTileRowPool.Get();
             var row2 = darkTileRowPool.Get();
@@ -229,7 +229,7 @@ public class GameTileCreator : MonoBehaviour
             }
             else
             {
-                targetXPosition = xPosition - 12;
+                targetXPosition = xPosition - 16;
             }
 
 
