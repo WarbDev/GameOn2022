@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: spriteSet
       value: 
       objectReference: {fileID: 11400000, guid: f0d60bfc430229a4699af10bbd792ba9, type: 2}
+    - target: {fileID: 3292743296726041985, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: animations.list.Array.data[4].Value
+      value: 
+      objectReference: {fileID: 5619001896956782343}
+    - target: {fileID: 3292743296726041985, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: animations.list.Array.data[5].Value
+      value: 
+      objectReference: {fileID: 5619001896956782343}
     - target: {fileID: 3616921401767614434, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: range
       value: 3
@@ -67,5 +75,40 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow_Normal
       objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 037290c278ce1cc40974f9a6fe8480b1, type: 3}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: bulletObject
+      value: 
+      objectReference: {fileID: -7807301493033219046, guid: 1dc1f82c66b1b204db0437929724f8f6, type: 3}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: timeTillProjectileFires
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: bulletDistanceModification.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: bulletDistanceModification.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947003965714715392, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e508e1a40900324dbc1063ecb6051d5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+--- !u!114 &5619001896956782343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6027961513277145234, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+  m_PrefabInstance: {fileID: 2187952802641651605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd208b91f5c1bc428c057f91faf4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
