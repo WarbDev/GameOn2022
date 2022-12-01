@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Move_Spin
   m_EditorClassIdentifier: 
   myName: Spij
-  tooltip: Deals one damage and pushes by 2 tiles all enemies around you. Cooldown
-    2.
+  tooltip: Deals 1 damage.\nPushes by 2 tiles.\nCooldown 2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: e4e0e5a3d21df6c4f8606d07fc582308, type: 3}
   pushStrength: 2
