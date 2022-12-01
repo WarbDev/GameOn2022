@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Move_Fireball
   m_EditorClassIdentifier: 
   myName: Fireball
-  tooltip: "If you play with fire, they\u2019re gonna get burned"
+  tooltip: Deals 2 damage to all entities in the area of effect, and sets the tiles
+    on fire for 2 turns. Cooldown 4.
   cooldown: 4
   range: 8
   radius: 1

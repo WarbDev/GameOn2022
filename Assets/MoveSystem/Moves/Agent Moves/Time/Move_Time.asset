@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320208c256ed0f14da0dd1d1b1ef303a, type: 3}
   m_Name: Move_Time
   m_EditorClassIdentifier: 
-  myName: timebomb
-  tooltip: bb
+  myName: Timebomb
+  tooltip: Throws a bomb that explodes after 3 turns. When it explodes, it stuns
+    all enemies next to it for 2 turns. Cooldown 3.
   cooldown: 3
   animatorObject: {fileID: 4964562316847796961, guid: a770bb9f06f9b7e4fa1519f4126066ad, type: 3}
   range: 6

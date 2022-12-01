@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Move_Blaze
   m_EditorClassIdentifier: 
   myName: Guns Blazing
-  tooltip: aff
+  tooltip: Deals 1 damage to all enemies in the area. Sets the edges on fire for
+    2 turns. Cooldown 2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: ebaf5a1cf9193fd45aa220008280ff16, type: 3}
   fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}
+  turnsTillExtinguish: 0
   range: 4
   damage: 1

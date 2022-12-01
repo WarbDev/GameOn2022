@@ -9,6 +9,7 @@ public class Move_Blaze : Move
     private ILocate locator;
     [SerializeField] GameObject animatorObject;
     [SerializeField] GameObject fireTerrain;
+    [SerializeField] int turnsTillExtinguish;
     Player player;
 
     [SerializeField] int range;
@@ -24,6 +25,7 @@ public class Move_Blaze : Move
 
     public override void DoMove(Player player)
     {
+        fireTerrain.GetComponent<FireTerrain>().TurnsUntilExtinguish = turnsTillExtinguish;
         this.player = player;
 
         List<Location> area = rangeShape(player.Location, range);
