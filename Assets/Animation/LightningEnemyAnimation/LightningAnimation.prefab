@@ -45,12 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a91cc36c9747cd47a6a601e6061e883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedTransform: {fileID: 8670261046594158288}
-  enemySpriteRenderer: {fileID: 0}
-  enemySpriteAnimation: {fileID: 0}
-  chargeAnimation: {fileID: 0}
-  clip: {fileID: 0}
-  lightningSpriteAnimation: {fileID: 0}
+  myRenderer: {fileID: 0}
+  clip: {fileID: 8300000, guid: 44e3faa2af0ec0d42b4c12b2eef8085f, type: 3}
+  spriteAnimation: {fileID: 0}
 --- !u!1 &8152268488647488216
 GameObject:
   m_ObjectHideFlags: 0
