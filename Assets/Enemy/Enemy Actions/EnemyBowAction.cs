@@ -12,8 +12,8 @@ public class EnemyBowAction : EnemyAction
 
     public override void DoEnemyAction()
     {
-        LocationUtility.TryGetPlayer((0, GameEntity.Location.Y), out Player player);
-        IDamageable damageable = player;
+        LocationUtility.TryGetPlayer((0, GameEntity.Location.Y), out Player entity);
+        IDamageable damageable = entity;
         DamageLog log = damageable.DealDamage(new Damage(damage, GameEntity));
         var animation = Animatable.PlayAnimation<HurtAnimationProperties>(ANIMATION_ID.ENEMY_RANGED, new(log));
 
