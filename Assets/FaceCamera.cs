@@ -24,7 +24,7 @@ public class FaceCamera : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            spriteRenderer.rendererPriority = 100 - Mathf.FloorToInt(parentTransform.position.y + .5f);
+            spriteRenderer.sortingOrder = Mathf.FloorToInt(Mathf.Abs(parentTransform.position.x)) - Mathf.FloorToInt(parentTransform.position.y);
         }
         
         transformToAdjust.SetPositionAndRotation(AdjustPositionBasedOnCameraAngle(), new Quaternion(-Mathf.Abs(mainCamera.transform.rotation.x), transformToAdjust.rotation.y, transformToAdjust.rotation.z, transformToAdjust.rotation.w));
