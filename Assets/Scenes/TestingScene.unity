@@ -1937,6 +1937,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 530760543}
+    - target: {fileID: 1458759112378786957, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_text
+      value: WAVE 1 COMPLETE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458759112378786957, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_margin.x
+      value: 93.68855
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458759112378786957, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_margin.z
+      value: -189.60794
+      objectReference: {fileID: 0}
     - target: {fileID: 1795559530425484286, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -2327,7 +2339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 434.0536
+      value: 537.7802
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2335,11 +2347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.6955
+      value: -0.0000076294
       objectReference: {fileID: 0}
     - target: {fileID: 7199913322929810574, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 91.6
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 8062188226512541143, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2364,6 +2376,10 @@ PrefabInstance:
     - target: {fileID: 8062188226512541143, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062188227792217128, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8495014361662205348, guid: ed4463d7f924a264cacbe0ad9783654d, type: 3}
       propertyPath: m_AnchorMax.x

@@ -40,8 +40,8 @@ public class WallScript : MonoBehaviour
         gameObject.SetActive(true);
 
         Sequence mySequence = DOTween.Sequence();
-        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, 200);
-        mySequence.Append(pivot.transform.DOMove(new Vector3(0, GameMap.TopBorder + 0.5f, 0), 1f / liftSpeed).SetEase(moveEase));
+        pivot.transform.position = new Vector3(0, GameMap.TopBorder + 0.5f, 0); //200
+        //mySequence.Append(pivot.transform.DOMove(new Vector3(0, GameMap.TopBorder + 0.5f, 0), 1f / liftSpeed).SetEase(moveEase));
         
 
         
@@ -70,52 +70,27 @@ public class WallScript : MonoBehaviour
 
     public void LowerWall()
     {
-        Vector3 targetPosition = new Vector3(40, 0);
+        backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(lowerWall);
 
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(gameObject.transform.DORotate(targetPosition, 2f).SetEase(wobbleEase)).OnComplete(deactivate);
-
-        void deactivate()
+        void lowerWall()
         {
-            int mapHeight = GameMap.TopBorder;
-            Vector3 currentPosition = gameObject.transform.position;
-            gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
+            Destroy(backGround);
 
-            backGround.GetComponent<SpriteRenderer>().DOFade(0, 1).OnComplete(() => Destroy(backGround));
+             Vector3 targetPosition = new Vector3(40, 0);
 
-            Finished?.Invoke();
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Append(gameObject.transform.DORotate(targetPosition, 1f).SetEase(Ease.InBack)).OnComplete(deactivate);
+
+            void deactivate()
+            {
+                int mapHeight = GameMap.TopBorder;
+                Vector3 currentPosition = gameObject.transform.position;
+                gameObject.transform.position = new Vector3(currentPosition.x, -5000f, currentPosition.z);
+
+
+
+                Finished?.Invoke();
+            }
         }
     }
-
-    /*private IEnumerator MakeWall()
-    {
-        MakeWallColumn(0);
-        for (int j = 1; j < widthInOneDirection; j++)
-        {
-            yield return new WaitForSeconds(.2f);
-            MakeWallColumn(j);
-            MakeWallColumn(-j);
-        }
-    }
-
-    private void MakeWallColumn(int position)
-    {
-        for (int i = 0; i < height; i++)
-        {
-            MakeWallTile(wallTile, new Vector3(position, i));
-        }
-    }
-
-    private void MakeWallTile(GameObject myTile, Vector3 targetPosition)
-    {
-        GameObject tile = Instantiate(myTile, gameObject.transform);
-        tile.transform.localPosition = new Vector3(targetPosition.x, targetPosition.y);
-        var targetPositionovershoot = new Vector3(targetPosition.x, targetPosition.y, -0.3f);
-
-        tile.name = "WallTile (" + targetPosition.x + ", " + targetPosition.y + ")";
-
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(tile.transform.DOMove(targetPositionovershoot, 0.5f));
-        mySequence.Append(tile.transform.DOMove(targetPosition, 0.1f));
-    }*/
 }
