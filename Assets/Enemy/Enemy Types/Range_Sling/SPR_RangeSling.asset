@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eade16ec6e4784da6fefa566b831ab, type: 3}
+  m_Name: SPR_RangeSling
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2046340101, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: 1820489212, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: 1100149252, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -2088330696, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -1854183752, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: 678196093, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -1521069540, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -1635931329, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -1191774500, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -681972264, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -2029399570, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}
+  - {fileID: -1645370108, guid: e9c2c7e7c556cd54fbd40005f384d28b, type: 3}

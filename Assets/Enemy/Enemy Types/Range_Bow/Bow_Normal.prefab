@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8099774177976390389
+--- !u!1001 &2187952802641651605
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -51,9 +51,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1217532165615935112, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: f0d60bfc430229a4699af10bbd792ba9, type: 2}
     - target: {fileID: 3616921401767614434, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: range
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3616921401767614434, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: damage
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5212399030703316054, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}
       propertyPath: m_Name
-      value: Bow_Light
+      value: Bow_Normal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241957581dbad04bbe06c8feb843b2b, type: 3}

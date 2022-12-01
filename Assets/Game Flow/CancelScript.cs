@@ -22,7 +22,7 @@ public class CancelScript : MonoBehaviour
             leftClicked = 0;
         }
 
-        if (Input.GetMouseButtonDown(1) && leftClicked > 5)
+        if (leftClicked > 5 && Input.GetMouseButtonDown(1))
         {
             Cancel();
         }

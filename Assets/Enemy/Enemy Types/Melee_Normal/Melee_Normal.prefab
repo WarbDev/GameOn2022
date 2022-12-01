@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8268799830320826067
+--- !u!1001 &5175007321030033540
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,19 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 564623248923724015, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
       propertyPath: m_Name
-      value: Melee_Super_Heavy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3145883182678800565, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
-      propertyPath: damage
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3445304162707082935, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
-      propertyPath: maxHealth
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3445304162707082935, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
-      propertyPath: currentHealth
-      value: 8
+      value: Melee_Normal
       objectReference: {fileID: 0}
     - target: {fileID: 5688009264749702312, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
       propertyPath: m_RootOrder
@@ -67,5 +55,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6874273806388136497, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 70e5588cab369054ca464e57f474c4f8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
