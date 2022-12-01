@@ -40,12 +40,6 @@ public class LightningEnemyActionSelector : EnemyActionSelectionComponent
             }
         }
 
-        if (EnemyAction.NonAlliedObstructionInFront(GameEntity.Location, ObstructionChecker) != null)
-        {
-            meleeAction.DoEnemyAction();
-            return;
-        }
-
         if (chargeLightningAction.TimesCharged < chargeLightningAction.ChargeRequired)
         {
             chargeLightningAction.DoEnemyAction();

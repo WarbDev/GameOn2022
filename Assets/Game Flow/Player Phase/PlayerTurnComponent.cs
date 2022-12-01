@@ -174,12 +174,14 @@ public class PlayerTurnComponent : MonoBehaviour
 
     public bool CanDoMovement()
     {
-        return !hasPlannedMovement && STATE != PLAN_STATE.LOCKED;
+        // return !hasPlannedMovement && STATE != PLAN_STATE.LOCKED;
+        return !hasPlannedMovement && STATE == PLAN_STATE.AWAITING;
     }
 
     public bool CanDoAction()
     {
-        return !hasPlannedAction && STATE != PLAN_STATE.LOCKED;
+        // return !hasPlannedAction && STATE != PLAN_STATE.LOCKED;
+        return !hasPlannedAction && STATE == PLAN_STATE.AWAITING;
     }
 
     public bool CanDoAction(Move move)

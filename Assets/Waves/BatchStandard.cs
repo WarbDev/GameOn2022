@@ -26,10 +26,10 @@ public class BatchStandard : BatchBase
     [Tooltip("Enemies to populate in the batch. Ordered by what should be prioritized to spawn further at the top of the column.")]
     [SerializeField] List<ENEMY_TYPE> enemiesInBatch;
 
-    [Tooltip("If checked, the batch will consider empty spaces to be a mandatory addition to a column. This can be used to ensure that enemies" +
-        " in the batch are spaced out from other enemies in the same batch, but does not prevent enemies from spawning right next to " +
-        "enemies from a previous batch.")]
-    [SerializeField] bool enforceEmptySpaces;
+    //[Tooltip("If checked, the batch will consider empty spaces to be a mandatory addition to a column. This can be used to ensure that enemies" +
+    //    " in the batch are spaced out from other enemies in the same batch, but does not prevent enemies from spawning right next to " +
+    //    "enemies from a previous batch.")]
+    bool enforceEmptySpaces = false;
 
     [Tooltip("Which side should the batch try to spawn on first?")]
     [SerializeField] MAP_SIDE side;
@@ -38,14 +38,14 @@ public class BatchStandard : BatchBase
         "the first side given is not capable.")]
     [SerializeField] bool enforceSide;
 
-    [Tooltip("If checked, all elements of the batch must be able to be added onto the column in an unbroken line. " +
-        "For example, if 1 represents an occupied space, and 0 is unoccupied, if a column is 10010, a batch marked as rigid that has 3 occupying elements " +
-        "cannot populate that column, as the column has only 2 consecutive available spaces.")]
-    [SerializeField] bool isRigid;
+    //[Tooltip("If checked, all elements of the batch must be able to be added onto the column in an unbroken line. " +
+    //    "For example, if 1 represents an occupied space, and 0 is unoccupied, if a column is 10010, a batch marked as rigid that has 3 occupying elements " +
+    //    "cannot populate that column, as the column has only 2 consecutive available spaces.")]
+    bool isRigid = false;
 
-    [Tooltip("If checked, the batch will not spawn unless the entire column can support the batch. Cannot be unchecked if isRigid is true." +
-        " If unchecked, the batch will populate as many available spaces as possible, and try to spawn the rest in later columns.")]
-    [SerializeField] bool mustFitSingleColumn;
+    //[Tooltip("If checked, the batch will not spawn unless the entire column can support the batch. Cannot be unchecked if isRigid is true." +
+    //    " If unchecked, the batch will populate as many available spaces as possible, and try to spawn the rest in later columns.")]
+    bool mustFitSingleColumn = false;
 
     List<ENEMY_TYPE> enemiesLeftInBatch;
 
