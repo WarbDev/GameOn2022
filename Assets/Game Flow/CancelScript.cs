@@ -17,10 +17,11 @@ public class CancelScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Cancel();
         }
+
     }
 
     public void Cancel()

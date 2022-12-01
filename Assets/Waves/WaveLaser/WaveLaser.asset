@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
+  m_Name: WaveLaser
+  m_EditorClassIdentifier: 
+  height: 5
+  rightLength: 5
+  leftLength: 5
+  initialEnemies: {fileID: 11400000, guid: 0951b97646435e544825f45d6533d0d6, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: b279ae0654b2105459c4a7f4ec98a546, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 6793c1bf793e10648a8918e3452f021d, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: b279ae0654b2105459c4a7f4ec98a546, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 6793c1bf793e10648a8918e3452f021d, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: b279ae0654b2105459c4a7f4ec98a546, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 6793c1bf793e10648a8918e3452f021d, type: 2}
+    Delay: 0
+    Notes: 

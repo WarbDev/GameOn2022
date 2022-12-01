@@ -131,4 +131,4 @@ MonoBehaviour:
   targetSprite: {fileID: -6260973254439082384}
   spriteAnimation: {fileID: 1653767561643200709}
   lengthToWidthRatio: 2
-  clip: {fileID: 8300000, guid: 1008937fe3b722345a40a03cf870cdec, type: 3}
+  clip: {fileID: 8300000, guid: 1c57cc00daa74be43bdc3181bd457f83, type: 3}

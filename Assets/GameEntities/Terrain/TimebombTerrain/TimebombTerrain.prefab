@@ -54,8 +54,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5792537915183999313}
   pushable: {fileID: 2311836700536482170}
   obstructionChecker: {fileID: 459776572540433599}
-  radius: 5
-  stunDuration: 5
+  radius: 1
+  stunDuration: 2
   adjustedRenderer: {fileID: 5792537915183999313}
   explodeAnimation: {fileID: -3057631007491969950}
   explodeClip: {fileID: 8300000, guid: 0b9ca925b7a31f94a8eaa5bdf5a0a9b5, type: 3}
