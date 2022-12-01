@@ -107,6 +107,7 @@ public class Bark : MonoBehaviour
 
     private void Update()
     {
+        transform.SetPositionAndRotation(transform.position, Quaternion.identity);
         if (finishedAnimation)
         {
              transform.SetPositionAndRotation(player.transform.position + diff, new Quaternion(-Mathf.Abs(cameraa.transform.rotation.x), transform.rotation.y, transform.rotation.z, transform.rotation.w));
