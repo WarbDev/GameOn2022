@@ -168,6 +168,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3840444175531660551}
     m_Modifications:
     - target: {fileID: 1344275971819090908, guid: dceb53e1bcb6b2e478b2974c3404d21d, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad998160157b8874eb171b41a95e4d3d, type: 3}
+    - target: {fileID: 1344275971819090908, guid: dceb53e1bcb6b2e478b2974c3404d21d, type: 3}
       propertyPath: targetSprite
       value: 
       objectReference: {fileID: 4456850595055178080}
