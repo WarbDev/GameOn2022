@@ -71,5 +71,21 @@ PrefabInstance:
       propertyPath: spriteSet
       value: 
       objectReference: {fileID: 11400000, guid: 7778ecfc253508240a7405f2a8200a83, type: 2}
+    - target: {fileID: 7056845615823129985, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: duration
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056845615823129985, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 5156a50ae26f8214c90c9a4411e70d89, type: 2}
+    - target: {fileID: 7411062331314795911, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: jumpHeight
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411062331314795911, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: jumpStartDuration
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}

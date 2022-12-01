@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAnimation: {fileID: 6041429624493851154}
+  render: {fileID: 8937582205264361228}
 --- !u!114 &6041429624493851154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSprite: {fileID: 8937582205264361228}
   spriteAnimation: {fileID: 1653767561643200709}
-  lengthToWidthRatio: 6
+  lengthToWidthRatio: 4
   clip: {fileID: 8300000, guid: 1c57cc00daa74be43bdc3181bd457f83, type: 3}
 --- !u!1 &8891067492130135619
 GameObject:
@@ -151,8 +152,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1675898911
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

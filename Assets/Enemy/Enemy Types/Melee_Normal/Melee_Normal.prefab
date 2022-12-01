@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: spriteSet
       value: 
       objectReference: {fileID: 11400000, guid: 70e5588cab369054ca464e57f474c4f8, type: 2}
+    - target: {fileID: 7056845615823129985, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}
+      propertyPath: spriteSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 70e5588cab369054ca464e57f474c4f8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa1c4750669d483489e1a3133f8b406d, type: 3}

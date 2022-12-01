@@ -9,6 +9,8 @@ public class EnemyMeleeAttackAnimation : EntityAnimation<HurtAnimationProperties
     public override Sequence CurrentlyPlaying { get => currentlyPlaying; }
     [SerializeField] JumpCollideAnimation jumpCollideAnimation;
     [SerializeField] Transform affectedTransform;
+    [SerializeField] SpriteAnimation spriteAnimation;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     Sequence currentlyPlaying;
 
@@ -17,6 +19,8 @@ public class EnemyMeleeAttackAnimation : EntityAnimation<HurtAnimationProperties
     public override void Play(HurtAnimationProperties properties)
     {
         Sequence jumpSequence = DOTween.Sequence();
+
+        spriteAnimation.Play(new(spriteRenderer));
 
         JumpCollideProperties jumpColProp = new(properties.Log.Damage.DamageSource.Location, properties.Log.Target.Entity.Location);
         jumpColProp.OnCollide += onCollide;

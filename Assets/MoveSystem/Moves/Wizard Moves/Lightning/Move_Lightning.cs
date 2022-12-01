@@ -58,16 +58,23 @@ public class Move_Lightning : Move
             log.Add(enemy.DealDamage(new Damage(damage, player)));
         }
 
-        PlayGraphics(area, log);
+        PlayGraphics(area, log, locations[0]);
 
     }
 
-    private void PlayGraphics(List<Location> area, List<DamageLog> damageLogs)
+    private void PlayGraphics(List<Location> area, List<DamageLog> damageLogs, Location selected)
     {
         GameObject animation = Instantiate(animatorObject);
         animation.transform.position = player.transform.position;
+        
+        
 
         A_Lightning animationManager = animation.GetComponent<A_Lightning>();
+
+        if (selected.X < 0)
+        {
+            animationManager.Flip();
+        }
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animationManager.PlayAnimation(area, damageLogs);

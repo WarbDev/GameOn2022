@@ -85,7 +85,21 @@ public class Move_Blaze : Move
     private void PlayGraphics(Location location, List<DamageLog> log)
     {
         GameObject animation = Instantiate(animatorObject);
-        //animation.transform.position = player.transform.position;
+        animation.transform.parent = player.transform;
+
+        Vector3 difference;
+        if (location.X < 0)
+        {
+            difference = new Vector3(-.2f, 0);
+        }
+        else
+        {
+            difference = new Vector3(.2f, 0);
+            animation.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        animation.transform.position = player.transform.position + difference;
+
+
 
         A_Blaze animationManager = animation.GetComponent<A_Blaze>();
 

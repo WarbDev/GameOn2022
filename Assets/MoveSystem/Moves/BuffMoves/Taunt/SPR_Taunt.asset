@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: SPR_Taunt
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: d4aaf2f0610fdaf40bf91a0155b4d8fc, type: 3}
+  - {fileID: -1150713056, guid: 6acaebfe1fa8cff439733bb418a61891, type: 3}
+  - {fileID: -421852940, guid: 6acaebfe1fa8cff439733bb418a61891, type: 3}
+  - {fileID: -1520359647, guid: 6acaebfe1fa8cff439733bb418a61891, type: 3}
+  - {fileID: 164458158, guid: 6acaebfe1fa8cff439733bb418a61891, type: 3}
