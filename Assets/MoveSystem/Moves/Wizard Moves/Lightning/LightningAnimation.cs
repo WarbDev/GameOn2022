@@ -43,11 +43,12 @@ public class LightningAnimation : EntityAnimation<LightningAnimationProperties>
 
         // If animation has a spriteAnimation
         spriteAnimation.Play(new(targetSprite));
-        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        spriteAnimation.AnimationFinished += onComplete;
+        //currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
 
         // Invoke completed once the sequence is finished.
-        currentlyPlaying.OnComplete(onComplete);
-        void onComplete() => AnimationFinished?.Invoke(this);
+        //currentlyPlaying.OnComplete(onComplete);
+        void onComplete(EntityAnimation e) => AnimationFinished?.Invoke(this);
     }
 }
 

@@ -29,11 +29,14 @@ public class GravityAnimation : EntityAnimation<GravityAnimationProperties>
     [SerializeField] Ease zDownEase;
     [SerializeField] int heightGain;
 
+    GravityAnimationProperties animationProperties;
+
     // AnimationFinished must be called once currentlyPlaying finishes.
     public override event Action<EntityAnimation<GravityAnimationProperties>> AnimationFinished;
 
     public override void Play(GravityAnimationProperties animationProperties)
     {
+        this.animationProperties = animationProperties;
         // Initialize the current sequence
         Vector3 endPoint = animationProperties.EndPosition;
         Transform bombtransform = transform;
@@ -62,6 +65,19 @@ public class GravityAnimation : EntityAnimation<GravityAnimationProperties>
 
     private void Explode()
     {
+        //foreach (PushLog log in animationProperties.PushLog)
+        //{
+        //    IAnimatable an = (IAnimatable)log.MoveLog.Entity;
+
+        //    an.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(log));
+        //}
+
+
+        for (int i = 0; i < animationProperties.Enemies.Count; i++)
+        {
+            animationProperties.Enemies[i].Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(animationProperties.PushLog[i]));
+        }
+
         spriteAnimationBoom.Play(new(targetSprite));
 
         GlobalAudioSource.Instance.Play(clipBoom);
@@ -75,15 +91,24 @@ public class GravityAnimation : EntityAnimation<GravityAnimationProperties>
 
 public class GravityAnimationProperties : IAnimationProperties
 {
+
+    List<Enemy> enemies;
+    List<PushLog> pushLog;
+
     Vector3 startPosition;
     Vector3 endPosition;
 
-    public Vector3 StartPosition { get => startPosition; }
-    public Vector3 EndPosition { get => endPosition; }
-
-    public GravityAnimationProperties(Vector3 startPosition, Vector3 endPosition)
+    public GravityAnimationProperties(List<Enemy> enemies, List<PushLog> pushLog, Vector3 startPosition, Vector3 endPosition)
     {
+        this.enemies = enemies;
+        this.pushLog = pushLog;
         this.startPosition = startPosition;
         this.endPosition = endPosition;
     }
+
+    public Vector3 StartPosition { get => startPosition; }
+    public Vector3 EndPosition { get => endPosition; }
+    public List<Enemy> Enemies { get => enemies; }
+    public List<PushLog> PushLog { get => pushLog; }
 }
+

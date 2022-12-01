@@ -59,11 +59,11 @@ public class Move_Gravity : Move
         log = Push.CalculatePushes(requests);
         Push.DoPushes(log);
 
-        PlayGraphics(selected);
+        PlayGraphics(selected, enemies, log);
 
     }
 
-    private void PlayGraphics(Location location)
+    private void PlayGraphics(Location location, List<Enemy> enemies, List<PushLog> pushLog)
     {
         GameObject animation = Instantiate(animatorObject);
         animation.transform.position = player.transform.position;
@@ -71,7 +71,7 @@ public class Move_Gravity : Move
         A_Gravity animationManager = animation.GetComponent<A_Gravity>();
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
-        animationManager.PlayAnimation(LocationUtility.LocationToVector3(location));
+        animationManager.PlayAnimation(LocationUtility.LocationToVector3(location), enemies, pushLog);
 
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
         animationManager.moveAnimation.AnimationFinished += MoveDone;
@@ -79,10 +79,10 @@ public class Move_Gravity : Move
 
     private void MoveDone(EntityAnimation<GravityAnimationProperties> obj)
     {
-        foreach (PushLog lo in log)
-        {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
-        }
+        //foreach (PushLog lo in log)
+        //{
+        //    lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        //}
 
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
