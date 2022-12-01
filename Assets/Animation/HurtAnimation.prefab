@@ -47,5 +47,6 @@ MonoBehaviour:
   flashDuration: 0.45
   flashLoops: 4
   ease: 9
+  defaultSprite: {fileID: 0}
   targetSprite: {fileID: 0}
-  clip: {fileID: 8300000, guid: c5c32763ff369ee4baf648367ad3b60b, type: 3}
+  clip: {fileID: 8300000, guid: 8778bcfb60e8cb144bc4fb2938c89d43, type: 3}
