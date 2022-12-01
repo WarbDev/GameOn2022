@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9439ea2bb0d8804c8049e56a8cd3823, type: 3}
+  m_Name: DTW5
+  m_EditorClassIdentifier: 
+  height: 6
+  rightLength: 7
+  leftLength: 7
+  initialEnemies: {fileID: 11400000, guid: 100d771388aff7d47b9ac6422f979c40, type: 2}
+  batchEntries:
+  - Batch: {fileID: 11400000, guid: 76f2a3f43d889bd499bfaa555de7e726, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 880b0abf276c518498560e301331bbca, type: 2}
+    Delay: 0
+    Notes: 
+  - Batch: {fileID: 11400000, guid: 0dd4a7fc8bac8a9479542ec45923fe96, type: 2}
+    Delay: 0
+    Notes: 
