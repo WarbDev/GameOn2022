@@ -53,11 +53,11 @@ public class Move_Wind : Move
         log = Push.CalculatePushes(requests);
         Push.DoPushes(log);
 
-        PlayGraphics(selected);
+        PlayGraphics(selected, enemies);
 
     }
 
-    private void PlayGraphics(Location location)
+    private void PlayGraphics(Location location, List<Enemy> enemies)
     {
         GameObject Wind = Instantiate(AnimationObject);
         A_Wind animation = Wind.GetComponent<A_Wind>();
@@ -68,6 +68,23 @@ public class Move_Wind : Move
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
 
+        foreach (PushLog lo in log)
+        {
+            IAnimatable an = (IAnimatable)lo.MoveLog.Entity;
+
+            an.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(lo));
+        }
+
+        //for (int i = 0; i < enemies.Count; i++)
+        //{
+        //    enemies[i].Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(log[i]));
+        //}
+
+        //foreach (PushLog lo in log)
+        //{
+        //    lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        //}
+
         animation.PlayAnimation();
 
         animation.windAnimation.AnimationFinished -= MoveDone;
@@ -76,10 +93,7 @@ public class Move_Wind : Move
 
     private void MoveDone(EntityAnimation<WindAnimationProperties> obj)
     {
-        foreach (PushLog lo in log)
-        {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
-        }
+        
 
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);

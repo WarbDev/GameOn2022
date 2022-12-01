@@ -66,12 +66,12 @@ public class Move_Taunt : Move
         log = Push.CalculatePushes(requests);
         Push.DoPushes(log);
 
-        PlayGraphics(log);
+        PlayGraphics(log, enemies);
 
     }
 
 
-    private void PlayGraphics(List<PushLog> log)
+    private void PlayGraphics(List<PushLog> log, List<Enemy> enemies)
     {
         GameObject animator = Instantiate(AnimatorObject);
         animator.transform.position = player.transform.position;
@@ -79,8 +79,15 @@ public class Move_Taunt : Move
 
         foreach (PushLog lo in log)
         {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+            IAnimatable an = (IAnimatable)lo.MoveLog.Entity;
+
+            an.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(lo));
         }
+
+        //for (int i = 0; i < enemies.Count; i++)
+        //{
+        //    enemies[i].Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(log[i]));
+        //}
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
         animation.PlayAnimation(log);

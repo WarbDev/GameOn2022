@@ -98,12 +98,11 @@ public class Move_Punch : Move
             terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
-        PlayGraphics(selected);
-        
+        PlayGraphics(selected, enemies[0]);
 
     }
 
-    private void PlayGraphics(Location location)
+    private void PlayGraphics(Location location, Enemy enemy)
     {
 
         GameObject animation = Instantiate(animatorObject);
@@ -115,7 +114,10 @@ public class Move_Punch : Move
         LocationUtility.TryGetTile(location, out endPoint);
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
-        animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog);
+
+        enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(pushLog[0]));
+
+        animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog, enemy);
 
         //foreach (DamageLog damaged in damageLog)
         //{

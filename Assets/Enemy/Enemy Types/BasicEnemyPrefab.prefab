@@ -118,10 +118,14 @@ MonoBehaviour:
       Value: {fileID: 17650123386437787}
     - Key: 7
       Value: {fileID: 7814094243313345628}
+    - Key: 9
+      Value: {fileID: 5286819140139706734}
     - Key: 8
       Value: {fileID: 5286819140139706734}
     - Key: 12
       Value: {fileID: 2137537152844014990}
+    - Key: 4
+      Value: {fileID: 7156842556864173137}
     keyCollision: 0
   playingActiveAnimation: 0
   spriteRenderer: {fileID: 3742150126084035941}
@@ -318,6 +322,7 @@ Transform:
   - {fileID: 1942170555689191407}
   - {fileID: 8353731519368768192}
   - {fileID: 1214266325346917402}
+  - {fileID: 2413603649095851812}
   m_Father: {fileID: 9077199116930187973}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -740,6 +745,79 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e980c290ec38be4bbf21249ccd33c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4675958220704354580
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8173403255490045351}
+    m_Modifications:
+    - target: {fileID: 972042128761631143, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_Name
+      value: PushAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+--- !u!4 &2413603649095851812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7033075060123848240, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+  m_PrefabInstance: {fileID: 4675958220704354580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7156842556864173137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6650020764031449787, guid: d3d7691ef1a2fbc4d834f44e5e6d0bbf, type: 3}
+  m_PrefabInstance: {fileID: 4675958220704354580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb07a998c4e27a448a2e90a642c471f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7322677735963725596

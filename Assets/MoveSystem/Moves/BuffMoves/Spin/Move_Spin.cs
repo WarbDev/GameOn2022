@@ -50,33 +50,54 @@ public class Move_Spin : Move
         damageLog = new();
         pushLog = new();
         List<PushRequest> requests = new();
+
         foreach (Enemy enemy in enemies)
         {
             Location direction = enemy.Location - player.Location;
 
             requests.Add(new PushRequest(enemy, direction, pushStrength));
-
-            damageLog.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
         }
 
         pushLog = Push.CalculatePushes(requests);
         Push.DoPushes(pushLog);
 
-        PlayGraphics();
+        foreach (Enemy enemy in enemies)
+        {
+            damageLog.Add(enemy.Damageable.DealDamage(new Damage(damage, player)));
+        }
+
+        
+
+        PlayGraphics(enemies);
 
     }
 
-    private void PlayGraphics()
+    private void PlayGraphics(List<Enemy> enemies)
     {
         GameObject animation = Instantiate(animatorObject);
         //animation.transform.position = player.transform.position;
 
         A_Spin animationManager = animation.GetComponent<A_Spin>();
 
-        foreach (PushLog lo in pushLog)
+        //foreach (PushLog log in pushLog)
+        //{
+        //    IAnimatable an = (IAnimatable)log.MoveLog.Entity;
+
+        //    an.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(log));
+        //}
+
+        for (int i = 0; i < enemies.Count; i++)
         {
-            lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+            if (damageLog[i].NewHealth > 0)
+            {
+                enemies[i].Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(pushLog[i]));
+            }
         }
+
+        //foreach (PushLog lo in pushLog)
+        //{
+        //    lo.MoveLog.Entity.transform.position = LocationUtility.LocationToVector3(lo.MoveLog.Entity.Location);
+        //}
         foreach (DamageLog damaged in damageLog)
         {
             damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));

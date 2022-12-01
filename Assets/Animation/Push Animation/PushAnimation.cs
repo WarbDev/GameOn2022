@@ -18,8 +18,12 @@ public class PushAnimation : EntityAnimation<PushAnimationProperties>
         Location distance = animationProperties.PushLog.MoveLog.End - animationProperties.PushLog.MoveLog.Start;
         float time = MathF.Sqrt(Mathf.Pow(distance.X, 2) + Mathf.Pow(distance.Y, 2));
 
+        currentlyPlaying.Append(animationProperties.PushLog.MoveLog.Entity.transform.DOMove(LocationUtility.LocationToVector3(animationProperties.PushLog.MoveLog.Entity.Location), time/7f + .1f).SetEase(Ease.Linear)).OnComplete(onComplete);
 
-        currentlyPlaying.Append(animationProperties.PushLog.MoveLog.Entity.transform.DOMove(LocationUtility.LocationToVector3(animationProperties.PushLog.MoveLog.End), time).SetEase(Ease.Linear));
+        void onComplete()
+        {
+            AnimationFinished?.Invoke(this);
+        }
     }
 }
 
