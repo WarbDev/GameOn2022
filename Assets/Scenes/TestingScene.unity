@@ -2677,12 +2677,12 @@ PrefabInstance:
       objectReference: {fileID: 1187247943}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 84edd3167df459e479e88aa92b0eb624, type: 2}
+      objectReference: {fileID: 11400000, guid: 42219df04fdfbc74593256979db5f156, type: 2}
     - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: waves.Array.data[1]
       value: 
@@ -2691,6 +2691,34 @@ PrefabInstance:
       propertyPath: waves.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 3977c9093e4ae544bb279d7a74a36b30, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: a6178d516a5b51844b17a38c8c090d6b, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: a9371a1051fa87d41ac672ded3072af7, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 211aae538dffbdc42bfae4f6d177a546, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 59d12cd104bdddf40a4d0cc3991fb389, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89b8598d5df30f34f8c4e8ff61ae7782, type: 2}
+    - target: {fileID: 7064093579480934785, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: waves.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6500aace7f76bf64795c054a4731842a, type: 2}
+    - target: {fileID: 7663696889126628851, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
+      propertyPath: BMusicThreshold
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7663696889126628851, guid: ef6005a23b9b26c4e94c449139d9c781, type: 3}
       propertyPath: levelConstructor
       value: 
@@ -4966,7 +4994,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2283814285839175680, guid: 40e0be6ca9873ed45a2eb4fff6568bb2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40e0be6ca9873ed45a2eb4fff6568bb2, type: 3}
 --- !u!1001 &3026037266190599982
 PrefabInstance:
