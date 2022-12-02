@@ -45,18 +45,44 @@ public class Entities : MonoBehaviour
     }
 
     //returns null if can't spawn the terran
+    //automatically extinguishes fires
     public static TerrainBase SpawnTerrain(Location location, GameObject terrainPrefab)
     {
-        if (!LocationUtility.HasTerrain(location) && !LocationUtility.HasEnemy(location) && location.X != 0)
+        FireTerrain fire = LocationUtility.GetFireTerrain(location);
+        bool hasFire = false;
+        if (fire != null)
+        {
+            hasFire = true;
+        }
+
+
+        FireTerrain myFire = terrainPrefab.GetComponent<FireTerrain>();
+        if (myFire != null && (hasFire || !LocationUtility.HasTerrain(location)) && location.X != 0)
+        {
+
+            return instant();
+        }
+        
+        if ((hasFire || !LocationUtility.HasTerrain(location)) && !LocationUtility.HasEnemy(location) && location.X != 0)
         {
             //TerrainBase terrain = (PrefabUtility.InstantiatePrefab(terrainPrefab) as GameObject).GetComponent<TerrainBase>();
+            return instant();
+        }
+        return null;
+
+
+
+        TerrainBase instant(){
+            if (hasFire)
+            {
+                fire.Extinguish();
+            }
             TerrainBase terrain = Instantiate(terrainPrefab).GetComponent<TerrainBase>();
             terrain.SetLocation(location, true);
             terrain.SpriteRenderer.flipX = (location.X < 0);
             Entities.TerrainCollection.AddEntity(terrain);
             return terrain;
         }
-        return null;
     }
 
     private void OnDestroy()

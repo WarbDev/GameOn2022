@@ -97,7 +97,7 @@ public static class LocationUtility
     public static List<Location> FlipLocations(List<Location> locations)
     {
         List<Location> flippedLocations = new();
-        foreach(Location loc in locations)
+        foreach (Location loc in locations)
         {
             flippedLocations.Add(new Location(loc.X * -1, loc.Y));
         }
@@ -113,7 +113,7 @@ public static class LocationUtility
 
     public static bool IsOnMap(Location location)
     {
-        return (GameMap.LeftBorder <= location.X && location.X <= GameMap.RightBorder 
+        return (GameMap.LeftBorder <= location.X && location.X <= GameMap.RightBorder
             && GameMap.BottomBorder <= location.Y && location.Y <= GameMap.TopBorder);
     }
 
@@ -175,7 +175,7 @@ public static class LocationUtility
 
         for (int i = 0; i < range; i++)
         {
-            cone.AddRange(LocationsInLine(new Location(l.X + 1 + i, l.Y + i), (i+1)*2-2, Directions.S ));
+            cone.AddRange(LocationsInLine(new Location(l.X + 1 + i, l.Y + i), (i + 1) * 2 - 2, Directions.S));
         }
         return cone;
     }
@@ -185,7 +185,7 @@ public static class LocationUtility
         List<Location> cone = new();
 
         cone.AddRange(LocationsInLine(l + (new Location(Directions.E)), range, Directions.NE));
-        cone.AddRange(LocationsInLine(l + (new Location(Directions.E)) * 2 + (new Location(Directions.S)), range-1, Directions.SE));
+        cone.AddRange(LocationsInLine(l + (new Location(Directions.E)) * 2 + (new Location(Directions.S)), range - 1, Directions.SE));
         return cone;
     }
 
@@ -203,7 +203,7 @@ public static class LocationUtility
     public static List<Location> LocationsInHorizonalLine(Location l, int range)
     {
         List<Location> rightLine = LocationsInLine(l, range, Directions.E);
-        List<Location> leftLine = LocationsInLine(l + Directions.W, range -1, Directions.W);
+        List<Location> leftLine = LocationsInLine(l + Directions.W, range - 1, Directions.W);
         rightLine.AddRange(leftLine);
         return rightLine;
     }
@@ -221,7 +221,7 @@ public static class LocationUtility
     public static List<Location> LocationsInAllCardinalAndOrdinalDirections(Location l, int range)
     {
         List<Location> locations = new();
-        locations.AddRange(LocationsInLine(l+Directions.E, range-1, Directions.E));
+        locations.AddRange(LocationsInLine(l + Directions.E, range - 1, Directions.E));
         locations.AddRange(LocationsInLine(l + Directions.SE, range - 1, Directions.SE));
         locations.AddRange(LocationsInLine(l + Directions.S, range - 1, Directions.S));
         locations.AddRange(LocationsInLine(l + Directions.SW, range - 1, Directions.SW));
@@ -295,6 +295,20 @@ public static class LocationUtility
         else
             terrain = null;
         return hasTerrain;
+    }
+
+    public static FireTerrain GetFireTerrain(Location location)
+    {
+        bool hasTerrain = GameMap.TerrainDictionary.TryGetValue(location, out GameEntity terrainEntity);
+        if (hasTerrain)
+        {
+            FireTerrain fire = (FireTerrain)terrainEntity;
+            if (fire != null)
+            {
+                return fire;
+            }
+        }
+        return null;
     }
 
     public static bool HasTerrain(Location location)

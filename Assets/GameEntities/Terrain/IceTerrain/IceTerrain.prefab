@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 1344275971819090908, guid: dceb53e1bcb6b2e478b2974c3404d21d, type: 3}
       propertyPath: clip
       value: 
-      objectReference: {fileID: 8300000, guid: ad998160157b8874eb171b41a95e4d3d, type: 3}
+      objectReference: {fileID: 8300000, guid: 6cf0cf696b4ddc94489dd64a3990f8ae, type: 3}
     - target: {fileID: 1344275971819090908, guid: dceb53e1bcb6b2e478b2974c3404d21d, type: 3}
       propertyPath: targetSprite
       value: 

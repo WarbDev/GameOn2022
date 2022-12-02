@@ -193,6 +193,20 @@ public class GameMap : MonoBehaviour
         }
     }
 
+    //automatically extinguishes fire
+    public static void MoveTerrain(GameEntity terrain, Location to)
+    {
+        FireTerrain fire = LocationUtility.GetFireTerrain(to);
+        if (fire != null)
+        {
+            fire.Extinguish();
+        }
+        Location oldLocation = terrain.Location;
+        TerrainDictionary.Remove(oldLocation);
+        terrain.GetComponent<TerrainBase>().SetLocation(to);
+        TerrainDictionary.Add(to, terrain);
+    }
+
     void OnEntityAdded(GameEntity entity)
     {
         typeDictionary[entity.EntityType].Add(entity.Location, entity);

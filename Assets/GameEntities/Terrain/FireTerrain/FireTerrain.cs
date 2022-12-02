@@ -18,6 +18,12 @@ public class FireTerrain : TerrainBase
 
     int damage = 1;
 
+    public void Extinguish()
+    {
+        RemoveFromEntityTracker();
+        Destroy(gameObject);
+    }
+
     public override void OnRoundTick()
     {
         TurnsUntilExtinguish--;

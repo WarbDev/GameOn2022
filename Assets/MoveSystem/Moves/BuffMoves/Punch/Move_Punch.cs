@@ -49,22 +49,36 @@ public class Move_Punch : Move
 
         Location selected = locations[0]; //locations[0] is the player-selected point
 
-        List<Enemy> enemies = LocationUtility.GetEnemiesInPositions(locations);
-        if (enemies == null || enemies.Count == 0)
+        List<IDamageable> damageables = LocationUtility.GetDamageablesAtPosition(selected);
+        BarricadeTerrain barricade = null;
+        Enemy enemy = null;
+        IPushable pushable = null;
+
+        if (damageables.Count > 0)
+        {
+            if (damageables[0] is BarricadeTerrain)
+            {
+                barricade = (BarricadeTerrain)damageables[0];
+                pushable = barricade;
+            }
+            if (damageables[0] is Enemy)
+            {
+                enemy = (Enemy)damageables[0];
+                pushable = enemy;
+            }
+        }
+
+        if (pushable == null)
         {
             MoveCompleted?.Invoke(false);
             return;
         }
 
+        //push the target
         pushLog = new();
         List<PushRequest> requests = new();
-        foreach (Enemy enemy in enemies)
-        {
-            Location direction = enemy.Location - player.Location;
-
-            requests.Add(new PushRequest(enemy, direction, pushDistance));
-        }
-
+        Location direction = pushable.Entity.Location - player.Location;
+        requests.Add(new PushRequest(pushable, direction, pushDistance));
         pushLog = Push.CalculatePushes(requests);
         Push.DoPushes(pushLog);
 
@@ -72,17 +86,28 @@ public class Move_Punch : Move
         //Exploding ball at end
         List<Location> location = effectExplodeShape(pushLog[0].MoveLog.End, radius);
 
-        enemies = LocationUtility.GetEnemiesInPositions(location);
+        List<Enemy>  enemies = LocationUtility.GetEnemiesInPositions(location);
         damageLog = new();
         scyth = new();
-        foreach (Enemy enemy in enemies)
+        
+
+        foreach (Enemy en in enemies)
         {
-            DamageableWithHealthComponent dam = enemy.GetComponent<DamageableWithHealthComponent>();
+            DamageableWithHealthComponent dam = en.GetComponent<DamageableWithHealthComponent>();
 
             damageLog.Add(dam.DealDamage(new Damage(damage, player), out Action triggerDeath));
             scyth.Add(triggerDeath);
         }
 
+        if (barricade != null)
+        {
+            DamageableWithHealthComponent dam = barricade.GetComponent<DamageableWithHealthComponent>();
+
+            damageLog.Add(dam.DealDamage(new Damage(damage, player), out Action triggerDeath));
+            scyth.Add(triggerDeath);
+
+        }
+        
 
         locations = new();
         locations.Add(selected);
@@ -102,12 +127,14 @@ public class Move_Punch : Move
             terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
-        PlayGraphics(selected, enemies[0], scyth, damageLog);
+        IAnimatable ann = (IAnimatable)damageables[0];
+
+        PlayGraphics(selected, ann, scyth, damageLog);
 
     }
 
     private List<Action> scyth;
-    private void PlayGraphics(Location location, Enemy enemy, List<Action> scyth, List<DamageLog> log) 
+    private void PlayGraphics(Location location, IAnimatable enemy, List<Action> scyth, List<DamageLog> log) 
     {
 
         GameObject animation = Instantiate(animatorObject);

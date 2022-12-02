@@ -18,16 +18,16 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
     [SerializeField] SpriteAnimation spriteAnimation;
 
     List<DamageLog> log;
-    Enemy enemy;
     List<Action> scyth;
+    List<PushLog> push;
 
     public override event Action<EntityAnimation<PunchAnimationProperties>> AnimationFinished;
 
     public override void Play(PunchAnimationProperties animationProperties)
     {
         scyth = animationProperties.scyth;
-        enemy = animationProperties.Enemy;
         log = animationProperties.DamageLog;
+        push = animationProperties.PushLog;
 
         // Initialize the current sequence
         currentlyPlaying = DOTween.Sequence(); // primary animation
@@ -49,7 +49,7 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
     {
         currentlyPlaying = DOTween.Sequence();
 
-        gameObject.transform.position = enemy.transform.position;
+        gameObject.transform.position = LocationUtility.LocationToVector3(push[0].MoveLog.End);
 
         // If animation has a spriteAnimation
         spriteAnimation.Play(new(targetSprite));
@@ -76,15 +76,15 @@ public class PunchAnimationProperties : IAnimationProperties
     Vector3 endPosition;
     List<DamageLog> damageLog;
     List<PushLog> pushLog;
-    Enemy enemy;
+    IAnimatable enemy;
     public List<Action> scyth;
 
     public Vector3 EndPosition { get => endPosition; }
     public List<DamageLog> DamageLog { get => damageLog; }
     public List<PushLog> PushLog { get => pushLog; }
-    public Enemy Enemy { get => enemy; }
+    public IAnimatable Enemy { get => enemy; }
 
-    public PunchAnimationProperties(Vector3 endPosition, List<DamageLog> damageLog, List<PushLog> pushLog, Enemy enemy, List<Action> scyth)
+    public PunchAnimationProperties(Vector3 endPosition, List<DamageLog> damageLog, List<PushLog> pushLog, IAnimatable enemy, List<Action> scyth)
     {
         this.scyth = scyth;
         this.endPosition = endPosition;

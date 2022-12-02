@@ -37,14 +37,20 @@ public class Push
 
     public static void DoPushes(List<PushLog> pushes)
     {
-        List<GameEntity> entities = new();
-        List<Location> endPoints = new();
         for (int i = 0; i < pushes.Count; i++)
         {
-            entities.Add(pushes[i].MoveLog.Entity);
-            endPoints.Add(pushes[i].MoveLog.End);
+            GameEntity entity = pushes[i].MoveLog.Entity;
+            Location end = pushes[i].MoveLog.End;
+            if (entity is Enemy)
+            {
+                GameMap.MoveEnemy(entity, end);
+            } 
+            else if (entity is TerrainBase)
+            {
+                GameMap.MoveTerrain(entity, end);
+            }
         }
-        GameMap.MoveEnemies(entities, endPoints);
+        
     }
 
     // Push Entities
