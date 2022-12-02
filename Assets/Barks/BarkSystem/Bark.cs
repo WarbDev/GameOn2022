@@ -55,11 +55,15 @@ public class Bark : MonoBehaviour
         } 
         else if (barkNumber == 1 && isBuff)
         {
-            saying = "100 push-ups every day";
+            saying = "I do 100 push-ups every day";
         }
         else if (barkNumber == 2 && isBuff)
         {
-            saying = "and a high-protein diet invented by top bodybuilders";
+            saying = "and eat a high-protein diet invented by top bodybuilders";
+        }
+        else if (barkNumber == 3 && isBuff)
+        {
+            saying = "this diet consists of, but is not limited to:";
         }
         else
         {

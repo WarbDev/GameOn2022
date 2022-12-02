@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Move_Punch
   m_EditorClassIdentifier: 
   myName: BALD EAGLE PUNCH
-  tooltip: Punches one enemy right in front\nIt expode and deals 2 damage to all
-    enemies around it.\nCooldown 1.
+  tooltip: Punches one enemy or barricade.\nIt gets pushed and expodes, dealing 2
+    damage to all enemies around it.\nCooldown 1.
   cooldown: 1
   animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
   radius: 1

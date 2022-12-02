@@ -302,10 +302,9 @@ public static class LocationUtility
         bool hasTerrain = GameMap.TerrainDictionary.TryGetValue(location, out GameEntity terrainEntity);
         if (hasTerrain)
         {
-            FireTerrain fire = (FireTerrain)terrainEntity;
-            if (fire != null)
+            if (terrainEntity is FireTerrain)
             {
-                return fire;
+                return (FireTerrain)terrainEntity;
             }
         }
         return null;

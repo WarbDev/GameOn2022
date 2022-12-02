@@ -22,6 +22,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
     [SerializeField] EnemyMovement enemyMovement;
     [SerializeField] EnemyActionSelectionComponent enemyActionManager;
     [SerializeField] AnimatableEntity enemyAnimations;
+    [SerializeField] GameObject StunBorder;
 
     public IDamageable Damageable { get => damageable; }
     public SpriteRenderer SpriteRenderer { get => spriteRenderer; }
@@ -35,6 +36,7 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
     public virtual void AddStun(int duration)
     {
         stunDuration += duration;
+        StunBorder.SetActive(true);
     }
 
     public void OnRoundTick()
@@ -42,6 +44,10 @@ public class Enemy : GameEntity, IDamageable, IPushable, IObstruct, IAnimatable,
         if (stunDuration > 0)
         {
             stunDuration -= 1;
+        }
+        if (stunDuration == 0)
+        {
+            StunBorder.SetActive(false);
         }
     }
 }

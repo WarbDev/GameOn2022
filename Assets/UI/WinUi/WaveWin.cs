@@ -21,6 +21,10 @@ public class WaveWin : MonoBehaviour
     [SerializeField] GameObject Tutorial3;
     [SerializeField] GameObject Tutorial4;
     [SerializeField] GameObject Tutorial5;
+    [SerializeField] GameObject Hint1;
+    [SerializeField] GameObject Hint2;
+    [SerializeField] GameObject Hint3;
+    [SerializeField] GameObject Hint4;
 
     public event Action onWinScreenDismissed;
 
@@ -65,6 +69,22 @@ public class WaveWin : MonoBehaviour
         {
             Tutorial5.transform.DOMoveY(from, length);
         }
+        if (waveNumber == 1)
+        {
+            Hint1.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 5)
+        {
+            Hint2.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 7)
+        {
+            Hint3.transform.DOMoveY(from, length);
+        }
+        if (waveNumber == 9)
+        {
+            Hint4.transform.DOMoveY(from, length);
+        }
 
         StartCoroutine(FadeOut());
     }
@@ -82,6 +102,10 @@ public class WaveWin : MonoBehaviour
         Tutorial3.SetActive(false);
         Tutorial4.SetActive(false);
         Tutorial5.SetActive(false);
+        Hint1.SetActive(false);
+        Hint2.SetActive(false);
+        Hint3.SetActive(false);
+        Hint4.SetActive(false);
 
         gameObject.SetActive(false);
 
@@ -113,9 +137,8 @@ public class WaveWin : MonoBehaviour
 
         if (waveNumber == -1)
         {
-            gameObject.SetActive(true);
-            textMesh.text = "the heros held the line";
-            button.SetActive(false);
+            playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(final);
+            
         }
         else if (waveNumber == 0)
         {
@@ -124,6 +147,28 @@ public class WaveWin : MonoBehaviour
         else
         {
             playerUi.transform.DOScaleY(0f, 1f).SetEase(Ease.InBack).OnComplete(afterUiShrinks); // shrinks UI
+        }
+    }
+
+    private void final()
+    {
+        gameObject.SetActive(true);
+        foreach (GameObject child in children)
+        {
+            child.SetActive(false);
+        }
+        gameObject.GetComponent<Image>().DOFade(0, 10).SetEase(Ease.OutBack).From().OnComplete(next);
+
+        
+        void next()
+        {
+            textMesh.gameObject.SetActive(true);
+            textMesh.text = "The Line Was Held";
+            textMesh.fontSize = 100;
+            Vector3 pos = textMesh.gameObject.transform.localPosition;
+            textMesh.gameObject.transform.localPosition = new Vector3(pos.x, 200);
+            textMesh.transform.DOScale(0, 1).From();
+            button.SetActive(false);
         }
     }
 
@@ -147,7 +192,7 @@ public class WaveWin : MonoBehaviour
         textMesh.transform.DOScale(0, 1).From();
         lostButton.transform.DOScale(0, 1).From();
 
-        textMesh.text = "GAME OVER";
+        textMesh.text = "  GAME OVER";
     }
 
     private void afterUiShrinks()
@@ -198,6 +243,26 @@ public class WaveWin : MonoBehaviour
         {
             Tutorial5.SetActive(true);
             Tutorial5.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 1)
+        {
+            Hint1.SetActive(true);
+            Hint1.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 5)
+        {
+            Hint2.SetActive(true);
+            Hint2.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 7)
+        {
+            Hint3.SetActive(true);
+            Hint3.transform.DOMoveY(from, length).From();
+        }
+        if (waveNumber == 9)
+        {
+            Hint4.SetActive(true);
+            Hint4.transform.DOMoveY(from, length).From();
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Move_Barricade
   m_EditorClassIdentifier: 
   myName: LABOR OF LOVE
-  tooltip: Erect a barricade.\nThis barricade has 3 health.\nPersists between rounds.\nCooldown
+  tooltip: Erect a barricade.\nThis barricade has 2 health.\nPersists between rounds.\nCooldown
     2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: 2f76554d5d69d50469d528b9069669e1, type: 3}
