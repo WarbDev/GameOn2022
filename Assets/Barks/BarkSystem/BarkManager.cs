@@ -31,11 +31,11 @@ public class BarkManager : MonoBehaviour
         if (rand > .70f)
         {
             rand = Random.Range(0f, 1f);
-            if (rand < .45f)
+            if (rand < .35f)
             {
                 bufBark.PlayMyBark(canvas, cameraa);
             }
-            else if (rand > .80f)
+            else if (rand > .70f)
             {
                 spyBark.PlayMyBark(canvas, cameraa);
             }

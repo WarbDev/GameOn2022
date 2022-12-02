@@ -37,7 +37,7 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
         //currentlyPlaying.Append(animationProperties.PushLog[0].MoveLog.Entity.transform.DOMove(LocationUtility.LocationToVector3(animationProperties.PushLog[0].MoveLog.End), duration).SetEase(ease));
 
-        var animate = animationProperties.Enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(animationProperties.PushLog[0]));
+        var animate = animationProperties.Enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(animationProperties.PushLog[0], 2));
 
         animate.AnimationFinished += Explode;
 
@@ -55,10 +55,10 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
         spriteAnimation.Play(new(targetSprite));
         currentlyPlaying.Append(spriteAnimation.CurrentlyPlaying);
 
-        foreach (Action die in scyth)
-        {
-            die?.Invoke();
-        }
+        //foreach (Action die in scyth)
+        //{
+        //    die?.Invoke();
+        //}
 
         foreach (DamageLog damaged in log)
         {

@@ -23,14 +23,19 @@ public class CameraPanning : MonoBehaviour
 
     [SerializeField] private int speed = 1;
 
-    
+
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private int horizonalTime = 0;
     private int verticalTime = 0;
     //private bool startedPressingButton = true;
-    private int waitTime = 1;
+    private int waitTime = 5;
 
     private int moveTime = 0;
-    private int timePerCameraMove = 20;
+    private int timePerCameraMove = 5;
 
     private bool isHoldingRight { get => Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D); }
     private bool isHoldingDown { get => Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S); }

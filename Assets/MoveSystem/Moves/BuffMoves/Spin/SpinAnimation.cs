@@ -30,6 +30,20 @@ public class SpinAnimation : EntityAnimation<SpinAnimationProperties>
 
     public override void Play(SpinAnimationProperties animationProperties)
     {
+        
+
+        foreach (DamageLog damaged in animationProperties.damageLog)
+        {
+            damaged.Target.Entity.GetComponent<IAnimatable>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
+        }
+
+        foreach (PushLog log in animationProperties.pushLog)
+        {
+            IAnimatable an = (IAnimatable)log.MoveLog.Entity;
+
+            an.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(log, 2));
+        }
+
         facer = animationProperties.Facer;
 
         facer.enabled = false;
@@ -54,6 +68,8 @@ public class SpinAnimation : EntityAnimation<SpinAnimationProperties>
 
     private void End()
     {
+        
+
         facer.enabled = true;
 
         AnimationFinished?.Invoke(this);
@@ -65,11 +81,15 @@ public class SpinAnimationProperties : IAnimationProperties
 {
     Player player;
     FaceCamera facer;
+    public List<PushLog> pushLog;
+    public List<DamageLog> damageLog;
 
-    public SpinAnimationProperties(Player player, FaceCamera facer)
+    public SpinAnimationProperties(Player player, FaceCamera facer, List<PushLog> pushLog, List<DamageLog> damageLog)
     {
         this.player = player;
         this.facer = facer;
+        this.pushLog = pushLog;
+        this.damageLog = damageLog;
     }
 
     public Player Player { get => player; }

@@ -21,6 +21,17 @@ public class A_Punch : MonoBehaviour
         
 
         moveAnimation.AnimationFinished -= End;
-        Destroy(gameObject);
+
+        StartCoroutine(destroy());
+
+        IEnumerator destroy()
+        {
+            yield return new WaitForSeconds(3);
+            Destroy(gameObject);
+        }
     }
+
+    
+
+
 }

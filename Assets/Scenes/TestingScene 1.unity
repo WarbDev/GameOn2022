@@ -5014,7 +5014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -5042,39 +5042,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[3]
-      value: I CAN SPELL
-      objectReference: {fileID: 0}
-    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[4]
       value: MAGIC IS ALL AROUND US
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[5]
+      propertyPath: Words.Array.data[4]
       value: YOU KIDS CAN'T KEEP UP WITH ME!!
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[6]
+      propertyPath: Words.Array.data[5]
       value: SLIMES
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[7]
-      value: I could do with a good pipe
-      objectReference: {fileID: 0}
-    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[8]
+      propertyPath: Words.Array.data[6]
       value: Heehoo
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[9]
+      propertyPath: Words.Array.data[7]
       value: hooHOO HEEHEE
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[8]
+      value: whippersnappers
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[9]
+      value: maybe the lasers were overkill....
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[10]
-      value: you whippersnappers
+      value: OH I LOVE FIRE
       objectReference: {fileID: 0}
     - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[11]
-      value: The lasers were probably overkill...
+      value: THUN DA
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[12]
+      value: why did i give them swords...
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[13]
+      value: the bows are cute though...
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[14]
+      value: hoHOOOOOOO
+      objectReference: {fileID: 0}
+    - target: {fileID: 753189344556556886, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[15]
+      value: why did i give them swords...
       objectReference: {fileID: 0}
     - target: {fileID: 929396078369437972, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: actionButton
@@ -5354,7 +5370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.size
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Clips.Array.data[0]
@@ -5410,19 +5426,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: Words.Array.data[9]
-      value: Doesn't taste like lemons...
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[10]
       value: Hm.
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[11]
+      propertyPath: Words.Array.data[10]
       value: Hmmm
       objectReference: {fileID: 0}
     - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
-      propertyPath: Words.Array.data[12]
+      propertyPath: Words.Array.data[11]
       value: We should be fine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[12]
+      value: The world breaks apart around me
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[13]
+      value: It seems I've survived the floor acending
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[14]
+      value: Time the timed time bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968211511179070151, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
+      propertyPath: Words.Array.data[15]
+      value: This wizard is concerning
       objectReference: {fileID: 0}
     - target: {fileID: 5266742318052408855, guid: 08c1706806970484ca1a3b8eacc66d97, type: 3}
       propertyPath: cancelScript

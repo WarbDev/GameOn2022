@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Move_Spin
   m_EditorClassIdentifier: 
   myName: SPIN ATTACK
-  tooltip: Deals 1 damage.\nPushes by 2 tiles.\nCooldown 2.
-  cooldown: 2
+  tooltip: Deals 2 damage.\nPushes by 2 tiles.\nCooldown 3.
+  cooldown: 3
   animatorObject: {fileID: 4964562316847796961, guid: e4e0e5a3d21df6c4f8606d07fc582308, type: 3}
   pushStrength: 2
-  damage: 1
+  damage: 2

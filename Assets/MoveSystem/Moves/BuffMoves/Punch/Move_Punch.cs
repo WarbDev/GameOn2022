@@ -74,7 +74,7 @@ public class Move_Punch : Move
 
         enemies = LocationUtility.GetEnemiesInPositions(location);
         damageLog = new();
-        List<Action> scyth = new();
+        scyth = new();
         foreach (Enemy enemy in enemies)
         {
             DamageableWithHealthComponent dam = enemy.GetComponent<DamageableWithHealthComponent>();
@@ -102,11 +102,12 @@ public class Move_Punch : Move
             terrain.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_IDLE, new SpriteAnimationProperties(terrain.SpriteRenderer));
         }
 
-        PlayGraphics(selected, enemies[0], scyth);
+        PlayGraphics(selected, enemies[0], scyth, damageLog);
 
     }
 
-    private void PlayGraphics(Location location, Enemy enemy, List<Action> scyth)
+    private List<Action> scyth;
+    private void PlayGraphics(Location location, Enemy enemy, List<Action> scyth, List<DamageLog> log) 
     {
 
         GameObject animation = Instantiate(animatorObject);
@@ -119,7 +120,7 @@ public class Move_Punch : Move
 
         player.Animatable.PlayAnimation(ANIMATION_ID.PLAYER_ATTACK, new SpriteAnimationProperties(player.FaceCamera.Sprite));
 
-        enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(pushLog[0]));
+        //enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(pushLog[0]));
 
         animationManager.PlayAnimation(endPoint.transform.position, damageLog, pushLog, enemy, scyth);
 
@@ -128,12 +129,21 @@ public class Move_Punch : Move
         //    damaged.Target.Entity.GetComponent<AnimatableEntity>().PlayAnimation(ANIMATION_ID.ENTITY_HURT, new HurtAnimationProperties(damaged));
         //}
 
+        
+
+        
+
         animationManager.moveAnimation.AnimationFinished -= MoveDone;
         animationManager.moveAnimation.AnimationFinished += MoveDone;
     }
 
     private void MoveDone(EntityAnimation<PunchAnimationProperties> obj)
     {
+        foreach (Action die in scyth)
+        {
+            die?.Invoke();
+        }
+
         obj.AnimationFinished -= MoveDone;
         MoveCompleted?.Invoke(true);
     }
