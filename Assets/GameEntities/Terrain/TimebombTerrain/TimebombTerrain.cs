@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TimebombTerrain : TerrainBase, IPushable
 {
@@ -14,6 +15,8 @@ public class TimebombTerrain : TerrainBase, IPushable
     public override EntityType EntityType { get => EntityType.TERRAIN; }
     public IPushable Pushable { get => pushable; }
     public IObstructionChecker ObstructionChecker { get => obstructionChecker; }
+
+    [SerializeField] TextMeshPro textMesh;
 
 
     [SerializeField] int radius;
@@ -35,6 +38,7 @@ public class TimebombTerrain : TerrainBase, IPushable
     public override void OnRoundTick()
     {
         TurnsUntilBoom--;
+        textMesh.text = "" + TurnsUntilBoom;
         if (TurnsUntilBoom <= 0)
         {
             Explode();

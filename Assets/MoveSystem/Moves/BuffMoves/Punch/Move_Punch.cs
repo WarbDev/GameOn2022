@@ -31,7 +31,7 @@ public class Move_Punch : Move
     public override void DoMove(Player player)
     {
         this.player = player;
-        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, 1, 0);
+        locator = new Locator_1ShapeAt1Range(rangeShape, effectShape, player.Location, 2, 0);
         locator.DeterminedLocations -= DoEffects;
         locator.DeterminedLocations += DoEffects;
         locator.StartLocate(this);
