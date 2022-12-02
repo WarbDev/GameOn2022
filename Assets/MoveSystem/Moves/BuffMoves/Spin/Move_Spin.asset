@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03fce8216f10f8439b42de118817fc8, type: 3}
   m_Name: Move_Spin
   m_EditorClassIdentifier: 
-  myName: Spin Attack
+  myName: SPIN ATTACK
   tooltip: Deals 1 damage.\nPushes by 2 tiles.\nCooldown 2.
   cooldown: 2
   animatorObject: {fileID: 4964562316847796961, guid: e4e0e5a3d21df6c4f8606d07fc582308, type: 3}

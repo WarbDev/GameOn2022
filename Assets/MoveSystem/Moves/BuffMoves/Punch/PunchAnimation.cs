@@ -53,7 +53,7 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
         // If animation has a spriteAnimation
         spriteAnimation.Play(new(targetSprite));
-        currentlyPlaying.Insert(0, spriteAnimation.CurrentlyPlaying);
+        currentlyPlaying.Append(spriteAnimation.CurrentlyPlaying);
 
         foreach (Action die in scyth)
         {

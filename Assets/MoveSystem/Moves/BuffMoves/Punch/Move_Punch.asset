@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176db306238af4843b28c78f46dd794e, type: 3}
   m_Name: Move_Punch
   m_EditorClassIdentifier: 
-  myName: Bald Eagle Punch
-  tooltip: Punches one enemy right in front\nIt expode and deals 3 damage to all
+  myName: BALD EAGLE PUNCH
+  tooltip: Punches one enemy right in front\nIt expode and deals 2 damage to all
     enemies around it.\nCooldown 1.
   cooldown: 1
   animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
   radius: 1
-  damage: 3
+  damage: 2
   pushDistance: 20
   fireTerrain: {fileID: 8520850072045439940, guid: 32edef5c4d45bd84e8c8df677cd2cf79, type: 3}

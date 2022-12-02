@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910467c9847f55740ab746cd7db7a7f1, type: 3}
   m_Name: Move_Blaze
   m_EditorClassIdentifier: 
-  myName: Guns Blazing
+  myName: GUNS BLAZING
   tooltip: Deals 1 damage to all enemies in the area.\nSets the edges on fire for
     2 turns.\nCooldown 2.
   cooldown: 2

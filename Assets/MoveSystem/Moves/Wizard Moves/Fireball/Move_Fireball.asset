@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b4afa4137341f4d91ab5bdfa78a464, type: 3}
   m_Name: Move_Fireball
   m_EditorClassIdentifier: 
-  myName: Playing with Fire
+  myName: PLAYING WITH FIRE
   tooltip: Deals 2 damage to all entities in the area of effect.\nSets the tiles
     on fire for 2 turns.\nCooldown 4.
   cooldown: 4
