@@ -7,7 +7,7 @@ using UnityEngine;
 public class Move_Punch : Move
 {
     private ILocate locator;
-    [SerializeField] GameObject animatorObject;
+    [SerializeField] A_Punch animatorObject;
 
     [SerializeField] int radius;
     [SerializeField] float damage;
@@ -137,10 +137,10 @@ public class Move_Punch : Move
     private void PlayGraphics(Location location, IAnimatable enemy, List<Action> scyth, List<DamageLog> log) 
     {
 
-        GameObject animation = Instantiate(animatorObject);
-        animation.transform.position = player.transform.position;
+        A_Punch animationManager = Instantiate(animatorObject);
+        animationManager.transform.position = player.transform.position;
 
-        A_Punch animationManager = animation.GetComponent<A_Punch>();
+        //A_Punch animationManager = animation.GetComponent<A_Punch>();
 
         MapTile endPoint;
         LocationUtility.TryGetTile(location, out endPoint);

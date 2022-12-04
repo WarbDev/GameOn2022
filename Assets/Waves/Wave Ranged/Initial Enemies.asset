@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
     list:
-    - Key: -3
-      Value: 0400000004000000040000000400000004000000
-    - Key: 3
-      Value: 0500000006000000050000000600000005000000
+    - Key: -2
+      Value: 0300000002000000020000000100000001000000
     keyCollision: 0
   columnHeight: 0
   columns: 

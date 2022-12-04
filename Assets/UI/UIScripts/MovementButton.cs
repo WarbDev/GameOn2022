@@ -21,7 +21,7 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid, IPointerEnterHandle
     {
 
         myImage = gameObject.GetComponent<Image>();
-        flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+        flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
 
 
         events.MovementNeeded += moveChanged;
@@ -39,7 +39,7 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid, IPointerEnterHandle
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         
 
@@ -52,7 +52,7 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid, IPointerEnterHandle
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
     }
 
@@ -94,7 +94,7 @@ public class MovementButton : MonoBehaviour, IBroadcastVoid, IPointerEnterHandle
         myImage.color = col;
         if (isAvailable)
         {
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
 
     }

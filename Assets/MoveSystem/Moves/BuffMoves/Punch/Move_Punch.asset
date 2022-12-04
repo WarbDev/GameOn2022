@@ -16,7 +16,7 @@ MonoBehaviour:
   tooltip: Punches one enemy or barricade.\nIt gets pushed and expodes, dealing 2
     damage to all enemies around it.\nCooldown 1.
   cooldown: 1
-  animatorObject: {fileID: 1655011950942705168, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
+  animatorObject: {fileID: -2298484162534747061, guid: 8046651a5db340a499971313b7dc0e70, type: 3}
   radius: 1
   damage: 2
   pushDistance: 20

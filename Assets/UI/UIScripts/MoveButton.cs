@@ -28,7 +28,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
     private void Start()
     {
         myImage = gameObject.GetComponent<Image>();
-        flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+        flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
 
 
         events.ActionNeeded += moveChanged;
@@ -47,7 +47,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         
     }
@@ -59,7 +59,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
             //Color col = myImage.color;
             //col.a = .4f;
             //myImage.color = col;
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
         
     }
@@ -115,7 +115,7 @@ public class MoveButton : MonoBehaviour, IBroadcastMove, IPointerEnterHandler, I
         myImage.color = col;
         if (isAvailable && cooldown == 0)
         {
-            flash = myImage.DOFade(.85f, .7f).SetLoops(-1, LoopType.Yoyo);
+            flash = myImage.DOFade(1f, .7f).SetLoops(-1, LoopType.Yoyo);
         }
 
     }

@@ -23,6 +23,8 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
     public override event Action<EntityAnimation<PunchAnimationProperties>> AnimationFinished;
 
+    EntityAnimation<PushAnimationProperties> animate;
+
     public override void Play(PunchAnimationProperties animationProperties)
     {
         scyth = animationProperties.scyth;
@@ -37,8 +39,9 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
         //currentlyPlaying.Append(animationProperties.PushLog[0].MoveLog.Entity.transform.DOMove(LocationUtility.LocationToVector3(animationProperties.PushLog[0].MoveLog.End), duration).SetEase(ease));
 
-        var animate = animationProperties.Enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(animationProperties.PushLog[0], 2));
+        animate = animationProperties.Enemy.Animatable.PlayAnimation(ANIMATION_ID.ENTITY_PUSHED, new PushAnimationProperties(animationProperties.PushLog[0], 2));
 
+        animate.AnimationFinished -= Explode;
         animate.AnimationFinished += Explode;
 
         // Invoke completed once the sequence is finished.
@@ -47,6 +50,8 @@ public class PunchAnimation : EntityAnimation<PunchAnimationProperties>
 
     private void Explode(EntityAnimation a)
     {
+        animate.AnimationFinished -= Explode;
+
         currentlyPlaying = DOTween.Sequence();
 
         gameObject.transform.position = LocationUtility.LocationToVector3(push[0].MoveLog.End);
